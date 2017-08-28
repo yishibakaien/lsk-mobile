@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <title>花型详情</title>
+    <link rel="stylesheet" href="./css/common/reset.css">
+    <link rel="stylesheet" href="font/font.css">
+    <link rel="stylesheet" href="./css/common/common.css">
+    <link rel="stylesheet" href="css/pattern_detail.css">
+    <!--<script src="js/pattern_detail.js"></script>-->
+</head>
+<body>
+<div class="head-wrapper">
+    <div class="head">
+        <div class="left">
+            <a class="icon-fanhui" href="#" onclick="javascript: historyback(-1);"></a>
+        </div>
+        <div class="center">花型详情</div>
+        <div class="right"><a href="">分享</a></div>
+    </div>
+</div>
+<div class="swiper-container" id="topSwiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide" id="picContainer"></div>
+    </div>
+</div>
+<div class="desc-wrapper">
+    <div class="left">
+        <div class="serial-number-wrapper">
+             <span class="num" id="productNo">#20001</span><img class="logo" src="./images/laceshangjia.png">
+        </div>
+        <div>
+            <span class="key">剪版价：</span>
+            <span class="value" id="cutPrice">￥10/码</span>
+        </div>
+        <div>
+            <span class="key">大货价：</span>
+            <span class="value" id="price">价格面议</span>
+        </div>
+        <div>
+            <span class="key">发货地：</span>
+            <span class="value" id="address">广州中大</span>
+        </div>
+    </div>
+    <div class="right border-left">
+        <div class="save">
+            <i class="icon-star-small"></i>
+            <span class="text">收藏</span>
+        </div>
+        <div class="page-view">
+           <span class="num">1688</span><span>次浏览</span>
+        </div>
+    </div>
+</div>
+
+<div class="color-card">
+    <span class="key">色卡：</span>
+    <img src="">
+</div>
+
+<div class="message border-bottom" id="companyMessage">
+    <div class="avatar-wrapper">
+        <img class="avatar" id="avatar" src="./images/default_avatar.png" width="60" height="60">
+    </div>
+    <div class="content-wrapper">
+        <div class="content">
+            <div class="title">
+                <span class="tag factory" id="tag"></span><span class="name" id="companyName">
+                    <!-- 福建坐视布管网络科技有限公司福建坐视布管网络科技有限公司 -->
+                    </span>
+            </div>
+            <div class="desc" id="companyBusiness">
+                主营：
+            </div>
+        </div>
+    </div>
+    <i class="iconfont icon-back"></i>
+</div>
+
+<div class="patterns-params">
+    <div class="parameter">
+        <span class="name">类型:</span><span class="value" id="category">
+            <!-- 面料 -->
+            </span>
+    </div>
+    <div class="parameter">
+        <span class="name">成分:</span><span class="value" id="ingredient">
+            <!-- 棉纶 -->
+            </span>
+    </div>
+    <div class="parameter">
+        <span class="name">库存:</span><span class="value" id="stock">
+            <!-- 1000码 -->
+            </span>
+    </div>
+    <div class="parameter">
+        <span class="name">幅宽:</span><span class="value" id="width">
+            <!-- 150cm -->
+            </span>
+    </div>
+    <div class="parameter">
+        <span class="name">花高:</span><span class="value" id="height">
+            <!-- 15cm -->
+            </span>
+    </div>
+    <!-- <div class="parameter">
+        <span class="name">出码率:</span><span class="value">90%</span>
+    </div> -->
+</div>
+
+<div class="footer border-top">
+    <div class="dress" id="dress"><span class="pink">3D</span><span class="text">试衣</span></div>
+    <div class="buy" id="buy"><span class="text">我要采购</span></div>
+    <div class="call" id="call">
+        <i class="iconfont icon-iconfontdianhua"></i>
+        <span class="text">拨打电话</span>
+    </div>
+</div>
+<!-- <<<<<<< HEAD -->
+<!-- <div class="mask" id="colorCard" style="display: block"></div>
+<div class="color-card">色卡</div> -->
+
+<!-- ======= -->
+
+
+<div class="mask" id="mask"></div>
+<div class="color-card" id="colorCard">
+    <div class="card-title border-bottom">
+        <div class="avatar-wrapper">
+            <img class="avatar" id="cardAvatar" src="" width="84" height="84">
+        </div>
+        <div class="price">
+            <span class="type" id="typePrice">剪小样参考价:&nbsp;&nbsp;</span><span class="money" id="cardPrice">
+                 <!--￥10.00/码-->
+                </span>
+        </div>
+        <div class="arrow">
+            <span>&times;</span>
+        </div>
+    </div>
+    <div class="card-buy-type border-bottom">
+        <span class="name">采购类型</span><span class="value active">剪小样</span><span class="value">下大货</span><span
+            class="value">剪版</span>
+    </div>
+    <div class="card-flower-color border-bottom">
+        <div class="name">花型颜色</div>
+        <div class="value">
+            <!--<img class="color-img active" src="./images/patterns1.png" width="36" height="36">-->
+            <!--<img class="color-img" src="./images/patterns2.png" width="36" height="36">-->
+            <!--<img class="color-img" src="./images/patterns3.png" width="36" height="36">-->
+            <!--<img class="color-img" src="./images/patterns1.png" width="36" height="36">-->
+        </div>
+    </div>
+    <div class="card-buy-num border-bottom">
+        <span>采购数量</span>
+        <input type="tel" id="buyNumIpt" placeholder="1片" readonly="readonly" value="1片">
+    </div>
+    <div class="card-user-name border-bottom">
+        <span>采购人</span>
+        <input type="text" id="userNameIpt" placeholder="请输入采购人或公司名称">
+    </div>
+    <div class="card-phone border-bottom">
+        <span>联系电话</span>
+        <input type="tel" id="phoneIpt" placeholder="请输入手机号码" maxlength="11">
+    </div>
+    <div class="submit-tip">
+        <span class="text">确认提交后系统将以短信方式通知到商家</span>
+    </div>
+    <div class="foot-wrapper-sticky"></div>
+    <div class="card-footer border-top">
+        <div class="cancel" id="cancel"><span class="text">取消</span></div>
+        <div class="confirm" id="confirm"><span class="text">确认</span></div>
+    </div>
+</div>
+
+<!-- >>>>>>> b186c669ad7e31820bbd2cf0707c8d8f7724ea16 -->
+
+<div class="mask" id="pictureMask">
+    <div class="swiper-container" id="content">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img id="detailPic">
+            </div>
+            <div class="swiper-slide">
+                <!-- <img src="./images/patterns1.png"> -->
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <span class="close">&times;</span>
+    </div>
+</div>
+</body>
+</html>

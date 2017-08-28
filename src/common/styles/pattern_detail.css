@@ -1,0 +1,456 @@
+#picContainer {
+    background-image: url("../images/purchase.png");
+    background-size: cover;
+}
+
+.swiper-container .swiper-slide {
+    position: relative;
+    width: 100%;
+    padding-top: 70%;
+}
+
+.desc-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 12px 14px 0 15px;
+    background: #fff;
+}
+
+.desc-wrapper .left {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+.desc-wrapper .left div {
+    margin-bottom: 12px;
+}
+
+.desc-wrapper .left .serial-number-wrapper .num {
+    color: #333;
+    font-size: 16px;
+    line-height: 21px;
+    padding-right: 4px;
+}
+
+.desc-wrapper .left .serial-number-wrapper .logo {
+    height: 12px;
+    width: 56px;
+}
+
+.desc-wrapper .left .key {
+    color: #999;
+}
+
+.desc-wrapper .left .value {
+    color: #d40073;
+}
+
+.desc-wrapper .left #address {
+    color: #666;
+}
+
+.desc-wrapper .right {
+    width: 80px;
+    height: 40px;
+    text-align: left;
+    box-sizing: border-box;
+    padding-left: 18px;
+}
+
+/*.desc-wrapper .right .save {*/
+    /*line-height: 24px;*/
+/*}*/
+
+.desc-wrapper .right .save .text {
+    color: #666;
+    font-size: 12px;
+    line-height:26px;
+}
+
+.desc-wrapper .right .icon-star-small {
+    color: #d40073;
+    font-size: 22px;
+    position: relative;
+    top: 2px;
+}
+
+.desc-wrapper .right .page-view {
+    margin-top: 5px;
+    font-size: 10px;
+    color: #999;
+}
+
+.desc-wrapper .right .page-view span {
+    color: #999;
+    font-size: 10px;
+    line-height: 14px;
+}
+
+.message {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 72px;
+    padding: 8px 15px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.message .avatar-wrapper {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 60px;
+    flex: 0 0 60px;
+    -webkit-flex: 0 0 60px;
+    width: 60px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.message .avatar-wrapper .avatar {
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.message .content-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.message .content-wrapper, .message .content-wrapper .content {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.message .content-wrapper .content {
+    margin-top: 8px;
+}
+
+.message .content-wrapper .content .title {
+    height: 16px;
+    padding-right: 16px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.message .content-wrapper .content .desc {
+    width: 90%;
+    height: 16px;
+    line-height: 16px;
+    margin-top: 5px;
+    font-size: 11px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #666;
+}
+
+.message .title .tag {
+    margin-right: 6px;
+}
+
+.message .title .name, .message .title .tag {
+    line-height: 16px;
+    font-size: 14px;
+    vertical-align: top;
+}
+
+.message .content-wrapper .star-wrapper {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 57px;
+    flex: 0 0 57px;
+    -webkit-flex: 0 0 57px;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    display: -webkit-box;
+}
+
+.message .icon-back {
+    display: inline-block;
+    position: absolute;
+    height: 16px;
+    line-height: 16px;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    color: #999;
+}
+
+.patterns-params {
+    padding: 0 16px;
+    margin: 8px 0 80px;
+    background: #fff;
+}
+
+.patterns-params .parameter {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 40px;
+    line-height: 40px;
+    font-size: 15px;
+    border-bottom: 1px dashed #d9d9d9;
+}
+
+.patterns-params .parameter:last-child {
+    border-bottom: 0;
+}
+
+.patterns-params .parameter .name {
+    display: inline-block;
+    width: 60px;
+    text-align: right;
+}
+
+.patterns-params .parameter .value {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background: #fff;
+}
+
+.footer .dress {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    font-size: 0;
+}
+
+.footer .dress .pink {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    color: #f03;
+}
+
+.footer .dress .text {
+    display: inline-block;
+    font-size: 15px;
+}
+
+.footer .buy {
+    border-left: 1px solid #ddd;
+}
+
+.footer .buy, .footer .call {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+.footer .call {
+    background: #439cfd;
+    color: #fff;
+}
+
+.footer .call .icon-iconfontdianhua {
+    font-size: 20px;
+}
+
+.footer .call .text {
+    font-size: 15px;
+}
+
+#pictureMask img {
+    width: 100%;
+}
+
+#pictureMask .swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+#pictureMask .close {
+    position: absolute;
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    right: 10px;
+    top: 10px;
+    z-index: 2;
+    font-size: 20px;
+    border-radius: 50%;
+    text-align: center;
+    background: #f53535;
+    opacity: .9;
+    color: #fff;
+    -webkit-box-shadow: 0 0 10px #000;
+    box-shadow: 0 0 10px #000;
+    text-shadow: 0 0 20px #000;
+}
+
+.color-card {
+    display: none;
+    position: fixed;
+    z-index: 6000;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    padding: 0 10px;
+}
+
+.color-card .card-title {
+    height: 84px;
+}
+
+.color-card .card-title .avatar-wrapper {
+    height: 84px;
+    width: 84px;
+    border: 3px solid #fff;
+    float: left;
+    margin: -20px 5px 0 0;
+}
+
+.color-card .card-title .price {
+    line-height: 84px;
+    float: left;
+}
+
+.color-card .card-title .price .money {
+    color: #4c93fd;
+}
+
+.color-card .card-title .arrow {
+    float: right;
+}
+
+.color-card .card-title .arrow span {
+    display: inline-block;
+    font-size: 36px;
+    color: #909090;
+}
+
+.color-card .card-buy-type .name {
+    line-height: 48px;
+    display: inline-block;
+    margin-right: 16px;
+}
+
+.color-card .card-buy-type .value {
+    display: inline-block;
+    height: 22px;
+    width: 50px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 23px;
+    border: 1px solid #999;
+    border-radius: 2px;
+    color: #666;
+    margin: 13px 0 13px 20px;
+}
+
+.color-card .card-buy-type .value.active {
+    background-color: #4c93fd;
+    color: #fff;
+    border-color: #4c93fd;
+}
+
+.color-card .card-flower-color {
+    height: 90px;
+    padding: 12px 0;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.color-card .card-flower-color img {
+    margin: 14px 12px 0 0;
+    border: 2px solid transparent;
+}
+
+.color-card .card-flower-color img.active {
+    border-color: #4c93fd;
+}
+
+.card-buy-num span, .card-phone span, .card-user-name span {
+    line-height: 45px;
+    display: inline-block;
+    width: 90px;
+}
+
+.card-buy-num input, .card-phone input, .card-user-name input {
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.color-card .submit-tip .text {
+    font-size: 16px;
+    height: 36px;
+    line-height: 36px;
+    display: inline-block;
+    margin: 5px 0 0 5px;
+}
+
+.card-footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background: #fff;
+}
+
+.card-footer .cancel {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    color: #4c93fd;
+}
+
+.card-footer .confirm {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    color: #fff;
+    background-color: #4c93fd;
+}
+
+.foot-wrapper-sticky {
+    height: 50px;
+}
+
+input.invalid::-webkit-input-placeholder {
+    color: red;
+}
+
+body.modal-open {
+    position: fixed;
+    width: 100%;
+}

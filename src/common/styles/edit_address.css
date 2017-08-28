@@ -1,0 +1,49 @@
+.user-info-wrapper > div {
+    height: 44px;
+    background-color: #fff;
+    margin: 10px 0;
+    padding: 0 15px;
+    display: flex;
+}
+
+.user-info-wrapper .key {
+    color: #2a2a2a;
+    width: 90px;
+    font-size: 14px;
+    line-height: 44px;
+    flex: 0 0 auto;
+}
+
+.user-info-wrapper .choose-address .arrow {
+    color: #d1d1d1;
+    font-size: 14px;
+    line-height: 44px;
+}
+
+.red {
+    color: red;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+}
+
+.user-info-wrapper > div input {
+    height: 44px;
+    font-size: 14px;
+    color: #333;
+    line-height: 44px;
+    flex: 1;
+}
+
+.detail-address {
+    height: 90px!important;
+}
+
+textarea {
+    color: #333;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    resize: none;
+    padding: 11px 12px 20px 0;
+}

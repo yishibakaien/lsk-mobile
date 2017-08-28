@@ -1,0 +1,104 @@
+.head .right {
+    width: 90px;
+}
+
+.version-of-clothing-tip {
+    color: #fff;
+    height: 36px;
+    width: 100%;
+    font-size: 12px;
+    background-color: rgba(212, 0, 115, .5);
+    box-sizing: border-box;
+    padding: 0 15px;
+    position: fixed;
+    top: 44px;
+    z-index: 16;
+    overflow: hidden;
+}
+
+.version-of-clothing-tip .left {
+    line-height: 36px;
+    display: inline-block;
+    float: left;
+}
+
+.version-of-clothing-tip .right {
+    display: inline-block;
+    float: right;
+}
+
+.version-of-clothing-tip .right .btn {
+    color: #d40073;
+    width: 70px;
+    line-height: 20px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 28px;
+    display: inline-block;
+    float: left;
+    margin: 8px 30px;
+}
+
+.version-of-clothing-tip .arrow {
+    font-size: 24px;
+    line-height: 36px;
+}
+
+.version-of-clothing {
+    /*height: 224px;*/
+    background-color: #fff;
+    box-sizing: border-box;
+    margin-bottom: 8px;
+    padding: 12px;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+.version-of-clothing .left {
+    font-size: 0;
+    margin-right: 10px;
+    flex: 0 0 auto;
+}
+
+.version-of-clothing .left img{
+    height: 205px;
+    width: 140px;
+}
+
+.version-of-clothing .right {
+    flex: 1;
+}
+
+.version-of-clothing .right .top {
+    border-left: 2px solid #d40073;
+    padding-left: 6px;
+}
+
+.version-of-clothing .right .top .product-name {
+    color: #333;
+    padding-bottom: 4px;
+}
+
+.version-of-clothing .right .top .product-num {
+    color: #666;
+    font-size: 10px;
+}
+
+.version-of-clothing .right .middle {
+    color: #666;
+    line-height: 18px;
+    height: 70px;
+    font-size: 12px;
+    margin: 8px 0 16px 0;
+}
+
+.version-of-clothing .right .bottom {
+    font-size: 0;
+}
+
+.version-of-clothing .right .bottom img {
+    height:82px;
+    width: 82px;
+    margin-left: 10px;
+}

@@ -1,0 +1,102 @@
+.img-wrapper {
+    height: 120px;
+    width: 100%;
+    background-image: url("../images/lunbotu-made.jpg");
+    background-size: cover;
+    position: relative;
+}
+
+.img-wrapper .btn {
+    color: #d40073;
+    height: 20px;
+    width: 70px;
+    line-height: 20px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 55px;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.ipt-wrapper {
+    background-color: #fff;
+    margin-top: 8px;
+    /*padding: 0 16px;*/
+}
+
+.ipt-wrapper div {
+    height: 44px;
+    line-height: 44px;
+    display: flex;
+    padding: 0 16px;
+}
+
+.ipt-wrapper div span {
+    width: 100px;
+    color: #666;
+    flex: 0 0 auto;
+}
+
+.ipt-wrapper div input {
+    color: #333;
+    flex: 1;
+ }
+
+.upload-image-wrapper {
+    height: 158px;
+    width: 100%;
+    background-color: #fff;
+    box-sizing: border-box;
+    margin-top: 8px;
+    padding: 0 16px;
+    position: relative;
+}
+
+.upload-image-wrapper .upload-image-tip {
+    height: 45px;
+    line-height: 45px;
+}
+
+.upload-image-tip .text {
+    color: #666;
+}
+
+.upload-image-tip .brackets-text {
+    color: #999;
+    font-size: 12px;
+    padding-left: 2px;
+}
+
+.upload-image {
+    color: #999;
+    height: 100px;
+    width: 100px;
+    font-size: 36px;
+    border: 1px dashed #999;
+    box-sizing: border-box;
+    padding-top: 30px;
+    padding-left: 28px;
+}
+
+.upload-image-wrapper .call {
+    color: #fff;
+    height: 60px;
+    width: 60px;
+    font-size: 28px;
+    text-align: center;
+    background-color: #d40073;
+    border-radius: 50%;
+    box-sizing: border-box;
+    padding-top: 8px;
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+}
+
+.call .text {
+    font-size: 12px;
+    line-height: 18px;
+}
+

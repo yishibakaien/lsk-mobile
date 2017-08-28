@@ -1,0 +1,161 @@
+.swiper-tag {
+    width: 100%;
+    font-size: 16px;
+    line-height: 40px;
+    background-color: #fff;
+    display: flex;
+    position: fixed;
+    top: 44px;
+    z-index: 160;
+}
+
+body {
+    padding-top: 84px;
+}
+
+.swiper-tag .text {
+    width: 60px;
+    text-align: center;
+    flex: 1;
+}
+
+.swiper-tag .text span {
+    color: #999;
+    border-bottom: 2px solid transparent;
+    padding: 0 4px;
+    display: inline-block;
+}
+
+.swiper-tag .text span.active {
+    color: #d40073;
+    border-bottom-color: #d40073;
+}
+
+.swiper-container {
+    min-height: 100%;
+    height: auto;
+}
+
+.info-wrapper {
+    background-color: #fff;
+    margin: 8px 0;
+}
+
+.info-wrapper .info {
+    display: flex;
+}
+
+.info-wrapper .info img {
+    width: 85px;
+    height: 85px;
+    margin: 15px 0 15px 15px;
+    flex: 0 0 auto;
+}
+
+.info-wrapper .info .text {
+    margin-left: 10px;
+    flex: 1;
+    position: relative;
+    /*font-size: 14px;*/
+}
+
+.info .text .top {
+    color: #333;
+    position: absolute;
+    top: 18px;
+}
+
+.info .text .middle {
+    color: #999;
+    position: absolute;
+    top: 51px;
+}
+
+.info .text .bottom {
+    color: #999;
+    width: 100%;
+    position: absolute;
+    bottom: 16px;
+}
+
+.info .text .bottom .num {
+    color: #d40073;
+}
+
+.info .text .bottom .time {
+    font-size: 12px;
+    color: #999;
+    float: right;
+}
+
+.info-wrapper .info .arrow {
+    /*font-size: 14px;*/
+    line-height: 115px;
+    flex: 0 0 auto;
+    padding-right: 12px;
+}
+
+.ellipsis-two {
+    width: 100%;
+    height: 28px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.ellipsis {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/*商家收藏页小图标留白*/
+.big-firm-name {
+    padding-left: 16px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+
+/*footApp下载部分*/
+/*body {*/
+    /*padding-bottom: 75px;*/
+/*}*/
+/*.down-app {*/
+    /*height: 75px;*/
+    /*background-color: rgba(109, 109, 109 , .8);*/
+    /*width: 100%;*/
+    /*position: fixed;*/
+    /*bottom: 0;*/
+    /*display: flex;*/
+/*}*/
+
+/*.down-app .logo {*/
+    /*padding: 11px 10px 12px 12px;*/
+/*}*/
+
+/*.down-app .text {*/
+    /*color: #fff;*/
+    /*font-size: 12px;*/
+    /*line-height: 18px;*/
+    /*margin: 19px auto 20px auto;*/
+/*}*/
+
+
+/*.down-app .down {*/
+    /*height: 28px;*/
+    /*width: 68px;*/
+    /*border: 1px solid #4c93fd;*/
+    /*border-radius: 5px; color: #4c93fd;*/
+    /*font-weight: 600;*/
+    /*font-size: 12px;*/
+    /*margin: 22px 12px 23px 0;*/
+    /*line-height: 28px;*/
+    /*text-align: center;*/
+    /*float: right;*/
+/*}*/

@@ -1,0 +1,10 @@
+node_modules/
+dist/
+src/js/utils/qrcode2.js
+src/js/utils/qrcodealg.js
+src/js/utils/text2base64/text2base64.js
+src/js/utils/Toast.js
+src/js/utils/text2base64/*
+
+src/js/search.js
+src/js/utils/crop2/*

@@ -1,0 +1,231 @@
+.head-wrapper .head .center {
+    color: #fff;
+    height: 28px;
+    width: 70%;
+    background-color: rgba(0, 0, 0, .1);
+    border-radius: 4px;
+    text-align: left;
+    position: relative;
+    display: flex;
+}
+
+.head-wrapper .head .center div {
+    height: 28px;
+    width: 32px;
+    font-size: 20px;
+    line-height: 28px;
+    text-align: center;
+    flex: 0 0 auto;
+}
+
+.head-wrapper .head .center input {
+    color: #fff;
+    height: 28px;
+    line-height: 28px;
+    font-size: 12px;
+    background-color: transparent;
+    margin-right: 5px;
+    flex: 1;
+    box-sizing: border-box;
+}
+
+input::-webkit-input-placeholder {
+    color: #fff;
+}
+
+.swiper-tag {
+    width: 100%;
+    font-size: 16px;
+    line-height: 40px;
+    background-color: #fff;
+    display: flex;
+    position: fixed;
+    top: 44px;
+    z-index: 160;
+}
+
+body {
+    padding-top: 84px;
+}
+
+.swiper-tag .text {
+    width: 60px;
+    text-align: center;
+    flex: 1;
+}
+
+.swiper-tag .text span {
+    color: #999;
+    width: 50px;
+    border-bottom: 2px solid transparent;
+    padding: 0 4px;
+    display: inline-block;
+}
+
+.swiper-tag .text span.active {
+    color: #d40073;
+    border-bottom-color: #d40073;
+}
+
+.new-pattern-list-wrapper {
+    background-color: #fff;
+    margin-bottom: 48px;
+    overflow: hidden;
+}
+
+.new-pattern-item {
+    width: 50%;
+    box-sizing: border-box;
+    padding: 12px;
+    float: left;
+    position: relative;
+}
+
+.new-pattern-item:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-bottom: 1px solid #e8e8e8;
+    border-right: 1px solid #e8e8e8;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: left top;
+    transform-origin: left top;
+}
+
+.new-pattern-item:nth-child(odd):after {
+    border-left: 1px solid #e8e8e8;
+}
+
+.new-pattern-img{
+    width: 100%;
+    background-image: url('../images/huaxing1.png');
+    background-size: cover;
+    padding-top: 100%;
+    margin-bottom: 3px;
+}
+
+.new-pattern-item  .text-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.new-pattern-item .text-wrapper .left {
+    float: left;
+}
+
+.new-pattern-item .text-wrapper .left .pattern-num {
+    color: #333;
+    line-height: 24px;
+}
+
+.new-pattern-item .text-wrapper .left .pattern-price {
+    font-size: 12px;
+    color: #d40073;
+}
+
+/*.text-wrapper .left .firm-name {*/
+    /*font-size: 12px;*/
+    /*line-height: 15px;*/
+    /*border-radius: 12px;*/
+    /*border: 1px solid transparent;*/
+/*}*/
+
+/*.text-wrapper .left .firm-name.active {*/
+    /*color: #ff00cc;*/
+    /*font-size: 12px;*/
+    /*text-align: center;*/
+    /*line-height: 15px;*/
+    /*border-color: #ff00cc;*/
+    /*border-radius: 12px;*/
+/*}*/
+
+.new-pattern-item .text-wrapper .right {
+    color: #FF0000;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.filter-wrapper {
+    width: 100%;
+    background-color: #fff;
+    box-sizing: border-box;
+    position: absolute;
+    display: none;
+    overflow: hidden;
+    z-index: 12;
+}
+
+.filter-wrapper .filter-item-wrapper {
+    padding: 0 15px;
+}
+
+.filter-wrapper .key {
+    color: #333;
+    margin: 21px 0 14px 0;
+}
+
+.filter-wrapper .value {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter-wrapper .value span {
+    color: #666;
+    height: 28px;
+    width: 70px;
+    line-height: 28px;
+    text-align: center;
+    border: 1px solid #d1d1d1;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.filter-wrapper .value span.active {
+    border-color: #d40073;
+    color: #d40073;
+}
+
+.filter-wrapper .value div.opacity {
+    height: 28px;
+    width: 70px;
+    margin-bottom: 15px;
+}
+
+.filter-wrapper .btn-wrapper {
+    display: flex;
+}
+
+.filter-wrapper .btn-wrapper div {
+    flex: 1;
+    color: #666;
+    line-height: 44px;
+    text-align: center;
+    font-size: 22px;
+    background-color: #fff;
+    -webkit-box-shadow: 1px 0 0 1px #e8e8e8;
+}
+
+.btn-wrapper #confir {
+    color: #fff;
+    background-color: #d40073;
+    -webkit-box-shadow: 1px 0 0 1px #d40073;
+}
+
+.mask {
+    background-color: rgba(0, 0, 0, .9);
+    z-index: 6;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: none;
+}

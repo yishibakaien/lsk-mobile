@@ -1,0 +1,111 @@
+.head .right {
+    width: 90px;
+}
+
+.swiper-tag {
+    width: 100%;
+    font-size: 16px;
+    line-height: 40px;
+    background-color: #fff;
+    display: flex;
+    position: fixed;
+    top: 44px;
+    z-index: 160;
+}
+
+body {
+    padding-top: 84px;
+}
+
+.swiper-tag .text {
+    width: 60px;
+    text-align: center;
+    flex: 1;
+}
+
+.swiper-tag .text span {
+    color: #999;
+    border-bottom: 2px solid transparent;
+    padding: 0 4px;
+    display: inline-block;
+}
+
+.swiper-tag .text span.active {
+    color: #d40073;
+    border-bottom-color: #d40073;
+}
+
+.item {
+    height: 150px;
+    background-color: #fff;
+    margin-top: 8px;
+    padding-left: 15px;
+}
+
+.item .avatar-wrapper {
+    height: 50px;
+}
+
+.item .avatar-wrapper img {
+    height: 30px;
+    width: 30px;
+    margin: 10px 8px 10px 0;
+    float: left;
+}
+
+.item .avatar-wrapper div {
+    font-size: 16px;
+    line-height: 50px;
+    float: left;
+}
+
+.item .product-info {
+    display: flex;
+}
+
+.item .product-info img {
+    width: 75px;
+    height: 75px;
+    margin: 12px 10px 12px 0;
+    flex: 0 0 auto;
+}
+
+.item .product-info .text {
+    flex: 1;
+    position: relative;
+}
+
+.product-info .text .brief {
+    position: absolute;
+    top: 14px;
+}
+
+.product-info .text .type {
+    color: #fff;
+    height: 18px;
+    width: 50px;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    background-color: #d1d1d1;
+    border-radius: 8px;
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+}
+
+.product-info .text .time {
+    color: #999;
+    font-size: 12px;
+    position: absolute;
+    bottom: 12px;
+    right: 15px;
+}
+
+.product-info .text .status {
+    color: #999;
+    font-size: 12px;
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+}
