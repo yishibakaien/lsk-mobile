@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>新款花型</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!--<link rel="stylesheet" href="../../common/styles/common/reset.css">-->
+    <!--<link rel="stylesheet" href="../../common/styles/common/common.css">-->
+    <!--<link rel="stylesheet" href="../../common/fonts/font.css">-->
+    <!--<link rel="stylesheet" href="new_pattern.css">-->
+</head>
+
+<body>
+<div class="head-wrapper">
+    <div class="head">
+        <div class="left">
+            <a class="icon-fanhui" href="#" onclick="javascript: historyback(-1);"></a>
+        </div>
+        <div class="center">
+            <div class="icon-sousuo"></div>
+            <input type="text" placeholder="输入花型编号或厂家进行搜索">
+            <div class="icon-xiangji"></div>
+        </div>
+    </div>
+</div>
+<div class="mask"></div>
+<div class="swiper-tag border-bottom">
+    <div class="text" id="newPattern"><span class="active">新品</span></div>
+    <div class="text" id="filterLayerBtn"><span>筛选<i id="triangle" class="icon-xiasanjiao"></i></span></div>
+</div>
+<div class="filter-wrapper" id="filterLayer">
+    <div class="filter-item-wrapper">
+        <div class="filter-item border-bottom" id="pattern">
+            <div class="key">花型分类</div>
+            <div class="value">
+                <span class="active">面料</span><span>大边</span><span>小边</span><span>睫毛</span>
+            </div>
+        </div>
+        <div class="filter-item border-bottom"  id="stock">
+            <div class="key">是否有库存</div>
+            <div class="value">
+                <span>有库存</span><span>无库存</span><div class="opacity"></div><div class="opacity"></div>
+            </div>
+        </div>
+        <div class="filter-item"  id="area">
+            <div class="key">地区(可多选)</div>
+            <div class="value">
+                <span>福建长乐</span><span>广州中大</span><span>汕头陈店</span><span>汕头峡山</span>
+            </div>
+            <div class="value">
+                <span>汕头谷饶</span><span>普宁流沙</span><span>浙江柯桥</span><span>浙江义乌</span>
+            </div>
+            <div class="value">
+                <span>其他</span>
+            </div>
+        </div>
+    </div>
+    <div class="btn-wrapper">
+        <div class="reset" id="reset">重置</div>
+        <div class="confirm" id="confir">确定</div>
+    </div>
+</div>
+<div class="new-pattern-list-wrapper">
+    <div class="new-pattern-item">
+        <div class="new-pattern-img"></div>
+        <div class="text-wrapper">
+            <div class="left">
+                <div class="pattern-num">#200001</div>
+                <div class="pattern-price">￥10/码</div>
+                <!--<div class="firm-name">宏鑫兴针织</div>-->
+            </div>
+            <div class="right">
+                <img src="../../images/laceshangjia.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="new-pattern-item">
+        <div class="new-pattern-img"></div>
+        <div class="text-wrapper">
+            <div class="left">
+                <div class="pattern-num">#200001</div>
+                <div class="pattern-price">￥10/码</div>
+                <!--<div class="firm-name">宏鑫兴针织</div>-->
+            </div>
+            <div class="right">
+                <img src="../../images/laceshangjia.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="new-pattern-item">
+        <div class="new-pattern-img"></div>
+        <div class="text-wrapper">
+            <div class="left">
+                <div class="pattern-num">#200001</div>
+                <div class="pattern-price">￥10/码</div>
+                <!--<div class="firm-name">宏鑫兴针织</div>-->
+            </div>
+            <div class="right" style="display: none;">
+                <img src="../../images/laceshangjia.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="new-pattern-item">
+        <div class="new-pattern-img"></div>
+        <div class="text-wrapper">
+            <div class="left">
+                <div class="pattern-num">#200001</div>
+                <div class="pattern-price">￥10/码</div>
+                <!--<div class="firm-name">宏鑫兴针织</div>-->
+            </div>
+            <div class="right" style="display: none;">
+                <img src="../../images/laceshangjia.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="new-pattern-item">
+        <div class="new-pattern-img"></div>
+        <div class="text-wrapper">
+            <div class="left">
+                <div class="pattern-num">#200001</div>
+                <div class="pattern-price">￥10/码</div>
+                <!--<div class="firm-name">宏鑫兴针织</div>-->
+            </div>
+            <div class="right" style="display: none;">
+                <img src="../../images/laceshangjia.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="new-pattern-item">
+        <div class="new-pattern-img"></div>
+        <div class="text-wrapper">
+            <div class="left">
+                <div class="pattern-num">#200001</div>
+                <div class="pattern-price">￥10/码</div>
+                <!--<div class="firm-name">宏鑫兴针织</div>-->
+            </div>
+            <div class="right">
+                <img src="../../images/laceshangjia.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var recording = {
+        pattern: '',
+        stock: '',
+        area: []
+    };
+//    var isSelected = false;
+    var newPattern = document.getElementById('newPattern');
+    var reset = document.getElementById('reset');
+    var confir = document.getElementById('confir');
+    var triangle = document.getElementById('triangle');
+    var filterLayerBtn = document.getElementById('filterLayerBtn');
+    var filterLayer = document.getElementById('filterLayer');
+    var filterAllItemsBtn = document.getElementById('filterLayer').getElementsByTagName('span');
+    var mask = document.getElementsByClassName('mask')[0];
+    var patternBtns = document.getElementById('pattern').getElementsByTagName('span');
+    var stockBtns = document.getElementById('stock').getElementsByTagName('span');
+    var areaBtns = document.getElementById('area').getElementsByTagName('span');
+
+
+    filterLayerBtn.onclick = filterLayerToggle;
+    for (var i = 0; i < patternBtns.length; i++) {
+        patternBtns[i].index = i;
+        patternBtns[i].onclick = function () {
+            for (var n = 0; n < patternBtns.length; n++) {
+                patternBtns[n].className = '';
+            }
+            this.className = 'active';
+            recording.pattern = this.index;
+        }
+    };
+
+    for (var i = 0; i < stockBtns.length; i++) {
+        stockBtns[i].index = i;
+        stockBtns[i].onclick = function () {
+            for (var n = 0; n < stockBtns.length; n++) {
+                stockBtns[n].className = '';
+            }
+            this.className = 'active';
+            recording.stock = this.index;
+        }
+    };
+
+//    传值未完
+    for (var i = 0; i < areaBtns.length; i++) {
+        areaBtns[i].index = i;
+        areaBtns[i].onclick = function () {
+            if (this.className === 'active') {
+                this.className = '';
+                recording.area.push(this.index);
+            } else {
+                this.className = 'active';
+            }
+            console.log(recording);
+        }
+    }
+
+    reset.onclick = function () {
+        for (var i = 0; i < filterAllItemsBtn.length; i++) {
+            filterAllItemsBtn[i].className = '';
+        }
+    };
+//
+//    if (isSelected === true) {
+//        confir.onclick = filterLayerToggle;
+//    }
+    confir.onclick = filterLayerToggle;
+
+    function filterLayerToggle () {
+        if (triangle.className === 'icon-xiasanjiao') {
+            triangle.className = triangle.className.replace('icon-xiasanjiao', 'icon-shangsanjiao');
+            filterLayer.style.display = 'block';
+            mask.style.display = 'block';
+            document.body.className = 'modal-open';
+        } else {
+            triangle.className = triangle.className.replace('icon-shangsanjiao', 'icon-xiasanjiao');
+            filterLayer.style.display = 'none';
+            mask.style.display = 'none';
+            document.body.className = '';
+        }
+    }
+
+</script>
+</body>
+
+</html>

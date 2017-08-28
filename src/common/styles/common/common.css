@@ -11,7 +11,7 @@ body {
     background-color: #f2f2f2;
     min-width: 320px;
     box-sizing: border-box;
-    padding-top: 44px !important;
+    padding-top: 44px;
     position: relative;
 }
 input:focus {

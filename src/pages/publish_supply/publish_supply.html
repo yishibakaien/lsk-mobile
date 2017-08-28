@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>发布供应</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!--<link rel="stylesheet" href="../../common/styles/common/reset.css">-->
+    <!--<link rel="stylesheet" href="../../common/styles/common/common.css">-->
+    <!--<link rel="stylesheet" href="../../common/fonts/font.css">-->
+    <!--<link rel="stylesheet" href="publish_supply.css">-->
+</head>
+
+<body>
+<div class="head-wrapper">
+    <div class="head">
+        <div class="left">
+            <a class="icon-fanhui" href="#" onclick="javascript: historyback(-1);"></a>
+        </div>
+        <div class="center">发布供应</div>
+        <div class="right"><a href="">发布</a></div>
+    </div>
+</div>
+<div class="upload-image-wrapper">
+    <div class="upload-image">
+        <i class="icon-shangchuantupian"></i>
+        <input id="browse" type="file" multiple="multiple">
+    </div>
+    <div id="preview" class="preview"></div>
+</div>
+<div class="publish-supply-info">
+    <div class="text border-bottom">
+        <span class="key">供应类型</span><span class="value">请选择类型<i class="icon-xiayiye"></i></span>
+        <!--<span class="icon-xiayiye"></span>-->
+    </div>
+    <div class="text border-bottom">
+        <span class="key">供应数量(选填)</span><span class="value">请选择数量<i class="icon-xiayiye"></i></span>
+        <!--<span class="icon-xiayiye"></span>-->
+    </div>
+    <textarea class="ipt" placeholder="请填写供应花型的详细信息，如花高、宽幅等"></textarea>
+
+</div>
+<script>
+    var preview = document.getElementById('preview');
+    var browse = document.getElementById('browse');
+    browse.onchange = function () {
+        var files = browse.files;
+        console.log(111);
+        function readAndPreview(file) {
+            if ( /\.(jpe?g|png|gif)$/i.test(file.name)) {
+                var reader = new FileReader();
+                reader.addEventListener("load", function () {
+                    var image = new Image();
+                    console.log(222);
+                    image.height = 100;
+                    image.title = file.name;
+                    image.src = this.result;
+                    preview.appendChild( image );
+                }, false);
+                reader.readAsDataURL(file);
+            }
+        }
+        if (files) {
+            [].forEach.call(files, readAndPreview);
+        }
+    }
+</script>
+</body>
+
+</html>

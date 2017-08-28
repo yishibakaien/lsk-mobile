@@ -1,0 +1,128 @@
+.head .right {
+    width: 90px;
+}
+
+.main-img {
+    background-image: url('../../images/purchase.png');
+    background-size: cover;
+    padding-top: 70%;
+}
+
+.mark {
+    font-size: 14px;
+    background-color: #fff;
+    padding: 12px 15px 8px 15px;
+}
+
+.purchase-info-wrapper {
+    background-color: #fff;
+    padding: 0 15px;
+}
+
+.purchase-info-wrapper .purchase-text div{
+    padding-bottom: 12px;
+}
+
+.purchase-text .key {
+    color: #999;
+    padding-right: 6px;
+}
+
+.purchase-text .value {
+    color: #333;
+}
+
+.purchase-text .times {
+    color: #999;
+    font-size: 12px;
+    float: right;
+}
+
+.purchase-text .num {
+    color: #d40073;
+}
+
+.purchase-info-wrapper .purchase-username{
+    width: 100%;
+    height: 50px;
+    background-color: #fff;
+    display: flex;
+}
+
+.purchase-username img {
+    height: 36px;
+    width:36px;
+    border-radius: 4px;
+    margin: 7px 8px 7px 0;
+    flex: 0 0 auto;
+}
+
+.purchase-username .purchase-username-text {
+    flex: 1;
+    display: flex;
+    line-height: 50px;
+    overflow: hidden;
+}
+
+.purchase-username-text .key {
+    color: #333;
+    display: block;
+    flex: 0 0 auto;
+    padding-right: 6px;
+}
+
+.purchase-username-text .value {
+    flex: 1;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.purchase-username-text .arrow {
+    color: #999;
+    line-height: 50px;
+}
+
+.order-taking {
+    background-color: #fff;
+    line-height: 40px;
+    margin-top: 8px;
+    padding: 0 15px;
+}
+
+/*footApp下载部分*/
+body {
+    padding-bottom: 66px;
+}
+.down-app {
+    height: 66px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    position: fixed;
+    bottom: 0;
+}
+
+.down-app .logo {
+    padding: 8px 10px 8px 15px;
+    float: left;
+}
+
+.down-app .text {
+    color: #fff;
+    line-height: 22px;
+    margin: 12px 0;
+    float: left;
+}
+
+.down-app .down {
+    color: #d40073;
+    height: 28px;
+    width: 70px;
+    background-color: #fff;
+    border-radius: 4px;
+    line-height: 28px;
+    text-align: center;
+    margin: 19px 15px 19px 0;
+    float: right;
+}

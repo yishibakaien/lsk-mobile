@@ -1,0 +1,214 @@
+.head .right {
+    width: 60px;
+    text-align: center;
+    line-height: 44px;
+    flex: 0 0 auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.head-wrapper .head .center {
+    color: #fff;
+    height: 28px;
+    width: 85%;
+    background-color: rgba(0, 0, 0, .1);
+    border-radius: 4px;
+    text-align: left;
+    position: relative;
+    left: 16px;
+    display: flex;
+    transform: translate(0%, -50%);
+}
+
+.head-wrapper .head .center div {
+    height: 28px;
+    width: 32px;
+    font-size: 20px;
+    line-height: 28px;
+    text-align: center;
+    flex: 0 0 auto;
+}
+
+.head-wrapper .head .center input {
+    color: #fff;
+    height: 28px;
+    line-height: 28px;
+    font-size: 12px;
+    background-color: transparent;
+    margin-right: 5px;
+    flex: 1;
+    box-sizing: border-box;
+}
+
+input::-webkit-input-placeholder {
+    color: #fff;
+}
+
+.swiper-tag {
+    width: 100%;
+    font-size: 16px;
+    line-height: 40px;
+    background-color: #fff;
+    display: flex;
+    position: fixed;
+    top: 44px;
+    z-index: 160;
+}
+
+body {
+    padding-top: 84px;
+}
+
+.swiper-tag .text {
+    width: 60px;
+    text-align: center;
+    flex: 1;
+}
+
+.swiper-tag .text span {
+    color: #999;
+    border-bottom: 2px solid transparent;
+    padding: 0 4px;
+    display: inline-block;
+}
+
+.swiper-tag .text span.active {
+    color: #d40073;
+    border-bottom-color: #d40073;
+}
+
+.swiper-container {
+    min-height: 100%;
+    height: auto;
+}
+
+.quality-merchants-list-wrapper {
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.quality-merchants-list-wrapper div {
+    width: 50%;
+    background-color: #fff;
+    box-sizing: border-box;
+    padding: 6px;
+    float: left;
+    position: relative;
+}
+
+.quality-merchants-list-wrapper div:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-bottom: 1px solid #e8e8e8;
+    border-right: 1px solid #e8e8e8;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: left top;
+    transform-origin: left top;
+}
+
+.quality-merchants-list-wrapper div:nth-child(odd):after {
+    border-left: 1px solid #e8e8e8;
+}
+
+.quality-merchants-list-wrapper div img {
+    width: 100%;
+    display: block;
+}
+
+.merchant-num-tip {
+    height: 36px;
+    font-size: 12px;
+    line-height: 36px;
+    padding-left: 12px;
+}
+
+.merchant-num-tip span {
+    color: #ff6600;
+}
+
+.new-settled-list-wrapper {
+    width: 100%;
+    overflow: hidden;
+    /*padding-bottom: 5px;*/
+    /*background-color: #fff;*/
+}
+
+.new-settled-item {
+    width: 50%;
+    height: 112px;
+    background-color: #fff;
+    box-sizing: border-box;
+    border-right: 2px solid #f2f2f2;
+    border-bottom: 2px solid #f2f2f2;
+    padding: 6px;
+    float: left;
+    position: relative;
+    overflow: hidden;
+    /*border-bottom: none;*/
+    /*box-shadow: 0 0 0 2px #f7f7f7 inset;*/
+}
+
+.new-settled-item:nth-child(even) {
+    border-right: none;
+}
+
+.new-settled-item .new-settled-info {
+    display: flex;
+}
+
+.new-settled-item .new-settled-info img{
+    height: 52px;
+    width: 52px;
+    flex: 0 0 auto;
+}
+
+.new-settled-item .new-settled-info .text {
+    flex: 1;
+    padding-left: 8px;
+    font-size: 14px;
+    overflow: hidden;
+}
+
+.new-settled-info .text .firm-name {
+    color: #333;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 700;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.new-settled-info .text .phone {
+    color: #666;
+    font-size: 12px;
+    line-height: 20px;
+    box-sizing: border-box;
+}
+
+.new-settled-info .text .time {
+    color: #666;
+    font-size: 10px;
+    line-height: 10px;
+    box-sizing: border-box;
+}
+
+.new-settled-item .btn {
+    color: #d40073;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border: 1px solid #d1d1d1;
+    position: absolute;
+    bottom: 12px;
+    left: 6px;
+    right: 6px;
+}

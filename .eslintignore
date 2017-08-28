@@ -8,3 +8,7 @@ src/js/utils/text2base64/*
 
 src/js/search.js
 src/js/utils/crop2/*
+
+
+src/common/scripts/utils/swiper/*
+src/common/scripts/utils/picker/*

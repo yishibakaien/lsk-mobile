@@ -27,17 +27,17 @@ let config = {
             loader: 'eslint-loader',
             include: path.resolve(__dirname, '../src'),
             exclude: path.resolve(__dirname, '../node_modules')
+        },{
+            test: /\.styl$/,
+            use: ExtractTextPlugin.extract({
+                fallback: 'style-loader',
+                use: ['css-loader', 'postcss-loader', 'stylus-loader']
+            })
         }, {
             test: /\.css$/,
             use: ExtractTextPlugin.extract({
                 fallback: 'style-loader',
                 use: ['css-loader']
-            })
-        }, {
-            test: /\.styl$/,
-            use: ExtractTextPlugin.extract({
-                fallback: 'style-loader',
-                use: ['css-loader', 'postcss-loader', 'stylus-loader']
             })
         }, {
             test: /\.js$/,
