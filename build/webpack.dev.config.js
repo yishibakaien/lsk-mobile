@@ -50,7 +50,7 @@ let config = {
             query: {
                 limit: 10000,
                 name: '../images/[name].[ext]',
-                // 这个to 是hack file-loader 之后才有
+                // 这个to 是hack file-loader 之后才有，参见 file-loader hack 文件
                 to: './images/[name].[ext]',
                 useRelativePath: true
             }
@@ -72,7 +72,7 @@ let config = {
             name: 'common',
             minChunks: 3
         }),
-        // 打开浏览器插件，由于暂时没有指定index.html 需要手动输入相应页面
+        // 打开浏览器
         new OpenBrowserPlugin({
             url: 'http://localhost:5000'
         })
