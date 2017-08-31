@@ -1,10 +1,6 @@
 'use strict';
 
-import { headers, baseURL } from '../../../config/config';
-
-import { Ajax } from './ajax';
-
-import Toast from '../utils/Toast';
+const _fetch = require('./fetch');
 
 const API = {
     user: {

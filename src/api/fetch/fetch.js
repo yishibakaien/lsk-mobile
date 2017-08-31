@@ -1,4 +1,10 @@
+'use strict';
+
 const Ajax = require('./ajax').Ajax;
+
+const Toast = require('cbui-toast');
+
+const headers = require('../../config/headers');
 
 function _formatData(method, data) {
 
@@ -24,11 +30,6 @@ function _fetch(method = METHODS.get, data, url, cb, err) {
         success: function(res) {
             if (res.code !== 0) {
                 Toast.info('请求错误:' + res.message, 2100);
-                // blackTip({
-                //     type: 'info',
-                //     time: 2100,
-                //     text: '请求错误:' + res.message
-                // });
                 return;
             }
             if (typeof cb === 'function') {
@@ -38,11 +39,6 @@ function _fetch(method = METHODS.get, data, url, cb, err) {
         },
         error: function(res) {
             Toast.info('请检查网络');
-            // blackTip({
-            //     text: '请检查网络',
-            //     type: 'info'
-            // });
-            // 待定 也blackTip 统一处理
             if (typeof err === 'function') {
                 err(res);
             }
@@ -50,3 +46,5 @@ function _fetch(method = METHODS.get, data, url, cb, err) {
     };
     Ajax(param);
 }
+
+module.exports = _fetch;

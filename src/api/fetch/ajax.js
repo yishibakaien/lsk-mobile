@@ -84,6 +84,4 @@ function Ajax(opts) {
     };
 }
 
-export {
-    Ajax
-};
+module.exports = Ajax;

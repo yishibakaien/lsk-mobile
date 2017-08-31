@@ -13,6 +13,7 @@
   "author": "cloud_cb linyunbin",
   "license": "ISC",
   "dependencies": {
+    "cbui-toast": "^1.0.0",
     "swiper": "^3.4.2",
     "weixin-js-sdk": "^1.2.0"
   },
