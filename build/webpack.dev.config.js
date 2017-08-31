@@ -86,7 +86,7 @@ let config = {
 };
 // 读取文件生成entry 和 html
 // // 这里读取html 防止而外js文件生成多余html
-const entries = getEntries(path.resolve(__dirname, '../srcaa/pages/**/*.html'));
+const entries = getEntries(path.resolve(__dirname, '../src/pages/**/*.html'));
 let entry = {};
 for (let item of entries) {
     entry[item.basename] = item.path.replace('.html', '.js');
