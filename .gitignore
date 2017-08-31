@@ -1,6 +1,4 @@
 node_modules/
-dist/
-_dist/
+*dist*/
 resource/
 *.zip
-*dist
