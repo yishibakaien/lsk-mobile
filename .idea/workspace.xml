@@ -1,31 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="24c6ddca-1867-44f9-b024-8d9d232cfe06" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pages/shouye/shouye.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/fonts/fonts/icomoon.eot" afterPath="$PROJECT_DIR$/src/common/fonts/fonts/icomoon.eot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/fonts/fonts/icomoon.ttf" afterPath="$PROJECT_DIR$/src/common/fonts/fonts/icomoon.ttf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/fonts/fonts/icomoon.woff" afterPath="$PROJECT_DIR$/src/common/fonts/fonts/icomoon.woff" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/module.js" afterPath="$PROJECT_DIR$/build/module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/webpack.build.config.js" afterPath="$PROJECT_DIR$/build/webpack.build.config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/webpack.dev.config.js" afterPath="$PROJECT_DIR$/build/webpack.dev.config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/webpack.mod.config.js" afterPath="$PROJECT_DIR$/build/webpack.mod.config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/fonts/demo.html" afterPath="$PROJECT_DIR$/src/common/fonts/demo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/fonts/font.css" afterPath="$PROJECT_DIR$/src/common/fonts/font.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/fonts/fonts/icomoon.svg" afterPath="$PROJECT_DIR$/src/common/fonts/fonts/icomoon.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/fonts/selection.json" afterPath="$PROJECT_DIR$/src/common/fonts/selection.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/scripts/pattern_detail.js" afterPath="$PROJECT_DIR$/src/common/scripts/pattern_detail.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/scripts/utils/crop2/cropper.js" afterPath="$PROJECT_DIR$/src/common/scripts/utils/crop2/cropper.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/scripts/utils/qrcode.js" afterPath="$PROJECT_DIR$/src/common/scripts/utils/qrcode.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/scripts/utils/swiper/swiper.min.js" afterPath="$PROJECT_DIR$/src/common/scripts/utils/swiper/swiper.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/edit_address/edit_address.html" afterPath="$PROJECT_DIR$/src/pages/edit_address/edit_address.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/my_buying/my_buying.html" afterPath="$PROJECT_DIR$/src/pages/my_buying/my_buying.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/my_collection/my_collection.html" afterPath="$PROJECT_DIR$/src/pages/my_collection/my_collection.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/new_pattern/new_pattern.html" afterPath="$PROJECT_DIR$/src/pages/new_pattern/new_pattern.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/pattern_detail/pattern_detail.html" afterPath="$PROJECT_DIR$/src/pages/pattern_detail/pattern_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/supply_info/supply_info.html" afterPath="$PROJECT_DIR$/src/pages/supply_info/supply_info.html" />
-    </list>
+    <list default="true" id="24c6ddca-1867-44f9-b024-8d9d232cfe06" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -148,7 +124,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="517" />
     <option name="y" value="12" />
     <option name="width" value="822" />
@@ -260,15 +236,15 @@
       <workItem from="1503935115616" duration="484000" />
       <workItem from="1503935618147" duration="5208000" />
       <workItem from="1504053603443" duration="230000" />
-      <workItem from="1504164361942" duration="694000" />
+      <workItem from="1504164361942" duration="802000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12674000" />
+    <option name="totallyTimeSpent" value="12782000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="517" y="12" width="822" height="735" extended-state="0" />
+    <frame x="517" y="12" width="822" height="735" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4017857" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
