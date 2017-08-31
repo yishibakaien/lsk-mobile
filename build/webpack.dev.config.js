@@ -22,7 +22,7 @@ let config = {
             test: /\.js$/,
             enforce: 'pre', // 取代preloader
             loader: 'eslint-loader',
-            include: path.resolve(__dirname, '../src'),
+            include: path.resolve(__dirname, '../srcaa'),
             exclude: path.resolve(__dirname, '../node_modules')
         }, {
             test: /\.css$/,
@@ -39,7 +39,7 @@ let config = {
         }, {
             test: /\.js$/,
             loader: 'babel-loader',
-            include: path.resolve(__dirname, '../src'),
+            include: path.resolve(__dirname, '../srcaa'),
             exclude: path.resolve(__dirname, '../node_modules'),
             query: {
                 presets: ['es2015']
@@ -86,7 +86,7 @@ let config = {
 };
 // 读取文件生成entry 和 html
 // // 这里读取html 防止而外js文件生成多余html
-const entries = getEntries(path.resolve(__dirname, '../src/pages/**/*.html'));
+const entries = getEntries(path.resolve(__dirname, '../srcaa/pages/**/*.html'));
 let entry = {};
 for (let item of entries) {
     entry[item.basename] = item.path.replace('.html', '.js');

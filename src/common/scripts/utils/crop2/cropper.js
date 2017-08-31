@@ -2352,7 +2352,7 @@ var methods = {
 
 
   /**
-   * Replace the image's src and rebuild the cropper
+   * Replace the image's srcaa and rebuild the cropper
    *
    * @param {String} url
    * @param {Boolean} onlyColorChanged (optional)

@@ -9,7 +9,7 @@ module.exports = {
         test: /\.js$/,
         enforce: 'pre', // 取代preloader
         loader: 'eslint-loader',
-        include: path.resolve(__dirname, '../src'),
+        include: path.resolve(__dirname, '../srcaa'),
         exclude: path.resolve(__dirname, '../node_modules')
     }, {
         test: /\.css$/,
@@ -26,7 +26,7 @@ module.exports = {
     }, {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: path.resolve(__dirname, '../src'),
+        include: path.resolve(__dirname, '../srcaa'),
         exclude: path.resolve(__dirname, '../node_modules'),
         query: {
             presets: ['es2015']

@@ -39,9 +39,9 @@ module.exports = function(entry, isMinify) {
     return {
         /**
          * 这个 context 是 ‘相对根目录’
-         * 在这里指 ../src 目录下，src作为根目录
+         * 在这里指 ../srcaa 目录下，src作为根目录
          */
-        context: path.join(__dirname, '../src'),
+        context: path.join(__dirname, '../srcaa'),
         entry,
         output: {
             path: path.join(__dirname, '../dist'),

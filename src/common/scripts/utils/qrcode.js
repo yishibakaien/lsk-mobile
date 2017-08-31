@@ -194,7 +194,7 @@ extend(qrcode.prototype, {
             var x = ((width - options.imageSize) / 2).toFixed(2);
             var y = ((height - options.imageSize) / 2).toFixed(2);
             s.unshift('<div style=\'position:relative; \n                        width:' + width + 'px; \n                        height:' + height + 'px;\'>');
-            s.push('<img src=\'' + options.image + '\' \n                        width=\'' + options.imageSize + '\' \n                        height=\'' + options.imageSize + '\' \n                        style=\'position:absolute;left:' + x + 'px; top:' + y + 'px;\'>');
+            s.push('<img srcaa=\'' + options.image + '\' \n                        width=\'' + options.imageSize + '\' \n                        height=\'' + options.imageSize + '\' \n                        style=\'position:absolute;left:' + x + 'px; top:' + y + 'px;\'>');
             s.push('</div>');
         }
 

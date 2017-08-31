@@ -130,7 +130,7 @@ var phoneIpt = c('#phoneIpt');
             var _companyId = this.getAttribute('company-id');
             // alert(_companyId);
             if (_companyId) {
-                location.href = './index.html?companyId=' + _companyId;
+                location.href = './shouye.html?companyId=' + _companyId;
             }
         };
     });
@@ -145,7 +145,7 @@ var phoneIpt = c('#phoneIpt');
         // var _picUrl = _formatPicUrl(data.defaultPicUrl);
         // 这里返回的图片是个字符串，并不是数组
         // picContainer.style.backgroundImage = 'url(' + _picUrl + ')';
-        // detailPic.src = _picUrl;
+        // detailPic.srcaa = _picUrl;
         productNo.innerHTML = data.productNo;
 
         // 2017年8月1日14:30:14  大货价格
@@ -201,7 +201,7 @@ var phoneIpt = c('#phoneIpt');
 
             for (var i = 0; i < len; i++) {
                 swiperStr += '<div class="swiper-slide" style="background-image: url(' + data[i].picUrl + ')" url="' + data[i].picUrl + '"></div>';
-                imgStr += '<img class="color-img" src="' + data[i].picUrl + '" width="36" height="36">';
+                imgStr += '<img class="color-img" srcaa="' + data[i].picUrl + '" width="36" height="36">';
                 picArr.push(data[i].picUrl);
             }
             c('.swiper-wrapper')[0].innerHTML = swiperStr;
