@@ -1,0 +1,77 @@
+body {
+    padding: 0;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.logo-wrapper {
+    width: 100%;
+    padding-top: 45%;
+    background-image: url('../../images/leisikong_logo@2x.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.input-wrapper {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 15px;
+}
+
+.input-wrapper .list {
+    width: 100%;
+    height: 56px;
+    line-height: 56px;
+}
+
+.input-wrapper .list input {
+    color: #333;
+    width: 100%;
+    height: 56px;
+    font-size: 14px;
+}
+
+/*图形验证码*/
+.img-code-wrapper {
+    display: flex;
+}
+
+.img-code-wrapper input {
+    flex: 1;
+}
+
+.img-code-wrapper .verify-img{
+    display: inline-block;
+    flex: 0 0 auto;
+}
+
+.button-wrapper {
+    padding: 20px 15px 0 15px;
+}
+
+.button-wrapper .button {
+    color: #fff;
+    height: 40px;
+    font-size: 16px;
+    background-color: #d40073;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 4px;
+    width: 100%;
+    border: none;
+}
+ .sign-up {
+     color: #666;
+     height:40px;
+     text-align: right;
+     line-height: 40px;
+     padding-right: 15px;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}

@@ -194,6 +194,38 @@ function _formatPicUrl(url, size) {
 function setDataId(ele, id) {
     ele.setAttribute('data-id', id);
 }
+
+// 正则
+/** 电话*/
+function testTel(tel) {
+    return /^1(3|4|5|7|8)[0-9]\d{8}$/.test(tel || "");
+}
+/**密码 */
+function testPwd(pwd) {
+    return /.{6,}/.test(pwd || "");
+}
+/**用户名 */
+function testName(name) {
+    return /^[\u4E00-\u9FA5]{2,20}$/.test(name);
+}
+
+/**企业名字 */
+function testFirmName(str) {
+    return /.{3,}/.test(str || "");
+}
+/**主营业务**/
+function testFirmBusiness(str) {
+    return /.{2,}/.test(str || "");
+}
+/**短信验证码 */
+function testVcode(str) {
+    return /\d{4}/.test(str || "");
+}
+/**图形验证码 */
+function testImgCode(str) {
+    return /[A-Za-z0-9]{4}/.test(str || "");
+}
+
 export {
     bind,
     addActive,
@@ -208,5 +240,12 @@ export {
     getQueryString,
     c,
     formatPicUrl,
-    _formatPicUrl
+    _formatPicUrl,
+    testTel,
+    testPwd,
+    testName,
+    testFirmName,
+    testFirmBusiness,
+    testVcode,
+    testImgCode,
 };

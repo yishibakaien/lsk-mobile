@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="save" content="history">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="../../common/styles/common/reset.css">
+    <link rel="stylesheet" href="../../common/fonts/font.css">
+    <link rel="stylesheet" href="../../common/styles/common/common.css">
+    <link rel="stylesheet" href="register.css">
+    <script src="register.js"></script>
+    <title>手机免费注册</title>
+</head>
+<body>
+<div class="input-wrapper">
+    <div class="list border-bottom">
+        <input id="telIpt" type="tel" maxlength="11" autofocus="true" placeholder="请输入注册手机号码">
+        <span class="tip"><i class="icon-loading"></i><span class="text">检验手机号码</span></span>
+    </div>
+    <div class="list">
+        <input id="VcodeIpt" type="tel" maxlength="4" placeholder="请输入验证码">
+        <div class="getVcode">
+            <button class="button" id="getVcodeBtn" disabled>发送验证码</button>
+        </div>
+    </div>
+</div>
+<div class="input-wrapper">
+    <div class="list border-bottom">
+        <input id="pwdIpt" type="password" placeholder="请输入密码">
+    </div>
+    <div class="list border-bottom">
+        <input id="usernameIpt" type="text"  placeholder="请输入姓名">
+    </div>
+    <div class="list">
+        <input id="firmnameIpt" type="text" placeholder="请输入企业名称">
+    </div>
+</div>
+<div class="protocol">
+    <span class="key">注册表示同意</span><span class="value">《坐视布管用户协议》</span>
+</div>
+<div class="button-wrapper">
+    <button id="next" class="button" disabled>注册</button>
+</div>
+</body>
+</html>
