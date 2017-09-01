@@ -4,6 +4,8 @@ require('common/styles/common.styl');
 require('plugins/swiper/swiper-3.4.2.min.css');
 require('./supply_info.css');
 
+// const Toast = require('plugins/toast/Toast');
+
 var Swiper = require('plugins/swiper/swiper-3.4.2.min.js');
 
 var text = [
@@ -16,6 +18,7 @@ var text = [
         link: './publish_buying.html'
     }
 ];
+
 //        console.log(text[0].link);
 var headRightText = document.getElementById('headRightText');
 var swiperTag = document.getElementsByClassName('swiper-tag')[0].getElementsByTagName('span');

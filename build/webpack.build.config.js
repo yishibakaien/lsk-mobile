@@ -23,6 +23,7 @@ let config = {
             'api': path.resolve(__dirname, '../src/api'),
             'config': path.resolve(__dirname, '../src/config'),
             'common': path.resolve(__dirname, '../src/common'),
+            'plugins': path.resolve(__dirname, '../src/common/plugins'),
             'utils': path.resolve(__dirname, '../src/common/scripts/utils')
         }
     },

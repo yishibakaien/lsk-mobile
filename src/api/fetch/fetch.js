@@ -2,7 +2,7 @@
 
 const Ajax = require('./ajax');
 
-const Toast = require('cbui-toast');
+const Toast = require('plugins/toast/Toast');
 
 const headers = require('config/headers');
 
