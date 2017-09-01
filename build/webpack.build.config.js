@@ -18,7 +18,13 @@ let config = {
         chunkFilename: 'js/[name].chunk.js'
     },
     resolve: {
-        extensions: ['.js', '.css', '.styl']
+        extensions: ['.js', '.css', '.styl'],
+        alias: {
+            'api': path.resolve(__dirname, '../src/api'),
+            'config': path.resolve(__dirname, '../src/config'),
+            'common': path.resolve(__dirname, '../src/common'),
+            'utils': path.resolve(__dirname, '../src/common/scripts/utils')
+        }
     },
     module: {
         rules: [{

@@ -1,10 +1,17 @@
 'use strict';
 
-const Ajax = require('./ajax').Ajax;
+const Ajax = require('./ajax');
 
 const Toast = require('cbui-toast');
 
-const headers = require('../../config/headers');
+const headers = require('config/headers');
+
+const baseURL = require('config/domain');
+
+const METHODS = {
+    get: 'GET',
+    post: 'POST'
+};
 
 function _formatData(method, data) {
 
