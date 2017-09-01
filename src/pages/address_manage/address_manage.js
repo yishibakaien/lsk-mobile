@@ -1,4 +1,2 @@
-require('../../common/styles/static/reset/reset.styl');
-require('../../common/styles/common.styl');
-require('../../common/fonts/font.css');
-require('./address_manage.css');
+require('common/styles/index.styl');
+require('./address_manage.styl');

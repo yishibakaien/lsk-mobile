@@ -1,10 +1,7 @@
-require('common/styles/static/reset/reset.styl');
-require('common/fonts/font.css');
-require('common/styles/common.styl');
-require('plugins/swiper/swiper-3.4.2.min.css');
-require('./supply_info.css');
+require('common/styles/index.styl');
+require('./supply_info.styl');
 
-// const Toast = require('plugins/toast/Toast');
+// require('plugins/weui/weui.min.css');
 
 var Swiper = require('plugins/swiper/swiper-3.4.2.min.js');
 
@@ -19,12 +16,12 @@ var text = [
     }
 ];
 
-//        console.log(text[0].link);
 var headRightText = document.getElementById('headRightText');
 var swiperTag = document.getElementsByClassName('swiper-tag')[0].getElementsByTagName('span');
 var contentSwiper = new Swiper ('.swiper-container', {
-    onSlideChangeEnd: swiperControl
-    });
+    onSlideChangeEnd: swiperControl,
+    spaceBetween: 30
+});
 slideControl();
 
 function slideControl() {

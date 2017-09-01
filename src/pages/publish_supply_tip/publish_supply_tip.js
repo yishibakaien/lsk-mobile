@@ -1,4 +1,2 @@
-require('../../common/styles/static/reset/reset.styl');
-require('../../common/styles/common.styl');
-require('../../common/fonts/font.css');
-require('./publish_supply_tip.css');
+require('common/styles/index.styl');
+require('./publish_supply_tip.styl');

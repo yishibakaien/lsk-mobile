@@ -1,7 +1,5 @@
-require('common/styles/static/reset/reset.styl');
-require('common/styles/common.styl');
-require('common/fonts/font.css');
-require('./personal_center.css');
+require('common/styles/index.styl');
+require('./personal_center.styl');
 
 import {
     checkPhone
