@@ -4,7 +4,6 @@ require('../../common/fonts/font.css');
 require('./login.css');
 require('./login.js');
 import Toast from '../../common/plugins/toast/Toast.js';
-import baseURL from '../../config/domain.js';
 import {
     c,
     testTel,
@@ -14,7 +13,8 @@ import {
 
 import {
     login,
-    getVerifyCode
+    getVerifyCode,
+    checkPhone
 }  from '../../api/user.js';
 
 
@@ -76,8 +76,8 @@ import {
         if (loginCode === 2000004) {
             imgCodeBox.className = imgCodeBox.className.replace('hide', 'show');
             imgIsHide = false;
-            checkTelAndPwd();
             getImgCode();
+            // checkTelAndPwd();
             verifyImg.onclick = getImgCode;
             verifyImgIpt.oninput = function () {
                 userData.picCode = this.value;
@@ -89,35 +89,22 @@ import {
                 }
             };
             function getImgCode() {
-                getVerifyCode(data);
-                Ajax({
-                    method: 'POST',
-                    url: baseURL + '/front/user/getVerifyCode',
-                    headers: {
-                        'x-version': '1.0',
-                        'x-client': '1'
-                    },
-                    success: function (res) {
-                        verifyImg.innerHTML = '<img width="72px" src="data:image/gif;base64,' + res.data + '">';
-                    },
-                    error: function (res) {
-                        console.log(res);
-                    }
+                getVerifyCode({}, function (res) {
+                    console.log('图形验证码', res);
+                    var data = res.data;
+                    verifyImg.innerHTML = '<img width="72px" src="data:image/gif;base64,' + data + '">';
                 });
-                getVerifyCode
             }
         }
     }
-
-
     function checkTelAndPwd() {
-        console.log(_check());
         if (_check()) {
             next.removeAttribute('disabled');
+            next.className = 'button active';
         } else {
             next.setAttribute('disabled', 'disabled');
+            next.className = 'button';
         }
-
         function _check() {
             if (testTel(userData.userMobile) && testPwd(userData.userPWD) && (imgIsHide || testImgCode(userData.picCode))) {
                 return true;
@@ -128,47 +115,22 @@ import {
     }
 
     next.onclick = function () {
-        register(goIndex);
-        function register(cb) {
-            var data = JSON.stringify(userData);
-            console.log(data);
-            Ajax({
-                method: 'POST',
-                url: baseURL + '/front/user/login',
-                data: data,
-                headers: {
-                    'x-client': '1',
-                    'x-version': '1.0',
-                    'x-token': Xtoken
-                },
-                success: function (res) {
-                    console.log('success', res);
-                    loginCode = res.code;
-                    testLoginCode();
-                    // 取消第一次出现图片验证码的错误提示
-                    if (imgFirstTipRemain && (res.message === '图片验证错误')) {
-                        imgFirstTipRemain = false;
-                    } else {
-                        Toast.success(res.message, 3000, function () {
-                            if (res.code === 0) {
-                                typeof cb === 'function' && cb();
-                            }
-                        });
-                        // blackTip(res.message, 1000, function () {
-                        //     if (res.code === 0) {
-                        //         typeof cb === 'function' && cb();
-                        //     }
-                        // });
+        login(userData, function (res) {
+            console.log('登录', res);
+            loginCode = res.code;
+            testLoginCode();
+            // 取消第一次出现图片验证码的错误提示
+            if (imgFirstTipRemain && (res.message === '图片验证错误')) {
+                imgFirstTipRemain = false;
+            } else {
+                Toast.success(res.message, 3000, function () {
+                    if (res.code === 0) {
+                        location.href = 'http://www.baidu.com/';
                     }
-                },
-                error: function (res) {
-                    console.log(res);
-                }
-            });
-        }
-
-        function goIndex() {
-            location.href = 'http://www.baidu.com/';
-        }
+                });
+            }
+        },function (res) {
+            console.log(res.message);
+        });
     };
 })();

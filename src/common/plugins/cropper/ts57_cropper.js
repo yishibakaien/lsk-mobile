@@ -7,7 +7,7 @@
  *
  * Date: 2017-07-07T12:56:42.462Z
  */
-
+require('./ts57_cropper.styl');
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :

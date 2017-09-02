@@ -1,4 +1,2 @@
-require('../../common/styles/static/reset/reset.styl');
-require('../../common/styles/common.styl');
-require('../../common/fonts/font.css');
-require('./personal_info.css');
+require('common/styles/index.styl');
+require('./personal_info.styl');

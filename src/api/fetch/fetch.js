@@ -27,12 +27,10 @@ function _formatData(method, data) {
 
 function _fetch(method = METHODS.get, data, url, cb, err) {
 
-    let _headers = headers;
-
     let param = {
         method: method,
         url: baseURL + url,
-        headers: _headers,
+        headers: headers,
         data: _formatData(method, data),
         success: function(res) {
             if (res.code !== 0) {

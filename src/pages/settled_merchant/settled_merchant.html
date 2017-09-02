@@ -184,34 +184,6 @@
 
     </div>
 </div>
-<script>
-//    var text = ['发布供应', '发布求购'];
-//    var headRightText = document.getElementById('headRightText');
-    var swiperTag = document.getElementsByClassName('swiper-tag')[0].getElementsByTagName('span');
-    var contentSwiper = new Swiper ('.swiper-container', {
-        onSlideChangeEnd: swiperControl
-    });
-    slideControl();
-
-    function slideControl() {
-        for (var i = 0; i < swiperTag.length; i++) {
-            (function(i) {
-                swiperTag[i].addEventListener('click', function() {
-                    contentSwiper.slideTo(i, 300, false);
-                    swiperControl(contentSwiper);
-                }, false);
-            })(i);
-        }
-    }
-
-    function swiperControl(swiper) {
-        for (var i = 0; i < swiperTag.length; i++) {
-            swiperTag[i].className = swiperTag[i].className.replace('active', '');
-        }
-        swiperTag[swiper.activeIndex].className += ' active';
-        headRightText.innerHTML = text[swiper.activeIndex];
-    }
-</script>
 </body>
 
 </html>

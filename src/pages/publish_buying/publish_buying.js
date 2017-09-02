@@ -1,4 +1,2 @@
-require('../../common/styles/static/reset/reset.styl');
-require('../../common/styles/common.styl');
-require('../../common/fonts/font.css');
-require('./publish_buying.css');
+require('common/styles/index.styl');
+require('./publish_buying.styl');
