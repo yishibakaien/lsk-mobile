@@ -1,21 +1,22 @@
-require('../../common/styles/static/reset/reset.styl');
-require('../../common/styles/common.styl');
-require('../../common/fonts/font.css');
-require('./login.css');
-require('./login.js');
-import Toast from '../../common/plugins/toast/Toast.js';
+require('common/styles/index.styl');
+require('./login.styl');
+
+import Toast from 'plugins/toast/Toast';
+
+var aes = require('plugins/aes/mode-ecb');
+
 import {
     c,
     testTel,
     testPwd,
     testImgCode,
-} from '../../common/scripts/utils/utils';
+} from 'utils/utils';
 
 import {
     login,
     getVerifyCode,
     checkPhone
-}  from '../../api/user.js';
+}  from 'api/user';
 
 
 
@@ -79,11 +80,11 @@ import {
             getImgCode();
             // checkTelAndPwd();
             verifyImg.onclick = getImgCode;
-            verifyImgIpt.oninput = function () {
+            verifyImgIpt.oninput = function() {
                 userData.picCode = this.value;
                 checkTelAndPwd();
             };
-            verifyImgIpt.onblur = function () {
+            verifyImgIpt.onblur = function() {
                 if (!testImgCode(this.value)) {
                     Toast.error(message.testImgCode, 3000);
                 }
@@ -114,8 +115,10 @@ import {
         }
     }
 
-    next.onclick = function () {
-        login(userData, function (res) {
+    next.onclick = function() {
+        Toast.loading('请稍后..');
+        userData.userPWD = aes(userData.userPWD);
+        login(userData, function(res) {
             console.log('登录', res);
             loginCode = res.code;
             testLoginCode();
@@ -123,13 +126,14 @@ import {
             if (imgFirstTipRemain && (res.message === '图片验证错误')) {
                 imgFirstTipRemain = false;
             } else {
-                Toast.success(res.message, 3000, function () {
+                Toast.success('登录成功', 1000, function() {
                     if (res.code === 0) {
                         location.href = 'http://www.baidu.com/';
                     }
                 });
             }
-        },function (res) {
+        }, function(res) {
+            Toast.info('登录失败', 2100);
             console.log(res.message);
         });
     };

@@ -1,5 +1,7 @@
 import Toast from '../../common/plugins/toast/Toast.js';
+require('./register.styl');
 import baseURL from '../../config/domain.js';
+
 import {
     c,
     testTel,
