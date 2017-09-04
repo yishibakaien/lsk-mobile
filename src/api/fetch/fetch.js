@@ -33,12 +33,12 @@ function _fetch(method = METHODS.get, data, url, cb, err) {
         headers: headers,
         data: _formatData(method, data),
         success: function(res) {
-            if (res.code !== 0) {
-                Toast.info('请求错误:' + res.message, 2100);
-                return;
-            }
+            // if (res.code !== 0) {
+            //     Toast.info('请求错误:' + res.message, 2100);
+            //     return;
+            // }
             if (typeof cb === 'function') {
-                
+
                 cb(res);
             }
         },

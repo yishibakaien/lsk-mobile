@@ -225,6 +225,10 @@ function testVcode(str) {
 function testImgCode(str) {
     return /[A-Za-z0-9]{4}/.test(str || "");
 }
+//**登录账号/手机号**/
+function testAccount(str) {
+    return /.{1,}/.test(str || "");
+}
 
 export {
     bind,
@@ -248,4 +252,5 @@ export {
     testFirmBusiness,
     testVcode,
     testImgCode,
+    testAccount
 };

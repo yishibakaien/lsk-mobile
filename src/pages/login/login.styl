@@ -33,16 +33,19 @@ body {
 
 /*图形验证码*/
 .img-code-wrapper {
-    display: flex;
+    position: relative;
 }
 
 .img-code-wrapper input {
-    flex: 1;
+    width: 70%;
 }
 
 .img-code-wrapper .verify-img{
     display: inline-block;
-    flex: 0 0 auto;
+    position: absolute;
+    top: 14px;
+    right: 0;
+    font-size: 0;
 }
 
 .button-wrapper {
