@@ -16,8 +16,7 @@ var newArrivalSwiper = new Swiper('.new-arrival-swiper', {
     slidesPerGroup: 3,
     autoplay: 4000,
     loop: true,
-    autoplayDisableOnInteraction: false,
-    spaceBetween : -5
+    autoplayDisableOnInteraction: false
 });
 
 var supplyBuyingInfoSwiper = new Swiper('.supply-buying-info-swiper', {
@@ -33,6 +32,5 @@ var versionSwiper = new Swiper('.version-swiper', {
     slidesPerGroup: 3,
     autoplay: 6000,
     loop: true,
-    autoplayDisableOnInteraction: false,
-    spaceBetween : -5
+    autoplayDisableOnInteraction: false
 });

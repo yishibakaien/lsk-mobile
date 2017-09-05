@@ -174,22 +174,24 @@ input::-webkit-input-placeholder {
 }
 
 /*.new-arrival-wrapper .pattern-wrapper .swiper-wrapper .see-more {*/
-    /*width: 103px !important;*/
-    /*color: #999;*/
-    /*line-height: 103px;*/
-    /*border: 2px solid #e8e8e8;*/
+/*width: 103px !important;*/
+/*color: #999;*/
+/*line-height: 103px;*/
+/*border: 2px solid #e8e8e8;*/
 /*}*/
 
-
+.version-of-clothing-wrapper .banner {
+    background-image: url("../../images/banyuizhuanqu_xiaohaibao@2x.jpg");
+}
 .supply-buying-info-swiper .swiper-slide {
-    box-sizing: border-box;
     border-right: 1px solid #e8e8e8;
+    padding: 0 8px;
     margin-bottom: -8px;
     padding-bottom: 8px;
 }
 
-.version-of-clothing-wrapper .banner {
-    background-image: url("../../images/banyuizhuanqu_xiaohaibao@2x.jpg");
+.supply-buying-info-swiper.left-swiper {
+    border-left: none;
 }
 
 .quality-merchants-wrapper .bottom {
@@ -236,58 +238,31 @@ input::-webkit-input-placeholder {
     color: #999;
 }
 
-.border > div {
-    position: relative;
-}
-
-.border > div:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-bottom: 1px solid #e8e8e8;
-    border-right: 1px solid #e8e8e8;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    width: 200%;
-    height: 200%;
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-    -webkit-transform-origin: left top;
-    transform-origin: left top;
-}
-
-.border > div:nth-child(odd):after {
-    border-left: 1px solid #e8e8e8;
-}
-
 .left-swiper {
-    overflow: hidden;
     text-align: center;
     padding-bottom: 8px;
+    border-left: 8px solid #fff;
+    overflow: hidden;
 }
 
 .left-swiper .swiper-slide {
+    font-size: 0;
     text-align: center;
+    box-sizing: border-box;
+    padding-right: 8px;
 }
 
 .left-swiper .swiper-slide img {
+    width: 100%;
     margin-top: 8px;
-    width: 88%;
-    //height: 100%;
-    font-size: 0;
 }
 
 .left-swiper .swiper-slide .text {
     color: #666;
-    width: 100%;
+    width: 90%;
     text-align: center;
     font-size: 12px;
     margin-top: 4px;
-    box-sizing: border-box;
-    border-width: 0 5px;
-    border-style: solid;
-    border-color: #fff;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
