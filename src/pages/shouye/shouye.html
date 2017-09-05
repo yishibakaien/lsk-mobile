@@ -13,15 +13,21 @@
 </head>
 
 <body>
+<!-- 这个是搜图需要的组件 -->
+<div id="cropperWrapper" style="display: none;position: absolute;z-index: 101;top: 0;bottom: 0;width: 100%">
+    <img id="cropperImage" style="max-width: 100%">
+</div>
 <div class="head-wrapper">
     <div class="head">
         <div class="center">
             <div class="icon-sousuo"></div>
             <input type="text" placeholder="输入花型编号或厂家进行搜索">
-            <div class="icon-xiangji"></div>
+            <div class="icon-xiangji" id="camera"></div>
+            <input style="display: none" class="file-input" id="searchPicIpt" type="file" accept="image/*" name="file">
         </div>
         <div class="right icon-touxiang"></div>
     </div>
+
 </div>
 <div id="downApp" class="down-app border-bottom">
     <div class="logo"><img src="../../images/leisikong_logo@2x.png" alt="logo"/></div>
