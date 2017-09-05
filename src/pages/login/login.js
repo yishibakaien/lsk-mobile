@@ -6,11 +6,14 @@ import Toast from 'plugins/toast/Toast';
 var aes = require('plugins/aes/mode-ecb');
 
 import {
-    c,
+    c
+} from 'utils/utils';
+
+import {
     testAccount,
     testPwd,
     testImgCode,
-} from 'utils/utils';
+} from 'utils/reg';
 
 import {
     login,

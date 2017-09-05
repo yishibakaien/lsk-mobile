@@ -1,6 +1,11 @@
 require('common/styles/index.styl');
 require('./shouye.styl');
+
 var Swiper = require('plugins/swiper/swiper-3.4.2.min.js');
+
+import {__SEARCH__} from '../../common/scripts/pic_search.js';
+
+__SEARCH__();
 
 var settledInfoSwiper = new Swiper('.settled-info-swiper', {
     slidesPerView: 2,
@@ -34,3 +39,4 @@ var versionSwiper = new Swiper('.version-swiper', {
     loop: true,
     autoplayDisableOnInteraction: false
 });
+

@@ -3,11 +3,14 @@ require('./register.styl');
 import baseURL from '../../config/domain.js';
 
 import {
-    c,
+    c
+} from 'utils/utils';
+
+import {
     testTel,
     testPwd,
     testImgCode,
-} from '../../common/scripts/utils/utils';
+} from 'utils/reg';
 
 (function () {
     var telIpt = c('#telIpt'),

@@ -195,9 +195,6 @@ function setDataId(ele, id) {
     ele.setAttribute('data-id', id);
 }
 
-function checkAndroid() {
-    return navigator.userAgent.indexOf('Android') > -1;
-}
 export {
     bind,
     addActive,
@@ -211,6 +208,5 @@ export {
     setDataId,
     getQueryString,
     c,
-    formatPicUrl,
-    checkAndroid
+    formatPicUrl
 };
