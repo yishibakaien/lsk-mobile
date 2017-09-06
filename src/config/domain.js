@@ -1,10 +1,10 @@
 'use strict';
 
-var env = 'prod';
+var env = 'test';
 
 var baseURL = (function(env) {
     var urls = {
-        test: 'http://192.168.2.11:8080',
+        test: 'http://zsbgdev.ngrok.cc',
         prod: 'https://api.ts57.cn'
     };
     return urls[env];

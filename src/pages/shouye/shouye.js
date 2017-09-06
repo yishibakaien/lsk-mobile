@@ -3,10 +3,10 @@ require('./shouye.styl');
 
 var Swiper = require('plugins/swiper/swiper-3.4.2.min.js');
 
-import {__SEARCH__} from '../../common/scripts/pic_search.js';
-
-__SEARCH__();
-
+import {PIC_SEARCH} from '../../common/scripts/pic_search.js';
+import {TEXT_SEARCH} from 'common/scripts/text_search.js';
+PIC_SEARCH();
+TEXT_SEARCH();
 var settledInfoSwiper = new Swiper('.settled-info-swiper', {
     slidesPerView: 2,
     slidesPerGroup: 2,
