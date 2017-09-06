@@ -1,5 +1,5 @@
 @import '../../common/styles/base/mixin/index.styl';
-
+@import '../../common/styles/base/widget/patterns_list.styl';
 body {
   padding-top: 0 !important;
 }
@@ -17,28 +17,7 @@ body {
   padding 14px
   font-size 14px
   color #999
-.result-container
-  // padding-bottom 32px
-  .item-wrapper
-    itemListLayout()
-.receive-id-box
-  display flex
-  background #fff
-  padding 16px
-  .receive-id-box
-    flex 0 0 80px
-  .receive-pic-message
-    flex 1
-    p
-      line-height 20px
-      font-size 14px
-      height 20px
-      margin-left 16px
-      &.receive-type
-        ellipsisLn(1)
-      &.receive-person
-        ellipsisLn(1)
-      &.receive-tip
-        height 40px
-        color #999
-        ellipsisLn(2)
+
+.patterns-list-wrapper 
+  patternsListLayout()
+    

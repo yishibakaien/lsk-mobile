@@ -8,6 +8,7 @@ centerPic()
   background-position center
   background-size cover
   overflow hidden
+
 // $line 超出多 $line 行的文本显示 ...
 ellipsisLn($line)
   overflow hidden
@@ -15,6 +16,10 @@ ellipsisLn($line)
   display -webkit-box
   -webkit-box-orient vertical
   -webkit-line-clamp $line
+textOverflowHide()
+    overflow hidden
+    text-overflow ellipsis
+    white-space nowrap
 border1px()
   &:after
     position absolute
