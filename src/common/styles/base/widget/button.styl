@@ -1,0 +1,153 @@
+/* common */
+.button {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+
+    width: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+    padding: 12px 0;
+
+    border: 0;
+    -webkit-appearance: none;
+    border-radius: 5px;
+
+    font-size: 16px;
+    font-family: inherit;
+    text-align: center;
+    text-decoration: none;
+}
+.button:after {
+    content: ' ';
+    position: absolute;
+    box-sizing: border-box;
+
+    top: 0;
+    left: 0;
+
+    width: 200%;
+    height: 200%;
+
+    border-radius: 10px;
+
+    border: 1px solid rgba(7, 17, 27, 0.1);
+    transform: scale(.5);
+    transform-origin: 0 0;
+}
+.button:focus {
+    outline: none;
+}
+
+.button[disabled],
+.button:active {
+    opacity: 0.7;
+}
+
+/* color */
+.button.button-default {
+    background-color: #F8F8F8;
+    color: #333;
+}
+.button.button-blue {
+    background-color: rgb(76, 147, 253);
+    color: #fff;
+}
+.button.button-green {
+    background-color: #1AAD19;
+    color: #fff;
+}
+.button.button-warn {
+    background-color: #E64340;
+    color: #fff;
+}
+.button.button-pink {
+    background-color: #D40073;
+    color: #fff;
+}
+
+
+/* plain */
+.button.button-plain {
+    background-color: transparent;
+    border-width: 1px;
+    border-style: solid;
+}
+// .button.button-plain:after {
+//     display: none;
+// }
+.button.button-plain[disabled],
+.button.button-plain:active {
+    background-color: rgba(7, 17, 27, .05);
+    opacity: .5;
+}
+.button.button-plain.button-default {
+    border-color: rgba(7, 17, 27, 0.4);
+}
+.button.button-plain.button-blue {
+    border-color: rgb(76, 147, 253);
+    color: rgb(76, 147, 253);
+}
+.button.button-plain.button-green {
+    border-color: #1AAD19;
+    color: #1AAD19;
+}
+.button.button-plain.button-warn {
+    border-color: #E64340;
+    color: #E64340;
+}
+.button.button-plain.button-pink {
+    border-color: #D40073;
+    color: #D40073;
+}
+
+/* inline */
+.button.button-inline {
+    display: inline-block;
+    width: auto;
+    /*margin: 0;*/
+    padding: 0 1.32em;
+
+    line-height: 2.3;
+
+    font-size: 13px;
+}
+
+/* button-mini */
+.button.button-mini {
+    display: inline-block;
+    width: auto;
+    /*margin: 0;*/
+    padding: 0 1em;
+    
+    line-height: 2;
+
+    font-size: 12px;
+}
+
+/* gap getween buttons */
+.button + .button {
+    margin-top: 15px;
+}
+.button.button-inline + .button.button-inline {
+    margin-top: auto;
+    /*margin-left: 15px;*/
+}
+
+/* button area */
+.button-area {
+    margin: 1.17em 15px .3em;
+}
+.button-inline-area {
+    display: flex;
+}
+.button-inline-area .button {
+    flex: 1;
+    margin-top: auto;
+    margin-right: 15px;
+    width: 100%;
+}
+.button-inline-area .button:last-child {
+    margin-right: 0;
+}
