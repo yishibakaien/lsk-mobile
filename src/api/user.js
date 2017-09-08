@@ -9,7 +9,11 @@ const API = {
         // 用户登录
         login: '/front/user/login',
         // 获取图片验证码
-        getVerifyCode: '/front/user/getVerifyCode',
+        getVerifyCode: '/front/user/getVerifyCode'
+    },
+    main: {
+        // 我的求购列表
+        myProductBuys: '/productBuy/myProductBuys'
     },
     detail: {
         // 获取花型详情
@@ -22,6 +26,20 @@ const API = {
     company: {
         // 获取档口OR工厂信息
         getCompanyInfo: '/company/getCompanyInfo',
+    },
+    consignee: {
+        // 删除收货地址
+        deleteConsignee: '/consignee/deleteConsignee',
+        // 新增收货地址
+        addConsignee: '/consignee/addConsignee',
+        // 编辑收货地址
+        editorConsignee: '/consignee/editorConsignee',
+        // 获取收货地址列表
+        listConsignee: '/consignee/listConsignee',
+        // 获取收货地址详情
+        getConsignee: '/consignee/getConsignee/',
+        // 设置默认
+        setDefault: '/consignee/setDefault/'
     }
 };
 
@@ -55,4 +73,34 @@ export function askPurchase(data, cb, err) {
 export function getCompanyInfo(data, cb, err) {
     return _fetch('GET', data, API.company.getCompanyInfo, cb, err);
 }
-
+// 删除收货地址
+export function deleteConsignee(data, cb, err) {
+    return _fetch('POST', data, API.consignee.deleteConsignee, cb, err);
+}
+// 新增收货地址
+export function addConsignee(data, cb, err) {
+    return _fetch('POST', data, API.consignee.addConsignee, cb, err);
+}
+// 编辑收货地址
+export function editorConsignee(data, cb, err) {
+    return _fetch('POST', data, API.consignee.editorConsignee, cb, err);
+}
+// 获取收货地址列表
+export function listConsignee(data, cb, err) {
+    return _fetch('GET', data, API.consignee.listConsignee, cb, err);
+}
+// 获取收货地址详情
+export function getConsignee(data, cb, err) {
+    let _data = data;
+    let url = API.consignee.getConsignee.toString() + _data.id.toString();
+    return _fetch('GET', {}, url, cb, err);
+}// 获取默认
+export function setDefault(data, cb, err) {
+    let _data = data;
+    let url = API.consignee.setDefault.toString() + _data.id.toString();
+    return _fetch('GET', {}, url, cb, err);
+}
+// 我的求购列表
+export function myProductBuys(data, cb, err) {
+    return _fetch('GET', data, API.main.myProductBuys, cb, err);
+}

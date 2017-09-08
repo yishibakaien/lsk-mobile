@@ -93,7 +93,6 @@ import {
                 console.log(imgIsHide);
                 getImgCode();
             } else {
-                getImgCode();
                 Toast.error(res.message, 1000);
             }
         });

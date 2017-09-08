@@ -40,6 +40,8 @@ var avatar = c('#avatar');
 var viewNum = c('#viewNum');
 var companyName = c('#companyName');
 var companyBusiness = c('#companyBusiness');
+var address = c('#address');
+var messageColorCard = c('#messageColorCard');
 
 // 花型参数
 var category = c('#category');
@@ -87,7 +89,6 @@ var buyNumIptTip = ['1片', '请输入大货数量', '请输入剪版数量'];
 var referPriceNameArr = ['剪小样参考价:', '大货参考价:', '剪版参考价:'];
 var referPriceValueArr = [' 免费'];
 var patternColorWrapper = c('#patternColorWrapper');
-var patternColors = patternColorWrapper.getElementsByClassName('color-img');
 var cardAvatar = c('#cardAvatar');
 var buyNumIpt = c('#buyNumIpt');
 var userNameIpt = c('#userNameIpt');
@@ -112,6 +113,7 @@ var phoneIpt = c('#phoneIpt');
         //     tag.className = 'tag stalls';
         // }
         companyName.innerHTML = data.companyName;
+        address.innerHTML = data.address;
         localStorage.companyName = data.companyName;
         call.setAttribute('phone', data.phone);
 
@@ -201,22 +203,25 @@ var phoneIpt = c('#phoneIpt');
 
             for (var i = 0; i < len; i++) {
                 swiperStr += '<div class="swiper-slide" style="background-image: url(' + data[i].picUrl + ')" url="' + data[i].picUrl + '"></div>';
-                imgStr += '<img class="color-img" src="' + data[i].picUrl + '" width="36" height="36">';
+                imgStr += '<img src="' + data[i].picUrl + '">';
                 picArr.push(data[i].picUrl);
             }
             c('.swiper-wrapper')[0].innerHTML = swiperStr;
             patternColorWrapper.innerHTML = imgStr;
+            messageColorCard.innerHTML = imgStr;
             /* eslint-disable no-new */
-            new Swiper('.swiper-container', {
+            var swiper = new Swiper('.swiper-container', {
                 spaceBetween: 30,
                 onSlideChangeEnd: function(swiper) {
                     console.log('activeIndex', swiper.activeIndex);
                     c('.active-number')[0].innerHTML = swiper.activeIndex + 1;
+                    for(var t = 0; t < messagepatternColors.length; t++){
+                        messagepatternColors[t].className = messagepatternColors[t].className.replace(' active', '');
+                    }
+                    messagepatternColors[swiper.activeIndex].className = ' active';
                 }
             });
             var swiperItem = document.querySelectorAll('.swiper-slide');
-
-
             Array.prototype.forEach.call(swiperItem, function(item) {
                 item.onclick = function() {
                     console.log(this.getAttribute('url'), picArr);
@@ -226,7 +231,27 @@ var phoneIpt = c('#phoneIpt');
                     });
                 };
             });
-            // 小图、标签点击对应的切换
+            // 非色卡层色卡点击大图切换
+            var messagepatternColors = messageColorCard.getElementsByTagName('img');
+            for(var j = 0; j < messagepatternColors.length; j++){
+                if( j === 0) {
+                    // 设置原始值
+                    messagepatternColors[0].className += ' active';
+                    cardAvatar.setAttribute('src', data[0].picUrl);
+                }
+                messagepatternColors[j].index = j;
+                messagepatternColors[j].onclick = function () {
+                    for(var y = 0; y < messagepatternColors.length; y++){
+                        messagepatternColors[y].className = messagepatternColors[y].className.replace(' active', '');
+                    }
+                    this.className += ' active';
+                    cardAvatar.setAttribute('src', data[this.index].picUrl);
+                    swiper.slideTo(this.index);
+                };
+            }
+
+            // 小图、标签点击对应的切换&传值
+            var patternColors = patternColorWrapper.getElementsByTagName('img');
             for(var m = 0; m < patternColors.length; m++){
                 if( m === 0) {
                     // 设置原始值
