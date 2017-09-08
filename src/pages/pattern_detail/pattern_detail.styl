@@ -1,72 +1,129 @@
-#picContainer {
-    background-image: url("../../images/purchase.png");
-    background-size: cover;
-}
+//.tag {
+//    display: inline-block;
+//    position: relative;
+//    height: 16px;
+//    width: 16px;
+//    color: #fff;
+//    font-size: 12px;
+//}
+//
+//.tag.factory {
+//    font-weight: 700;
+//    background-color: #d40073;
+//}
+//
+//.tag.factory:after {
+//    content: '厂';
+//    position: absolute;
+//    top: 50%;
+//    left: 50%;
+//    -webkit-transform: translateX(-50%) translateY(-50%);
+//    transform: translateX(-50%) translateY(-50%);
+//}
+//
+//.tag.stalls {
+//    font-weight: 700;
+//    background: #ff7011;
+//}
+//
+//.tag.stalls:after {
+//    content: '贸';
+//    position: absolute;
+//    top: 50%;
+//    left: 50%;
+//    -webkit-transform: translateX(-50%) translateY(-50%);
+//    transform: translateX(-50%) translateY(-50%);
+//}
 
-.swiper-container .swiper-slide {
+#topSwiper .swiper-slide {
     position: relative;
     width: 100%;
     padding-top: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+// background: url('../images/patterns1.png');
+}
+//#topSwiper .swiper-slide:nth-of-type(2) {
+//// background: url('../images/patterns2.png');
+//    background-repeat: no-repeat;
+//    background-position: center;
+//    background-size: cover;
+//}
+#topSwiper .number {
+    color: #fff;
+    width: 50px;
+    line-height: 20px;
+    text-align: center;
+    background-color: rgba(7, 17, 27, 0.6);
+    border-radius: 10px;
+    position: absolute;
+    right: 4px;
+    bottom: 4px;
+    z-index: 3;
 }
 
 .desc-wrapper {
-    padding: 12px 14px 0 15px;
+    padding: 0 15px 4px 15px;
     background-color: #fff;
     position: relative;
-    margin-bottom: 8px;
 }
 
-.desc-wrapper .left > div {
-    margin-bottom: 12px;
+.desc-wrapper .left {
+    width: 100%;
+    overflow: hidden;
 }
 
-.desc-wrapper .left .key {
+.desc-wrapper .left .item {
+    margin-top: 12px;
+}
+
+.desc-wrapper .left .item .name {
     color: #999;
 }
-
-.desc-wrapper .left .value {
+.desc-wrapper .left .item .value {
     color: #d40073;
 }
 
-.desc-wrapper .left .serial-number-wrapper .num {
+.desc-wrapper .left #productNo {
     color: #333;
-    font-size: 16px;
-    line-height: 21px;
-    padding-right: 4px;
+    font-size: 15px;
 }
 
-.desc-wrapper .left .serial-number-wrapper .logo {
+.desc-wrapper .left .logo {
+    display: inline-block;
     height: 12px;
     width: 56px;
+    background-image: url("../../images/leisikong_shuiyin@2x.png");
+    background-position: center;
+    background-size: cover;
+    transform: translateY(1px);
 }
 
-.desc-wrapper .left #address {
+.desc-wrapper #address {
     color: #666;
 }
 
-.desc-wrapper .left .color-wrappper {
+.desc-wrapper .left .color-wrapper {
     display: flex;
 }
 
-.desc-wrapper .left .color-wrappper .key {
+.desc-wrapper .left .color-wrapper .name {
     width: 59px;
     flex: 0 0 auto;
 }
 
-.desc-wrapper .left .color-wrappper .value {
+.desc-wrapper .left .color-wrapper .value {
     flex: 1;
+    font-size: 0;
 }
 
-.desc-wrapper .left .color-wrappper .value img {
+.desc-wrapper .left .color-wrapper .value img {
     margin: 0 8px 8px 0;
 }
-
-
 .desc-wrapper .right {
-    width: 85px;
-    height: 40px;
     position: absolute;
-    right: 12px;
+    right: 24px;
     top: 12px;
     text-align: left;
     box-sizing: border-box;
@@ -75,8 +132,8 @@
 
 .desc-wrapper .right .save .text {
     color: #666;
-    font-size: 12px;
-    line-height:28px;
+    font-size: 13px;
+    line-height: 28px;
 }
 
 .desc-wrapper .right .icon-star-small {
@@ -98,36 +155,28 @@
     background-color: #fff;
     display: flex;
     position: relative;
-    box-sizing: border-box;
-    overflow: hidden;
+    margin-top: 8px;
 }
-
 .message .avatar-wrapper {
     flex: 0 0 auto;
-    overflow: hidden;
+    //overflow: hidden;
     margin: 12px 12px 12px 17px;
 }
-
 .message .avatar-wrapper .avatar {
     height: 48px;
     width: 48px;
     border-radius: 5px;
 }
-
 .message .content-wrapper {
-    display: flex;
-}
-
-.message .content-wrapper, .message .content-wrapper .content {
     flex: 1;
+    display: flex;
     position: relative;
     overflow: hidden;
 }
-
 .message .content-wrapper .content {
     margin-top: 15px;
+    overflow: hidden;
 }
-
 .message .content-wrapper .content .company-name {
     height: 14px;
     width: 95%;
@@ -136,11 +185,10 @@
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-
 .message .content-wrapper .content .desc {
     color: #666;
     height: 16px;
-    width: 95%;
+    width: 90%;
     line-height: 16px;
     margin-top: 16px;
     font-size: 12px;
@@ -148,82 +196,97 @@
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-
+//.message .title .tag {
+//    margin-right: 6px;
+//}
+//.message .title .tag,.message .title .name {
+//    line-height: 16px;
+//    font-size: 14px;
+//    vertical-align: top;
+//}
+//.message .content-wrapper .star-wrapper {
+//    flex: 0 0 57px;
+//    -webkit-flex: 0 0 57px;
+//    display: flex;
+//    display: -webkit-flex;
+//    display: -webkit-box;
+//}
 .message .icon-xiayiye {
     flex: 0 0 auto;
     color: #999;
     line-height: 72px;
     padding-right: 15px;
 }
-
 .patterns-params {
     margin-top: 8px;
-    background: #fff;
+    background-color: #fff;
 }
-
 .patterns-params .parameter {
+    //padding: 0 15px;
+    //box-sizing: border-box;
     height: 44px;
     line-height: 44px;
+    font-size: 13px;
 }
 
 .patterns-params .parameter .name {
     color: #999;
     padding-left: 16px;
 }
-
 .patterns-params .parameter .value {
     color: #666;
-    display: inline-block;
+    //display: inline-block;
     margin-left: 15px;
 }
 
-
+.may-like {
+    overflow: hidden;
+    margin-bottom: 100px;
+}
 
 .may-like .name {
     color: #333;
     border-left: 2px solid #d40073;
     line-height: 20px;
     margin: 12px;
-    padding-left: 2px;
-
+    padding-left: 4px;
 }
 
 .may-like .value {
     background-color: #fff;
-    margin-bottom: 100px;
     overflow: hidden;
 }
 
-.new-pattern-item {
+.may-like .value .new-pattern-item {
     width: 50%;
     box-sizing: border-box;
     padding: 12px;
     float: left;
-    position: relative;
+    //position: relative;
 }
 
-.new-pattern-item:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-bottom: 1px solid #e8e8e8;
-    border-right: 1px solid #e8e8e8;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    width: 200%;
-    height: 200%;
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-    -webkit-transform-origin: left top;
-    transform-origin: left top;
-}
+//.may-like .value .new-pattern-item:after {
+//    content: '';
+//    position: absolute;
+//    top: 0;
+//    left: 0;
+//    border-bottom: 1px solid #e8e8e8;
+//    border-right: 1px solid #e8e8e8;
+//    -webkit-box-sizing: border-box;
+//    box-sizing: border-box;
+//    width: 200%;
+//    height: 200%;
+//    -webkit-transform: scale(0.5);
+//    transform: scale(0.5);
+//    -webkit-transform-origin: left top;
+//    transform-origin: left top;
+//}
+//
+//.new-pattern-item:nth-child(odd):after {
+//    border-left: 1px solid #e8e8e8;
+//}
 
-.new-pattern-item:nth-child(odd):after {
-    border-left: 1px solid #e8e8e8;
-}
-
-.new-pattern-img{
+.may-like .value .new-pattern-item .new-pattern-img{
     width: 100%;
     background-image: url('../../images/huaxing1.png');
     background-size: cover;
@@ -231,14 +294,14 @@
     margin-bottom: 3px;
 }
 
-.new-pattern-item  .text-wrapper {
-    position: relative;
-    overflow: hidden;
-}
+//.new-pattern-item  .text-wrapper {
+//    position: relative;
+//    overflow: hidden;
+//}
 
-.new-pattern-item .text-wrapper .left {
-    float: left;
-}
+//.new-pattern-item .text-wrapper .left {
+//    float: left;
+//}
 
 .new-pattern-item .text-wrapper .left .pattern-num {
     color: #333;
@@ -249,7 +312,7 @@
     font-size: 12px;
     color: #d40073;
 }
-
+/*footer*/
 .footer {
     width: 100%;
     height: 50px;
@@ -261,6 +324,7 @@
     bottom: 0;
     left: 0;
     right: 0;
+    box-shadow: 0 0 1px #e9e9e9;
 }
 
 .footer > div {
@@ -280,59 +344,57 @@
 
 .footer .call {
     color: #fff;
-    background: #d40073;
+    background-color: #d40073;
     line-height: 50px;
-
 }
 
 .footer .call .icon-dianhua {
     font-size: 20px;
-    vertical-align: middle;
 }
 
 .footer .call .text {
     font-size: 15px;
-    vertical-align: middle;
 }
 
-#pictureMask img {
-    width: 100%;
-}
 
-#pictureMask .swiper-container {
-    width: 100%;
-    height: 100%;
-}
+/* 查看图片详细 */
+//#pictureMask img {
+//    width: 100%;
+//}
+//#pictureMask .swiper-container {
+//    width: 100%;
+//    height: 100%;
+//}
+//#pictureMask .close {
+//    position: absolute;
+//    display: inline-block;
+//    height: 30px;
+//    width: 30px;
+//    line-height: 30px;
+//    right: 10px;
+//    top: 10px;
+//    z-index: 2;
+//    font-size: 20px;
+//    border-radius: 50%;
+//    text-align: center;
+//    background: #f53535;
+//    opacity: 0.9;
+//    color: #fff;
+//    box-shadow: 0 0 10px #000;
+//    text-shadow: 0 0 20px #000;
+//}
 
-#pictureMask .close {
-    position: absolute;
-    display: inline-block;
-    height: 30px;
-    width: 30px;
-    line-height: 30px;
-    right: 10px;
-    top: 10px;
-    z-index: 2;
-    font-size: 20px;
-    border-radius: 50%;
-    text-align: center;
-    background: #f53535;
-    opacity: .9;
-    color: #fff;
-    -webkit-box-shadow: 0 0 10px #000;
-    box-shadow: 0 0 10px #000;
-    text-shadow: 0 0 20px #000;
-}
-
+// 2017年7月28日08:33:25  新增色卡
 .color-card {
-    display: block;
+    display: none;
     position: fixed;
     z-index: 6000;
     left: 0;
     right: 0;
     bottom: 0;
     background-color: #fff;
-    padding: 0 10px;
+    padding: 0 15px;
+    box-shadow: 0 0 1px #e9e9e9;
 }
 
 .color-card .card-title {
@@ -344,15 +406,16 @@
     width: 84px;
     border: 3px solid #fff;
     float: left;
-    margin: -20px 5px 0 0;
+    margin-top: -20px;
 }
 
 .color-card .card-title .price-wrapper {
     line-height: 84px;
     float: left;
+    margin-left: 12px;
 }
 
-.color-card .card-title .price-wrapper .value {
+.color-card .card-title .price-wrapper .money {
     color: #d40073;
 }
 
@@ -366,13 +429,13 @@
     color: #909090;
 }
 
-.color-card .buy-type .name {
+.color-card .card-buy-type .name {
     line-height: 48px;
     display: inline-block;
     margin-right: 16px;
 }
 
-.color-card .buy-type .value {
+.color-card .card-buy-type .value {
     display: inline-block;
     height: 22px;
     width: 50px;
@@ -385,75 +448,67 @@
     margin: 13px 0 13px 20px;
 }
 
-.color-card .buy-type .value.active {
+.color-card .card-buy-type .value.active{
     background-color: #d40073;
     color: #fff;
     border-color: #d40073;
 }
 
-.color-card .pattern-color {
-    height: 90px;
+.color-card .card-pattern-color {
+// height: 90px;
     padding: 12px 0;
     overflow: hidden;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
-.color-card .pattern-color img {
+.color-card .card-pattern-color img {
     margin: 14px 12px 0 0;
     border: 2px solid transparent;
 }
 
-.color-card .pattern-color img.active {
+.color-card .card-pattern-color img.active {
     border-color: #d40073;
 }
 
-.buy-num span, .phone span, .user-name span {
+.card-buy-num span, .card-user-name span , .card-phone span {
     line-height: 45px;
     display: inline-block;
     width: 90px;
 }
 
-.buy-num input, .phone input, .user-name input {
+.card-buy-num input, .card-user-name input, .card-phone input {
     outline: none;
-    -webkit-appearance: none;
+    -webkit-appearance:none;
 }
 
 .color-card .submit-tip .text {
     font-size: 16px;
     height: 36px;
-    line-height: 36px;
-    display: inline-block;
-    margin: 5px 0 0 5px;
+    line-height 36px;
+    display:inline-block;
 }
 
 .card-footer {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
     width: 100%;
     height: 50px;
     line-height: 50px;
     text-align: center;
-    background: #fff;
+    background-color: #fff;
+    display: flex;
+    box-sizing: border-box;
+    box-shadow: 0 0 1px #e9e9e9;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .card-footer .cancel {
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
     flex: 1;
     color: #d40073;
 }
 
-.card-footer .confirm {
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
+.card-footer .confirm{
     flex: 1;
     color: #fff;
     background-color: #d40073;

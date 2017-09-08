@@ -36,6 +36,10 @@ function testAccount(str) {
 function checkAndroid() {
     return navigator.userAgent.indexOf('Android') > -1;
 }
+/**采购数量 */
+function testPurchaseNum(str) {
+    return /\d{1,}/.test(str || '');
+}
 export {
     testTel,
     testPwd,
@@ -45,5 +49,7 @@ export {
     testVcode,
     testImgCode,
     testAccount,
-    checkAndroid
+    checkAndroid,
+    testPurchaseNum
 };
+

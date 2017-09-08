@@ -1,17 +1,11 @@
-// 'use strict';
-// import '../stylus/common/common';
-// import '../font/iconfont.styl';
-// import '../stylus/static/reset/reset';
-// import '../stylus/patterns_detail.styl';
-// import '../stylus/static/plugin/swiper-3.4.2.min.css';
-// import Swiper from 'swiper';
-import wx from 'weixin-js-sdk';
-
 require('common/styles/index.styl');
 require('./pattern_detail.styl');
+require('plugins/swiper/swiper-3.4.2.min.js');
+import wx from 'weixin-js-sdk';
 import Toast from 'plugins/toast/Toast';
 
 import {
+    // 获取公司信息(详细)
     getCompanyInfo,
     // 获取花型详情
     getProduct,
@@ -23,11 +17,11 @@ import {
 
 import {
     c,
-    formateMoney,
+    formatMoney,
     getQueryString,
-    formateProduceShape,
-    formateSupplyType,
-    formateUnit
+    // formatProduceShape,
+    formatSupplyType,
+    formatUnit,
     // _formatPicUrl
 } from 'utils/utils';
 
@@ -40,12 +34,12 @@ var price = c('#price');
 var cutPrice = c('#cutPrice');
 
 // 公司信息
-// var tag = c('#tag');
 var companyMessage = c('#companyMessage');
 var avatar = c('#avatar');
+// var tag = c('#tag');
 var viewNum = c('#viewNum');
 var companyName = c('#companyName');
-var companyBusiness = c('#companyName');
+var companyBusiness = c('#companyBusiness');
 
 // 花型参数
 var category = c('#category');
@@ -62,6 +56,7 @@ var call = c('#call');
 // 弹起的轮播图
 // var detailPic = c('#detailPic');
 
+
 // 色卡层蒙版层show&hide
 var buy = c('#buy');
 var mask = c('#mask');
@@ -69,7 +64,7 @@ var colorCard = c('#colorCard');
 var cancel = c('#cancel');
 var arrow = c('#arrow');
 var confirm = c('#confirm');
-// 采购登记回传data
+// 采购登记data
 var askPurchaseData= {
     colorId: '',
     phone: '',
@@ -78,15 +73,21 @@ var askPurchaseData= {
     purchaseType: 1,
     userName: ''
 };
+
+import {
+    testTel,
+    testPurchaseNum,
+    testFirmName
+} from 'utils/reg';
 // 小图、标签点击对应的切换
-var buyTypes = c('.buy-type')[0].getElementsByClassName('value');
+var buyTypes = c('#buyType').getElementsByClassName('value');
 var referPriceName = c('#referPriceName');
-var referPriceNameArr = ['剪小样参考价:', '大货参考价:', '剪版参考价:'];
 var referPriceValue = c('#referPriceValue');
-var referPriceValueArr = [' 免费'];
 var buyNumIptTip = ['1片', '请输入大货数量', '请输入剪版数量'];
+var referPriceNameArr = ['剪小样参考价:', '大货参考价:', '剪版参考价:'];
+var referPriceValueArr = [' 免费'];
 var patternColorWrapper = c('#patternColorWrapper');
-var patternColors = patternColorWrapper.getElementsByTagName('img');
+var patternColors = patternColorWrapper.getElementsByClassName('color-img');
 var cardAvatar = c('#cardAvatar');
 var buyNumIpt = c('#buyNumIpt');
 var userNameIpt = c('#userNameIpt');
@@ -140,7 +141,7 @@ var phoneIpt = c('#phoneIpt');
         console.log('获取花型详情', res);
         var data = res.data;
         // referPriceValueArr[2] = data.cutPrice;
-        // referPriceValueArr[2] = formateMoney(data.cutPrice, data.priceUnit);
+        // referPriceValueArr[2] = formatMoney(data.cutPrice, data.priceUnit);
         // var _picUrl = _formatPicUrl(data.defaultPicUrl);
         // 这里返回的图片是个字符串，并不是数组
         // picContainer.style.backgroundImage = 'url(' + _picUrl + ')';
@@ -148,20 +149,20 @@ var phoneIpt = c('#phoneIpt');
         productNo.innerHTML = data.productNo;
 
         // 2017年8月1日14:30:14  大货价格
-        price.innerHTML = formateMoney(data.price, data.priceUnit);
+        price.innerHTML = formatMoney(data.price, data.priceUnit);
         // 2017年8月1日14:35:00  剪版价格
-        cutPrice.innerHTML = formateMoney(data.cutPrice, data.priceUnit);
+        cutPrice.innerHTML = formatMoney(data.cutPrice, data.priceUnit);
 
         viewNum.innerHTML = data.viewCount ? data.viewCount : 0;
 
         // 类型
-        category.innerHTML = formateSupplyType(data.category);
+        category.innerHTML = formatSupplyType(data.category);
         // 成分
         ingredient.innerHTML = data.ingredient;
         // 库存
-        stock.innerHTML = (data.stock ? data.stock : '') + ' ' + formateUnit(data.stockUnit);
+        stock.innerHTML = (data.stock ? data.stock : '') + ' ' + formatUnit(data.stockUnit);
         // 货型
-        shape.innerHTML = formateProduceShape(data.productShape);
+        // shape.innerHTML = formatProduceShape(data.productShape);
         // 宽
         width.innerHTML = data.width;
         // 高
@@ -172,15 +173,19 @@ var phoneIpt = c('#phoneIpt');
         }, false);
 
         // 正常价格(大货价格)
-        referPriceValueArr.push(formateMoney(data.price, data.priceUnit));
+        referPriceValueArr.push(formatMoney(data.price, data.priceUnit));
 
         // 剪版价格
-        referPriceValueArr.push(formateMoney(data.cutPrice, data.priceUnit));
+        referPriceValueArr.push(formatMoney(data.cutPrice, data.priceUnit));
 
         getColorCardMethod();
 
     });
+    /* eslint-disable no-new */
+    // new Swiper('.swiper-container');
 
+    // 2017年7月28日08:39:56
+    // 产品 id 用于色卡操作
     //获取色卡信息
     function getColorCardMethod() {
         getColorCards({
@@ -189,26 +194,26 @@ var phoneIpt = c('#phoneIpt');
             console.log('获取色卡返回值', res);
             var data = res.data;
             var imgStr = '';
-            // var swiperStr = '';
+            var swiperStr = '';
             var picArr = [];
             var len = data.length;
+            c('.total-number')[0].innerHTML = '/' + len;
 
             for (var i = 0; i < len; i++) {
-              /*  swiperStr += '<div class="swiper-slide" style="background-image: url(' + data[i].picUrl + ')" url="' + data[i].picUrl + '"></div>';*/
-                imgStr += '<img src="' + data[i].picUrl + '" width="36" height="36">';
+                swiperStr += '<div class="swiper-slide" style="background-image: url(' + data[i].picUrl + ')" url="' + data[i].picUrl + '"></div>';
+                imgStr += '<img class="color-img" src="' + data[i].picUrl + '" width="36" height="36">';
                 picArr.push(data[i].picUrl);
             }
-            // c('.swiper-wrapper')[0].innerHTML = swiperStr;
+            c('.swiper-wrapper')[0].innerHTML = swiperStr;
             patternColorWrapper.innerHTML = imgStr;
-            // c('.total-number')[0].innerHTML = '/' + len;
-            // new Swiper('.swiper-container', {
-            //     spaceBetween: 30,
-            //     onSlideChangeEnd: function(swiper) {
-            //         console.log('activeIndex', swiper.activeIndex);
-            //         c('.active-number')[0].innerHTML = swiper.activeIndex + 1;
-            //     }
-            // }
-            // );
+            /* eslint-disable no-new */
+            new Swiper('.swiper-container', {
+                spaceBetween: 30,
+                onSlideChangeEnd: function(swiper) {
+                    console.log('activeIndex', swiper.activeIndex);
+                    c('.active-number')[0].innerHTML = swiper.activeIndex + 1;
+                }
+            });
             var swiperItem = document.querySelectorAll('.swiper-slide');
 
 
@@ -279,21 +284,6 @@ var phoneIpt = c('#phoneIpt');
     phoneIpt.oninput = function () {
         askPurchaseData.phone = this.value;
     };
-
-    /** 电话*/
-    function testTel(tel) {
-        return /^1(3|4|5|7|8)[0-9]\d{8}$/.test(tel || '');
-    }
-
-    /**企业名字 */
-    function testFirmName(str) {
-        return /.{2,}/.test(str || '');
-    }
-
-    /**采购数量 */
-    function testPurchaseNum(str) {
-        return /\d{1,}/.test(str || '');
-    }
 
 
     // 菜头修改
