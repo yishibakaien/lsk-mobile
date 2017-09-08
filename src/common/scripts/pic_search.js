@@ -19,7 +19,7 @@ import uploadPictrue from 'utils/uploadPictrue';
 import Cropper from 'plugins/cropper/ts57_cropper.js';
 
 
-export function __SEARCH__() {
+export function PIC_SEARCH() {
 
 
     var camera = c('#camera');
@@ -48,7 +48,7 @@ export function __SEARCH__() {
     searchPicIpt.onchange = function(e) {
         console.log(e);
         uploadPictrue(this, function(base64) {
-            console.log(base64);
+            // console.log(base64);
             image.src = base64;
             cropper = new Cropper(image, {
                 scalable: false,
@@ -57,8 +57,6 @@ export function __SEARCH__() {
                 minCropBoxWidth: 60,
                 minCropBoxHeight: 60
             });
-            console.log('Cropper', cropper);
-            // console.log('Cropper.cropper', cropper.cropper);
             cropperWrapper.style.display = 'block';
 
             // 这里需要等待DOM渲染完成之后
@@ -78,8 +76,8 @@ export function __SEARCH__() {
         // console.log(this);
         var category = this.getAttribute('category');
         var base64 = cropper.getCroppedCanvas().toDataURL('image/png');
-        if (base64.length > 1000000) {
-            alert('图片体积过大，您截取的图片大小需要再减少 ' + Math.floor(((base64.length / 1000000) - 1) * 100) + '% 左右');
+        if (base64.length > 10000000) {
+            alert('图片体积过大，您截取的图片大小需要再减少 ' + Math.floor(((base64.length / 10000000) - 1) * 100) + '% 左右');
             Toast.hide();
             return;
         };
@@ -92,7 +90,7 @@ export function __SEARCH__() {
     }
     function doPicSearch() {
         // hidePicBox();
-        console.log(picSearchQueryParams);
+        // console.log(picSearchQueryParams);
         
         encoded(picSearchQueryParams, function(res) {
             if (res.code !== 0) {
@@ -110,7 +108,7 @@ export function __SEARCH__() {
                     if (res.data !== -1) {
                         Toast.hide();
                         clearInterval(pollingTimer);
-                        location.href = './search_result.html?searchId=' + res.data;
+                        location.href = './pic_search_result.html?searchId=' + res.data;
                         // clearInterval(pollingTimer);
                         // getResultQueryParams.id = res.data;
                         // getResult(getResultQueryParams, function(res) {

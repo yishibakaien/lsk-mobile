@@ -191,6 +191,30 @@ function formatPicUrl(url, size) {
     // }
 }
 
+/**
+ * 格式化传过来花型图片，由于花型样式是用背景图片设置的，这里设置了默认背景图片，
+ * defaultPatternsUrl
+ * @param  {[type]} url  [description]
+ * @param  {[type]} size [description]
+ * @return {[type]}      [description]
+ */
+function formatBgPic(url, size) {
+    var defaultPatternsUrl = ',url(http://image.tswq.wang/headPic/defaultFactoryIco.png)';
+    if (url.indexOf('?') > 0) {
+        if (size) {
+            return 'url(' + url + ',image/resize,w_' + size + ',h_' + size + ')' + defaultPatternsUrl;
+        }
+        return 'url(' + url + ')' + defaultPatternsUrl;
+    } else {
+        if (size) {
+            return 'url(' + url + '?x-oss-process=/resize,w_' + size + ',h_' + size + ')' + defaultPatternsUrl;
+        }
+        return 'url(' + url + ')' + defaultPatternsUrl;
+    }
+
+    // return url + (size ? '?x-oss-process=image/resize,w_' + size + ',h_' + size + '/' : '');
+}
+
 function setDataId(ele, id) {
     ele.setAttribute('data-id', id);
 }
@@ -208,6 +232,7 @@ export {
     formatProduceShape,
     formatSupplyType,
     setBackgroundImage,
+    formatBgPic,
     setDataId,
     getQueryString,
     c,

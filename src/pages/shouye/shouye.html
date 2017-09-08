@@ -21,7 +21,9 @@
     <div class="head">
         <div class="center">
             <div class="icon-sousuo"></div>
-            <input type="text" placeholder="输入花型编号或厂家进行搜索">
+            <form action="#" onsubmit="return false" style="display: inline-block;">
+                <input type="text" type="search" id="searchTextIpt" placeholder="输入花型编号或厂家进行搜索" required autocomplete="off">
+            </form>
             <div class="icon-xiangji" id="camera"></div>
             <input style="display: none" class="file-input" id="searchPicIpt" type="file" accept="image/*" name="file">
         </div>
