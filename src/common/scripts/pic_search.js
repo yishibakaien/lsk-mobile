@@ -96,6 +96,7 @@ export function PIC_SEARCH() {
             if (res.code !== 0) {
                 if (res.code === 210018) {
                     Toast.error('用户未登录');
+                    return;
                 }
             }
             console.log('encoded的res', res);

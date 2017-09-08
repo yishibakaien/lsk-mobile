@@ -1,3 +1,4 @@
+require('common/styles/base/widget/pull_up_load.styl');
 
 export function pullUpLoad(hasmore, ajaxFn, parentNode) {
     var loadingZone;
@@ -32,21 +33,19 @@ export function pullUpLoad(hasmore, ajaxFn, parentNode) {
         showLoadMore();
     } else {
         showNoMore();
+        parentNode.onscroll = null;
         return;
     }
 
-    var scrolling = false;
-    var f = debounce(scroll, 500);
-    window.onscroll = f;
+    var f = debounce(scroll, 300);
+    parentNode.onscroll = f;
 
     function scroll() {
-        console.log(2);
-        if (getScrollTop() + getClientHeight() == getScrollHeight()) {
-            console.log(3);
-            if (hasmore) {
+        if (hasmore) {
+            if (getScrollTop() + getClientHeight() == getScrollHeight()) {
                 showLoadingTip();
                 typeof ajaxFn === 'function' && ajaxFn();
-            } 
+            }
         }
     }
 
@@ -67,18 +66,18 @@ export function pullUpLoad(hasmore, ajaxFn, parentNode) {
     }
 }
 
-//获取滚动条当前的位置 
+// 获取滚动条当前的位置 
 function getScrollTop() { 
     var scrollTop = 0; 
     if (document.documentElement && document.documentElement.scrollTop) { 
         scrollTop = document.documentElement.scrollTop; 
     } else if (document.body) { 
-    scrollTop = document.body.scrollTop; 
+        scrollTop = document.body.scrollTop; 
     } 
     return scrollTop; 
 } 
 
-//获取当前可视范围的高度 
+// 获取当前可视范围的高度 
 function getClientHeight() { 
     var clientHeight = 0; 
     if (document.body.clientHeight && document.documentElement.clientHeight) { 
@@ -89,21 +88,19 @@ function getClientHeight() {
     return clientHeight; 
 } 
 
-//获取文档完整的高度 
+// 获取文档完整的高度 
 function getScrollHeight() { 
     return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight); 
 }
 
 function debounce(fn, delay) {
     var timer = null;
-    console.log('进入debounce');
     return function() {
         var _this = this;
         var args = arguments;
         if (timer) {
             clearTimeout(timer);
             timer = null;
-            console.log('清除了timer');
         }
         timer = setTimeout(function() {
             fn.apply(_this, args);
