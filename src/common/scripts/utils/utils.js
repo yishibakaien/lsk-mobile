@@ -199,19 +199,19 @@ function formatPicUrl(url, size) {
  * @return {[type]}      [description]
  */
 function formatBgPic(url, size) {
-    var defaultPatternsUrl = ',url(http://image.tswq.wang/headPic/defaultFactoryIco.png)';
+    var defaultPatternsPicUrl = ',url(http://image.tswq.wang/headPic/defaultFactoryIco.png)';
+
+    // 如果图片已经经携带参数
     if (url.indexOf('?') > 0) {
         if (size) {
-            return 'url(' + url + ',image/resize,w_' + size + ',h_' + size + ')' + defaultPatternsUrl;
+            url = 'url(' + url + ',image/resize,w_' + size + ',h_' + size + ')';
         }
-        return 'url(' + url + ')' + defaultPatternsUrl;
     } else {
         if (size) {
-            return 'url(' + url + '?x-oss-process=/resize,w_' + size + ',h_' + size + ')' + defaultPatternsUrl;
+            url = 'url(' + url + '?x-oss-process=/resize,w_' + size + ',h_' + size + ')';
         }
-        return 'url(' + url + ')' + defaultPatternsUrl;
     }
-
+    return url + defaultPatternsPicUrl;
     // return url + (size ? '?x-oss-process=image/resize,w_' + size + ',h_' + size + '/' : '');
 }
 

@@ -75,6 +75,8 @@ function Ajax(opts) {
                 // console.log('xhr', xhr.responseText);
                 let response = JSON.parse(xhr.responseText);
                 clearTimeout(timer);
+                // console.log('ajax实例 status', xhr.status);
+                // console.log('ajax实例', xhr.getResponseHeader('x-token'));
                 defaults.success.call(xhr, response, xhr.status, xhr);
             } else {
                 clearTimeout(timer);

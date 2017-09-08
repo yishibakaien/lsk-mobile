@@ -15,16 +15,29 @@ patternsListLayout()
         &:nth-of-type(even)
             border-bottom: 1px solid $borderColorDefault;
             border-right: 1px solid transparent;
-        div
+        & > div
             centerPic()
+            position relative
             background-color $bgColorDefault
-            background-image url('http://image.tswq.wang/product/ios-6f44286d15244e3dbb3f85c75e61c397.jpg')
+            // background-image url('http://image.tswq.wang/product/ios-6f44286d15244e3dbb3f85c75e61c397.jpg')
             padding-top 90%
+            & > div
+                position absolute
+                font-size 14px
+                width 100px
+                text-align center
+                height 22px
+                line-height 22px
+                top 10px
+                right -30px
+                background #ff7011
+                color #fff
+                transform rotate(45deg)
         p
             &:nth-of-type(1)
                 textOverflowHide()
-                height 20px
-                line-height 20px
+                height 24px
+                line-height 24px
                 font-size 14px
                 color $textColorNumber
             &:nth-of-type(2)
