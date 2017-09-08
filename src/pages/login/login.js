@@ -76,11 +76,15 @@ import {
     next.onclick = function() {
         Toast.loading('请稍后...');
         userData.userPWD = aes(userData.userPWD);
-        login(userData, function(res) {
+        login(userData, function(res, status, xhr) {
             console.log('登录', res);
+            console.log(status, xhr);
             if (res.code === 0) {
+                var Xtoken = xhr.getResponseHeader('x-token');
+                console.log(Xtoken);
+                loacalStorage['x-token'] = Xtoken;
                 Toast.success('登录成功', 1000);
-                location.href = 'http://www.baidu.com/';
+                // location.href = 'http://www.baidu.com/';
             } else if (res.code === 2000004) {
                 if (imgIsHide) {
                     imgIsHide = false;
@@ -101,10 +105,10 @@ import {
     function checkAccountAndPwd() {
         if (_check()) {
             next.removeAttribute('disabled');
-            next.className = 'button active';
+            next.className = 'button button-pink';
         } else {
             next.setAttribute('disabled', 'disabled');
-            next.className = 'button';
+            next.className = 'button button-pink';
         }
         function _check() {
             if (testAccount(userData.userMobile) && testPwd(userData.userPWD) && (imgIsHide || testImgCode(userData.picCode))) {

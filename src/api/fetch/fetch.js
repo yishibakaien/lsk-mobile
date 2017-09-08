@@ -27,19 +27,31 @@ function _formatData(method, data) {
 
 function _fetch(method = METHODS.get, data, url, cb, err) {
 
+    if (localStorage['x-token']) {
+        headers['x-token'] = localStorage['x-token'];
+    }
     let param = {
         method: method,
         url: baseURL + url,
         headers: headers,
         data: _formatData(method, data),
-        success: function(res) {
+        success: function(res, status, xhr) {
             // if (res.code !== 0) {
             //     Toast.info('请求错误:' + res.message, 2100);
             //     return;
             // }
+            if (res.code !== 0) {
+                // 用户未登录，清空缓存
+                if (res.code === 210018) {
+                    localStorage.clear();
+                    Toast.info('用户未登录', 2100, function() {
+                        location.href = './login.html';
+                    });
+                }
+            } 
             if (typeof cb === 'function') {
 
-                cb(res);
+                cb(res, status, xhr);
             }
         },
         error: function(res) {
