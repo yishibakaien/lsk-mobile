@@ -1,5 +1,5 @@
 require('./text_search_result.styl');
-require('common/styles/base/widget/pull_up_load.styl');
+// require('common/styles/base/widget/pull_up_load.styl');
 
 import {c, getQueryString, formatMoney, formatBgPic} from 'utils/utils';
 import {textSearch} from 'common/scripts/text_search_core';
@@ -23,6 +23,10 @@ doSearch();
 function doSearch() {
     textSearch(textSearchParamas, function(res) {
         Toast.hide();
+        if (res.data.list.length === 0 && textSearchParamas.pageNo === 1) {
+            c('#noResultTip').style.display = 'block';
+            return;
+        }
         console.log('文本搜索结果', res);
         render(res, wrapper, function() {
             // console.log(11);
@@ -34,17 +38,18 @@ function doSearch() {
                     console.log(dataId);
                 };
             }
-            var hasmore = res.data.pageNO < res.data.totalPage ? true : false;
+            var hasmore = (res.data.pageNO < res.data.totalPage) ? true : false;
             if (hasmore) {
                 textSearchParamas.pageNo++;
-            } else {
-                return;
             }
             pullUpLoad(hasmore, doSearch);
+            
         });
     }, function(res) {
         Toast.info('搜索失败');
-        c('#noResultTip').style.display = 'block';
+        // pullUpLoad(hasmore, doSearch);
+        // c('#noResultTip').style.display = 'block';
+        pullUpLoad(true, doSearch);
     });
 }
 function render(res, dom, cb) {
@@ -56,6 +61,7 @@ function render(res, dom, cb) {
     });
     for (let item of list) {
         var pattern = document.createElement('div');
+        pattern.className = 'patterns';
         pattern.setAttribute('data-id', item.id);
         pattern.innerHTML = `<div class="img" style="background-image:${formatBgPic(item.defaultPicUrl, 300)}">
                 <div class="recomend" style="display:${item.isBest === 1 ? 'block' : 'none'}">推荐</div>
