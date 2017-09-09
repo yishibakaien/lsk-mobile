@@ -102,5 +102,5 @@ export function setDefault(data, cb, err) {
 }
 // 我的求购列表
 export function myProductBuys(data, cb, err) {
-    return _fetch('GET', data, API.main.myProductBuys, cb, err);
+    return _fetch('POST', data, API.main.myProductBuys, cb, err);
 }

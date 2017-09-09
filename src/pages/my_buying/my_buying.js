@@ -40,3 +40,10 @@ function swiperControl(swiper) {
     }
     swiperTag[swiper.activeIndex].className += ' active';
 }
+
+
+
+myProductBuys({}, function (res) {
+    console.log('我的求购列表', res);
+    var data = res.data;
+});
