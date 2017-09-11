@@ -1,10 +1,11 @@
 require('./text_search_result.styl');
 // require('common/styles/base/widget/pull_up_load.styl');
 
-import {c, getQueryString, formatMoney, formatBgPic} from 'utils/utils';
+import {c, getQueryString} from 'utils/utils';
 import {textSearch} from 'common/scripts/text_search_core';
 import Toast from 'plugins/toast/Toast';
-import {pullUpLoad} from 'common/scripts/pull_up_load';
+import {pullUpLoad} from 'common/scripts/pull_up_load'; // 上拉加载更多
+import {render} from 'common/scripts/render_patterns_list';
 
 var keywords = getQueryString('keywords');
 c('#text').innerHTML = keywords;
@@ -13,6 +14,7 @@ Toast.loading('正在搜索中');
 
 var wrapper = document.querySelector('.patterns-list-wrapper');
 
+// 文本搜索请求参数
 var textSearchParamas = {
     keywords: keywords,
     pageNo: 1,
@@ -23,57 +25,30 @@ doSearch();
 function doSearch() {
     textSearch(textSearchParamas, function(res) {
         Toast.hide();
+        // 如果 第一页 且 没有返回结果，则说明找不到对应花型，需要给予提示
         if (res.data.list.length === 0 && textSearchParamas.pageNo === 1) {
             c('#noResultTip').style.display = 'block';
             return;
         }
         console.log('文本搜索结果', res);
-        render(res, wrapper, function() {
-            // console.log(11);
-            var patterns = document.querySelectorAll('.patterns');
-            for (let item of patterns) {
-                item.onclick = null;
-                item.onclick = function() {
-                    var dataId = this.getAttribute('data-id');
-                    console.log(dataId);
-                };
-            }
+
+        var list = res.data.list;
+
+        render(list, wrapper, function() {
             var hasmore = (res.data.pageNO < res.data.totalPage) ? true : false;
             if (hasmore) {
                 textSearchParamas.pageNo++;
             }
             pullUpLoad(hasmore, doSearch);
-            
         });
     }, function(res) {
         Toast.info('搜索失败');
-        // pullUpLoad(hasmore, doSearch);
-        // c('#noResultTip').style.display = 'block';
+        // 请求失败了，如果在 第一页，则说明找不到对应花型，需要给予提示
+        if (textSearchParamas.pageNo === 1) {
+            c('#noResultTip').style.display = 'block';
+            pullUpLoad(false, doSearch);
+            return;
+        }
         pullUpLoad(true, doSearch);
     });
-}
-function render(res, dom, cb) {
-    var list = res.data.list;
-    var pattensList = [];
-    // 按照 是否开通会员(isBest === 1) 进行排序
-    list.sort(function(a, b) {
-        return b.isBest - a.isBest;
-    });
-    for (let item of list) {
-        var pattern = document.createElement('div');
-        pattern.className = 'patterns';
-        pattern.setAttribute('data-id', item.id);
-        pattern.innerHTML = `<div class="img" style="background-image:${formatBgPic(item.defaultPicUrl, 300)}">
-                <div class="recomend" style="display:${item.isBest === 1 ? 'block' : 'none'}">推荐</div>
-            </div>
-            <p class="number">${item.productNo}</p>
-            <p class="price">${formatMoney(item.price, item.priceUnit)}</p>`;
-        // console.log({}.toString.call(pattern));
-        pattensList.push(pattern);
-    }
-    for (let item of pattensList) {
-         // console.log({}.toString.call(item), item);
-        dom.appendChild(item);
-    }
-    typeof cb === 'function' && cb();
 }
