@@ -64,6 +64,7 @@ import {
     };
 
     verifyImgIpt.oninput = function() {
+        console.log(userData);
         userData.picCode = this.value;
         checkAccountAndPwd();
     };
@@ -81,8 +82,7 @@ import {
             console.log(status, xhr);
             if (res.code === 0) {
                 var Xtoken = xhr.getResponseHeader('x-token');
-                console.log(Xtoken);
-                loacalStorage['x-token'] = Xtoken;
+                localStorage['x-token'] = Xtoken;
                 Toast.success('登录成功', 1000);
                 // location.href = 'http://www.baidu.com/';
             } else if (res.code === 2000004) {
@@ -97,7 +97,6 @@ import {
                 console.log(imgIsHide);
                 getImgCode();
             } else {
-                getImgCode();
                 Toast.error(res.message, 1000);
             }
         });
