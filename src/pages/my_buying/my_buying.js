@@ -53,15 +53,13 @@ import {
                     var id = this.getAttribute('data-id');
                     console.log(id);
                  };
-                 goingWrapper.appendChild(div);
+                 goingWrapper.insertBefore(div, document.querySelector('.flag'));
              }
-             console.log(res.data.pageNO, res.data.totalPage);
              var hasMore = res.data.pageNO < res.data.totalPage;
-             console.log(hasMore);
              if (hasMore) {
                  getBuyingParamas.pageNo++;
              }
-             pullUpLoad(hasMore, getBuying, goingWrapper, document.querySelector('.swiper-wrapper'));
+             pullUpLoad(hasMore, getBuying, goingWrapper);
          });
      }
 

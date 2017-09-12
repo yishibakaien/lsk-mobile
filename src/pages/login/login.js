@@ -6,7 +6,8 @@ import Toast from 'plugins/toast/Toast';
 var aes = require('plugins/aes/mode-ecb');
 
 import {
-    c
+    c,
+    getQueryString
 } from 'utils/utils';
 
 import {
@@ -88,7 +89,8 @@ import {
                     text: '登录成功',
                     duration: 5000,
                     complete: function() {
-                        location.href = 'https://www.baidu.com';
+                        var url = getQueryString('from');
+                        location.replace(url);
                     }
                 });
                 // location.href = 'http://www.baidu.com/';

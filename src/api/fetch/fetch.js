@@ -48,7 +48,7 @@ function _fetch(method = METHODS.get, data, url, cb, err) {
                         text: '用户未登录',
                         duration: 2100,
                         complete: function() {
-                            location.href = 'https://www.baidu.com';
+                            location.replace('./login.html?from=' + location.href);
                         }
                     });
                     // Toast.info('用户未登录', 2100, function() {
