@@ -1,5 +1,12 @@
 require('common/styles/base/widget/pull_up_load.styl');
 
+/**
+ * 加载不同分页数据的方法，常用于上拉加载更多
+ * @param  {[type]} hasmore    是否有更多数据
+ * @param  {[type]} ajaxFn     请求数据的 ajax 方法
+ * @param  {[type]} parentNode 渲染的结果插入的 node 
+ * @return {[type]}            [description]
+ */
 export function pullUpLoad(hasmore, ajaxFn, parentNode) {
     var loadingZone;
     if (!parentNode) {
@@ -23,12 +30,13 @@ export function pullUpLoad(hasmore, ajaxFn, parentNode) {
     } else {
         loadingZone = document.querySelector('.cbui-loading-zone');
     }
-    console.log('loadingZone', loadingZone);
-    loadingZone.style.display = 'block';
+    
     var loadMore = loadingZone.getElementsByClassName('load-more')[0];
     var loadingTip = loadingZone.getElementsByClassName('loading-tip')[0];
     var noMore = loadingZone.getElementsByClassName('no-more')[0];
-    
+
+    loadingZone.style.display = 'block';
+
     if (hasmore) {
         showLoadMore();
     } else {
@@ -42,7 +50,7 @@ export function pullUpLoad(hasmore, ajaxFn, parentNode) {
 
     function scroll() {
         if (hasmore) {
-            if (getScrollTop() + getClientHeight() == getScrollHeight()) {
+            if (getScrollTop() + getClientHeight() === getScrollHeight()) {
                 showLoadingTip();
                 typeof ajaxFn === 'function' && ajaxFn();
             }
@@ -93,6 +101,12 @@ function getScrollHeight() {
     return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight); 
 }
 
+/**
+ * 节流函数
+ * @param  {Function} fn    被节流的函数
+ * @param  {[type]}   delay 延迟
+ * @return {[type]}         [description]
+ */
 function debounce(fn, delay) {
     var timer = null;
     return function() {
