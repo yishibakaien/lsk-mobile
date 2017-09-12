@@ -40,6 +40,10 @@ function checkAndroid() {
 function testPurchaseNum(str) {
     return /\d{1,}/.test(str || '');
 }
+/**收货地址 */
+function testAddress(str) {
+    return /.{4,}/.test(str || "");
+}
 export {
     testTel,
     testPwd,
@@ -50,6 +54,7 @@ export {
     testImgCode,
     testAccount,
     checkAndroid,
-    testPurchaseNum
+    testPurchaseNum,
+    testAddress
 };
 

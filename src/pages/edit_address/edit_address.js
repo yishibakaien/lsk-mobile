@@ -1,116 +1,122 @@
 require('common/styles/index.styl');
 require('./edit_address.styl');
 
-var Picker = require('plugins/picker/picker.min.js');
-var city = require('plugins/picker/city.js');
+require('plugins/picker/address_picker.js');
+import Toast from 'plugins/toast/Toast';
 
-var nameEl = document.getElementById('sel_city');
+import {
+    c,
+    getQueryString
+} from 'utils/utils';
 
-var first = []; /* 省，直辖市 */
-var second = []; /* 市 */
-var third = []; /* 镇 */
+import {
+    testName,
+    testTel,
+    testAddress
+} from 'utils/reg';
 
-var selectedIndex = [0, 0, 0]; /* 默认选中的地区 */
+import {
+    addConsignee,
+    editorConsignee
+}  from 'api/user';
 
-var checked = [0, 0, 0]; /* 已选选项 */
-
-function creatList(obj, list){
-    obj.forEach(function(item, index, arr){
-        var temp = new Object();
-        temp.text = item.name;
-        temp.value = index;
-        list.push(temp);
-    })
-}
-
-creatList(city, first);
-
-if (city[selectedIndex[0]].hasOwnProperty('sub')) {
-    creatList(city[selectedIndex[0]].sub, second);
-} else {
-    second = [{text: '', value: 0}];
-}
-
-if (city[selectedIndex[0]].sub[selectedIndex[1]].hasOwnProperty('sub')) {
-    creatList(city[selectedIndex[0]].sub[selectedIndex[1]].sub, third);
-} else {
-    third = [{text: '', value: 0}];
-}
-
-var picker = new Picker({
-    data: [first, second, third],
-    selectedIndex: selectedIndex,
-    title: '地址选择'
-});
-
-picker.on('picker.select', function (selectedVal, selectedIndex) {
-    var text1 = first[selectedIndex[0]].text;
-    var text2 = second[selectedIndex[1]].text;
-    var text3 = third[selectedIndex[2]] ? third[selectedIndex[2]].text : '';
-
-    nameEl.value = text1 + '-' + text2 + (text3 === '' ? '' : '-') + text3;
-});
-
-picker.on('picker.change', function (index, selectedIndex) {
-    if (index === 0){
-        firstChange();
-    } else if (index === 1) {
-        secondChange();
+(function () {
+    var save = c('#save');
+    var title = c('#title');
+    var nameIpt = c('#nameIpt');
+    var phoneIpt = c('#phoneIpt');
+    var addressIpt = c('#addressIpt');
+    var selCity = c('#sel_city');
+    var nameSt;
+    var phoneSt;
+    var addressSt;
+    var addressDtlSt;
+    var addressDtlArr;
+    var st = getQueryString('st');
+    var data = {
+        address: '',
+        is_def: 0,
+        name: '',
+        phone: '',
+        province: '',
+        city: '',
+        county: '',
+        postCode: ''
+    };
+    if ((st === 'edit') && localStorage.editAddress) {
+        document.title = '收货地址管理';
+        title.innerHTML = '收货地址管理';
+        var editData = JSON.parse(localStorage.editAddress);
+        console.log(editData);
+        nameIpt.value = editData.name;
+        phoneIpt.value = editData.phone;
+        selCity.value = editData.province + '-' + editData.city + '-' + editData.county;
+        addressIpt.value = editData.address;
     }
 
-    function firstChange() {
-        second = [];
-        third = [];
-        checked[0] = selectedIndex;
-        var firstCity = city[selectedIndex];
-        if (firstCity.hasOwnProperty('sub')) {
-            creatList(firstCity.sub, second);
-
-            var secondCity = city[selectedIndex].sub[0]
-            if (secondCity.hasOwnProperty('sub')) {
-                creatList(secondCity.sub, third);
+    save.onclick = function () {
+        if (testName(nameIpt.value)){
+            nameIpt.className = '';
+            nameSt = true;
+        } else {
+            nameIpt.value = '';
+            nameIpt.className = 'invalid';
+            nameSt = false;
+        }
+        if (testTel(phoneIpt.value)){
+            phoneIpt.className = '';
+            phoneSt = true;
+        } else {
+            phoneIpt.value = '';
+            phoneIpt.className = 'invalid';
+            phoneSt = false;
+        }
+        if (testAddress(addressIpt.value)){
+            addressIpt.className = '';
+            addressSt = true;
+        } else {
+            addressIpt.value = '';
+            addressIpt.className = 'invalid';
+            addressSt = false;
+        }
+        if (testAddress(selCity.value)){
+            selCity.className = '';
+            addressDtlSt = true;
+        } else {
+            selCity.value = '';
+            selCity.className = 'invalid';
+            addressDtlSt = false;
+        }
+        if (nameSt && phoneSt && addressSt && addressDtlSt) {
+            addressDtlArr = selCity.value.split('-');
+            data.address = addressIpt.value;
+            data.is_def = 0;
+            data.name = nameIpt.value;
+            data.phone = phoneIpt.value;
+            data.province = addressDtlArr[0];
+            data.city = addressDtlArr[1];
+            data.county = addressDtlArr[2];
+            data.postCode = '';
+            if ((st === 'edit') && localStorage.editAddress) {
+                data.id = editData.id;
+                data.is_def = editData.is_def;
+                editorConsignee(data, function (res) {
+                    console.log('地址编辑', res);
+                    if (res.code === 0) {
+                        localStorage.removeItem('editAddress');
+                        Toast.success(res.message, 1000);
+                        location.href = './address_manage.html?time=' + ((new Date()).getTime());
+                    }
+                });
             } else {
-                third = [{text: '', value: 0}];
-                checked[2] = 0;
+                addConsignee(data, function (res) {
+                    console.log('新建收货地址', res);
+                    if (res.code === 0) {
+                        Toast.success(res.message, 1000);
+                        location.href = './address_manage.html?time=' + ((new Date()).getTime());
+                    }
+                });
             }
-        } else {
-            second = [{text: '', value: 0}];
-            third = [{text: '', value: 0}];
-            checked[1] = 0;
-            checked[2] = 0;
         }
-
-        picker.refillColumn(1, second);
-        picker.refillColumn(2, third);
-        picker.scrollColumn(1, 0)
-        picker.scrollColumn(2, 0)
-    }
-
-    function secondChange() {
-        third = [];
-        checked[1] = selectedIndex;
-        var first_index = checked[0];
-        if (city[first_index].sub[selectedIndex].hasOwnProperty('sub')) {
-            var secondCity = city[first_index].sub[selectedIndex];
-            creatList(secondCity.sub, third);
-            picker.refillColumn(2, third);
-            picker.scrollColumn(2, 0)
-        } else {
-            third = [{text: '', value: 0}];
-            checked[2] = 0;
-            picker.refillColumn(2, third);
-            picker.scrollColumn(2, 0)
-        }
-    }
-
-});
-
-picker.on('picker.valuechange', function (selectedVal, selectedIndex) {
-    console.log(selectedVal);
-    console.log(selectedIndex);
-});
-//    picker.show();
-
-nameEl.addEventListener('click', function () {
-    picker.show();
-});
+    };
+})();

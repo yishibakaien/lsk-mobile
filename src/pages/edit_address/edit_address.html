@@ -20,18 +20,18 @@
         <div class="left">
             <a class="icon-fanhui" href="#" onclick="javascript: historyback(-1);"></a>
         </div>
-        <div class="center">新建收货地址</div>
-        <div class="right"><a href="">保存</a></div>
+        <div class="center" id="title">新建收货地址</div>
+        <div class="right" id="save">保存</div>
     </div>
 </div>
 <div class="user-info-wrapper">
     <div>
         <span class="key"><span class="red">*</span>收货人</span>
-        <input type="text" placeholder="请输入姓名">
+        <input type="text" id="nameIpt" maxlength="6" placeholder="请输入姓名">
     </div>
     <div>
         <span class="key"><span class="red">*</span>联系电话</span>
-        <input type="text" placeholder="请输入联系电话">
+        <input type="tel" id="phoneIpt" maxlength="11" placeholder="请输入联系电话">
     </div>
     <div  class="choose-address">
         <span class="key"><span class="red">*</span>地址区域</span>
@@ -40,7 +40,7 @@
     </div>
     <div class="detail-address">
         <span class="key"><span class="red">*</span>详细地址</span>
-        <textarea cols="60" rows="60" placeholder="请输入详细收货地址"></textarea>
+        <textarea cols="60" rows="60" id="addressIpt" placeholder="请输入详细收货地址"></textarea>
     </div>
 </div>
 </body>

@@ -44,9 +44,16 @@ function _fetch(method = METHODS.get, data, url, cb, err) {
                 // 用户未登录，清空缓存
                 if (res.code === 210018) {
                     localStorage.clear();
-                    Toast.info('用户未登录', 2100, function() {
-                        location.href = './login.html';
+                    Toast.info({
+                        text: '用户未登录',
+                        duration: 2100,
+                        complete: function() {
+                            location.href = 'https://www.baidu.com';
+                        }
                     });
+                    // Toast.info('用户未登录', 2100, function() {
+                    //     location.href = './login.html';
+                    // });
                 }
             } 
             if (typeof cb === 'function') {

@@ -83,7 +83,14 @@ import {
             if (res.code === 0) {
                 var Xtoken = xhr.getResponseHeader('x-token');
                 localStorage['x-token'] = Xtoken;
-                Toast.success('登录成功', 1000);
+                console.log(localStorage['x-token']);
+                Toast.success({
+                    text: '登录成功',
+                    duration: 5000,
+                    complete: function() {
+                        location.href = 'https://www.baidu.com';
+                    }
+                });
                 // location.href = 'http://www.baidu.com/';
             } else if (res.code === 2000004) {
                 if (imgIsHide) {
@@ -97,6 +104,9 @@ import {
                 console.log(imgIsHide);
                 getImgCode();
             } else {
+                telIpt.value = '';
+                pwdIpt.value = '';
+                verifyImgIpt.value = '';
                 Toast.error(res.message, 1000);
             }
         });

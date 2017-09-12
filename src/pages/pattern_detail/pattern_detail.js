@@ -96,11 +96,11 @@ var phoneIpt = c('#phoneIpt');
 
 
 
-(function() {
+(function () {
     // 获取详细工厂信息介绍
     getCompanyInfo({
         companyId
-    }, function(res) {
+    }, function (res) {
         console.log('获取详细工厂信息', res);
         var data = res.data;
         companyMessage.setAttribute('company-id', data.id);
@@ -122,13 +122,13 @@ var phoneIpt = c('#phoneIpt');
         } catch (e) {
             console.log(e);
         }
-        call.addEventListener('click', function() {
+        call.addEventListener('click', function () {
             var phone = this.getAttribute('phone');
             location.href = 'tel:' + phone;
         });
 
         // 厂家点击事件
-        companyMessage.onclick = function() {
+        companyMessage.onclick = function () {
             var _companyId = this.getAttribute('company-id');
             // alert(_companyId);
             if (_companyId) {
@@ -139,7 +139,7 @@ var phoneIpt = c('#phoneIpt');
     // 获取产品信息
     getProduct({
         id: dataId
-    }, function(res) {
+    }, function (res) {
         console.log('获取花型详情', res);
         var data = res.data;
         // referPriceValueArr[2] = data.cutPrice;
@@ -170,7 +170,7 @@ var phoneIpt = c('#phoneIpt');
         // 高
         height.innerHTML = data.height;
 
-        dress.addEventListener('click', function() {
+        dress.addEventListener('click', function () {
             location.href = './dress.html?url=' + data.defaultPicUrl;
         }, false);
 
@@ -192,7 +192,7 @@ var phoneIpt = c('#phoneIpt');
     function getColorCardMethod() {
         getColorCards({
             productId: dataId
-        }, function(res) {
+        }, function (res) {
             console.log('获取色卡返回值', res);
             var data = res.data;
             var imgStr = '';
@@ -212,18 +212,18 @@ var phoneIpt = c('#phoneIpt');
             /* eslint-disable no-new */
             var swiper = new Swiper('.swiper-container', {
                 spaceBetween: 30,
-                onSlideChangeEnd: function(swiper) {
+                onSlideChangeEnd: function (swiper) {
                     console.log('activeIndex', swiper.activeIndex);
                     c('.active-number')[0].innerHTML = swiper.activeIndex + 1;
-                    for(var t = 0; t < messagepatternColors.length; t++){
-                        messagepatternColors[t].className = messagepatternColors[t].className.replace(' active', '');
+                    for (var t = 0; t < messagePatternColors.length; t++){
+                        messagePatternColors[t].className = messagePatternColors[t].className.replace(' active', '');
                     }
-                    messagepatternColors[swiper.activeIndex].className = ' active';
+                    messagePatternColors[swiper.activeIndex].className = ' active';
                 }
             });
             var swiperItem = document.querySelectorAll('.swiper-slide');
-            Array.prototype.forEach.call(swiperItem, function(item) {
-                item.onclick = function() {
+            Array.prototype.forEach.call(swiperItem, function (item) {
+                item.onclick = function () {
                     console.log(this.getAttribute('url'), picArr);
                     wx.previewImage({
                         current: this.getAttribute('url'),
@@ -232,17 +232,17 @@ var phoneIpt = c('#phoneIpt');
                 };
             });
             // 非色卡层色卡点击大图切换
-            var messagepatternColors = messageColorCard.getElementsByTagName('img');
-            for(var j = 0; j < messagepatternColors.length; j++){
-                if( j === 0) {
+            var messagePatternColors = messageColorCard.getElementsByTagName('img');
+            for(var j = 0; j < messagePatternColors.length; j++){
+                if ( j === 0) {
                     // 设置原始值
-                    messagepatternColors[0].className += ' active';
+                    messagePatternColors[0].className += ' active';
                     cardAvatar.setAttribute('src', data[0].picUrl);
                 }
-                messagepatternColors[j].index = j;
-                messagepatternColors[j].onclick = function () {
-                    for(var y = 0; y < messagepatternColors.length; y++){
-                        messagepatternColors[y].className = messagepatternColors[y].className.replace(' active', '');
+                messagePatternColors[j].index = j;
+                messagePatternColors[j].onclick = function () {
+                    for (var y = 0; y < messagePatternColors.length; y++){
+                        messagePatternColors[y].className = messagePatternColors[y].className.replace(' active', '');
                     }
                     this.className += ' active';
                     cardAvatar.setAttribute('src', data[this.index].picUrl);
@@ -253,7 +253,7 @@ var phoneIpt = c('#phoneIpt');
             // 小图、标签点击对应的切换&传值
             var patternColors = patternColorWrapper.getElementsByTagName('img');
             for(var m = 0; m < patternColors.length; m++){
-                if( m === 0) {
+                if ( m === 0) {
                     // 设置原始值
                     patternColors[0].className += ' active';
                     cardAvatar.setAttribute('src', data[0].picUrl);
@@ -262,7 +262,7 @@ var phoneIpt = c('#phoneIpt');
                 }
                 patternColors[m].index = m;
                 patternColors[m].onclick = function () {
-                    for(var n = 0; n < patternColors.length; n++){
+                    for (var n = 0; n < patternColors.length; n++){
                         patternColors[n].className = patternColors[n].className.replace(' active', '');
                     }
                     this.className += ' active';
@@ -272,22 +272,22 @@ var phoneIpt = c('#phoneIpt');
                 };
             }
 
-            for(var k = 0; k < buyTypes.length; k++) {
+            for (var k = 0; k < buyTypes.length; k++) {
                 buyTypes[k].index = k;
                 referPriceValue.innerHTML = referPriceValueArr[0];
                 buyTypes[k].onclick = function () {
-                    for(var j = 0; j < buyTypes.length; j++){
+                    for (var j = 0; j < buyTypes.length; j++){
                         buyTypes[j].className = buyTypes[j].className.replace(' active', '');
                     }
                     this.className += ' active';
                     askPurchaseData.purchaseType = this.index + 1;
                     buyNumIpt.value = '';
                     buyNumIpt.setAttribute('placeholder', buyNumIptTip[this.index]);
-                    if(buyNumIpt.getAttribute('placeholder') === '1片'){
+                    if (buyNumIpt.getAttribute('placeholder') === '1片'){
                         buyNumIpt.value = '1片';
                         buyNumIpt.readOnly = true;
                         askPurchaseData.purchaseNum = 1;
-                    }else{
+                    } else {
                         buyNumIpt.readOnly = false;
                         askPurchaseData.purchaseNum = '';
                     }
@@ -332,34 +332,34 @@ var phoneIpt = c('#phoneIpt');
         var phoneIptSt = true;
         var userNameSt = true;
         var buyNumIptSt = true;
-        if(testTel(askPurchaseData.phone)){
+        if (testTel(askPurchaseData.phone)){
             phoneIpt.className = '';
             phoneIptSt = true;
-        }else{
+        } else {
             phoneIpt.value = '';
             phoneIpt.className = 'invalid';
             phoneIptSt = false;
         }
-        if(testFirmName(askPurchaseData.userName)){
+        if (testFirmName(askPurchaseData.userName)){
             userNameIpt.className = '';
             userNameSt = true;
-        }else{
+        } else {
             userNameIpt.value = '';
             userNameIpt.className = 'invalid';
             userNameSt = false;
         }
-        if(testPurchaseNum(askPurchaseData.purchaseNum)){
+        if (testPurchaseNum(askPurchaseData.purchaseNum)){
             buyNumIpt.className = '';
             buyNumIptSt = true;
-        }else{
+        } else {
             buyNumIpt.value = '';
             buyNumIpt.className = 'invalid';
             buyNumIptSt = false;
         }
-        if(phoneIptSt&&userNameSt&&buyNumIptSt){
-            askPurchase(askPurchaseData, function(res) {
+        if (phoneIptSt && userNameSt && buyNumIptSt){
+            askPurchase(askPurchaseData, function (res) {
                 console.log('采购登记信息', res);
-                if(!res.code) {
+                if (!res.code) {
                     alert('采购登记成功！');
                     colorCardClose();
                 }

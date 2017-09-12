@@ -30,6 +30,8 @@
         <div class="top">
             <div class="border-bottom">拍照</div>
             <div>从相册选择</div>
+            <!--<input id="takePicture" type="file" accept="image/*" capture="camera">-->
+            <!--<input id="fromAlbum" type="file" accept="image/*">-->
         </div>
         <div class="bottom" id="cancel">取消</div>
     </div>
@@ -37,7 +39,7 @@
 
 <div class="user-info-wrapper border-bottom">
     <div class="avatar border-bottom">
-        <span class="key"><span class="red">*</span>头像</span><span id="arrow" class="arrow icon-xiayiye"></span><img id="img" src="../../images/big_avatar.png">
+        <span class="key"><span class="red">*</span>头像</span><span id="arrow" class="arrow icon-xiayiye"></span><img id="avatar" src="../../images/big_avatar.png">
     </div>
     <div class="border-bottom">
         <span class="key"><span class="red">*</span>姓名</span>
@@ -64,31 +66,6 @@
     </div>
 </div>
 
-
-<script>
-    var img = document.getElementById('img');
-    var rightSlide = document.getElementById('rightSlide');
-    var bottomSlide = document.getElementById('bottomSlide');
-    var arrow = document.getElementById('arrow');
-    var cancel = document.getElementById('cancel');
-    console.log(arrow);
-    img.onclick = function () {
-        rightSlide.style.right = 0;
-    };
-
-    rightSlide.onclick = function () {
-        rightSlide.style.right = '-100%';
-    };
-
-    arrow.onclick = function () {
-        bottomSlide.style.bottom = 0;
-    };
-
-    cancel.onclick = function () {
-        bottomSlide.style.bottom = '-100%';
-    };
-
-</script>
 </body>
 
 </html>
