@@ -5,7 +5,8 @@ var pullUpLoad = require('common/scripts/pull_up_load').pullUpLoad;
 import Toast from 'plugins/toast/Toast';
 
 import {
-    c
+    c,
+    formatDate
 } from 'utils/utils';
 
 import {
@@ -16,6 +17,7 @@ import {
 
 (function () {
     var foot = c('#foot');
+    var downApp = c('#downApp');
     var goingWrapper = c('#goingWrapper');
     var completeWrapper = c('#completeWrapper');
     var closeWrapper = c('#closeWrapper');
@@ -61,7 +63,7 @@ import {
                         <img src="${list[i].buyPicUrl}">
                         <div class="text">
                             <div class="top ellipsis-two">${list[i].buyDesc}</div>
-                            <div class="bottom"><span class="order-taking-num">已有<span class="num">${list[i].buyTaskCount}</span>人接单</span><span class="time">${list[i].createDate}</span></div>
+                            <div class="bottom"><span class="order-taking-num">已有<span class="num">${list[i].buyTaskCount}</span>人接单</span><span class="time">${formatDate((new Date(list[i].createDate)), 'yyyy-MM-dd')}</span></div>
                         </div>
                     </div>`;
                 div.innerHTML = listStr;
@@ -69,7 +71,8 @@ import {
                 div.onclick = function () {
                     var id = this.getAttribute('data-id');
                     console.log(id);
-                    foot.style.display = 'block';
+                    footShow();
+                    // foot.style.display = 'block';
                 };
                 goingWrapper.insertBefore(div, document.querySelector('.going-flag'));
             }
@@ -85,7 +88,7 @@ import {
     // 已完成
     function getComplete() {
         myProductBuys(getCompleteParamas, function (res) {
-            console.log('我的求购列表-求购中', res);
+            console.log('我的求购列表-已完成', res);
             var list = res.data.list;
             var listStr = '';
             for (var i = 0; i < list.length; i++) {
@@ -96,11 +99,11 @@ import {
                     <img src="{list[i].buyPicUrl}">
                     <div class="text">
                         <div class="top ellipsis-two">${list[i].buyDesc}</div>
-                        <div class="bottom"><span class="order-taking-num">已有<span class="num">${list[i].buyTaskCount}</span>人接单</span><span class="time">${list[i].createDate}</span></div>
+                        <div class="bottom"><span class="order-taking-num">已有<span class="num">${list[i].buyTaskCount}</span>人接单</span><span class="time">${formatDate((new Date(list[i].createDate)), 'yyyy-MM-dd')}</span></div>
                     </div>
                 </div>
                 <div class="btn">
-                    <span class="repost" buyDesc="${list[i].buyDesc}" buyNum="${list[i].buyNum}" buyPicUrl="${list[i].buyPicUrl}" buyShapes="${list[i].buyShapes}" buyType="${list[i].buyType}" buyUnit="${list[i].buyUnit}" isStartUp="${list[i].isStartUp}">重新发布</span><span class="active contact-merchant">联系商家</span>
+                    <span class="repost" buyDesc="${list[i].buyDesc}" buyNum="${list[i].buyNum}" buyPicUrl="${list[i].buyPicUrl}" buyShapes="${list[i].buyShapes}" buyType="${list[i].buyType}" buyUnit="${list[i].buyUnit}" isStartUp="${list[i].isStartUp}" onclick="repostBuying()">重新发布</span><span class="active contact-merchant">联系商家</span>
                 </div>`;
                 div.innerHTML = listStr;
 
@@ -121,7 +124,7 @@ import {
     // 已关闭
     function getClose() {
         myProductBuys(getCloseParamas, function (res) {
-            console.log('我的求购列表-求购中', res);
+            console.log('我的求购列表-已关闭', res);
             var list = res.data.list;
             var listStr = '';
             for (var i = 0; i < list.length; i++) {
@@ -129,10 +132,10 @@ import {
                 div.setAttribute('data-id', list[i].id);
                 div.className = 'info-wrapper';
                 listStr = `<div class="info border-bottom">
-                    <img src="../../images/my_buying.png" alt="">
+                    <img src="${list[i].buyPicUrl}">
                     <div class="text">
                         <div class="top ellipsis-two">${list[i].buyDesc}</div>
-                        <div class="bottom"><span class="time">${list[i].createDate}</span></div>
+                        <div class="bottom"><span class="time">${formatDate((new Date(list[i].createDate)), 'yyyy-MM-dd')}</span></div>
                     </div>
                 </div>
                 <div class="btn">
@@ -172,16 +175,22 @@ import {
         swiperTag[swiper.activeIndex].className += ' active';
     }
 
-    function deleteBuying(id) {
-        deleteProductBuy({id}, function (res) {
-            console.log(res);
-            if (res.code === 0) {
-                Toast.success(res.messge);
-            }
-        });
-    }
+    // function deleteBuying(id) {
+    //     deleteProductBuy({id}, function (res) {
+    //         console.log(res);
+    //         if (res.code === 0) {
+    //             Toast.success(res.messge);
+    //         }
+    //     });
+    // }
 
-    function aa() {
+    function footShow() {
+        foot.style.display = 'block';
+        // var timer = setTimeout('downApp.style.backgroundColor = "red";', 1000);
+        // clearTimeout(timer);
+        downApp.style.backgroundColor = 'red';
+    }
+    function repostBuying() {
         console.log(111);
         // releaseProductBuy({
         //     buyDesc: this.getAttribute('buyDesc'),
