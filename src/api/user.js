@@ -17,7 +17,9 @@ const API = {
         // 删除求购
         deleteProductBuy: '/productBuy/deleteProductBuy',
         // 发布求购
-        releaseProductBuy: '/productBuy/releaseProductBuy'
+        releaseProductBuy: '/productBuy/releaseProductBuy',
+        // 获取求购单接单人列表
+        listBuyTaskUserByBuyId: '/buyTask/listBuyTaskUserByBuyId'
     },
     detail: {
         // 获取花型详情
@@ -115,7 +117,10 @@ export function myProductBuys(data, cb, err) {
 export function releaseProductBuy(data, cb, err) {
     return _fetch('POST', data, API.main.releaseProductBuy, cb, err);
 }
-
+// 获取求购单接单人列表
+export function listBuyTaskUserByBuyId(data, cb, err) {
+    return _fetch('GET', data, API.main.listBuyTaskUserByBuyId, cb, err);
+}
 // 删除求购
 export function deleteProductBuy(data, cb, err) {
     return _fetch('POST', data, API.main.deleteProductBuy, cb, err);
