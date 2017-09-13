@@ -1,5 +1,7 @@
 require('common/styles/index.styl');
 require('./settled_merchant.styl');
+import {TEXT_SEARCH} from 'common/scripts/text_search.js';
+TEXT_SEARCH();
 
 var Swiper = require('plugins/swiper/swiper-3.4.2.min.js');
 

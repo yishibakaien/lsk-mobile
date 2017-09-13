@@ -1,5 +1,24 @@
 require('common/styles/index.styl');
 require('./new_pattern.styl');
+import {TEXT_SEARCH} from 'common/scripts/text_search.js';
+TEXT_SEARCH();
+import Toast from 'plugins/toast/Toast';
+
+import {
+    c,
+    // getQueryString
+} from 'utils/utils';
+
+import {
+    // testAccount,
+    // testPwd,
+    // testImgCode,
+} from 'utils/reg';
+
+// import {
+//
+// }  from 'api/user';
+
 
 var recording = {
     pattern: '',
@@ -7,17 +26,17 @@ var recording = {
     area: []
 };
 //    var isSelected = false;
-var newPattern = document.getElementById('newPattern');
-var reset = document.getElementById('reset');
-var confir = document.getElementById('confir');
-var triangle = document.getElementById('triangle');
-var filterLayerBtn = document.getElementById('filterLayerBtn');
-var filterLayer = document.getElementById('filterLayer');
-var filterAllItemsBtn = document.getElementById('filterLayer').getElementsByTagName('span');
-var mask = document.getElementsByClassName('mask')[0];
-var patternBtns = document.getElementById('pattern').getElementsByTagName('span');
-var stockBtns = document.getElementById('stock').getElementsByTagName('span');
-var areaBtns = document.getElementById('area').getElementsByTagName('span');
+var newPattern = c('#newPattern');
+var reset = c('#reset');
+var confir = c('#confir');
+var triangle = c('#triangle');
+var filterLayerBtn = c('#filterLayerBtn');
+var filterLayer = c('#filterLayer');
+var filterAllItemsBtn = c('#filterLayer').getElementsByTagName('span');
+var mask = c('.mask')[0];
+var patternBtns = c('#pattern').getElementsByTagName('span');
+var stockBtns = c('#stock').getElementsByTagName('span');
+var areaBtns = c('#area').getElementsByTagName('span');
 
 
 filterLayerBtn.onclick = filterLayerToggle;

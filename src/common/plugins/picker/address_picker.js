@@ -1,5 +1,5 @@
 var Picker = require('plugins/picker/picker.min.js');
-var city = require('plugins/picker/city.js');
+var city = require('plugins/picker/area.js');
 
 var nameEl = document.getElementById('sel_city');
 
@@ -14,7 +14,7 @@ var checked = [0, 0, 0]; /* 已选选项 */
 function creatList(obj, list){
     obj.forEach(function(item, index, arr){
         var temp = {};
-        temp.text = item.name;
+        temp.text = item.areaName;
         temp.value = index;
         list.push(temp);
     });
@@ -22,14 +22,14 @@ function creatList(obj, list){
 
 creatList(city, first);
 
-if (city[selectedIndex[0]].hasOwnProperty('sub')) {
-    creatList(city[selectedIndex[0]].sub, second);
+if (city[selectedIndex[0]].hasOwnProperty('childAreas')) {
+    creatList(city[selectedIndex[0]].childAreas, second);
 } else {
     second = [{text: '', value: 0}];
 }
 
-if (city[selectedIndex[0]].sub[selectedIndex[1]].hasOwnProperty('sub')) {
-    creatList(city[selectedIndex[0]].sub[selectedIndex[1]].sub, third);
+if (city[selectedIndex[0]].childAreas[selectedIndex[1]].hasOwnProperty('childAreas')) {
+    creatList(city[selectedIndex[0]].childAreas[selectedIndex[1]].childAreas, third);
 } else {
     third = [{text: '', value: 0}];
 }
@@ -60,12 +60,12 @@ picker.on('picker.change', function (index, selectedIndex) {
         third = [];
         checked[0] = selectedIndex;
         var firstCity = city[selectedIndex];
-        if (firstCity.hasOwnProperty('sub')) {
-            creatList(firstCity.sub, second);
+        if (firstCity.hasOwnProperty('childAreas')) {
+            creatList(firstCity.childAreas, second);
 
-            var secondCity = city[selectedIndex].sub[0];
-            if (secondCity.hasOwnProperty('sub')) {
-                creatList(secondCity.sub, third);
+            var secondCity = city[selectedIndex].childAreas[0];
+            if (secondCity.hasOwnProperty('childAreas')) {
+                creatList(secondCity.childAreas, third);
             } else {
                 third = [{text: '', value: 0}];
                 checked[2] = 0;
@@ -87,9 +87,9 @@ picker.on('picker.change', function (index, selectedIndex) {
         third = [];
         checked[1] = selectedIndex;
         var first_index = checked[0];
-        if (city[first_index].sub[selectedIndex].hasOwnProperty('sub')) {
-            var secondCity = city[first_index].sub[selectedIndex];
-            creatList(secondCity.sub, third);
+        if (city[first_index].childAreas[selectedIndex].hasOwnProperty('childAreas')) {
+            var secondCity = city[first_index].childAreas[selectedIndex];
+            creatList(secondCity.childAreas, third);
             picker.refillColumn(2, third);
             picker.scrollColumn(2, 0);
         } else {

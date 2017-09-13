@@ -13,7 +13,11 @@ const API = {
     },
     main: {
         // 我的求购列表
-        myProductBuys: '/productBuy/myProductBuys'
+        myProductBuys: '/productBuy/myProductBuys',
+        // 删除求购
+        deleteProductBuy: '/productBuy/deleteProductBuy',
+        // 发布求购
+        releaseProductBuy: '/productBuy/releaseProductBuy'
     },
     detail: {
         // 获取花型详情
@@ -40,6 +44,9 @@ const API = {
         getConsignee: '/consignee/getConsignee/',
         // 设置默认
         setDefault: '/consignee/setDefault/'
+    },
+    area: {
+        allAreas: '/front/area/allAreas'
     }
 };
 
@@ -94,7 +101,7 @@ export function getConsignee(data, cb, err) {
     let _data = data;
     let url = API.consignee.getConsignee.toString() + _data.id.toString();
     return _fetch('GET', {}, url, cb, err);
-}// 获取默认
+}// 设置默认
 export function setDefault(data, cb, err) {
     let _data = data;
     let url = API.consignee.setDefault.toString() + _data.id.toString();
@@ -103,4 +110,17 @@ export function setDefault(data, cb, err) {
 // 我的求购列表
 export function myProductBuys(data, cb, err) {
     return _fetch('POST', data, API.main.myProductBuys, cb, err);
+}
+// 发布求购
+export function releaseProductBuy(data, cb, err) {
+    return _fetch('POST', data, API.main.releaseProductBuy, cb, err);
+}
+
+// 删除求购
+export function deleteProductBuy(data, cb, err) {
+    return _fetch('POST', data, API.main.deleteProductBuy, cb, err);
+}
+// 获取所有的省市区信息
+export function allAreas(data, cb, err) {
+    return _fetch('GET', data, API.area.allAreas, cb, err);
 }

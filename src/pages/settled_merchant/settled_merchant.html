@@ -6,12 +6,12 @@
     <title>入驻商家</title>
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="../../common/styles/common/reset.css">
-    <link rel="stylesheet" href="../../common/styles/common/common.css">
-    <link rel="stylesheet" href="../../common/fonts/font.css">
-    <link rel="stylesheet" href="settled_merchant.css">
-    <link rel="stylesheet" href="../../common/scripts/utils/swiper/swiper.min.css">
-    <script src="../../common/scripts/utils/swiper/swiper.min.js"></script>
+    <!--<link rel="stylesheet" href="../../common/styles/common/reset.css">-->
+    <!--<link rel="stylesheet" href="../../common/styles/common/common.css">-->
+    <!--<link rel="stylesheet" href="../../common/fonts/font.css">-->
+    <!--<link rel="stylesheet" href="settled_merchant.css">-->
+    <!--<link rel="stylesheet" href="../../common/scripts/utils/swiper/swiper.min.css">-->
+    <!--<script src="../../common/scripts/utils/swiper/swiper.min.js"></script>-->
 </head>
 
 <body>
@@ -22,7 +22,9 @@
         </div>
         <div class="center">
             <div class="icon-sousuo"></div>
-            <input type="text" placeholder="输入花型编号或厂家进行搜索">
+            <form action="#" onsubmit="return false" style="display: inline-block;">
+                <input type="search" id="searchTextIpt" placeholder="输入花型编号或厂家进行搜索" required autocomplete="off">
+            </form>
         </div>
     </div>
 </div>

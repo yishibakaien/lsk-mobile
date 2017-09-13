@@ -1,9 +1,9 @@
 require('common/styles/index.styl');
 require('./login.styl');
 
-import Toast from 'plugins/toast/Toast';
-
 var aes = require('plugins/aes/mode-ecb');
+
+import Toast from 'plugins/toast/Toast';
 
 import {
     c,
@@ -19,6 +19,7 @@ import {
 import {
     login,
     getVerifyCode,
+    allAreas
 }  from 'api/user';
 
 
@@ -74,6 +75,9 @@ import {
             Toast.error(message.testImgCode, 1000);
         }
     };
+    allAreas({}, function (res) {
+        console.log(res);
+    });
 
     next.onclick = function() {
         Toast.loading('请稍后...');
