@@ -28,6 +28,12 @@ import {
     var close = c('#close');
     var myCollect = c('#myCollect');
     var manageAddress = c('#manageAddress');
+    myCollect.onclick = function() {
+        location.href = './my_collection.html';
+    };
+    manageAddress.onclick = function() {
+        location.href = './edit_address.html';
+    };
 })();
 
 

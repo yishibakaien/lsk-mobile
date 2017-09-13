@@ -15,7 +15,7 @@ function creatList(obj, list){
     obj.forEach(function(item, index, arr){
         var temp = {};
         temp.text = item.areaName;
-        temp.value = index;
+        temp.value = item.areaCode;
         list.push(temp);
     });
 }
