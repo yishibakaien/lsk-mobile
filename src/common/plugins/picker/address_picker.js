@@ -1,5 +1,5 @@
 var Picker = require('plugins/picker/picker.min.js');
-var city = require('plugins/picker/area.js');
+var city = require('plugins/picker/city.js');
 
 var nameEl = document.getElementById('sel_city');
 
@@ -102,12 +102,14 @@ picker.on('picker.change', function (index, selectedIndex) {
 
 });
 
-picker.on('picker.valuechange', function (selectedVal, selectedIndex) {
-    console.log(selectedVal);
-    console.log(selectedIndex);
-});
+// picker.on('picker.valuechange', function (selectedVal, selectedIndex) {
+//     console.log(selectedVal);
+//     console.log(selectedIndex);
+// });
 //    picker.show();
 
 nameEl.addEventListener('click', function () {
     picker.show();
 });
+
+module.exports = picker;
