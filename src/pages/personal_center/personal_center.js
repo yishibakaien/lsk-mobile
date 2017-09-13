@@ -5,6 +5,7 @@ import Toast from 'plugins/toast/Toast';
 
 import {
     c,
+    formatPhone,
     getQueryString
 } from 'utils/utils';
 
@@ -15,27 +16,42 @@ import {
 } from 'utils/reg';
 
 import {
-    checkPhone
+    checkPhone,
+    getUserInfo
 }  from 'api/user';
 
 
 (function () {
     var userID = getQueryString();
     var avatar = c('#avatar');
+    var username = c('#username');
+    var phone = c('#phone');
+
     var avatarArrow = c('#avatarArrow');
     var going = c('#going');
     var complete = c('#complete');
     var close = c('#close');
     var myCollect = c('#myCollect');
     var manageAddress = c('#manageAddress');
+
     myCollect.onclick = function() {
         location.href = './my_collection.html';
     };
     manageAddress.onclick = function() {
         location.href = './edit_address.html';
     };
+
 })();
 
+getUserInfo({}, function(res) {
+    console.log('获取用户信息', res);
+    if (res.data.userHeadIcon) {
+        avatar.src = res.data.userHeadIcon;
+    }
+    username.innerHTML = res.data.userName;
+    phone.innerHTML = formatPhone(res.data.userMobile);
+
+}, function(res) {});
 
 console.log(checkPhone);
 checkPhone({

@@ -3,6 +3,7 @@ require('./personal_info.styl');
 import Toast from 'plugins/toast/Toast';
 import {
     c,
+    checkAndroid
     // getQueryString
 } from 'utils/utils';
 
@@ -13,7 +14,7 @@ import {
 } from 'utils/reg';
 
 import {
-    // checkPhone
+    getUserInfo
 }  from 'api/user';
 
 
@@ -23,21 +24,60 @@ import {
     var bottomSlide = c('#bottomSlide');
     var arrow = c('#arrow');
     var cancel = c('#cancel');
-    avatar.onclick = function () {
+    var inputPic = c('#inputPic');
+    var rightSideAvatar = c('#rightSideAvatar');
+    var userName = c('#userName');
+    var comfirm = c('#comfirm');
+    // var companyName = c('#companyName');
+
+    var wechat = c('#wechat');
+    var qq = c('#qq');
+    var email = c('#email');
+
+    // 高版本 IOS 点击input[captrue=camera]会直接打开相机，但是这样会导致电脑上选择图片打开缓慢
+    if (checkAndroid()) {
+        inputPic.setAttribute('captrue', 'camera');
+    }
+
+    avatar.onclick = function (e) {
+        e.cancelBubble = true;
+        e.stopPropagation();
         rightSlide.style.right = 0;
     };
 
-    rightSlide.onclick = function () {
+    rightSlide.onclick = function (e) {
+        e.cancelBubble = true;
+        e.stopPropagation();
         rightSlide.style.right = '-100%';
     };
 
     arrow.onclick = function () {
-        bottomSlide.style.bottom = 0;
+        // 点击调起相册 或 相机
+        inputPic.click();
     };
 
-    cancel.onclick = function () {
-        bottomSlide.style.bottom = '-100%';
+
+    getUserInfo({}, function(res) {
+        var data = res.data;
+        console.log(res);
+        if (res.data && data.userHeadIcon) {
+            avatar.src = data.userHeadIcon;
+            rightSideAvatar.src = data.userHeadIcon;
+        }
+        userName.value = data.userName;
+        wechat.value = data.wechat;
+        qq.value = data.qq;
+        email.value = data.email;
+
+    });
+
+    comfirm.onclick = function() {
+        var data = {};
     };
+
+    // cancel.onclick = function () {
+    //     bottomSlide.style.bottom = '-100%';
+    // };
 
 
     // var takePicture = c('#takePicture');

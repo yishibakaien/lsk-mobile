@@ -222,6 +222,12 @@ function setDataId(ele, id) {
 function checkAndroid() {
     return navigator.userAgent.indexOf('Android') > -1;
 }
+
+function formatPhone(phone) {
+    var p1 = phone.slice(0, 3);
+    var p2 = phone.slice(7, 11);
+    return p1 + '****' + p2;
+}
 export {
     bind,
     addActive,
@@ -237,5 +243,6 @@ export {
     getQueryString,
     c,
     formatPicUrl,
+    formatPhone,
     checkAndroid
 };

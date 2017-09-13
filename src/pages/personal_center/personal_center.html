@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>供应信息</title>
+    <title>个人中心</title>
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <!--<link rel="stylesheet" href="../../common/fonts/font.css">-->
@@ -16,12 +16,12 @@
 <div class="head-wrapper">
     <div class="head">
         <div class="left">
-            <a class="icon-fanhui" href="#" onclick="javascript: historyback(-1);"></a>
+            <a class="icon-fanhui" href="#" onclick="javascript: history.back();"></a>
         </div>
         <div class="center">个人中心</div>
         <div class="right">
             <div class="right-block">
-                <i class="icon-shouye"></i><a href="">首页</a>
+                <i class="icon-shouye"></i><a href="./shouye.html">首页</a>
             </div>
         </div>
     </div>
@@ -29,10 +29,10 @@
 <div class="avatar-wrapper">
     <img id="avatar" src="../../images/avatar.png">
     <div class="text">
-        <div class="name" id="username">Joe119</div>
-        <div class="phone" id="phone">137****0901</div>
+        <div class="name" id="username"></div>
+        <div class="phone" id="phone"></div>
     </div>
-    <div class="arrow icon-xiayiye" id="avatarArrow"></div>
+    <a class="arrow icon-xiayiye" id="avatarArrow" href="./personal_info.html"></a>
 </div>
 <div class="my-buying-wrapper">
     <div class="my-buying border-bottom">我的求购</div>

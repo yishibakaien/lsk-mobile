@@ -19,50 +19,53 @@
             <a class="icon-fanhui" href="#" onclick="javascript: historyback(-1);"></a>
         </div>
         <div class="center">个人信息</div>
-        <div class="right"><a href="">完成</a></div>
+        <div class="right" id="comfirm"><a>完成</a></div>
     </div>
 </div>
 <div class="right-slide" id="rightSlide">
-    <img src="../../images/big_avatar.png">
+    <img src="../../images/avatar.png" id="rightSideAvatar">
 </div>
-<div id="bottomSlide" class="bottom-slide-wrapper">
+
+<!-- <div id="bottomSlide" class="bottom-
+slide-wrapper">
     <div class="bottom-slide">
         <div class="top">
             <div class="border-bottom">拍照</div>
             <div>从相册选择</div>
-            <!--<input id="takePicture" type="file" accept="image/*" capture="camera">-->
-            <!--<input id="fromAlbum" type="file" accept="image/*">-->
+            <input id="takePicture" type="file" accept="image/*" capture="camera">
+            <input id="fromAlbum" type="file" accept="image/*">
         </div>
         <div class="bottom" id="cancel">取消</div>
     </div>
-</div>
+</div> -->
 
 <div class="user-info-wrapper border-bottom">
-    <div class="avatar border-bottom">
-        <span class="key"><span class="red">*</span>头像</span><span id="arrow" class="arrow icon-xiayiye"></span><img id="avatar" src="../../images/big_avatar.png">
+    <div class="avatar border-bottom" id="arrow">
+        <span class="key"><span class="red">*</span>头像</span><span class="arrow icon-xiayiye"></span><img id="avatar" src="../../images/avatar.png">
+        <input style="display: none" class="file-input" id="inputPic" type="file" accept="image/*" name="file">
     </div>
     <div class="border-bottom">
         <span class="key"><span class="red">*</span>姓名</span>
-        <input type="text" placeholder="请输入姓名">
+        <input type="text" placeholder="请输入姓名" id="userName">
     </div>
-    <div>
+    <!-- <div>
         <span class="key"><span class="red">*</span>公司名称</span>
-        <input type="text" placeholder="请输入您所在公司名称">
-    </div>
+        <input type="text" placeholder="请输入您所在公司名称" id="companyName">
+    </div> -->
 </div>
 
 <div class="user-info-wrapper border-bottom">
     <div class="name border-bottom">
         <span class="key">微信</span>
-        <input type="text" placeholder="请输入您的微信号">
+        <input type="text" placeholder="请输入您的微信号" id="wechat">
     </div>
     <div class="border-bottom">
         <span class="key">QQ</span>
-        <input type="text" placeholder="请输入您的QQ">
+        <input type="text" placeholder="请输入您的QQ" id="qq">
     </div>
     <div>
         <span class="key">邮箱</span>
-        <input type="text" placeholder="请输入您的邮箱地址">
+        <input type="text" placeholder="请输入您的邮箱地址" id="email">
     </div>
 </div>
 
