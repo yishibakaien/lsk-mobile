@@ -13,10 +13,6 @@ import {
     formatPicUrl
 } from 'utils/utils';
 
-// import {
-//
-// } from 'utils/reg';
-
 import {
     getCompanySupply,
     getCompanyInfo
@@ -41,30 +37,10 @@ import {
         _supplyDetailPic.src = _picUrl;
         supplyType.innerHTML = formatSupplyType(res.data.supplyType);
         supplyNumber.innerHTML = (res.data.supplyNum ? res.data.supplyNum + ' ' + formatUnit(res.data.supplyUnit) : '面议');
-        // supplyNumber.innerHTML = (res.data.supplyNum ? res.data.supplyNum : 0) + ' ' + formatUnit(res.data.supplyUnit);
+        supplyNumber.innerHTML = (res.data.supplyNum ? res.data.supplyNum : 0) + ' ' + formatUnit(res.data.supplyUnit);
         supplyTime.innerHTML = formatDate(res.data.createDate, 'yyyy-MM-dd');
         supplyPeople.innerHTML = res.data.userName;
         companyAvatar.src = res.data.userHeadIcon;
         console.log('hahahaha');
-        // 微信jssdk预览图片
-        // supplyDetailPic.onclick = function() {
-        //     wx.previewImage({
-        //         urls: [
-        //             _picUrl
-        //         ]
-        //     });
-        // };
-        // getCompanyInfoMethod();
     });
-
-    // function getCompanyInfoMethod() {
-    //     getCompanyInfo({
-    //         companyId: companyId
-    //     }, function(res) {
-    //         if (res.data.companyHeadIcon) {
-    //             companyAvatar.src = res.data.companyHeadIcon;
-    //         }
-    //         companyName.innerHTML = res.data.companyName;
-    //     });
-    // }
 })();

@@ -157,7 +157,6 @@ export function allAreas(data, cb, err) {
 export function getUserInfo(data, cb, err) {
     return _fetch('POST', data, API.user.getUserInfo, cb, err);
 }
-<<<<<<< HEAD
 // 获取收藏供应列表
 export function listSupply(data, cb, err) {
     return _fetch('POST', data, API.main.listSupply, cb, err);
@@ -173,9 +172,8 @@ export function listProduct(data, cb, err) {
 //收藏或取消
 export function favoriteBus(data, cb, err) {
     return _fetch('POST', data, API.main.favoriteBus, cb, err);
-=======
+}
 
 export function updateUser(data, cb, err) {
     return _fetch('POST', data, API.user.updateUser, cb, err);
->>>>>>> 4320e46ac2f95a9715fc34e6bd5763abdeb6b2e6
 }
