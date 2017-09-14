@@ -6,6 +6,11 @@ import {
     checkAndroid
     // getQueryString
 } from 'utils/utils';
+// import uploadPictrue from 'utils/uploadPictrue';
+// import Cropper from 'plugins/cropper/ts57_cropper.js';
+// import OSS from 'plugins/ali_oss/ali_oss';
+// console.log(OSS);
+import {aliupload} from 'plugins/ali_oss/aliupload';
 
 import {
     // testAccount,
@@ -14,9 +19,9 @@ import {
 } from 'utils/reg';
 
 import {
-    getUserInfo
+    getUserInfo,
+    updateUser
 }  from 'api/user';
-
 
 (function () {
     var avatar = c('#avatar');
@@ -28,7 +33,12 @@ import {
     var rightSideAvatar = c('#rightSideAvatar');
     var userName = c('#userName');
     var comfirm = c('#comfirm');
+    
     // var companyName = c('#companyName');
+    // 截图组件
+    var cropperWrapper = c('#cropperWrapper');
+    var image = c('#cropperImage');
+
 
     var wechat = c('#wechat');
     var qq = c('#qq');
@@ -38,7 +48,13 @@ import {
     if (checkAndroid()) {
         inputPic.setAttribute('captrue', 'camera');
     }
-
+    var userData = {
+        email: '',
+        qq: '',
+        userHeadIcon: '',
+        userName: '',
+        wechat: ''
+    };
     avatar.onclick = function (e) {
         e.cancelBubble = true;
         e.stopPropagation();
@@ -56,6 +72,14 @@ import {
         inputPic.click();
     };
 
+    inputPic.onchange = function() {
+        Toast.loading('正在上传..');
+        aliupload.call(this, 1, function(res) {
+            console.log('图片上传返回值', res);
+            Toast.hide();
+            userData.userHeadIcon = rightSideAvatar.src = avatar.src = res[0];
+        });
+    };
 
     getUserInfo({}, function(res) {
         var data = res.data;
@@ -64,15 +88,37 @@ import {
             avatar.src = data.userHeadIcon;
             rightSideAvatar.src = data.userHeadIcon;
         }
-        userName.value = data.userName;
-        wechat.value = data.wechat;
-        qq.value = data.qq;
-        email.value = data.email;
+        userData.userHeadIcon = data.userHeadIcon;
+        userData.userName = userName.value = data.userName;
+        userData.wechat = wechat.value = data.wechat;
+        userData.qq = qq.value = data.qq;
+        userData.email = email.value = data.email;
 
     });
 
     comfirm.onclick = function() {
-        var data = {};
+        userData.userName = userName.value;
+        userData.wechat = wechat.value;
+        userData.qq = qq.value;
+        userData.email = email.value;
+        Toast.loading('正在提交..');
+        console.log('提交的用户数据', userData);
+        if (userData.userName === '') {
+            Toast.hide();
+            alert('姓名不能为空');
+
+            return;
+        }
+        updateUser(userData, function(res) {
+            console.log('修改用户数据res', res);
+            if (res.code === 0) {
+                
+                Toast.success('修改信息成功');
+            } else {
+                Toast.hide();
+                alert(res.message);
+            }
+        });
     };
 
     // cancel.onclick = function () {

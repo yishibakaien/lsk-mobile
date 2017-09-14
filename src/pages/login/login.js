@@ -91,7 +91,7 @@ import {
                 console.log(localStorage['x-token']);
                 Toast.success({
                     text: '登录成功',
-                    duration: 5000,
+                    duration: 1000,
                     complete: function() {
                         var url = getQueryString('from');
                         location.replace(url);

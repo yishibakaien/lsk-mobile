@@ -11,7 +11,11 @@ const API = {
         // 获取图片验证码
         getVerifyCode: '/front/user/getVerifyCode',
 
-        getUserInfo: '/user/getUserInfo'
+        // 获取最新用户信息
+        getUserInfo: '/user/getUserInfo',
+
+        // 更新用户信息
+        updateUser: '/user/updateUser'
     },
     main: {
         // 我的求购列表
@@ -153,6 +157,7 @@ export function allAreas(data, cb, err) {
 export function getUserInfo(data, cb, err) {
     return _fetch('POST', data, API.user.getUserInfo, cb, err);
 }
+<<<<<<< HEAD
 // 获取收藏供应列表
 export function listSupply(data, cb, err) {
     return _fetch('POST', data, API.main.listSupply, cb, err);
@@ -168,4 +173,9 @@ export function listProduct(data, cb, err) {
 //收藏或取消
 export function favoriteBus(data, cb, err) {
     return _fetch('POST', data, API.main.favoriteBus, cb, err);
+=======
+
+export function updateUser(data, cb, err) {
+    return _fetch('POST', data, API.user.updateUser, cb, err);
+>>>>>>> 4320e46ac2f95a9715fc34e6bd5763abdeb6b2e6
 }
