@@ -1,24 +1,7 @@
 require('common/styles/index.styl');
 require('./edit_address.styl');
 
-var picker = require('plugins/picker/address_picker.js');
-import Toast from 'plugins/toast/Toast';
 
-import {
-    c,
-    getQueryString
-} from 'utils/utils';
-
-import {
-    testName,
-    testTel,
-    testAddress
-} from 'utils/reg';
-
-import {
-    addConsignee,
-    editorConsignee
-}  from 'api/user';
 
 (function () {
     var save = c('#save');

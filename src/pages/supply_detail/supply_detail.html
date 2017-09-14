@@ -19,19 +19,19 @@
             <a class="icon-fanhui" href="#" onclick="javascript: history.go(-1);"></a>
         </div>
         <div class="center">供应详情</div>
-        <div class="right"><a href="">发布供应</a></div>
+        <div class="right"><a href="./publish_buying.html">发布求购</a></div>
     </div>
 </div>
-<div class="main-img"></div>
+<div class="main-img" id="supplyDetailPic"></div>
 <div class="supply-info-wrapper">
     <div class="supply-text border-bottom">
-        <div><span class="key">供应类型:</span><span class="value">睫毛-成品</span></div>
-        <div><span class="key">供应数量:</span><span class="value">面议</span></div>
-        <div><span class="key">发布时间:</span><span class="value">18小时前</span></div>
+        <div><span class="key">供应类型:</span><span class="value" id="supplyType"><!--睫毛-成品--></span></div>
+        <div><span class="key">供应数量:</span><span class="value" id="supplyNumber"><!--面议--></span></div>
+        <div><span class="key">发布时间:</span><span class="value" id="supplyTime"><!--18小时前--></span></div>
     </div>
     <div class="supply-username">
-        <img src="../../images/big_avatar.png">
-        <div class="supply-username-text"><span class="key">供应人:</span><span class="value">长乐市齐鸿针织有限公司市齐鸿针织有限市齐鸿针织有限市齐鸿针织有限市齐鸿针织有限市齐鸿针织有限市齐鸿针织有限市齐鸿针织有限</span></div>
+        <img id="companyAvatar" src="">
+        <div class="supply-username-text"><span class="key">供应人:</span><span class="value" id="supplyPeople"><!--长乐市齐鸿针织有限公司市齐鸿针织有限市齐鸿针织有限市齐鸿针织有限市齐鸿针织有限市齐鸿针织有限市齐鸿针织有限市齐鸿针织有限--></span></div>
 </div>
 </div>
 <div class="foot">
@@ -44,6 +44,21 @@
         <div class="down">点击下载</div>
     </div>
 </div>
+<!--<div class="mask" id="pictureMask">-->
+    <!--<div class="swiper-container" id="content">-->
+        <!--<div class="swiper-wrapper" >-->
+            <!--<div class="swiper-slide">-->
+                <!--<img id="detailPic" src="">-->
+            <!--</div>-->
+            <!--<div class="swiper-slide">-->
+                <!--<img id="_supplyDetailPic">-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="swiper-pagination"></div>-->
+        <!--<span class="close">&times;</span>-->
+    <!--</div>-->
+</div>
+</body>
 <script>
 
 </script>

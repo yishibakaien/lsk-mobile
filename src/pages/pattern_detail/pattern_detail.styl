@@ -100,8 +100,30 @@
     transform: translateY(1px);
 }
 
-.desc-wrapper #address {
+.desc-wrapper .left .address-wrapper {
+    display: flex;
+}
+
+.desc-wrapper .left .address-wrapper span {
+    display: block;
+}
+
+.desc-wrapper .left .address-wrapper .name {
+    flex: 0 0 auto;
+}
+
+.desc-wrapper .left .address-wrapper #address {
     color: #666;
+    flex: 1;
+    line-height: 16px;
+    //white-space: nowrap;
+    //overflow: hidden;
+    //text-overflow: ellipsis;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
 }
 
 .desc-wrapper .left .color-wrapper {
@@ -146,12 +168,17 @@
 }
 
 .desc-wrapper .right .icon-star-small {
-    color: #d40073;
+    color: #ddd;
+    //color: #d40073;
     font-size: 22px;
     position: relative;
     top: 2px;
 }
 
+
+.desc-wrapper .right .icon-star-small.active {
+    color: #d40073;
+}
 
 .desc-wrapper .right .page-view span {
     color: #999;
@@ -182,13 +209,13 @@
     overflow: hidden;
 }
 .message .content-wrapper .content {
-    margin-top: 15px;
+    //margin-top: 15px;
     width: 95%;
     overflow: hidden;
 }
 .message .content-wrapper .content .company-name {
     display: block;
-    height: 14px;
+    line-height: 72px;
     width: 100%;
     color: #333;
     overflow: hidden;

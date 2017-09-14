@@ -12,7 +12,9 @@ import {
     // 获取色卡
     getColorCards,
     // 采购登记
-    askPurchase
+    askPurchase,
+    // 收藏或取消
+    favoriteBus
 } from 'api/user';
 
 import {
@@ -26,7 +28,8 @@ import {
 } from 'utils/utils';
 
 var dataId = getQueryString('dataId');
-var companyId = getQueryString('companyId');
+var companyId;
+// var companyId = getQueryString('companyId');
 // 轮播图盒子
 // var picContainer = c('#picContainer');
 var productNo = c('#productNo');
@@ -57,6 +60,10 @@ var dress = c('#dress');
 var call = c('#call');
 // 弹起的轮播图
 // var detailPic = c('#detailPic');
+// 收藏按钮
+var collectStar = c('#collectStar');
+// 是否上架蕾丝控收藏星星
+var collectWrapper = c('#collectWrapper');
 
 
 // 色卡层蒙版层show&hide
@@ -96,52 +103,61 @@ var phoneIpt = c('#phoneIpt');
 
 
 
+
 (function () {
     // 获取详细工厂信息介绍
-    getCompanyInfo({
-        companyId
-    }, function (res) {
-        console.log('获取详细工厂信息', res);
-        var data = res.data;
-        companyMessage.setAttribute('company-id', data.id);
-        if (data.companyHeadIcon) {
-            avatar.src = data.companyHeadIcon;
-        }
-        // if (data.companyType === 1) {
-        //     tag.className = 'tag factory';
-        // } else if (data.companyType === 2) {
-        //     tag.className = 'tag stalls';
-        // }
-        companyName.innerHTML = data.companyName;
-        address.innerHTML = data.address;
-        localStorage.companyName = data.companyName;
-        call.setAttribute('phone', data.phone);
-
-        try {
-            companyBusiness.innerHTML = '主营：' + data.companyExtendBO.companyBusiness ? data.companyExtendBO.companyBusiness : '';
-        } catch (e) {
-            console.log(e);
-        }
-        call.addEventListener('click', function () {
-            var phone = this.getAttribute('phone');
-            location.href = 'tel:' + phone;
-        });
-
-        // 厂家点击事件
-        companyMessage.onclick = function () {
-            var _companyId = this.getAttribute('company-id');
-            // alert(_companyId);
-            if (_companyId) {
-                location.href = './index.html?companyId=' + _companyId;
+    function getCompanyMethod() {
+        getCompanyInfo({
+            companyId
+        }, function (res) {
+            console.log('获取详细工厂信息', res);
+            var data = res.data;
+            companyMessage.setAttribute('company-id', data.id);
+            if (data.companyHeadIcon) {
+                avatar.src = data.companyHeadIcon;
             }
-        };
-    });
+            // if (data.companyType === 1) {
+            //     tag.className = 'tag factory';
+            // } else if (data.companyType === 2) {
+            //     tag.className = 'tag stalls';
+            // }
+            companyName.innerHTML = data.companyName;
+            address.innerHTML = data.address;
+            localStorage.companyName = data.companyName;
+            call.setAttribute('phone', data.phone);
+
+            try {
+                companyBusiness.innerHTML = '主营：' + data.companyExtendBO.companyBusiness ? data.companyExtendBO.companyBusiness : '';
+            } catch (e) {
+                console.log(e);
+            }
+            call.addEventListener('click', function () {
+                var phone = this.getAttribute('phone');
+                location.href = 'tel:' + phone;
+            });
+
+            // 厂家点击事件
+            companyMessage.onclick = function () {
+                var _companyId = this.getAttribute('company-id');
+                // alert(_companyId);
+                if (_companyId) {
+                    location.href = './index.html?companyId=' + _companyId;
+                }
+            };
+        });
+    }
+
     // 获取产品信息
     getProduct({
         id: dataId
     }, function (res) {
         console.log('获取花型详情', res);
         var data = res.data;
+        companyId = data.companyId;
+        (data.isFavorite === 1) ? (collectStar.className = 'icon-star-small active') : ('icon-star-small');
+        collectWrapper.style.display = (data.isShelve ? 'block' : 'none');
+
+
         // referPriceValueArr[2] = data.cutPrice;
         // referPriceValueArr[2] = formatMoney(data.cutPrice, data.priceUnit);
         // var _picUrl = _formatPicUrl(data.defaultPicUrl);
@@ -181,6 +197,7 @@ var phoneIpt = c('#phoneIpt');
         referPriceValueArr.push(formatMoney(data.cutPrice, data.priceUnit));
 
         getColorCardMethod();
+        getCompanyMethod();
 
     });
     /* eslint-disable no-new */
@@ -365,6 +382,26 @@ var phoneIpt = c('#phoneIpt');
                 }
             });
         }
+    };
+    // 收藏或则取消星星
+    collectStar.onclick = function () {
+        var that = this;
+        favoriteBus({
+            businessId: dataId,
+            businessType: 1
+        }, function (res) {
+            console.log('收藏或取消', res);
+            if (res.code === 0) {
+                Toast.success(res.message, 1000);
+                if (res.message === '收藏成功') {
+                    that.className = 'icon-star-small active';
+                } else {
+                    that.className = 'icon-star-small';
+                }
+            } else {
+                Toast.info(res.message, 1000);
+            }
+        });
     };
 
     // var activeNumber = document.getElementsByClassName('active-number')[0],

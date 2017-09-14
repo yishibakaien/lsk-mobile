@@ -21,7 +21,17 @@ const API = {
         // 发布求购
         releaseProductBuy: '/productBuy/releaseProductBuy',
         // 获取求购单接单人列表
-        listBuyTaskUserByBuyId: '/buyTask/listBuyTaskUserByBuyId'
+        listBuyTaskUserByBuyId: '/buyTask/listBuyTaskUserByBuyId',
+        // 获取收藏供应列表
+        listSupply: '/favorite/listSupply',
+        // 获取厂家供应列表
+        listCompany: '/favorite/listCompany',
+        // 获取收藏花型列表
+        listProduct: '/favorite/listProduct',
+        // 收藏或取消
+        favoriteBus: '/favorite/favoriteBus',
+        // 获取供应详情
+        getCompanySupply: '/companySupply/getCompanySupply/'
     },
     detail: {
         // 获取花型详情
@@ -72,6 +82,12 @@ export function getProduct(data, cb, err) {
     let url = API.detail.getProduct.toString() + _data.id.toString();
     return _fetch('GET', {}, url, cb, err);
 }
+// 供应详情
+export function getCompanySupply(data, cb, err) {
+    let _data = data;
+    let url = API.main.getCompanySupply.toString() + _data.id.toString();
+    return _fetch('GET', {}, url, cb, err);
+}
 // 获取花型详情色卡
 export function getColorCards(data, cb, err) {
     return _fetch('GET', data, API.detail.getColorCards, cb, err);
@@ -105,7 +121,8 @@ export function getConsignee(data, cb, err) {
     let _data = data;
     let url = API.consignee.getConsignee.toString() + _data.id.toString();
     return _fetch('GET', {}, url, cb, err);
-}// 设置默认
+}
+// 设置默认
 export function setDefault(data, cb, err) {
     let _data = data;
     let url = API.consignee.setDefault.toString() + _data.id.toString();
@@ -135,4 +152,20 @@ export function allAreas(data, cb, err) {
 // 获取用户最新信息
 export function getUserInfo(data, cb, err) {
     return _fetch('POST', data, API.user.getUserInfo, cb, err);
+}
+// 获取收藏供应列表
+export function listSupply(data, cb, err) {
+    return _fetch('POST', data, API.main.listSupply, cb, err);
+}
+// 获取收藏厂家列表
+export function listCompany(data, cb, err) {
+    return _fetch('POST', data, API.main.listCompany, cb, err);
+}
+// 获取收藏花型列表
+export function listProduct(data, cb, err) {
+    return _fetch('POST', data, API.main.listProduct, cb, err);
+}
+//收藏或取消
+export function favoriteBus(data, cb, err) {
+    return _fetch('POST', data, API.main.favoriteBus, cb, err);
 }
