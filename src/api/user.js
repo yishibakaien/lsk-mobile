@@ -11,7 +11,11 @@ const API = {
         // 获取图片验证码
         getVerifyCode: '/front/user/getVerifyCode',
 
-        getUserInfo: '/user/getUserInfo'
+        // 获取最新用户信息
+        getUserInfo: '/user/getUserInfo',
+
+        // 更新用户信息
+        updateUser: '/user/updateUser'
     },
     main: {
         // 我的求购列表
@@ -130,4 +134,8 @@ export function allAreas(data, cb, err) {
 // 获取用户最新信息
 export function getUserInfo(data, cb, err) {
     return _fetch('POST', data, API.user.getUserInfo, cb, err);
+}
+
+export function updateUser(data, cb, err) {
+    return _fetch('POST', data, API.user.updateUser, cb, err);
 }

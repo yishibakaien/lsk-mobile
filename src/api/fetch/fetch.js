@@ -6,7 +6,7 @@ const Toast = require('plugins/toast/Toast');
 
 const headers = require('config/headers');
 
-const baseURL = require('config/domain');
+const baseURL = require('config/domain').url;
 
 const METHODS = {
     get: 'GET',

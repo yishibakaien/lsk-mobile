@@ -1,7 +1,9 @@
 'use strict';
 
 /**
- * 返回图片base64地址
+ * 图片上传
+ * @param  {[type]} file    input[type=file] dom 元素
+ * @param  {[type]} resolve 上传完毕后的回调函数
  */
 function uploadPictrue(file, resolve) {
     
