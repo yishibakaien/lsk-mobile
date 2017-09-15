@@ -155,6 +155,7 @@ var phoneIpt = c('#phoneIpt');
         var data = res.data;
         companyId = data.companyId;
         (data.isFavorite === 1) ? (collectStar.className = 'icon-star-small active') : ('icon-star-small');
+        // collectWrapper.style.display = 'block';
         collectWrapper.style.display = (data.isShelve ? 'block' : 'none');
 
 
@@ -226,7 +227,6 @@ var phoneIpt = c('#phoneIpt');
             c('.swiper-wrapper')[0].innerHTML = swiperStr;
             patternColorWrapper.innerHTML = imgStr;
             messageColorCard.innerHTML = imgStr;
-            /* eslint-disable no-new */
             var swiper = new Swiper('.swiper-container', {
                 spaceBetween: 30,
                 onSlideChangeEnd: function (swiper) {

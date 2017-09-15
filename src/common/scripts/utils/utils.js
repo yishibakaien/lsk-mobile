@@ -191,6 +191,44 @@ function formatPicUrl(url, size) {
     // }
 }
 
+// 获取时间间隔值
+function getDateDiff(dateTimeStamp){
+    var minute = 1000 * 60;
+    var hour = minute * 60;
+    var day = hour * 24;
+    var halfMonth = day * 15;
+    var now = new Date().getTime();
+    var diffValue = now - dateTimeStamp;
+    if (diffValue < 0) {
+        return;
+    }
+    var halfmonthC = diffValue / halfMonth;
+    var weekC = diffValue / (7 * day);
+    var dayC = diffValue / day;
+    var hourC = diffValue / hour;
+    var minC = diffValue / minute;
+    var result;
+    // if(halfmonthC >= 1){
+    //     result = '' + formatDate(dateTimeStamp, 'yyyy-MM-dd');
+    // }
+    if(weekC >= 1){
+        // result ='' + parseInt(weekC) + '周前';
+        result = '' + formatDate(dateTimeStamp, 'yyyy-MM-dd');
+    }
+    else if(dayC >= 1){
+        result =''+ parseInt(dayC) +'天前';
+    }
+    else if(hourC >= 1){
+        result =''+ parseInt(hourC) +'小时前';
+    }
+    else if(minC >= 1){
+        result =''+ parseInt(minC) +'分钟前';
+    }else {
+        result = '刚刚';
+    }
+    return result;
+}
+
 /**
  * 格式化传过来花型图片，由于花型样式是用背景图片设置的，这里设置了默认背景图片，
  * defaultPatternsUrl
@@ -228,6 +266,14 @@ function formatPhone(phone) {
     var p2 = phone.slice(7, 11);
     return p1 + '****' + p2;
 }
+function formatUserName(userName) {
+    var length = userName.length;
+    var p1 = userName.slice(0, 1);
+    for (var i = 1; i < length; i++) {
+        p1 += '*';
+    }
+    return p1;
+}
 export {
     bind,
     addActive,
@@ -244,5 +290,7 @@ export {
     c,
     formatPicUrl,
     formatPhone,
-    checkAndroid
+    checkAndroid,
+    getDateDiff,
+    formatUserName
 };

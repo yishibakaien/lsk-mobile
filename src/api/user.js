@@ -35,7 +35,13 @@ const API = {
         // 收藏或取消
         favoriteBus: '/favorite/favoriteBus',
         // 获取供应详情
-        getCompanySupply: '/companySupply/getCompanySupply/'
+        getCompanySupply: '/companySupply/getCompanySupply/',
+        // 获取求购详情
+        getProductBuy: '/productBuy/getProductBuy/',
+        // 首页求购列表
+        listHomeProductBuys: '/productBuy/listHomeProductBuys',
+        // 首页供应列表
+        listHomeCompanySupplys: '/companySupply/listHomeCompanySupplys'
     },
     detail: {
         // 获取花型详情
@@ -173,7 +179,15 @@ export function listProduct(data, cb, err) {
 export function favoriteBus(data, cb, err) {
     return _fetch('POST', data, API.main.favoriteBus, cb, err);
 }
-
+// 更新用户信息
 export function updateUser(data, cb, err) {
     return _fetch('POST', data, API.user.updateUser, cb, err);
+}
+// 首页求购列表
+export function listHomeProductBuys(data, cb, err) {
+    return _fetch('GET', data, API.main.listHomeProductBuys, cb, err);
+}
+// 首页供应列表
+export function listHomeCompanySupplys(data, cb, err) {
+    return _fetch('GET', data, API.main.listHomeCompanySupplys, cb, err);
 }

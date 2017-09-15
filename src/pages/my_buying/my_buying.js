@@ -6,7 +6,9 @@ import Toast from 'plugins/toast/Toast';
 
 import {
     c,
-    formatDate
+    getQueryString,
+    getDateDiff
+    // formatDate
 } from 'utils/utils';
 
 import {
@@ -25,7 +27,9 @@ import {
     var swiperTag = c('.swiper-tag')[0].getElementsByTagName('span');
     var contentSwiper = new Swiper('.swiper-container', {
         onSlideChangeEnd: swiperControl,
-        spaceBetween: 30
+        spaceBetween: 30,
+        initialSlide: ((getQueryString('swiperIndex')) ? (getQueryString('swiperIndex')) : 0)
+        // autoHeight: true,
     });
 
     var getGoingParamas = {
@@ -64,7 +68,7 @@ import {
                         <img src="${list[i].buyPicUrl}">
                         <div class="text">
                             <div class="top ellipsis-two">${list[i].buyDesc}</div>
-                            <div class="bottom"><span class="order-taking-num">已有<span class="num">${list[i].buyTaskCount}</span>人接单</span><span class="time">${formatDate((new Date(list[i].createDate)), 'yyyy-MM-dd')}</span></div>
+                            <div class="bottom"><span class="order-taking-num">已有<span class="num">${list[i].buyTaskCount}</span>人接单</span><span class="time">${getDateDiff(new Date(list[i].createDate))}</span></div>
                         </div>
                     </div>`;
                 div.innerHTML = listStr;
@@ -77,6 +81,7 @@ import {
                 goingWrapper.insertBefore(div, document.querySelector('.going-flag'));
             }
             var hasMore = res.data.pageNO < res.data.totalPage;
+            console.log('hasMore值:',hasMore);
             if (hasMore) {
                 getGoingParamas.pageNo++;
             }
@@ -99,7 +104,7 @@ import {
                     <img src="${list[i].buyPicUrl}">
                     <div class="text">
                         <div class="top ellipsis-two">${list[i].buyDesc}</div>
-                        <div class="bottom"><span class="order-taking-num">已有<span class="num">${list[i].buyTaskCount}</span>人接单</span><span class="time">${formatDate((new Date(list[i].createDate)), 'yyyy-MM-dd')}</span></div>
+                        <div class="bottom"><span class="order-taking-num">已有<span class="num">${list[i].buyTaskCount}</span>人接单</span><span class="time">${getDateDiff(new Date(list[i].createDate))}</span></div>
                     </div>
                 </div>
                 <div class="btn">
@@ -188,7 +193,7 @@ import {
                     <img src="${list[i].buyPicUrl}">
                     <div class="text">
                         <div class="top ellipsis-two">${list[i].buyDesc}</div>
-                        <div class="bottom"><span class="time">${formatDate((new Date(list[i].createDate)), 'yyyy-MM-dd')}</span></div>
+                        <div class="bottom"><span class="time">${getDateDiff(new Date(list[i].createDate))}</span></div>
                     </div>
                 </div>
                 <div class="btn">
@@ -221,7 +226,7 @@ import {
             }
             var hasMore = res.data.pageNO < res.data.totalPage;
             if (hasMore) {
-                getGoingParamas.pageNo++;
+                getCloseParamas.pageNo++;
             }
             pullUpLoad(hasMore, getClose, goingWrapper);
         });

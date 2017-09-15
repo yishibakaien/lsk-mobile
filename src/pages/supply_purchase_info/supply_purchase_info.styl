@@ -35,6 +35,17 @@ body {
     border-bottom-color: #d40073;
 }
 
+.swiper-slide {
+    height: 600px;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+}
+
+.swiper-container {
+    min-height: 100%;
+    height: auto;
+}
+
 .item {
     height: 150px;
     background-color: #fff;
@@ -78,6 +89,12 @@ body {
 .product-info .text .brief {
     position: absolute;
     top: 14px;
+    line-height: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
 }
 
 .product-info .text .type {

@@ -18,8 +18,7 @@ import {
 
 import {
     login,
-    getVerifyCode,
-    allAreas
+    getVerifyCode
 }  from 'api/user';
 
 
@@ -75,10 +74,6 @@ import {
             Toast.error(message.testImgCode, 1000);
         }
     };
-    allAreas({}, function (res) {
-        console.log(res);
-    });
-
     next.onclick = function() {
         Toast.loading('请稍后...');
         userData.userPWD = aes(userData.userPWD);
@@ -88,6 +83,8 @@ import {
             if (res.code === 0) {
                 var Xtoken = xhr.getResponseHeader('x-token');
                 localStorage['x-token'] = Xtoken;
+                localStorage['userType'] = res.userType;
+                localStorage['isSettled'] = res.isSettled;
                 console.log(localStorage['x-token']);
                 Toast.success({
                     text: '登录成功',
