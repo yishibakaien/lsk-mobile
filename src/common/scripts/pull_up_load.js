@@ -12,7 +12,7 @@ export function pullUpLoad(hasmore, ajaxFn, parentNode) {
     if (!parentNode) {
         parentNode = document.body;
     }
-    if (!document.querySelector('.cbui-loading-zone')) {
+    if (!parentNode.querySelector('.cbui-loading-zone')) {
         loadingZone = document.createElement('div');
         loadingZone.className = 'cbui-loading-zone';
         var tplStr = `<div class="load-more">上拉加载更多</div>
@@ -28,7 +28,7 @@ export function pullUpLoad(hasmore, ajaxFn, parentNode) {
         loadingZone.innerHTML = tplStr;
         parentNode.appendChild(loadingZone);
     } else {
-        loadingZone = document.querySelector('.cbui-loading-zone');
+        loadingZone = parentNode.querySelector('.cbui-loading-zone');
     }
     
     var loadMore = loadingZone.getElementsByClassName('load-more')[0];
