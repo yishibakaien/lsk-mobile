@@ -17,6 +17,29 @@ body {
     padding-top: 84px !important;
 }
 
+/* cqw change start*/
+
+.swiper-container {
+    position: fixed;
+    top: 84px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.swiper-container .swiper-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.swiper-slide {
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+}
+
+/* cqw change end*/
+
 .swiper-tag .text {
     width: 60px;
     text-align: center;
@@ -33,17 +56,6 @@ body {
 .swiper-tag .text span.active {
     color: #d40073;
     border-bottom-color: #d40073;
-}
-
-.swiper-slide {
-    height: 600px;
-    -webkit-overflow-scrolling: touch;
-    overflow-y: auto;
-}
-
-.swiper-container {
-    min-height: 100%;
-    height: auto;
 }
 
 .item {
