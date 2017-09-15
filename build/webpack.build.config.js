@@ -96,7 +96,10 @@ let config = {
             `created by ${pkg.author} on ${new Date().getFullYear()}/${new Date().getMonth()+1}/${new Date().getDate()}`,
             `${pkg.name} v${pkg.version}`,
             `Copyright  ${new Date().getFullYear()}, ${pkg.author}, ${pkg.license} license`
-        ].join('\n'))
+        ].join('\n')),
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify('prod')
+        })
     ]
 };
 // 读取文件生成entry 和 html
