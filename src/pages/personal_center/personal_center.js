@@ -33,6 +33,15 @@ import {
     var close = c('#close');
     var myCollect = c('#myCollect');
     var manageAddress = c('#manageAddress');
+    going.onclick = function() {
+        location.href = './my_buying.html?swiperIndex=0';
+    };
+    complete.onclick = function() {
+        location.href = './my_buying.html?swiperIndex=1';
+    };
+    close.onclick = function() {
+        location.href = './my_buying.html?swiperIndex=2';
+    };
 
     myCollect.onclick = function() {
         location.href = './my_collection.html';
