@@ -6,6 +6,7 @@ var Swiper = require('plugins/swiper/swiper-3.4.2.min.js');
 import {
     listLSKHomeUnSettledCompany,
     listLSKHomeProduct,
+    getSupplyAndBuy,
     listHomeClothes,
     listLSKHomeSettledCompany
 } from 'api/index_page';
@@ -95,6 +96,38 @@ function patterns() {
     });
 }
 
+supplyAndBuy()
+// 供求信息列表
+function supplyAndBuy() {
+    getSupplyAndBuy({
+        pageNo: 1,
+        pageSize: 9
+    }, function(res) {
+        console.log('供求信息列表', res);
+        var data = res.data.list;
+        var str = '';
+
+        data.forEach(function(item) {
+            str += `<div class="swiper-slide" data-id="${item.id}">
+                <div class="pattern" style="background-image:${formatBgPic(item.picUrl, 200)}">
+                </div>
+                <div class="text">${item.description}</div>
+            </div>`;
+        });
+        c('#supplyAndBuy').innerHTML = str;
+        var supplyBuyingInfoSwiper = new Swiper('.supply-buying-info-swiper', {
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+            autoplay: 5000,
+            loop: true,
+            autoplayDisableOnInteraction: false
+        });
+
+    }, function(res) {
+        console.error('供求信息列表', res);
+    });
+}
+
 clothes();
 // 首页版衣列表
 function clothes() {
@@ -140,6 +173,13 @@ function good() {
             </div>`;
         });
         c('#good').innerHTML = str;
+        var supplyBuyingInfoSwiper = new Swiper('.supply-buying-info-swiper', {
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+            autoplay: 5000,
+            loop: true,
+            autoplayDisableOnInteraction: false
+        });
     }, function(res) {
         console.error('首页优质厂家', res);
     });
@@ -153,13 +193,14 @@ function good() {
 //     autoplayDisableOnInteraction: false
 // });
 
-var supplyBuyingInfoSwiper = new Swiper('.supply-buying-info-swiper', {
-    slidesPerView: 3,
-    slidesPerGroup: 3,
-    autoplay: 5000,
-    loop: true,
-    autoplayDisableOnInteraction: false
-});
+// 供求信息
+// var supplyBuyingInfoSwiper = new Swiper('.supply-buying-info-swiper', {
+//     slidesPerView: 3,
+//     slidesPerGroup: 3,
+//     autoplay: 5000,
+//     loop: true,
+//     autoplayDisableOnInteraction: false
+// });
 
 // 版衣
 // var versionSwiper = new Swiper('.version-swiper', {
