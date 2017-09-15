@@ -78,6 +78,8 @@ import {
             console.log('图片上传返回值', res);
             Toast.hide();
             userData.userHeadIcon = rightSideAvatar.src = avatar.src = res[0];
+        }, function(res) {
+            Toast.error('图片上传失败，请重试');
         });
     };
 
