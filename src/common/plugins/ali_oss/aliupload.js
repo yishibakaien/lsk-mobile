@@ -73,12 +73,11 @@ export function aliupload(fileType, cb, err) {
 
                     var ret = urls.map(item => {
                         return item.split('?')[0];
-                    })
+                    });
                     cb(ret);
                     // console.log('multipartUpload后', _);
-                    // _.$emit('doUpload', _.url);
-                }).catch((err) => {
-                    err(err);
+                }).catch((res) => {
+                    err(res);
                 });
             }
         }

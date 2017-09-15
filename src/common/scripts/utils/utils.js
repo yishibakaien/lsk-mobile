@@ -208,7 +208,7 @@ function formatBgPic(url, size) {
         }
     } else {
         if (size) {
-            url = 'url(' + url + '?x-oss-process=/resize,w_' + size + ',h_' + size + ')';
+            url = 'url(' + url + '?x-oss-process=image/resize,w_' + size + ',h_' + size + ')';
         }
     }
     return url + defaultPatternsPicUrl;
