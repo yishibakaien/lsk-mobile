@@ -98,6 +98,12 @@ export function getCompanySupply(data, cb, err) {
     let url = API.main.getCompanySupply.toString() + _data.id.toString();
     return _fetch('GET', {}, url, cb, err);
 }
+// 获取求购详情
+export function getProductBuy(data, cb, err) {
+    let _data = data;
+    let url = API.main.getProductBuy.toString() + _data.id.toString();
+    return _fetch('GET', {}, url, cb, err);
+}
 // 获取花型详情色卡
 export function getColorCards(data, cb, err) {
     return _fetch('GET', data, API.detail.getColorCards, cb, err);

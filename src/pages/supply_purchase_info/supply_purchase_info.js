@@ -111,7 +111,7 @@ import {
                         <div class="text">
                             <div class="brief">${list[i].buyDesc}</div>
                             <div class="status">${((list[i].buyStatus) ? '求购中' : '已完成')}</div>
-                            <div class="time">${getDateDiff(new Date(list[i].createDate))}</div>
+                            <div class="time">${getDateDiff(list[i].createDate)}</div>
                         </div>
                     </div>`;
                 div.innerHTML = listStr;

@@ -90,11 +90,14 @@ import {
                     text: '登录成功',
                     duration: 1000,
                     complete: function() {
-                        var url = getQueryString('from');
-                        location.replace(url);
+                        if (getQueryString('from')) {
+                            var url = getQueryString('from');
+                            location.replace(url);
+                        } else {
+                            location.replace('./shouye.html');
+                        }
                     }
                 });
-                // location.href = 'http://www.baidu.com/';
             } else if (res.code === 2000004) {
                 if (imgIsHide) {
                     imgIsHide = false;
