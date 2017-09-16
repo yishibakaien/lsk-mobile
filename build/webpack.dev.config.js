@@ -82,6 +82,9 @@ let config = {
         // 打开浏览器
         new OpenBrowserPlugin({
             url: 'http://localhost:5000'
+        }),
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify('dev')
         })
     ],
     devServer: {

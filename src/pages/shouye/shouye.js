@@ -3,6 +3,8 @@ require('./shouye.styl');
 
 var Swiper = require('plugins/swiper/swiper-3.4.2.min.js');
 
+console.info('process.env.NODE_ENV', process.env.NODE_ENV);
+
 import {
     listLSKHomeUnSettledCompany,
     listLSKHomeProduct,
