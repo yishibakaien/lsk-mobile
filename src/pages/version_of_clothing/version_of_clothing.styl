@@ -14,6 +14,7 @@
     top: 44px;
     z-index: 16;
     overflow: hidden;
+    display: none;
 }
 
 .version-of-clothing-tip .left {
@@ -36,13 +37,34 @@
     border-radius: 28px;
     display: inline-block;
     float: left;
-    margin: 8px 30px;
+    margin: 8px 10px;
 }
 
 .version-of-clothing-tip .arrow {
     font-size: 24px;
     line-height: 36px;
 }
+
+.swiper-container {
+    position: fixed;
+    top: 44px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.swiper-container .swiper-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.swiper-slide {
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+}
+
 
 .version-of-clothing {
     /*height: 224px;*/
@@ -86,19 +108,34 @@
 }
 
 .version-of-clothing .right .middle {
+    width: 100%;
     color: #666;
     line-height: 18px;
-    height: 70px;
+    height: 84px;
     font-size: 12px;
     margin: 8px 0 16px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
 }
+
+//.version-of-clothing .right .middle div {
+//    width: 10em;
+//    word-break:keep-all;
+//}
 
 .version-of-clothing .right .bottom {
     font-size: 0;
+    height: 68px;
 }
 
 .version-of-clothing .right .bottom img {
-    height:82px;
-    width: 82px;
-    margin-left: 10px;
+    height: 65px;
+    width: 65px;
+}
+
+.version-of-clothing .right .bottom img:nth-child(1) {
+    border-right: 10px solid #fff;
 }

@@ -35,7 +35,7 @@ import {
         supplyDetailPic.style.backgroundImage =  `url(${_picUrl})`;
         supplyType.innerHTML = formatSupplyType(res.data.supplyType) + '-' + formatSupplyShape(res.data.supplyShape);
         supplyNumber.innerHTML = (res.data.supplyNum ? res.data.supplyNum + ' ' + formatUnit(res.data.supplyUnit) : '面议');
-        buyingTime.innerHTML = getDateDiff(res.data.createDate);
+        supplyTime.innerHTML = getDateDiff(res.data.createDate);
         supplyPeople.innerHTML = res.data.userName;
         companyAvatar.src = res.data.userHeadIcon;
         supplyDetailPic.onclick = function () {

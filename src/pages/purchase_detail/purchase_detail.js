@@ -21,8 +21,8 @@ import {
 }  from 'api/user';
 
 (function () {
-    // var dataId = getQueryString('dataId');
-    var dataId = 3327;
+    var dataId = getQueryString('dataId');
+    // var dataId = 3327;
     var companyAvatar = c('#companyAvatar');
     var buyingDetailPic = c('#buyingDetailPic');
     var buyingType = c('#buyingType');

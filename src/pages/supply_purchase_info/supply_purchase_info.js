@@ -19,6 +19,15 @@ import {
 } from 'api/user';
 
 (function () {
+    var headRight = c('#headRight');
+    var supplyWrapper = c('#supplyWrapper');
+    var buyingWrapper = c('#buyingWrapper');
+    var swiperTag = c('.swiper-tag')[0].getElementsByTagName('span');
+
+    var userType = localStorage.userType;
+    console.log((userType === '2'));
+    console.log((userType));
+    var isSettled = localStorage.isSettled;
     var text = [
         {
             text: '发布供应',
@@ -29,12 +38,12 @@ import {
             link: './publish_buying.html'
         }
     ];
-
-    var headRightText = c('#headRightText');
-    var supplyWrapper = c('#supplyWrapper');
-    var buyingWrapper = c('#buyingWrapper');
-    var swiperTag = c('.swiper-tag')[0].getElementsByTagName('span');
-
+    if (userType === '1') {
+        text[0].text = '发布求购';
+        text[0].link = './publish_buying.html';
+    }
+    headRight.innerHTML = text[0].text;
+    headRight.setAttribute('href', text[0].link);
 
     var getSupplyParamas = {
         supplyShapes: '',
@@ -104,7 +113,7 @@ import {
                 div.className = 'item';
                 listStr = `<div class="avatar-wrapper border-bottom">
                         <img src="${list[i].userHeadIcon}">
-                        <div>${formatUserName(list[i].userName)}</div>
+                        <div>${isSettled ? list[i].userName : formatUserName(list[i].userName)}</div>
                     </div>
                     <div class="product-info">
                         <img src="${list[i].buyPicUrl}">
@@ -119,7 +128,12 @@ import {
                 div.onclick = function () {
                     var id = this.getAttribute('data-id');
                     console.log(id);
-                    Toast.info('为了保密，供应详情仅对服装端用户公开', 1000);
+                    if (isSettled) {
+                        location.href = './purchase_detail.html?' + id;
+                    } else {
+                        Toast.info('为了保密，求购详情仅对蕾丝控商家公开', 1000);
+                    }
+
                 };
                 buyingWrapper.insertBefore(div, document.querySelector('.buying-flag'));
             }
@@ -154,8 +168,8 @@ import {
             swiperTag[i].className = swiperTag[i].className.replace('active', '');
         }
         swiperTag[swiper.activeIndex].className += ' active';
-        headRightText.innerHTML = text[swiper.activeIndex].text;
-        headRightText.setAttribute('href', text[swiper.activeIndex].link);
+        headRight.innerHTML = text[swiper.activeIndex].text;
+        headRight.setAttribute('href', text[swiper.activeIndex].link);
     }
 })();
 

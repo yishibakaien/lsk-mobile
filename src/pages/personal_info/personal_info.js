@@ -26,13 +26,13 @@ import {
 (function () {
     var avatar = c('#avatar');
     var rightSlide = c('#rightSlide');
-    var bottomSlide = c('#bottomSlide');
+    // var bottomSlide = c('#bottomSlide');
     var arrow = c('#arrow');
-    var cancel = c('#cancel');
+    // var cancel = c('#cancel');
     var inputPic = c('#inputPic');
     var rightSideAvatar = c('#rightSideAvatar');
     var userName = c('#userName');
-    var comfirm = c('#comfirm');
+    var confirm = c('#confirm');
     
     // var companyName = c('#companyName');
     // 截图组件
@@ -98,7 +98,7 @@ import {
 
     });
 
-    comfirm.onclick = function() {
+    confirm.onclick = function() {
         userData.userName = userName.value;
         userData.wechat = wechat.value;
         userData.qq = qq.value;

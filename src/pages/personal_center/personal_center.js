@@ -47,7 +47,7 @@ import {
         location.href = './my_collection.html';
     };
     manageAddress.onclick = function() {
-        location.href = './edit_address.html';
+        location.href = './address_manage.html';
     };
 
 })();

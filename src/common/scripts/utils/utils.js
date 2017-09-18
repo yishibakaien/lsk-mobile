@@ -196,21 +196,16 @@ function getDateDiff(dateTimeStamp){
     var minute = 1000 * 60;
     var hour = minute * 60;
     var day = hour * 24;
-    var halfMonth = day * 15;
     var now = new Date().getTime();
     var diffValue = now - dateTimeStamp;
     if (diffValue < 0) {
         return;
     }
-    var halfmonthC = diffValue / halfMonth;
     var weekC = diffValue / (7 * day);
     var dayC = diffValue / day;
     var hourC = diffValue / hour;
     var minC = diffValue / minute;
     var result;
-    // if(halfmonthC >= 1){
-    //     result = '' + formatDate(dateTimeStamp, 'yyyy-MM-dd');
-    // }
     if(weekC >= 1){
         // result ='' + parseInt(weekC) + '周前';
         result = '' + formatDate(dateTimeStamp, 'yyyy-MM-dd');
