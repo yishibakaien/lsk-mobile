@@ -18,12 +18,6 @@ const API = {
         updateUser: '/user/updateUser'
     },
     main: {
-        // 我的求购列表
-        myProductBuys: '/productBuy/myProductBuys',
-        // 删除求购
-        deleteProductBuy: '/productBuy/deleteProductBuy',
-        // 发布求购
-        releaseProductBuy: '/productBuy/releaseProductBuy',
         // 获取求购单接单人列表
         listBuyTaskUserByBuyId: '/buyTask/listBuyTaskUserByBuyId',
         // 获取收藏供应列表
@@ -41,7 +35,21 @@ const API = {
         // 首页求购列表
         listHomeProductBuys: '/productBuy/listHomeProductBuys',
         // 首页供应列表
-        listHomeCompanySupplys: '/companySupply/listHomeCompanySupplys'
+        listHomeCompanySupplys: '/companySupply/listHomeCompanySupplys',
+        // 获取版衣列表
+        listClothes: '/clothes/listClothes',
+        // 发布供应
+        releaseCompanySupply: '/companySupply/releaseCompanySupply',
+        // 我的求购列表
+        myProductBuys: '/productBuy/myProductBuys',
+        // 删除求购
+        deleteProductBuy: '/productBuy/deleteProductBuy',
+        // 发布求购
+        releaseProductBuy: '/productBuy/releaseProductBuy',
+        // 定制版衣
+        customClothes: '/clothes/customClothes',
+        // 定制花型
+        customProduct: '/clothes/customProduct'
     },
     detail: {
         // 获取花型详情
@@ -96,6 +104,12 @@ export function getProduct(data, cb, err) {
 export function getCompanySupply(data, cb, err) {
     let _data = data;
     let url = API.main.getCompanySupply.toString() + _data.id.toString();
+    return _fetch('GET', {}, url, cb, err);
+}
+// 获取求购详情
+export function getProductBuy(data, cb, err) {
+    let _data = data;
+    let url = API.main.getProductBuy.toString() + _data.id.toString();
     return _fetch('GET', {}, url, cb, err);
 }
 // 获取花型详情色卡
@@ -191,3 +205,21 @@ export function listHomeProductBuys(data, cb, err) {
 export function listHomeCompanySupplys(data, cb, err) {
     return _fetch('GET', data, API.main.listHomeCompanySupplys, cb, err);
 }
+// 获取版衣列表
+export function listClothes(data, cb, err) {
+    return _fetch('POST', data, API.main.listClothes, cb, err);
+}
+//发布供应
+export function releaseCompanySupply(data, cb, err) {
+    return _fetch('POST', data, API.main.releaseCompanySupply, cb, err);
+}
+//定制版衣
+export function customClothes(data, cb, err) {
+    return _fetch('POST', data, API.main.customClothes, cb, err);
+}
+//定制花型
+export function customProduct(data, cb, err) {
+    return _fetch('POST', data, API.main.customProduct, cb, err);
+}
+
+

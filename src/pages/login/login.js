@@ -83,18 +83,22 @@ import {
             if (res.code === 0) {
                 var Xtoken = xhr.getResponseHeader('x-token');
                 localStorage['x-token'] = Xtoken;
-                localStorage['userType'] = res.userType;
-                localStorage['isSettled'] = res.isSettled;
+                localStorage['userType'] = res.data.userType;
+                localStorage['isSettled'] = res.data.isSettled;
                 console.log(localStorage['x-token']);
                 Toast.success({
                     text: '登录成功',
                     duration: 1000,
                     complete: function() {
-                        var url = getQueryString('from');
-                        location.replace(url);
+                        if (getQueryString('from')) {
+                            var url = getQueryString('from');
+
+                            location.replace(url);
+                        } else {
+                            location.replace('./shouye.html');
+                        }
                     }
                 });
-                // location.href = 'http://www.baidu.com/';
             } else if (res.code === 2000004) {
                 if (imgIsHide) {
                     imgIsHide = false;

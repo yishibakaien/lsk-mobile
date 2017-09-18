@@ -10,7 +10,9 @@ import {
     formatSupplyType,
     formatUnit,
     formatDate,
-    formatPicUrl
+    formatPicUrl,
+    formatSupplyShape,
+    getDateDiff
 } from 'utils/utils';
 
 import {
@@ -31,13 +33,11 @@ import {
         console.log('供应详情', res);
         var _picUrl = formatPicUrl(res.data.productPicUrl);
         supplyDetailPic.style.backgroundImage =  `url(${_picUrl})`;
-        supplyType.innerHTML = formatSupplyType(res.data.supplyType);
+        supplyType.innerHTML = formatSupplyType(res.data.supplyType) + '-' + formatSupplyShape(res.data.supplyShape);
         supplyNumber.innerHTML = (res.data.supplyNum ? res.data.supplyNum + ' ' + formatUnit(res.data.supplyUnit) : '面议');
-        supplyNumber.innerHTML = (res.data.supplyNum ? res.data.supplyNum : 0) + ' ' + formatUnit(res.data.supplyUnit);
-        supplyTime.innerHTML = formatDate(res.data.createDate, 'yyyy-MM-dd');
+        supplyTime.innerHTML = getDateDiff(res.data.createDate);
         supplyPeople.innerHTML = res.data.userName;
         companyAvatar.src = res.data.userHeadIcon;
-        console.log('hahahaha');
         supplyDetailPic.onclick = function () {
             wx.previewImage({
                 urls: [ _picUrl]

@@ -1,14 +1,16 @@
 require('common/styles/index.styl');
 require('./my_collection.styl');
-require('plugins/swiper/swiper-3.4.2.min.js');
 
+require('plugins/swiper/swiper-3.4.2.min.js');
 var pullUpLoad = require('common/scripts/pull_up_load').pullUpLoad;
 import Toast from 'plugins/toast/Toast';
 
 import {
     c,
     formatDate,
-    formatUnit
+    formatUnit,
+    getDateDiff,
+    formatMoney
 } from 'utils/utils';
 
 import {
@@ -25,8 +27,8 @@ import {
     var supplyWrapper = c('#supplyWrapper');
     // 获取收藏花型列表Data
     var patternListData = {
-        category: '',
-        isStock: '',
+        category: -1,
+        isStock: -1,
         pageNo: 1,
         pageSize: 10
     };
@@ -36,6 +38,7 @@ import {
         pageNo: 1,
         pageSize: 10
     };
+
     // 获取收藏供应列表Data
     var supplyListData = {
         supplyShape: -1,
@@ -61,14 +64,11 @@ import {
                     <div class="text">
                         <div class="top">${list[i].productNo}</div>
                         <div class="middle ellipsis"><span class="firm-name">${list[i].companyName}</span></div>
-                        <div class="bottom"><span class="num">${list[i].price}/${formatUnit(list[i].priceUnit)}</span></div>
+                        <div class="bottom"><span class="num">${formatMoney(list[i].price, list[i].priceUnit)}</span></div>
                     </div>
-                    <div class="arrow icon-xiayiye" data-id="${list[i].id}" ></div>
+                    <div class="arrow icon-xiayiye"></div>
                 </div>`;
                 div.innerHTML = listStr;
-                // dataId = getQueryString('dataId');
-                // var companyId = getQueryString('companyId');
-
                 div.onclick = function () {
                     var id = this.getAttribute('data-id');
                     console.log(id);
@@ -131,7 +131,7 @@ import {
                     <div class="text">
                         <div class="top ellipsis-two">${list[i].supplyDesc}</div>
                         <div class="middle ellipsis"><span class="firm-name">${list[i].companyName}</span></div>
-                        <div class="bottom"><span class="time">${formatDate((new Date(list[i].createDate)), 'yyyy-MM-dd')}</span></div>
+                        <div class="bottom"><span class="time">${getDateDiff(res.data.createDate)}</span></div>
                     </div>
                     <div class="arrow icon-xiayiye"></div>
                 </div>`;
