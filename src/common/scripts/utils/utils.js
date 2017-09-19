@@ -94,6 +94,8 @@ function formatUnit(unit) {
         _unit = '公斤';
     } else if (unit === 400012) {
         _unit = '条';
+    } else {
+        _unit = '';
     }
     return _unit;
 }

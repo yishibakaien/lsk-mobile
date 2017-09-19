@@ -85,7 +85,9 @@ import {
                 localStorage['x-token'] = Xtoken;
                 localStorage['userType'] = res.data.userType;
                 localStorage['isSettled'] = res.data.isSettled;
+                localStorage['companyId'] = res.data.companyId;
                 console.log(localStorage['x-token']);
+                console.log(localStorage['companyId']);
                 Toast.success({
                     text: '登录成功',
                     duration: 1000,

@@ -1,73 +1,60 @@
 .upload-image-wrapper {
     width: 100%;
     background-color: #fff;
+    text-align: center;
+    font-size: 0;
+    box-sizing: border-box;
+    padding: 15px 5px 0 15px;
     margin-bottom: 10px;
     overflow: hidden;
 }
 
-.upload-image {
-    color: #999;
-    height: 93px;
-    width: 93px;
-    font-size: 36px;
-    border: 1px dashed #999;
-    box-sizing: border-box;
-    margin:15px auto;
-    padding-top: 26px;
-    padding-left: 25px;
-    position: relative;
-    overflow: hidden;
-}
-
-.upload-image input {
-    position: absolute;
-    border: 1px solid red;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    opacity: 0;
-}
-
-.upload-image-wrapper .preview {
-    margin: 0 10px 10px 10px;
-    text-align: left;
-}
-
-.upload-image-wrapper .preview img {
+.upload-image-wrapper img {
     height: 100px;
     width: 100px;
-    margin-right: 10px;
-    text-align: center;
 }
 
-.publish-buying-info {
+.upload-image-wrapper .item {
+    position: relative;
+    margin: 0 10px 15px 0;
+    display: inline-block;
+}
+
+.upload-image-wrapper .item .icon-close {
+    color: #999;
+    font-size: 18px;
+    position: absolute;
+    top: -2px;
+    right: -2px;
+}
+
+.publish-buy-info {
     background-color: #fff;
 }
 
-.publish-buying-info .text {
+.publish-buy-info .text {
     height: 44px;
     line-height: 44px;
     padding: 0 15px;
 }
 
-.publish-buying-info .key {
+.publish-buy-info .key {
     color: #666;
     float: left;
 }
 
-.publish-buying-info .value {
+.publish-buy-info .value {
     color: #333;
     float: right;
 }
 
-.publish-buying-info .value i {
+.publish-buy-info .value i {
     color: #999;
     font-size: 12px;
     padding-left: 9px;
 }
 
-.publish-buying-info .ipt {
+.publish-buy-info .desc-ipt {
     width: 100%;
     height: 79px;
     border: none;
@@ -77,9 +64,92 @@
     padding: 12px 15px;
 }
 
+//底部数量类型选择层
+.pop-up {
+    width: 100%;
+    min-height: 150px;
+    color: #666;
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+    display: none;
+    z-index 999;
+}
 
+.pop-up .top {
+    line-height: 40px;
+    display: flex;
+    text-align: center;
+    background-color: #fafafa;
+    padding: 0 15px;
+}
 
-.publish-buying-info .select-btn i {
+.pop-up .top .left {
+    line-height: 40px;
+}
+
+.pop-up .top .right {
+    color: #d40073;
+}
+
+.pop-up .top .center {
+    flex: 1;
+    color: #333;
+}
+
+.pop-up .bottom .num {
+    margin-top: 30px;
+    padding: 0 15px;
+    line-height: 24px;
+    display: flex;
+}
+
+.pop-up .bottom .num input {
+    flex: 1;
+    width: 100%;
+    margin: 0 15px;
+    background-color: #fafafa;
+    border-radius: 4px;
+}
+
+.pop-up .bottom .btn {
+    margin: 30px 0 45px 0;
+}
+
+.pop-up .bottom .btn .text {
+    padding-left: 15px;
+}
+
+.pop-up .bottom .btn .item {
+    display: flex;
+    padding-right: 15px;
+}
+
+.pop-up .bottom .btn span {
+    flex: 1;
+    display: inline-block;
+    width: 60px;
+    line-height: 24px;
+    text-align: center;
+    border: 1px solid #999;
+    border-radius: 4px;
+    margin: 15px 0 0 15px;
+}
+
+.pop-up .bottom .btn span.active {
+    border-color: #d40073;
+    color: #d40073;
+}
+
+.publish-buy-info .value .active, #numIpt.active{
+    color: red;
+}
+
+.publish-buy-info .select-btn .select {
+    margin-left: 50px;
+}
+
+.publish-buy-info .select-btn .select i {
     color: #fff;
     font-size: 12px;
     background-color: #bbb;
@@ -88,13 +158,12 @@
     margin-right: 5px;
 }
 
-.publish-buying-info .select-btn .value {
-    margin-left: 50px;
-    float: none;
-}
-
-.publish-buying-info .select-btn .value i.active {
+.publish-buy-info .select-btn .select i.active {
     background-color: #d40073;
 }
+
+//textarea.invalid::-webkit-input-placeholder {
+//    color: red;
+//}
 
 

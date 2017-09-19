@@ -9,7 +9,7 @@
     <!--<link rel="stylesheet" href="../../common/styles/common/reset.css">-->
     <!--<link rel="stylesheet" href="../../common/styles/common/common.css">-->
     <!--<link rel="stylesheet" href="../../common/fonts/font.css">-->
-    <!--<link rel="stylesheet" href="publish_buying.css">-->
+    <!--<link rel="stylesheet" href="publish_buy.css">-->
 </head>
 
 <body>
@@ -19,32 +19,110 @@
             <a class="icon-fanhui" href="#" onclick="javascript: history.go(-1);"></a>
         </div>
         <div class="center">发布求购</div>
-        <div class="right"><a href="">发布</a></div>
+        <div class="right" id="publish">发布</div>
     </div>
 </div>
-<div class="upload-image-wrapper">
-    <div class="upload-image">
-        <i class="icon-shangchuantupian"></i>
-        <input id="browse" type="file" multiple="multiple">
+<div class="upload-image-wrapper" id="uploadWrapper">
+    <div class="item" id="upload">
+        <img src="../../images/jiahua@2x.png">
     </div>
-    <div id="preview" class="preview"></div>
-    <!--<div class="upload-image-tip">最多可上传3张同款花型图片</div>-->
+    <!--<div class="item">-->
+    <!--<img src="../../images/big_avatar.png">-->
+    <!--<span class="icon-close"></span>-->
+    <!--</div>-->
+    <!--<div class="item">-->
+    <!--<img src="../../images/big_avatar.png">-->
+    <!--<span class="icon-close"></span>-->
+    <!--</div>-->
+    <!--<div class="item">-->
+    <!--<img src="../../images/big_avatar.png">-->
+    <!--<span class="icon-close"></span>-->
+    <!--</div>-->
+    <!--<div class="item">-->
+    <!--<img src="../../images/big_avatar.png">-->
+    <!--<span class="icon-close"></span>-->
+    <!--</div>-->
+    <!--<div class="item">-->
+    <!--<img src="../../images/big_avatar.png">-->
+    <!--<span class="icon-close"></span>-->
+    <!--</div>-->
 </div>
-<div class="publish-buying-info">
-    <div class="text border-bottom">
-        <span class="key">求购类型</span><span class="value">请选择类型<i class="icon-xiayiye"></i></span>
+<input style="display: none" class="file-input" id="inputPic" type="file" accept="image/*" name="file">
+<div class="publish-buy-info">
+    <div class="text border-bottom pop-show">
+        <span class="key">求购类型</span><span class="value"><span id="buyType">请选择类型</span><i class="icon-xiayiye"></i></span>
+        <!--<span class="icon-xiayiye"></span>-->
     </div>
-    <div class="text border-bottom">
-        <span class="key">求购数量(选填)</span><span class="value">请选择数量<i class="icon-xiayiye"></i></span>
+    <div class="text border-bottom pop-show">
+        <span class="key">求购形态</span><span class="value"><span id="buyShape">请选择形态</span><i class="icon-xiayiye"></i></span>
+        <!--<span class="icon-xiayiye"></span>-->
     </div>
-    <div class="text select-btn border-bottom">
-        <span class="key">接受开机</span><span class="value"><i class="icon-gou active"></i>接受</span><span class="value"><i class="icon-gou"></i>不接受</span>
+    <div class="text border-bottom pop-show">
+        <span class="key">求购数量(选填)</span><span class="value"><span id="buyNum">请选择数量</span><i class="icon-xiayiye"></i></span>
+        <!--<span class="icon-xiayiye"></span>-->
     </div>
-    <textarea class="ipt" placeholder="请填写求购花型的详细信息，如花高、宽幅等"></textarea>
+    <div class="text select-btn border-bottom" id="select">
+        <span class="key">接受开机</span><span class="select"><i class="icon-gou active" star-up-st="1"></i>接受</span><span class="select"><i class="icon-gou" star-up-st="0"></i>不接受</span>
+    </div>
+    <textarea class="desc-ipt" id="descIpt" placeholder="请填写供应花型的详细信息，如花高、宽幅等"></textarea>
 </div>
-<script>
 
-</script>
+
+<div class="mask" id="mask"></div>
+<div class="pop-up">
+    <div class="top border-bottom">
+        <span class="icon-close left"></span>
+        <span class="center">求购类型</span>
+        <span class="right pop-confirm">确定</span>
+    </div>
+    <div class="bottom">
+        <div class="btn">
+            <div class="text">选择求购类型</div>
+            <div class="item" id="typeItem">
+                <span item-id="100010">面料</span>
+                <span item-id="100011">大边</span>
+                <span item-id="100012">小边</span>
+                <span item-id="100013">睫毛</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pop-up">
+    <div class="top border-bottom">
+        <span class="icon-close left"></span>
+        <span class="center">求购形态</span>
+        <span class="right pop-confirm">确定</span>
+    </div>
+    <div class="bottom">
+        <div class="btn">
+            <div class="text">选择求购形态</div>
+            <div id="shapeItem">
+                <span item-id="200010">胚布</span>
+                <span item-id="200011">成品</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pop-up">
+    <div class="top border-bottom">
+        <span class="icon-close left"></span>
+        <span class="center">求购数量</span>
+        <span class="right pop-confirm">确定</span>
+    </div>
+    <div class="bottom">
+        <div class="num">
+            <div>数量</div>
+            <input type="number" id="numIpt">
+        </div>
+        <div class="btn">
+            <div class="text">选择单位</div>
+            <div id="numItem">
+                <span item-id="400010">码</span>
+                <span item-id="400011">公斤</span>
+                <span item-id="400012">条</span>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
-
 </html>
