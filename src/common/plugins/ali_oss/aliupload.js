@@ -6,7 +6,7 @@ const conf = require('config/domain');
 
 var _ = {
     dir: '',
-    region: conf.region, // 测试环境 oss-cn-shanghai，生产环境 oss-cn-shenzhen
+    region: conf.region,// process.env.NODE_ENV === 'prod' ? 'oss-cn-shenzhen' : 'oss-cn-shanghai', // 测试环境 oss-cn-shanghai，生产环境 oss-cn-shenzhen
     url: {
         base64Url: [],
         ossUrl: []
@@ -51,7 +51,7 @@ export function aliupload(fileType, cb, err) {
         _.dir = res.data.dir;
         const client = new OSS.Wrapper({
             region: _.region,
-            secure: conf.secure, // 测试环境 false 生产环境 true
+            secure: conf.secure,// process.env.NODE_ENV === 'prod', // 测试环境 false 生产环境 true
             accessKeyId: res.data.accessKeyId,
             accessKeySecret: res.data.accessKeySecret,
             stsToken: res.data.securityToken,
