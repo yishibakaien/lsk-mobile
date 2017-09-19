@@ -3,7 +3,7 @@ import {searchLace} from 'api/search.js';
 export function textSearch(options, cb, err) {
     console.log('文本搜索参数', options);
     var defaultOptions = {
-        categorys: '100010,100011,100012,100013',
+        categorys: '',
         dateSort: 2,
         isStock: 1,
         keywords: '',

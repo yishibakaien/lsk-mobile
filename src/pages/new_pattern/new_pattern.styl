@@ -17,7 +17,12 @@
     text-align: center;
     flex: 0 0 auto;
 }
-
+.head .center form {
+    display: inline-block;
+    margin-right: 5px;
+    flex: 1;
+    box-sizing: border-box;
+}
 .head-wrapper .head .center input {
     color: #fff;
     height: 28px;
@@ -27,6 +32,7 @@
     margin-right: 5px;
     flex: 1;
     box-sizing: border-box;
+    width: 100%;
 }
 
 input::-webkit-input-placeholder {
@@ -69,7 +75,7 @@ body {
 
 .new-pattern-list-wrapper {
     background-color: #fff;
-    margin-bottom: 48px;
+    // margin-bottom: 48px;
     padding-top: 44px;
     overflow: hidden;
 }
@@ -105,12 +111,27 @@ body {
 
 .new-pattern-img{
     width: 100%;
-    background-image: url('../../images/huaxing1.png');
+    // background-image: url('../../images/huaxing1.png');
     background-size: cover;
     padding-top: 100%;
     margin-bottom: 3px;
+    overflow: hidden;
+    position: relative;
+    background-color: #f8f8f8;
 }
-
+.new-pattern-img .recomend {
+    position absolute
+    font-size 14px
+    width 100px
+    text-align center
+    height 22px
+    line-height 22px
+    top 10px
+    right -30px
+    background #ff7011
+    color #fff
+    transform rotate(45deg)
+}
 .new-pattern-item  .text-wrapper {
     position: relative;
     overflow: hidden;
@@ -172,12 +193,12 @@ body {
     margin: 21px 0 14px 0;
 }
 
-.filter-wrapper .value {
+.filter-wrapper .value.need {
     display: flex;
     justify-content: space-between;
 }
 
-.filter-wrapper .value span {
+.filter-wrapper .value.need span {
     color: #666;
     height: 28px;
     width: 70px;
@@ -187,6 +208,22 @@ body {
     border-radius: 4px;
     margin-bottom: 15px;
     display: block;
+    float: left;
+}
+#area {
+    display: block;
+}
+.value span {
+    display: block;
+    float: left;
+    height: 28px;
+    width: 70px;
+    line-height: 28px;
+    margin: 0 15px 15px 0;
+    text-align: center;
+    color: #666;
+    border: 1px solid #d1d1d1;
+    border-radius: 4px;
 }
 
 .filter-wrapper .value span.active {

@@ -13,6 +13,10 @@
 </head>
 
 <body>
+<!-- 这个是搜图需要的组件 -->
+<div id="cropperWrapper" style="display: none;position: absolute;z-index: 101;top: 0;bottom: 0;width: 100%">
+    <img id="cropperImage" style="max-width: 100%">
+</div>
 <div class="head-wrapper">
     <div class="head">
         <div class="left">
@@ -23,7 +27,8 @@
             <form action="#" onsubmit="return false" style="display: inline-block;">
                 <input type="search" id="searchTextIpt" placeholder="输入花型编号或厂家进行搜索" required autocomplete="off">
             </form>
-            <div class="icon-xiangji"></div>
+            <div class="icon-xiangji" id="camera"></div>
+            <input style="display: none" class="file-input" id="searchPicIpt" type="file" accept="image/*" name="file">
         </div>
     </div>
 </div>
@@ -36,26 +41,28 @@
     <div class="filter-item-wrapper">
         <div class="filter-item border-bottom" id="pattern">
             <div class="key">花型分类</div>
-            <div class="value">
-                <span class="active">面料</span><span>大边</span><span>小边</span><span>睫毛</span>
+            <div class="value need">
+                <span class="active selected" type="categorys" data="100010">面料</span><span type="categorys" data="100011">大边</span><span type="categorys" data="100012">小边</span><span type="categorys" data="100013">睫毛</span>
             </div>
         </div>
         <div class="filter-item border-bottom"  id="stock">
             <div class="key">是否有库存</div>
-            <div class="value">
-                <span>有库存</span><span>无库存</span><div class="opacity"></div><div class="opacity"></div>
+            <div class="value need">
+                <span class="active selected" type="isStock" data="1">有库存</span><span type="isStock" data="0">无库存</span><div class="opacity"></div><div class="opacity"></div>
             </div>
         </div>
         <div class="filter-item"  id="area">
             <div class="key">地区(可多选)</div>
-            <div class="value">
-                <span>福建长乐</span><span>广州中大</span><span>汕头陈店</span><span>汕头峡山</span>
-            </div>
-            <div class="value">
-                <span>汕头谷饶</span><span>普宁流沙</span><span>浙江柯桥</span><span>浙江义乌</span>
-            </div>
-            <div class="value">
-                <span>其他</span>
+            <div class="value clearfix" id="areaBtns">
+                <!-- <span type="settledLands" data="福建长乐">福建长乐</span>
+                <span type="settledLands" data="广州中大">广州中大</span>
+                <span type="settledLands" data="汕头陈店">汕头陈店</span>
+                <span type="settledLands" data="汕头峡山">汕头峡山</span>
+                <span type="settledLands" data="汕头谷饶">汕头谷饶</span>
+                <span type="settledLands" data="普宁流沙">普宁流沙</span>
+                <span type="settledLands" data="浙江柯桥">浙江柯桥</span>
+                <span type="settledLands" data="浙江义乌">浙江义乌</span>
+                <span type="settledLands" data="">其他</span> -->
             </div>
         </div>
     </div>
@@ -65,13 +72,12 @@
     </div>
 </div>
 <div class="new-pattern-list-wrapper">
-    <div class="new-pattern-item">
+    <!-- <div class="new-pattern-item">
         <div class="new-pattern-img"></div>
         <div class="text-wrapper">
             <div class="left">
                 <div class="pattern-num">#200001</div>
                 <div class="pattern-price">￥10/码</div>
-                <!--<div class="firm-name">宏鑫兴针织</div>-->
             </div>
             <div class="right">
                 <img src="../../images/laceshangjia.png" alt="">
@@ -84,7 +90,6 @@
             <div class="left">
                 <div class="pattern-num">#200001</div>
                 <div class="pattern-price">￥10/码</div>
-                <!--<div class="firm-name">宏鑫兴针织</div>-->
             </div>
             <div class="right">
                 <img src="../../images/laceshangjia.png" alt="">
@@ -97,7 +102,6 @@
             <div class="left">
                 <div class="pattern-num">#200001</div>
                 <div class="pattern-price">￥10/码</div>
-                <!--<div class="firm-name">宏鑫兴针织</div>-->
             </div>
             <div class="right" style="display: none;">
                 <img src="../../images/laceshangjia.png" alt="">
@@ -110,7 +114,6 @@
             <div class="left">
                 <div class="pattern-num">#200001</div>
                 <div class="pattern-price">￥10/码</div>
-                <!--<div class="firm-name">宏鑫兴针织</div>-->
             </div>
             <div class="right" style="display: none;">
                 <img src="../../images/laceshangjia.png" alt="">
@@ -123,7 +126,6 @@
             <div class="left">
                 <div class="pattern-num">#200001</div>
                 <div class="pattern-price">￥10/码</div>
-                <!--<div class="firm-name">宏鑫兴针织</div>-->
             </div>
             <div class="right" style="display: none;">
                 <img src="../../images/laceshangjia.png" alt="">
@@ -136,13 +138,12 @@
             <div class="left">
                 <div class="pattern-num">#200001</div>
                 <div class="pattern-price">￥10/码</div>
-                <!--<div class="firm-name">宏鑫兴针织</div>-->
             </div>
             <div class="right">
                 <img src="../../images/laceshangjia.png" alt="">
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 </body>
 

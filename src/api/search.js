@@ -23,6 +23,10 @@ const API = {
         },
         text: {
             searchLace: '/product/searchLace'
+        },
+        // 获取蕾丝控商家入驻地
+        settledLand: {
+            getSettledLands: '/common/getSettledLands'
         }
     }
 };
@@ -50,6 +54,11 @@ export function urlSearch(data, cb, err) {
 // 获取搜索结果 图片
 export function getResult(data, cb, err) {
     return _fetch(METHODS.get, data, API.search.pic.getResult, cb, err);
+}
+
+// 获取蕾丝控商家入驻地点
+export function getSettledLands(data, cb, err) {
+    return _fetch(METHODS.get, data, API.search.settledLand.getSettledLands, cb, err);
 }
 
 // =========
