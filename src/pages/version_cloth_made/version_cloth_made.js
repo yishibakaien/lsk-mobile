@@ -1,6 +1,7 @@
 require('common/styles/index.styl');
 require('./version_cloth_made.styl');
 
+import wx from 'weixin-js-sdk';
 import Toast from 'plugins/toast/Toast';
 import {
     c,
@@ -99,6 +100,17 @@ import {
             upload.style.display = 'block';
         }
     }
+
+    // var swiperItem = document.querySelectorAll('.swiper-slide');
+    // Array.prototype.forEach.call(swiperItem, function (item) {
+    //     item.onclick = function () {
+    //         console.log(this.getAttribute('url'), imgArr);
+    //         wx.previewImage({
+    //             current: this.getAttribute('url'),
+    //             urls: imgArr
+    //         });
+    //     };
+    // });
     // 发布按钮
     submit.onclick = function() {
         data.companyId = parseInt(localStorage.companyId);

@@ -64,8 +64,6 @@ import {
         Toast.loading('正在上传..');
         aliupload.call(this, 3, function(res) {
             console.log('图片上传返回值', res);
-            // _this.outerHTML = _this.outerHTML;
-            // _this.value = '';
             Toast.hide();
             var str = '';
             var div = document.createElement('div');
@@ -85,7 +83,7 @@ import {
                         break;
                     }
                 }
-                // console.log('imgArr删除后剩余值', imgArr);
+                console.log('imgArr删除后剩余值', imgArr);
                 console.log(_this, _this.files);
                 _this.outerHTML = _this.outerHTML;
                 _this.value = '';
