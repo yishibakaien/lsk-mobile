@@ -16,7 +16,7 @@ import {
 } from 'utils/reg';
 
 import {
-    checkPhone,
+    // checkPhone,
     getUserInfo
 }  from 'api/user';
 
@@ -62,9 +62,9 @@ getUserInfo({}, function(res) {
 
 }, function(res) {});
 
-console.log(checkPhone);
-checkPhone({
-    mobile: '18650470415'
-}, function(res) {
-    console.log(res);
-});
+// console.log(checkPhone);
+// checkPhone({
+//     mobile: '18650470415'
+// }, function(res) {
+//     console.log(res);
+// });

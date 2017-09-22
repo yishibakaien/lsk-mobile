@@ -1,4 +1,4 @@
-import OSS from './ali_oss_jssdk';
+// var OSS = require('./ali_oss_jssdk.js');
 // import uploadPictrue from 'utils/uploadPictrue';
 import {token} from 'api/alioss';
 
