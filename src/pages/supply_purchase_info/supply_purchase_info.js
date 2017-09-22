@@ -25,8 +25,7 @@ import {
     var swiperTag = c('.swiper-tag')[0].getElementsByTagName('span');
 
     var userType = localStorage.userType;
-    console.log((userType === '2'));
-    console.log((userType));
+    console.log('userType', userType);
     var isSettled = localStorage.isSettled;
     var text = [
         {
@@ -88,8 +87,9 @@ import {
 
                 div.onclick = function () {
                     var id = this.getAttribute('data-id');
-                    console.log(id);
+                    console.log('data-id', id);
                     Toast.info('为了保密，供应详情仅对服装端用户公开', 1000);
+                    location.href = './supply_detail.html?dataId=' + id;
                 };
                 supplyWrapper.insertBefore(div, document.querySelector('.supply-flag'));
             }
@@ -127,9 +127,9 @@ import {
 
                 div.onclick = function () {
                     var id = this.getAttribute('data-id');
-                    console.log(id);
+                    console.log('data-id', id);
                     if (isSettled) {
-                        location.href = './purchase_detail.html?' + id;
+                        location.href = './purchase_detail.html?dataId=' + id;
                     } else {
                         Toast.info('为了保密，求购详情仅对蕾丝控商家公开', 1000);
                     }

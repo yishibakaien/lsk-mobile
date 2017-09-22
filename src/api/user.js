@@ -49,7 +49,11 @@ const API = {
         // 定制版衣
         customClothes: '/clothes/customClothes',
         // 定制花型
-        customProduct: '/clothes/customProduct'
+        customProduct: '/clothes/customProduct',
+        // 关闭供应
+        closeCompanySupply: '/companySupply/closeCompanySupply',
+        // 关闭求购
+        closeProductBuy: '/productBuy/closeProductBuy'
     },
     detail: {
         // 获取花型详情
@@ -221,5 +225,11 @@ export function customClothes(data, cb, err) {
 export function customProduct(data, cb, err) {
     return _fetch('POST', data, API.main.customProduct, cb, err);
 }
-
-
+// 关闭供应
+export function closeCompanySupply(data, cb, err) {
+    return _fetch('POST', data, API.main.closeCompanySupply, cb, err);
+}
+//关闭求购
+export function closeProductBuy(data, cb, err) {
+    return _fetch('POST', data, API.main.closeProductBuy, cb, err);
+}

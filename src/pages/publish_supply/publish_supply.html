@@ -23,7 +23,7 @@
     </div>
 </div>
 <div class="upload-image-wrapper" id="uploadWrapper">
-    <div class="item" id="upload">
+    <div class="upload" id="upload">
         <img src="../../images/jiahua@2x.png">
     </div>
     <!--<div class="item">-->
@@ -47,7 +47,9 @@
         <!--<span class="icon-close"></span>-->
     <!--</div>-->
 </div>
-<input style="display: none" class="file-input" id="inputPic" type="file" accept="image/*" name="file">
+<form id="imgForm">
+    <input style="display: none" class="file-input" id="inputPic" type="file" accept="image/*" name="file">
+</form>
 <div class="publish-supply-info">
     <div class="text border-bottom pop-show">
         <span class="key">供应类型</span><span class="value"><span id="supplyType">请选择类型</span><i class="icon-xiayiye"></i></span>
@@ -70,13 +72,13 @@
     <div class="top border-bottom">
         <span class="icon-close left"></span>
         <span class="center">供应类型</span>
-        <span class="right pop-confirm">确定</span>
+        <span class="right pop-confirm" item-index="0" item-id="100010">确定</span>
     </div>
     <div class="bottom">
         <div class="btn">
             <div class="text">选择供应类型</div>
             <div class="item" id="typeItem">
-                <span item-id="100010">面料</span>
+                <span item-id="100010" class="active">面料</span>
                 <span item-id="100011">大边</span>
                 <span item-id="100012">小边</span>
                 <span item-id="100013">睫毛</span>
@@ -88,13 +90,13 @@
     <div class="top border-bottom">
         <span class="icon-close left"></span>
         <span class="center">供应形态</span>
-        <span class="right pop-confirm">确定</span>
+        <span class="right pop-confirm" item-index="1" item-id="200010">确定</span>
     </div>
     <div class="bottom">
         <div class="btn">
             <div class="text">选择供应形态</div>
             <div class="item" id="shapeItem">
-                <span item-id="200010">胚布</span>
+                <span item-id="200010" class="active">胚布</span>
                 <span item-id="200011">成品</span>
                 <span item-id="200012">现货</span>
                 <span item-id="200013">做货</span>
@@ -106,7 +108,7 @@
     <div class="top border-bottom">
         <span class="icon-close left"></span>
         <span class="center">供应数量</span>
-        <span class="right pop-confirm">确定</span>
+        <span class="right pop-confirm" item-index="2" item-id="400010">确定</span>
     </div>
     <div class="bottom">
         <div class="num">
@@ -116,7 +118,7 @@
         <div class="btn">
             <div class="text">选择单位</div>
             <div id="numItem">
-                <span item-id="400010">码</span>
+                <span item-id="400010" class="active">码</span>
                 <span item-id="400011">公斤</span>
                 <span item-id="400012">条</span>
             </div>

@@ -78,14 +78,14 @@
 }
 
 .item-wrapper img {
-    height: 100px;
-    width: 100px;
+    height: 90px;
+    width: 90px;
 }
 
-.item-wrapper .item {
+.item-wrapper .item, .item-wrapper .upload {
     position: relative;
-    margin-right: 15px;
-    display: inline-block;
+    margin-right: 9px;
+    float: left;
 }
 
 .upload-image-wrapper .item .icon-close {
@@ -94,6 +94,10 @@
     position: absolute;
     top: -2px;
     right: -2px;
+}
+
+.upload-image-wrapper :last-child {
+    margin-right: 0;
 }
 
 .upload-image-wrapper .call {

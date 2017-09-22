@@ -1,6 +1,6 @@
 require('common/styles/index.styl');
 require('./pattern_made.styl');
-
+import wx from 'weixin-js-sdk';
 import Toast from 'plugins/toast/Toast';
 import {
     c,
@@ -22,6 +22,15 @@ import {
 }  from 'api/user';
 
 (function () {
+    if (!localStorage['x-token']) {
+        Toast.info({
+            text: '用户未登录',
+            duration: 2100,
+            complete: function() {
+                location.replace('./login.html?from=' + location.href);
+            }
+        });
+    }
     // 表单部分
     var firmNameIpt = c('#firmNameIpt');
     var userNameIpt = c('#userNameIpt');
@@ -31,6 +40,7 @@ import {
     // 上传图片部分
     var imgArr = [];
     var itemWrapper = c('#itemWrapper');
+    var imgForm = c('#imgForm');
     var inputPic = c('#inputPic');
     var upload = c('#upload');
     var submit = c('#submit');
@@ -59,7 +69,7 @@ import {
     };
 
     inputPic.onchange = function() {
-        var _this = this;
+        // var _this = this;
         console.log(this, this.files);
         Toast.loading('正在上传..');
         aliupload.call(this, 3, function(res) {
@@ -70,12 +80,15 @@ import {
             div.className = 'item';
             imgArr.push(res[0]);
             // data.buyPicUrl = res[0];
-            // console.log('imgArr值', imgArr);
+            console.log('imgArr值', imgArr);
             str = `<img src="${res[0]}"><span class="icon-close"></span>`;
             div.innerHTML = str;
             itemWrapper.insertBefore(div, upload);
             isSingleImg();
-            div.getElementsByClassName('icon-close')[0].onclick = function () {
+            imgView();
+            div.getElementsByClassName('icon-close')[0].onclick = function (e) {
+                e.cancelBubble = true;
+                e.stopPropagation();
                 this.parentElement.parentElement.removeChild(this.parentElement);
                 for(var i = 0; i < imgArr.length; i++) {
                     if(imgArr[i] === this.previousElementSibling.getAttribute('src')) {
@@ -84,17 +97,30 @@ import {
                     }
                 }
                 console.log('imgArr删除后剩余值', imgArr);
-                console.log(_this, _this.files);
-                _this.outerHTML = _this.outerHTML;
-                _this.value = '';
-                console.log(_this, _this.files);
+                // console.log(_this, _this.files);
+                // _this.outerHTML = _this.outerHTML;
+                // _this.value = '';
+                // console.log(_this, _this.files);
+                imgForm.reset();
                 isSingleImg();
+                imgView();
             };
 
         }, function(res) {
             Toast.error('图片上传失败，请重试');
         });
     };
+    function imgView() {
+        var imgItem = document.querySelectorAll('.item');
+        Array.prototype.forEach.call(imgItem, function (item) {
+            item.onclick = function () {
+                wx.previewImage({
+                    current: this.getElementsByTagName('img')[0].getAttribute('src'),
+                    urls: imgArr
+                });
+            };
+        });
+    }
 
     function isSingleImg() {
         if (imgArr.length > 0) {
@@ -105,6 +131,7 @@ import {
             upload.style.display = 'block';
         }
     }
+
     // 发布按钮
     submit.onclick = function() {
         data.companyId = parseInt(localStorage.companyId);

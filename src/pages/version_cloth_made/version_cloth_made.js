@@ -1,6 +1,5 @@
 require('common/styles/index.styl');
 require('./version_cloth_made.styl');
-
 import wx from 'weixin-js-sdk';
 import Toast from 'plugins/toast/Toast';
 import {
@@ -23,6 +22,15 @@ import {
 }  from 'api/user';
 
 (function () {
+    if (!localStorage['x-token']) {
+        Toast.info({
+            text: '用户未登录',
+            duration: 2100,
+            complete: function() {
+                location.replace('./login.html?from=' + location.href);
+            }
+        });
+    }
     // 表单部分
     var firmNameIpt = c('#firmNameIpt');
     var userNameIpt = c('#userNameIpt');
@@ -32,6 +40,7 @@ import {
     // 上传图片部分
     var imgArr = [];
     var itemWrapper = c('#itemWrapper');
+    var imgForm = c('#imgForm');
     var inputPic = c('#inputPic');
     var upload = c('#upload');
     var submit = c('#submit');
@@ -75,7 +84,10 @@ import {
             div.innerHTML = str;
             itemWrapper.insertBefore(div, upload);
             isSingleImg();
-            div.getElementsByClassName('icon-close')[0].onclick = function () {
+            imgView();
+            div.getElementsByClassName('icon-close')[0].onclick = function (e) {
+                e.cancelBubble = true;
+                e.stopPropagation();
                 this.parentElement.parentElement.removeChild(this.parentElement);
                 for(var i = 0; i < imgArr.length; i++) {
                     if(imgArr[i] === this.previousElementSibling.getAttribute('src')) {
@@ -84,13 +96,25 @@ import {
                     }
                 }
                 console.log('imgArr删除后剩余值', imgArr);
+                imgForm.reset();
                 isSingleImg();
+                imgView();
             };
         }, function(res) {
             Toast.error('图片上传失败，请重试');
         });
     };
-
+    function imgView() {
+        var imgItem = document.querySelectorAll('.item');
+        Array.prototype.forEach.call(imgItem, function (item) {
+            item.onclick = function () {
+                wx.previewImage({
+                    current: this.getElementsByTagName('img')[0].getAttribute('src'),
+                    urls: imgArr
+                });
+            };
+        });
+    }
     function isSingleImg() {
         if (imgArr.length > 0) {
             // itemWrapper.style.textAlign = 'left';

@@ -1,11 +1,13 @@
 require('common/styles/index.styl');
 require('./publish_supply.styl');
-
+import wx from 'weixin-js-sdk';
 import Toast from 'plugins/toast/Toast';
 import {
     c,
     checkAndroid,
-    formatUnit
+    formatUnit,
+    formatSupplyType,
+    formatSupplyShape,
     // getQueryString
 } from 'utils/utils';
 import {
@@ -41,6 +43,7 @@ import {
     // 上传图片部分
     var imgArr = [];
     var uploadWrapper = c('#uploadWrapper');
+    var imgForm = c('#imgForm');
     var inputPic = c('#inputPic');
     var upload = c('#upload');
     var publish = c('#publish');
@@ -74,14 +77,17 @@ import {
             var div = document.createElement('div');
             div.className = 'item';
             imgArr.push(res[0]);
-            data.productPicUrl = res[0];
+            // data.productPicUrl = res[0];
             console.log('imgArr值', imgArr);
             str = `<img src="${res[0]}">
         <span class="icon-close"></span>`;
             div.innerHTML = str;
             uploadWrapper.insertBefore(div, upload);
             isSingleImg();
-            div.getElementsByClassName('icon-close')[0].onclick = function () {
+            imgView();
+            div.getElementsByClassName('icon-close')[0].onclick = function (e) {
+                e.cancelBubble = true;
+                e.stopPropagation();
                 this.parentElement.parentElement.removeChild(this.parentElement);
                 for(var i = 0; i < imgArr.length; i++) {
                     if(imgArr[i] === this.previousElementSibling.getAttribute('src')) {
@@ -90,12 +96,26 @@ import {
                     }
                 }
                 console.log('imgArr删除后剩余值', imgArr);
+                imgForm.reset();
                 isSingleImg();
+                imgView();
             };
         }, function(res) {
             Toast.error('图片上传失败，请重试');
         });
     };
+
+    function imgView() {
+        var imgItem = document.querySelectorAll('.item');
+        Array.prototype.forEach.call(imgItem, function (item) {
+            item.onclick = function () {
+                wx.previewImage({
+                    current: this.getElementsByTagName('img')[0].getAttribute('src'),
+                    urls: imgArr
+                });
+            };
+        });
+    }
 
     function isSingleImg() {
         if (imgArr.length > 0) {
@@ -131,14 +151,16 @@ import {
             mask.style.display = 'none';
             if (this.getAttribute('item-index') === '0') {
                 data.supplyType = parseInt(this.getAttribute('item-id'));
-                supplyType.innerHTML = this.getAttribute('item-inner');
+                supplyType.innerHTML = formatSupplyType(data.supplyType);
             } else if (this.getAttribute('item-index') === '1') {
                 data.supplyShapes = this.getAttribute('item-id');
-                supplyShape.innerHTML = this.getAttribute('item-inner');
-            } else {
-                data.supplyNum = parseInt(this.getAttribute('item-value'));
+                supplyShape.innerHTML = formatSupplyShape(data.supplyShapes);
+            } else if (this.getAttribute('item-index') === '2') {
+                data.supplyNum = (this.getAttribute('item-value') ? parseInt(this.getAttribute('item-value')) : 0);
                 data.supplyUnit = parseInt(this.getAttribute('item-id'));
-                supplyNum.innerHTML = data.supplyNum ? data.supplyNum + this.getAttribute('item-inner') : '面议';
+                console.log((data.supplyUnit && data.supplyNum));
+                supplyNum.innerHTML = (data.supplyNum && data.supplyUnit) ? data.supplyNum + formatUnit(data.supplyUnit) : '面议';
+
             }
         };
     }
@@ -148,7 +170,7 @@ import {
         typeBtns[j].onclick = function () {
             activeClear(typeBtns);
             this.className = 'active';
-            setTagDtToConfBtn(this, 0);
+            setTagDtToConfBtn(this);
         };
     }
     // 求购形态
@@ -157,7 +179,7 @@ import {
         shapeBtns[t].onclick = function () {
             activeClear(shapeBtns);
             this.className = 'active';
-            setTagDtToConfBtn(this, 1);
+            setTagDtToConfBtn(this);
         };
     }
     // 求购数量
@@ -165,14 +187,12 @@ import {
     numIpt.oninput = function () {
         var setTagDtToConfBtn = this.parentElement.parentElement.parentElement.getElementsByClassName('pop-confirm')[0];
         setTagDtToConfBtn.setAttribute('item-value', this.value);
-        setTagDtToConfBtn.setAttribute('item-index', 2);
     };
     for (var g = 0; g < numBtns.length; g++) {
         numBtns[g].onclick = function () {
             activeClear(numBtns);
             this.className = 'active';
-            setTagDtToConfBtn(this, 2);
-            data.supplyUnit = parseInt(this.getAttribute('item-id'));
+            setTagDtToConfBtn(this);
         };
     }
     // 选择是否接受开机
@@ -191,6 +211,13 @@ import {
     };
     // 发布按钮
     publish.onclick = function() {
+        // for (var k = 0; k < 3; k++) {
+        //     data['refPic' + (k + 1)] = '';
+        // }
+        // for (var i = 0; i < imgArr.length; i++) {
+        //     data['refPic' + (i + 1)] = imgArr[i];
+        // }
+        data.productPicUrl = (imgArr[0] ? imgArr[0] : '');
         console.log('发布求购Data:', data);
         if (check()) {
             releaseCompanySupply(data, function (res) {
@@ -211,11 +238,9 @@ import {
     };
 
 
-    function setTagDtToConfBtn(_this, index) {
+    function setTagDtToConfBtn(_this) {
         var setTagDtToConfBtn = _this.parentElement.parentElement.parentElement.parentElement.getElementsByClassName('pop-confirm')[0];
         setTagDtToConfBtn.setAttribute('item-id', _this.getAttribute('item-id'));
-        setTagDtToConfBtn.setAttribute('item-inner', _this.innerHTML);
-        setTagDtToConfBtn.setAttribute('item-index', index);
     }
     function check() {
         if (data.productPicUrl === '') {

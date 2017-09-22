@@ -19,6 +19,7 @@ import {
 } from 'api/user';
 
 (function () {
+    console.log(location.href);
     var foot = c('#foot');
     var downApp = c('#downApp');
     var goingWrapper = c('#goingWrapper');
@@ -29,7 +30,6 @@ import {
         onSlideChangeEnd: swiperControl,
         spaceBetween: 30,
         initialSlide: ((getQueryString('swiperIndex')) ? (getQueryString('swiperIndex')) : 0)
-        // autoHeight: true,
     });
 
     var getGoingParamas = {
@@ -68,7 +68,7 @@ import {
                         <img src="${list[i].buyPicUrl}">
                         <div class="text">
                             <div class="top ellipsis-two">${list[i].buyDesc}</div>
-                            <div class="bottom"><span class="order-taking-num">已有<span class="num">${list[i].buyTaskCount}</span>人接单</span><span class="time">${getDateDiff(new Date(list[i].createDate))}</span></div>
+                            <div class="bottom"><span class="order-taking-num" style="display: ${list[i].buyTaskCount ? 'block' : 'none'}">已有<span class="num">${list[i].buyTaskCount}</span>人接单</span><span class="time">${getDateDiff(new Date(list[i].createDate))}</span></div>
                         </div>
                     </div>`;
                 div.innerHTML = listStr;
@@ -76,7 +76,9 @@ import {
                 div.onclick = function () {
                     var id = this.getAttribute('data-id');
                     console.log(id);
+                    location.href = './purchase_detail.html?dataId=' + id + '&from=' + location.href;
                     Toast.info('请前往App查看', 1000);
+                    foot.style.display = 'block';
                 };
                 goingWrapper.insertBefore(div, document.querySelector('.going-flag'));
             }
@@ -145,45 +147,45 @@ import {
         myProductBuys(getCloseParamas, function (res) {
             console.log('我的求购列表-已关闭', res);
             var list = res.data.list;
-            list = [
-                {
-                    buyTaskFlag: 0,
-                    updateDate: 1504322158000,
-                    buyNum: 5682,
-                    buyDesc: 'JMeter自动测试发布求购',
-                    buyPicUrl: 'http://imgdev.tswq.wang/1111111',
-                    userId: 53852,
-                    version: 1,
-                    platform: 1,
-                    buyTaskCount: 0,
-                    isStartUp: 1,
-                    buyUnit: 400012,
-                    buyShape: 200011,
-                    buyStatus: 1,
-                    buyType: 100010,
-                    id: 3255,
-                    viewCount: 3,
-                    createDate: 1503712871000
-                },
-                {
-                    buyTaskFlag: 0,
-                    updateDate: 1503633292000,
-                    buyNum: 758,
-                    buyDesc: 'JMeter自动测试发布求购',
-                    buyPicUrl: 'http://imgdev.tswq.wang/1111111',
-                    userId: 53852,
-                    version: 1,
-                    platform: 1,
-                    buyTaskCount: 0,
-                    isStartUp: 1,
-                    buyUnit: 400012,
-                    buyShape: 200010,
-                    buyStatus: 1,
-                    buyType: 100010,
-                    id: 3252,
-                    createDate: 1503633292000
-                }
-            ];
+            // list = [
+            //     {
+            //         buyTaskFlag: 0,
+            //         updateDate: 1504322158000,
+            //         buyNum: 5682,
+            //         buyDesc: 'JMeter自动测试发布求购',
+            //         buyPicUrl: 'http://imgdev.tswq.wang/1111111',
+            //         userId: 53852,
+            //         version: 1,
+            //         platform: 1,
+            //         buyTaskCount: 0,
+            //         isStartUp: 1,
+            //         buyUnit: 400012,
+            //         buyShape: 200011,
+            //         buyStatus: 1,
+            //         buyType: 100010,
+            //         id: 3255,
+            //         viewCount: 3,
+            //         createDate: 1503712871000
+            //     },
+            //     {
+            //         buyTaskFlag: 0,
+            //         updateDate: 1503633292000,
+            //         buyNum: 758,
+            //         buyDesc: 'JMeter自动测试发布求购',
+            //         buyPicUrl: 'http://imgdev.tswq.wang/1111111',
+            //         userId: 53852,
+            //         version: 1,
+            //         platform: 1,
+            //         buyTaskCount: 0,
+            //         isStartUp: 1,
+            //         buyUnit: 400012,
+            //         buyShape: 200010,
+            //         buyStatus: 1,
+            //         buyType: 100010,
+            //         id: 3252,
+            //         createDate: 1503633292000
+            //     }
+            // ];
             var listStr = '';
             for (var i = 0; i < list.length; i++) {
                 var div = document.createElement('div');
@@ -252,36 +254,38 @@ import {
 
 
     // 重新发布
+    // function republishBuying(that) {
+    //     var data = {
+    //         buyDesc: that.getAttribute('buy-desc'),
+    //         buyNum: that.getAttribute('buy-num'),
+    //         buyPicUrl: that.getAttribute('buy-pic-url'),
+    //         buyShapes: that.getAttribute('buy-shapes'),
+    //         buyType: that.getAttribute('buy-type'),
+    //         buyUnit: that.getAttribute('buy-unit'),
+    //         isStartUp: that.getAttribute('is-start-up')
+    //     };
+    //     console.log('重新发布data:', data);
+    //     // 未测试
+    //     releaseProductBuy(data, function (res) {
+    //         console.log(res);
+    //         Toast.info(res.message, 1000);
+    //         if (res.code === 0) {
+    //             Toast.success({
+    //                 text: res.message,
+    //                 duration: 1000,
+    //                 complete: function() {
+    //                     var url = getQueryString('from');
+    //                     location.replace(url);
+    //                 }
+    //             });
+    //             location.href = './my_buying.html?time=' + ((new Date()).getTime());
+    //         }
+    //     });
+    // }
+    // 重新发布
     function republishBuying(that) {
-        var data = {
-            buyDesc: that.getAttribute('buy-desc'),
-            // buyNum: that.getAttribute('buy-num'),
-            buyNum: 758,
-            buyPicUrl: that.getAttribute('buy-pic-url'),
-            buyShapes: that.getAttribute('buy-shapes'),
-            buyType: that.getAttribute('buy-type'),
-            buyUnit: that.getAttribute('buy-unit'),
-            isStartUp: that.getAttribute('is-start-up')
-        };
-        console.log('重新发布data:', data);
-        // 未测试
-        releaseProductBuy(data, function (res) {
-            console.log(res);
-            Toast.info(res.message, 1000);
-            if (res.code === 0) {
-                Toast.success({
-                    text: res.message,
-                    duration: 1000,
-                    complete: function() {
-                        var url = getQueryString('from');
-                        location.replace(url);
-                    }
-                });
-                location.href = './my_buying.html?time=' + ((new Date()).getTime());
-            }
-        });
+        location.href = './publish_buying.html?buyDesc=' + that.getAttribute('buy-desc') + '&buyNum=' + that.getAttribute('buy-num') + '&buyPicUrl=' + that.getAttribute('buy-pic-url') + '&buyShapes=' + that.getAttribute('buy-shapes') + '&buyType=' + that.getAttribute('buy-type') + '&buyUnit=' + that.getAttribute('buy-unit') + '&isStartUp=' + that.getAttribute('is-start-up') + '&from=' + location.href;
     }
-
     // 获取接单人列表
     function buyingList(that) {
         var data = that.getAttribute('buying-id');

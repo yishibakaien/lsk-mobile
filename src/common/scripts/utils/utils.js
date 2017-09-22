@@ -121,6 +121,7 @@ function formatMoney(price, unit) {
 }
 /*格式化供应类型*/
 function formatSupplyShape(num) {
+    num = Number(num);
     if (num === 200010) {
         return '胚布';
     } else if (num === 200011) {
@@ -150,6 +151,7 @@ function formatSupplyType(num) {
 }
 
 function formatProduceShape(num) {
+    num = Number(num);
     if (num === 200010) {
         return '胚布';
     } else if (num === 200011) {
