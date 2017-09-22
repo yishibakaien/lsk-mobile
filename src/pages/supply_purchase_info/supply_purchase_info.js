@@ -3,6 +3,7 @@ require('./supply_purchase_info.styl');
 require('plugins/swiper/swiper-3.4.2.min.js');
 import wx from 'weixin-js-sdk';
 import Toast from 'plugins/toast/Toast';
+import {blackTip} from 'utils/utils';
 
 var pullUpLoad = require('common/scripts/pull_up_load').pullUpLoad;
 
@@ -89,7 +90,7 @@ import {
                 div.onclick = function () {
                     var id = this.getAttribute('data-id');
                     console.log(id);
-                    Toast.info('为了保密，供应详情仅对服装端用户公开', 1000);
+                    blackTip('为了保密，供应详情仅对服装端用户公开', 2500);
                 };
                 supplyWrapper.insertBefore(div, document.querySelector('.supply-flag'));
             }
@@ -131,7 +132,7 @@ import {
                     if (isSettled) {
                         location.href = './purchase_detail.html?' + id;
                     } else {
-                        Toast.info('为了保密，求购详情仅对蕾丝控商家公开', 1000);
+                        blackTip('为了保密，求购详情仅对蕾丝控商家公开', 2500);
                     }
 
                 };
