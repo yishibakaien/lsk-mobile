@@ -84,7 +84,7 @@ let config = {
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'common',
-            minChunks: 3
+            minChunks: 5
         }),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
@@ -98,7 +98,9 @@ let config = {
             `Copyright  ${new Date().getFullYear()}, ${pkg.author}, ${pkg.license} license`
         ].join('\n')),
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('prod')
+            // 'process.env.NODE_ENV': JSON.stringify('prod') 
+            // 为了便于调试，这里 npm run build 打包时，依然使用 dev 2017年9月22日15:17:28 cqw
+            'process.env.NODE_ENV': JSON.stringify('dev')
         })
     ]
 };

@@ -273,6 +273,32 @@ function formatUserName(userName) {
     }
     return p1;
 }
+
+function blackTip(msg, time, callback){ 
+    if(document.getElementById("blackTipSpan")){
+        var blackTip = document.getElementById("blackTipSpan"); 
+        blackTip.innerText = msg; 
+    }else{
+        var blackTip = document.createElement('span');
+        var animation = document.createElement('style');
+        document.getElementsByTagName('head')[0].appendChild(animation);
+        blackTip.setAttribute('id', 'blackTipSpan');
+        blackTip.innerText = msg;
+    }
+    blackTip.style.cssText ="z-index:121;position:fixed;width:50%;background:#000;color:#fff;padding:1rem;opacity:0.75;font-size:16px;top:50%;left:50%;border-radius:0.5rem;text-align:center;word-break:break-all;-moz-transform:translateZ(0) translateX(-50%) translateY(-50%);-webkit-transform:translateZ(0) translateX(-50%) translateY(-50%);transform:translateZ(0) translateX(-50%) translateY(-50%);";
+ 
+    document.getElementsByTagName('body')[0].appendChild(blackTip);
+    setTimeout(function(){
+        if(window.$){
+            $(blackTip).stop().fadeOut();
+        }else{
+            blackTip.style.display = "none";
+        }
+        if(callback) {
+            callback();
+        }
+    }, time||2100);
+}
 export {
     bind,
     addActive,
@@ -291,5 +317,6 @@ export {
     formatPhone,
     checkAndroid,
     getDateDiff,
-    formatUserName
+    formatUserName,
+    blackTip
 };

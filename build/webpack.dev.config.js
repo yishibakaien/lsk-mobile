@@ -77,7 +77,7 @@ let config = {
         new ExtractTextPlugin('css/[name].css'),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'common',
-            minChunks: 3
+            minChunks: 5
         }),
         // 打开浏览器
         new OpenBrowserPlugin({

@@ -5,31 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24c6ddca-1867-44f9-b024-8d9d232cfe06" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/user.js" afterPath="$PROJECT_DIR$/src/api/user.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/settled_merchant.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/webpack.build.config.js" afterPath="$PROJECT_DIR$/build/webpack.build.config.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/webpack.dev.config.js" afterPath="$PROJECT_DIR$/build/webpack.dev.config.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/plugins/ali_oss/aliupload.js" afterPath="$PROJECT_DIR$/src/common/plugins/ali_oss/aliupload.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/scripts/utils/utils.js" afterPath="$PROJECT_DIR$/src/common/scripts/utils/utils.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/login/login.js" afterPath="$PROJECT_DIR$/src/pages/login/login.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/my_buying/my_buying.html" afterPath="$PROJECT_DIR$/src/pages/my_buying/my_buying.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/my_buying/my_buying.js" afterPath="$PROJECT_DIR$/src/pages/my_buying/my_buying.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/pattern_detail/pattern_detail.styl" afterPath="$PROJECT_DIR$/src/pages/pattern_detail/pattern_detail.styl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/pattern_made/pattern_made.html" afterPath="$PROJECT_DIR$/src/pages/pattern_made/pattern_made.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/pattern_made/pattern_made.js" afterPath="$PROJECT_DIR$/src/pages/pattern_made/pattern_made.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/pattern_made/pattern_made.styl" afterPath="$PROJECT_DIR$/src/pages/pattern_made/pattern_made.styl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/personal_center/personal_center.js" afterPath="$PROJECT_DIR$/src/pages/personal_center/personal_center.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/personal_info/personal_info.html" afterPath="$PROJECT_DIR$/src/pages/personal_info/personal_info.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/publish_buying/publish_buying.html" afterPath="$PROJECT_DIR$/src/pages/publish_buying/publish_buying.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/publish_buying/publish_buying.js" afterPath="$PROJECT_DIR$/src/pages/publish_buying/publish_buying.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/publish_buying/publish_buying.styl" afterPath="$PROJECT_DIR$/src/pages/publish_buying/publish_buying.styl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/publish_supply/publish_supply.html" afterPath="$PROJECT_DIR$/src/pages/publish_supply/publish_supply.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/publish_supply/publish_supply.js" afterPath="$PROJECT_DIR$/src/pages/publish_supply/publish_supply.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/publish_supply/publish_supply.styl" afterPath="$PROJECT_DIR$/src/pages/publish_supply/publish_supply.styl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/purchase_detail/purchase_detail.html" afterPath="$PROJECT_DIR$/src/pages/purchase_detail/purchase_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/purchase_detail/purchase_detail.js" afterPath="$PROJECT_DIR$/src/pages/purchase_detail/purchase_detail.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/purchase_detail/purchase_detail.styl" afterPath="$PROJECT_DIR$/src/pages/purchase_detail/purchase_detail.styl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/settled_merchant/settled_merchant.html" afterPath="$PROJECT_DIR$/src/pages/settled_merchant/settled_merchant.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/settled_merchant/settled_merchant.js" afterPath="$PROJECT_DIR$/src/pages/settled_merchant/settled_merchant.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/settled_merchant/settled_merchant.styl" afterPath="$PROJECT_DIR$/src/pages/settled_merchant/settled_merchant.styl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/shouye/shouye.html" afterPath="$PROJECT_DIR$/src/pages/shouye/shouye.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/supply_purchase_info/supply_purchase_info.js" afterPath="$PROJECT_DIR$/src/pages/supply_purchase_info/supply_purchase_info.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/version_cloth_made/version_cloth_made.html" afterPath="$PROJECT_DIR$/src/pages/version_cloth_made/version_cloth_made.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/version_cloth_made/version_cloth_made.js" afterPath="$PROJECT_DIR$/src/pages/version_cloth_made/version_cloth_made.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/version_cloth_made/version_cloth_made.styl" afterPath="$PROJECT_DIR$/src/pages/version_cloth_made/version_cloth_made.styl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/version_of_clothing/version_of_clothing.js" afterPath="$PROJECT_DIR$/src/pages/version_of_clothing/version_of_clothing.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/version_of_clothing/version_of_clothing.styl" afterPath="$PROJECT_DIR$/src/pages/version_of_clothing/version_of_clothing.styl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/version_of_clothing/version_of_clothing.html" afterPath="$PROJECT_DIR$/src/pages/version_of_clothing/version_of_clothing.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -43,23 +35,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="publish_buying.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="publish_buying.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/publish_buying/publish_buying.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="66" column="76" lean-forward="false" selection-start-line="66" selection-start-column="76" selection-end-line="66" selection-end-column="76" />
-              <folding />
+            <state relative-caret-position="330">
+              <caret line="69" column="90" lean-forward="true" selection-start-line="69" selection-start-column="90" selection-end-line="69" selection-end-column="90" />
+              <folding>
+                <marker date="1506066496187" expanded="false" signature="1815:1828" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="publish_buying.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/publish_buying/publish_buying.js">
+      <file leaf-file-name="supply_purchase_info.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pages/supply_purchase_info/supply_purchase_info.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="194" column="35" lean-forward="true" selection-start-line="194" selection-start-column="35" selection-end-line="194" selection-end-column="35" />
+            <state relative-caret-position="-1511">
+              <caret line="91" column="57" lean-forward="false" selection-start-line="91" selection-start-column="57" selection-end-line="91" selection-end-column="57" />
               <folding>
-                <element signature="e#71#102#0" expanded="true" />
+                <marker date="1506066627433" expanded="true" signature="2031:2189" ph="..." />
+                <marker date="1506066627433" expanded="true" signature="2236:2660" ph="..." />
+                <marker date="1506066627433" expanded="true" signature="2336:2633" ph="..." />
+                <marker date="1506066627433" expanded="true" signature="3795:3984" ph="..." />
+                <marker date="1506066627433" expanded="true" signature="4031:4443" ph="..." />
+                <marker date="1506066627433" expanded="true" signature="4131:4416" ph="..." />
               </folding>
             </state>
           </provider>
@@ -147,7 +146,6 @@
         <option value="$PROJECT_DIR$/src/common/scripts/utils/utils.js" />
         <option value="$PROJECT_DIR$/src/pages/version_cloth_made/version_cloth_made.js" />
         <option value="$PROJECT_DIR$/src/pages/pattern_made/pattern_made.js" />
-        <option value="$PROJECT_DIR$/src/pages/supply_purchase_info/supply_purchase_info.js" />
         <option value="$PROJECT_DIR$/src/pages/address_manage/address_manage.styl" />
         <option value="$PROJECT_DIR$/src/pages/login/login.js" />
         <option value="$PROJECT_DIR$/src/pages/purchase_detail/purchase_detail.html" />
@@ -156,8 +154,9 @@
         <option value="$PROJECT_DIR$/src/pages/my_buying/my_buying.js" />
         <option value="$PROJECT_DIR$/src/pages/publish_supply/publish_supply.styl" />
         <option value="$PROJECT_DIR$/src/pages/publish_buying/publish_buying.styl" />
-        <option value="$PROJECT_DIR$/src/pages/publish_buying/publish_buying.html" />
         <option value="$PROJECT_DIR$/src/pages/publish_buying/publish_buying.js" />
+        <option value="$PROJECT_DIR$/src/pages/publish_buying/publish_buying.html" />
+        <option value="$PROJECT_DIR$/src/pages/supply_purchase_info/supply_purchase_info.js" />
       </list>
     </option>
   </component>
@@ -173,8 +172,8 @@
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="445" />
-    <option name="y" value="64" />
+    <option name="x" value="375" />
+    <option name="y" value="119" />
     <option name="width" value="801" />
     <option name="height" value="744" />
   </component>
@@ -244,6 +243,13 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="purchase_detail" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lsk-mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lsk-mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="supply_purchase_info" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -339,18 +345,18 @@
       <workItem from="1505694865648" duration="72186000" />
       <workItem from="1505892569270" duration="26000" />
       <workItem from="1505893221889" duration="30812000" />
-      <workItem from="1506041080575" duration="18515000" />
+      <workItem from="1506041080575" duration="18712000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="445630000" />
+    <option name="totallyTimeSpent" value="445827000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.032738097" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24627976" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.3294893" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" x="11" y="264" width="1344" height="200" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -379,7 +385,7 @@
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18824404" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.032738097" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32784185" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24779874" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -612,13 +618,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/supply_purchase_info/supply_purchase_info.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="66" column="19" lean-forward="false" selection-start-line="66" selection-start-column="12" selection-end-line="66" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/edit_address/edit_address.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="873">
@@ -718,7 +717,7 @@
         <state relative-caret-position="-1027">
           <caret line="152" column="43" lean-forward="false" selection-start-line="152" selection-start-column="43" selection-end-line="152" selection-end-column="43" />
           <folding>
-            <element signature="e#181#221#0" expanded="true" />
+            <element signature="e#181#221#0" expanded="false" />
             <marker date="1505988372258" expanded="true" signature="1849:2366" ph="..." />
             <marker date="1505988372258" expanded="true" signature="1949:2339" ph="..." />
             <marker date="1505988372258" expanded="false" signature="2120:2129" ph="..." />
@@ -767,7 +766,7 @@
     <entry file="file://$PROJECT_DIR$/src/pages/publish_buying/publish_buying.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="227">
-          <caret line="194" column="35" lean-forward="true" selection-start-line="194" selection-start-column="35" selection-end-line="194" selection-end-column="35" />
+          <caret line="194" column="35" lean-forward="false" selection-start-line="194" selection-start-column="35" selection-end-line="194" selection-end-column="35" />
           <folding>
             <element signature="e#71#102#0" expanded="true" />
           </folding>
@@ -776,9 +775,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/publish_buying/publish_buying.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="66" column="76" lean-forward="false" selection-start-line="66" selection-start-column="76" selection-end-line="66" selection-end-column="76" />
-          <folding />
+        <state relative-caret-position="330">
+          <caret line="69" column="90" lean-forward="true" selection-start-line="69" selection-start-column="90" selection-end-line="69" selection-end-column="90" />
+          <folding>
+            <marker date="1506066496187" expanded="false" signature="1815:1828" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/supply_purchase_info/supply_purchase_info.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1511">
+          <caret line="91" column="57" lean-forward="false" selection-start-line="91" selection-start-column="57" selection-end-line="91" selection-end-column="57" />
+          <folding>
+            <marker date="1506066627433" expanded="true" signature="2031:2189" ph="..." />
+            <marker date="1506066627433" expanded="true" signature="2236:2660" ph="..." />
+            <marker date="1506066627433" expanded="true" signature="2336:2633" ph="..." />
+            <marker date="1506066627433" expanded="true" signature="3795:3984" ph="..." />
+            <marker date="1506066627433" expanded="true" signature="4031:4443" ph="..." />
+            <marker date="1506066627433" expanded="true" signature="4131:4416" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
