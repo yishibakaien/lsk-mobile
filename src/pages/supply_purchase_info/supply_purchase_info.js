@@ -20,18 +20,22 @@ import {
 } from 'api/user';
 
 (function () {
+    console.log('companyId', localStorage['companyId']);
+    console.log('userId', localStorage['userId']);
+    console.log('isSettled', localStorage['isSettled']);
     var headRight = c('#headRight');
+    console.log(headRight);
     var supplyWrapper = c('#supplyWrapper');
     var buyingWrapper = c('#buyingWrapper');
     var swiperTag = c('.swiper-tag')[0].getElementsByTagName('span');
 
     var userType = localStorage.userType;
     console.log('userType', userType);
-    var isSettled = localStorage.isSettled;
+    var isSettled = parseInt(localStorage.isSettled);
     var text = [
         {
-            text: '发布供应',
-            link: './publish_supply.html'
+            text: '发布求购',
+            link: './publish_buying.html'
         },
         {
             text: '发布求购',
@@ -39,11 +43,19 @@ import {
         }
     ];
     if (userType === '1') {
-        text[0].text = '发布求购';
-        text[0].link = './publish_buying.html';
+        text[0].text = '发布供应';
+        text[0].link = './publish_supply.html';
     }
     headRight.innerHTML = text[0].text;
-    headRight.setAttribute('href', text[0].link);
+    // headRight.setAttribute('href', text[0].link);
+    headRight.onclick = function () {
+        if (isSettled) {
+            location.href = this.getAttribute('href');
+        } else {
+            blackTip('该功能仅对蕾丝控商家公开', 2500);
+        }
+    };
+
 
     var getSupplyParamas = {
         supplyShapes: '',
@@ -128,6 +140,7 @@ import {
                 div.onclick = function () {
                     var id = this.getAttribute('data-id');
                     console.log('data-id', id);
+                    console.log('isSettled', isSettled);
                     if (isSettled) {
                         location.href = './purchase_detail.html?dataId=' + id;
                     } else {

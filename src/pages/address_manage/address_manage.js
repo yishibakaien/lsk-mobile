@@ -1,5 +1,6 @@
 require('common/styles/index.styl');
 require('./address_manage.styl');
+var city = require('plugins/picker/city.js');
 import Toast from 'plugins/toast/Toast';
 
 import {
@@ -28,10 +29,11 @@ import {
         console.log('获取收货地址列表', res.data);
         var addressStr = '';
         for (var n = 0; n < res.data.length; n++) {
+            var addTranData = formatAddress(res.data[n]);
             addressStr += `<div class="address" address=${res.data[n].address} city=${res.data[n].city} county=${res.data[n].county} address-id=${res.data[n].id} is-def=${res.data[n].isDef} name=${res.data[n].name} phone=${res.data[n].phone}  province=${res.data[n].province} postcode=${res.data[n].postcode}>
         <div class="user-info border-bottom">
             <div><span class="name">${res.data[n].name}</span><span class="phone">${res.data[n].phone}</span></div>
-            <div class="address-text">${res.data[n].province}-${res.data[n].city}-${res.data[n].county}${res.data[n].address}</div>
+            <div class="address-text">${addTranData.province}-${addTranData.city}-${addTranData.county}${res.data[n].address}</div>
         </div>
         <div class="address-handle">
             <div class="choose icon-gou ${res.data[n].isDef ? 'active' : ''}"></div>
@@ -125,4 +127,27 @@ import {
     newBuild.onclick = function () {
         location.href = './edit_address.html?st=add';
     };
+    function formatAddress(data) {
+        var addTranData = {};
+        for (var i = 0; i < city.length; i++) {
+            if (city[i].areaCode === data.province) {
+                console.log('省份', city[i]);
+                addTranData.province = city[i].areaName;
+                for (var k = 0; k < city[i].childAreas.length; k++) {
+                    if (city[i].childAreas[k].areaCode === data.city) {
+                        console.log('市', city[i].childAreas[k]);
+                        addTranData.city = city[i].childAreas[k].areaName;
+                        for (var g = 0; g < city[i].childAreas[k].childAreas.length;g++) {
+                            if (city[i].childAreas[k].childAreas[g].areaCode === data.county) {
+                                console.log('区县', city[i].childAreas[k].childAreas[g]);
+                                addTranData.county = city[i].childAreas[k].childAreas[g].areaName;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return addTranData;
+    }
+    // console.log(city);
 })();

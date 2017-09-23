@@ -27,7 +27,7 @@ import {
     var popShow = c('.pop-show');
     var popUp = c('.pop-up');
     var popConfirm = c('.pop-confirm');
-    var popClose = c('.icon-close');
+    var popClose = c('.pop-close');
     var typeItem = c('#typeItem');
     var shapeItem = c('#shapeItem');
     var numItem = c('#numItem');
@@ -79,13 +79,12 @@ import {
             imgArr.push(res[0]);
             // data.productPicUrl = res[0];
             console.log('imgArr值', imgArr);
-            str = `<img src="${res[0]}">
-        <span class="icon-close"></span>`;
+            str = `<img src="${res[0]}"><span class="icon-close pic-close"></span>`;
             div.innerHTML = str;
             uploadWrapper.insertBefore(div, upload);
             isSingleImg();
             imgView();
-            div.getElementsByClassName('icon-close')[0].onclick = function (e) {
+            div.getElementsByClassName('pic-close')[0].onclick = function (e) {
                 e.cancelBubble = true;
                 e.stopPropagation();
                 this.parentElement.parentElement.removeChild(this.parentElement);

@@ -53,7 +53,9 @@ const API = {
         // 关闭供应
         closeCompanySupply: '/companySupply/closeCompanySupply',
         // 关闭求购
-        closeProductBuy: '/productBuy/closeProductBuy'
+        closeProductBuy: '/productBuy/closeProductBuy',
+        // 完成接单
+        finishProductBuy: '/productBuy/finishProductBuy'
     },
     detail: {
         // 获取花型详情
@@ -232,4 +234,8 @@ export function closeCompanySupply(data, cb, err) {
 //关闭求购
 export function closeProductBuy(data, cb, err) {
     return _fetch('POST', data, API.main.closeProductBuy, cb, err);
+}
+//完成接单
+export function finishProductBuy(data, cb, err) {
+    return _fetch('POST', data, API.main.finishProductBuy, cb, err);
 }

@@ -56,7 +56,7 @@ listSettledCompany(
             item.onclick = function() {
                 var indexName = this.getAttribute('index-name');
                 location.href = 'http://' + indexName + '.lacewang.com';
-            }
+            };
         });
     },
 

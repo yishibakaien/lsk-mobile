@@ -18,6 +18,12 @@ import {
 } from 'api/user';
 
 import {
+    testTel,
+    testPurchaseNum,
+    testFirmName
+} from 'utils/reg';
+
+import {
     c,
     formatMoney,
     getQueryString,
@@ -27,84 +33,78 @@ import {
     // _formatPicUrl
 } from 'utils/utils';
 
-var dataId = getQueryString('dataId');
-var companyId;
+
+(function () {
+    var dataId = getQueryString('dataId');
+    var companyId;
 // var companyId = getQueryString('companyId');
 // 轮播图盒子
 // var picContainer = c('#picContainer');
-var productNo = c('#productNo');
-var price = c('#price');
-var cutPrice = c('#cutPrice');
+    var productNo = c('#productNo');
+    var price = c('#price');
+    var cutPrice = c('#cutPrice');
 
 // 公司信息
-var companyMessage = c('#companyMessage');
-var avatar = c('#avatar');
+    var companyMessage = c('#companyMessage');
+    var avatar = c('#avatar');
 // var tag = c('#tag');
-var viewNum = c('#viewNum');
-var companyName = c('#companyName');
-var companyBusiness = c('#companyBusiness');
-var address = c('#address');
-var messageColorCard = c('#messageColorCard');
+    var viewNum = c('#viewNum');
+    var companyName = c('#companyName');
+    var companyBusiness = c('#companyBusiness');
+    var address = c('#address');
+    var messageColorCard = c('#messageColorCard');
 
 // 花型参数
-var category = c('#category');
-var ingredient = c('#ingredient');
-var stock = c('#stock');
+    var category = c('#category');
+    var ingredient = c('#ingredient');
+    var stock = c('#stock');
 // var shape = c('#shape');
-var width = c('#width');
-var height = c('#height');
+    var width = c('#width');
+    var height = c('#height');
 
 // 3D试衣
-var dress = c('#dress');
+    var dress = c('#dress');
 // 电话
-var call = c('#call');
+    var call = c('#call');
 // 弹起的轮播图
 // var detailPic = c('#detailPic');
 // 收藏按钮
-var collectStar = c('#collectStar');
+    var collectStar = c('#collectStar');
 // 是否上架蕾丝控收藏星星
-var collectWrapper = c('#collectWrapper');
+    var collectWrapper = c('#collectWrapper');
 
 
 // 色卡层蒙版层show&hide
-var buy = c('#buy');
-var mask = c('#mask');
-var colorCard = c('#colorCard');
-var cancel = c('#cancel');
-var arrow = c('#arrow');
-var confirm = c('#confirm');
+    var buy = c('#buy');
+    var mask = c('#mask');
+    var colorCard = c('#colorCard');
+    var cancel = c('#cancel');
+    var arrow = c('#arrow');
+    var confirm = c('#confirm');
 // 采购登记data
-var askPurchaseData= {
-    colorId: '',
-    phone: '',
-    productId: '',
-    purchaseNum: 1,
-    purchaseType: 1,
-    userName: ''
-};
+    var askPurchaseData= {
+        colorId: '',
+        phone: '',
+        productId: '',
+        purchaseNum: 1,
+        purchaseType: 1,
+        userName: ''
+    };
 
-import {
-    testTel,
-    testPurchaseNum,
-    testFirmName
-} from 'utils/reg';
+
 // 小图、标签点击对应的切换
-var buyTypes = c('#buyType').getElementsByClassName('value');
-var referPriceName = c('#referPriceName');
-var referPriceValue = c('#referPriceValue');
-var buyNumIptTip = ['1片', '请输入大货数量', '请输入剪版数量'];
-var referPriceNameArr = ['剪小样参考价:', '大货参考价:', '剪版参考价:'];
-var referPriceValueArr = [' 免费'];
-var patternColorWrapper = c('#patternColorWrapper');
-var cardAvatar = c('#cardAvatar');
-var buyNumIpt = c('#buyNumIpt');
-var userNameIpt = c('#userNameIpt');
-var phoneIpt = c('#phoneIpt');
+    var buyTypes = c('#buyType').getElementsByClassName('value');
+    var referPriceName = c('#referPriceName');
+    var referPriceValue = c('#referPriceValue');
+    var buyNumIptTip = ['1片', '请输入大货数量', '请输入剪版数量'];
+    var referPriceNameArr = ['剪小样参考价:', '大货参考价:', '剪版参考价:'];
+    var referPriceValueArr = [' 免费'];
+    var patternColorWrapper = c('#patternColorWrapper');
+    var cardAvatar = c('#cardAvatar');
+    var buyNumIpt = c('#buyNumIpt');
+    var userNameIpt = c('#userNameIpt');
+    var phoneIpt = c('#phoneIpt');
 
-
-
-
-(function () {
     // 获取详细工厂信息介绍
     function getCompanyMethod() {
         getCompanyInfo({
@@ -138,10 +138,12 @@ var phoneIpt = c('#phoneIpt');
 
             // 厂家点击事件
             companyMessage.onclick = function () {
-                var _companyId = this.getAttribute('company-id');
+                // var _companyId = this.getAttribute('company-id');
+
                 // alert(_companyId);
-                if (_companyId) {
-                    location.href = './index.html?companyId=' + _companyId;
+                if (data.indexName) {
+                    // location.href = './index.html?companyId=' + _companyId;
+                    location.href = 'http://' + data.indexName + '.lacewang.cn';
                 }
             };
         });
@@ -188,7 +190,7 @@ var phoneIpt = c('#phoneIpt');
         height.innerHTML = data.height;
 
         dress.addEventListener('click', function () {
-            location.href = './dress.html?url=' + data.defaultPicUrl;
+            location.href = 'https://www.ts57.cn/share/dress.html?companyId=' + data.companyId + '&url=' + data.defaultPicUrl;
         }, false);
 
         // 正常价格(大货价格)
@@ -383,7 +385,7 @@ var phoneIpt = c('#phoneIpt');
             });
         }
     };
-    // 收藏或则取消星星
+    // 收藏&取消星星
     collectStar.onclick = function () {
         var that = this;
         favoriteBus({

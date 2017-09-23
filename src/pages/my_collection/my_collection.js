@@ -16,7 +16,8 @@ import {
 import {
     listProduct,
     listCompany,
-    listSupply
+    listSupply,
+    getCompanyInfo
 } from 'api/user';
 
 
@@ -105,6 +106,12 @@ import {
 
                 div.onclick = function () {
                     var id = this.getAttribute('data-id');
+                    getCompanyInfo({id}, function (res) {
+                        console.log('获取档口OR工厂信息', res);
+                        if (res.data.indexName) {
+                            location.href = 'http://' + res.data.indexName + '.lacewang.cn';
+                        }
+                    });
                     console.log(id);
                 };
                 firmWrapper.insertBefore(div, document.querySelector('.firm-flag'));

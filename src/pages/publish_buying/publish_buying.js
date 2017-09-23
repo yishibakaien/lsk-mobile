@@ -50,13 +50,20 @@ import {
     var descIpt = c('#descIpt');
     // getQueryString
     var buyDescData = getQueryString('buyDesc');
-    var buyNumData = parseInt(getQueryString('buyNum'));
+    var buyNumData = Number(formatString(getQueryString('buyNum')));
     var buyPicUrlData = getQueryString('buyPicUrl');
-    var buyShapesData = getQueryString('buyShapes');
-    var buyTypeData = parseInt(getQueryString('buyType'));
-    var buyUnitData = parseInt(getQueryString('buyUnit'));
-    var isStartUpData = parseInt(getQueryString('isStartUp'));
+    var buyShapesData = formatString(getQueryString('buyShapes'));
+    var buyTypeData = Number(formatString(getQueryString('buyType')));
+    var buyUnitData = Number(formatString(getQueryString('buyUnit')));
+    var isStartUpData = getQueryString('isStartUp');
     var from = getQueryString('from');
+    console.log(buyDescData);
+    console.log(buyNumData);
+    console.log(buyPicUrlData);
+    console.log(buyShapesData);
+    console.log(buyTypeData);
+    console.log(buyUnitData);
+    console.log(isStartUpData);
     // 上传图片部分
     var imgArr = [];
     var uploadWrapper = c('#uploadWrapper');
@@ -64,6 +71,7 @@ import {
     var inputPic = c('#inputPic');
     var upload = c('#upload');
     var publish = c('#publish');
+
     // 截图组件
     var cropperWrapper = c('#cropperWrapper');
     var image = c('#cropperImage');
@@ -74,16 +82,22 @@ import {
         buyShapes: buyShapesData || '200010',
         buyType: buyTypeData || 100010,
         buyUnit: buyUnitData || 400010,
-        isStartUp: isStartUpData || 0
+        isStartUp: Number(isStartUpData || '1')
     };
-    console.log(Number((data.isStartUp)));
-    console.log(isStartUpData);
+    console.log('buyPicUrl', data.buyPicUrl);
+    console.log('buyDesc', data.buyDesc);
+    console.log('buyNum', data.buyNum);
+    console.log('buyShapes', data.buyShapes);
+    console.log('buyType', data.buyType);
+    console.log('buyUnit', data.buyUnit);
+    console.log('isStartUp', data.isStartUp);
+
     // 初始化
     initTag(typeBtns, data.buyType);
     initTag(shapeBtns, data.buyShapes);
     initTag(numBtns, data.buyUnit);
     numPopBtn.setAttribute('item-value', data.buyNum);
-    isStartUpBtn[Number(!(data.isStartUp))].className = 'icon-gou active';
+    isStartUpBtn[Number(!(Number(data.isStartUp)))].className = 'icon-gou active';
 
     if (from) {
         buyType.innerHTML = formatSupplyType(data.buyType);
@@ -91,9 +105,11 @@ import {
         buyNum.innerHTML = (parseInt(data.buyNum) && parseInt(data.buyUnit)) ? data.buyNum + formatUnit(data.buyUnit) : '面议';
         descIpt.value = data.buyDesc;
         numIpt.value = data.buyNum;
-        imgArr.push(buyPicUrlData);
-        // imgArr[0] = data.buyPicUrl;
-        imgHandler(buyPicUrlData);
+        if (buyPicUrlData) {
+            imgArr.push(buyPicUrlData);
+            // imgArr[0] = data.buyPicUrl;
+            imgHandler(buyPicUrlData);
+        }
     }
     // 高版本 IOS 点击input[captrue=camera]会直接打开相机，但是这样会导致电脑上选择图片打开缓慢
     if (checkAndroid()) {
@@ -217,12 +233,12 @@ import {
         var div = document.createElement('div');
         div.className = 'item';
         var str = '';
-        str = `<img src="${url}"><span class="icon-close" id="ss"></span>`;
+        str = `<img src="${url}"><span class="icon-close pic-close" id="ss"></span>`;
         div.innerHTML = str;
         uploadWrapper.insertBefore(div, upload);
         isSingleImg();
         imgView();
-        div.getElementsByClassName('icon-close')[0].addEventListener('click', function (e) {
+        div.getElementsByClassName('pic-close')[0].addEventListener('click', function (e) {
             e.cancelBubble = true;
             e.stopPropagation();
             this.parentElement.parentElement.removeChild(this.parentElement);
@@ -282,5 +298,8 @@ import {
             Toast.info('请填写求购描述');
         }
         return ((data.buyPicUrl !== '') && (data.buyType !== '') && (data.buyShapes !== '') && (data.buyDesc !== ''));
+    }
+    function formatString(str) {
+        return (/^(1|2|3|4)[0]{3}[1](0|1|2|3)$/.test(str || '')) ? str : '';
     }
 })();

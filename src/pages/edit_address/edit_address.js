@@ -1,6 +1,6 @@
 require('common/styles/index.styl');
 require('./edit_address.styl');
-
+var city = require('plugins/picker/city.js');
 var picker = require('plugins/picker/address_picker.js');
 
 
@@ -58,10 +58,11 @@ import {
         document.title = '收货地址管理';
         title.innerHTML = '收货地址管理';
         var editData = JSON.parse(localStorage.editAddress);
+        var addTranData = formatAddress(editData);
         console.log(editData);
         nameIpt.value = editData.name;
         phoneIpt.value = editData.phone;
-        selCity.value = editData.province + '-' + editData.city + '-' + editData.county;
+        selCity.value = addTranData.province + '-' + addTranData.city + '-' + addTranData.county;
         addressIpt.value = editData.address;
     }
 
@@ -134,4 +135,27 @@ import {
             }
         }
     };
+
+    function formatAddress(data) {
+        var addTranData = {};
+        for (var i = 0; i < city.length; i++) {
+            if (city[i].areaCode === data.province) {
+                console.log('省份', city[i]);
+                addTranData.province = city[i].areaName;
+                for (var k = 0; k < city[i].childAreas.length; k++) {
+                    if (city[i].childAreas[k].areaCode === data.city) {
+                        console.log('市', city[i].childAreas[k]);
+                        addTranData.city = city[i].childAreas[k].areaName;
+                        for (var g = 0; g < city[i].childAreas[k].childAreas.length;g++) {
+                            if (city[i].childAreas[k].childAreas[g].areaCode === data.county) {
+                                console.log('区县', city[i].childAreas[k].childAreas[g]);
+                                addTranData.county = city[i].childAreas[k].childAreas[g].areaName;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return addTranData;
+    }
 })();

@@ -155,7 +155,7 @@ import {
         } else if (!testTel(data.contactNumber)) {
             Toast.info('请输入正确的电话号码');
         } else if (!testAddress(data.companyAddress)) {
-            Toast.info('请输入地址');
+            Toast.info('请输入详细的地址');
         } else if (data.customMemo === '') {
             Toast.info('请填写描述信息');
         }

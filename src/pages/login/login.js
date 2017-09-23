@@ -84,13 +84,14 @@ import {
                 var Xtoken = xhr.getResponseHeader('x-token');
                 localStorage['x-token'] = Xtoken;
                 localStorage['userType'] = res.data.userType;
-                localStorage['isSettled'] = res.data.isSettled;
+                localStorage['isSettled'] = res.data.isSettled || 0;
                 localStorage['companyId'] = res.data.companyId;
                 localStorage['userId'] = res.data.id;
                 console.log(res.data.id);
                 console.log(localStorage['x-token']);
                 console.log('companyId', localStorage['companyId']);
                 console.log('userId', localStorage['userId']);
+                console.log('isSettled', localStorage['isSettled']);
                 Toast.success({
                     text: '登录成功',
                     duration: 1000,
@@ -119,6 +120,11 @@ import {
                 telIpt.value = '';
                 pwdIpt.value = '';
                 verifyImgIpt.value = '';
+                userData = {
+                    userMobile: '',
+                    userPWD: '',
+                    picCode: ''
+                };
                 Toast.error(res.message, 1000);
             }
         });

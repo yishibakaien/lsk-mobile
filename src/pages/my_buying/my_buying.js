@@ -15,7 +15,8 @@ import {
     myProductBuys,
     deleteProductBuy,
     releaseProductBuy,
-    listBuyTaskUserByBuyId
+    listBuyTaskUserByBuyId,
+    finishProductBuy
 } from 'api/user';
 
 (function () {
@@ -76,7 +77,8 @@ import {
                 div.onclick = function () {
                     var id = this.getAttribute('data-id');
                     console.log(id);
-                    location.href = './purchase_detail.html?dataId=' + id + '&from=' + location.href;
+                    hasToken(id);
+                    // location.href = './purchase_detail.html?dataId=' + id + '&from=' + location.href;
                     Toast.info('请前往App查看', 1000);
                     foot.style.display = 'block';
                 };
@@ -97,6 +99,45 @@ import {
         myProductBuys(getCompleteParamas, function (res) {
             console.log('我的求购列表-已完成', res);
             var list = res.data.list;
+            // list = [
+            //     {
+            //         buyTaskFlag: 0,
+            //         updateDate: 1504322158000,
+            //         buyNum: 5682,
+            //         buyDesc: 'JMeter自动测试发布求购',
+            //         buyPicUrl: 'http://imgdev.tswq.wang/1111111',
+            //         userId: 53852,
+            //         version: 1,
+            //         platform: 1,
+            //         buyTaskCount: 0,
+            //         isStartUp: 1,
+            //         buyUnit: 400012,
+            //         buyShape: 200011,
+            //         buyStatus: 1,
+            //         buyType: 100010,
+            //         id: 3255,
+            //         viewCount: 3,
+            //         createDate: 1503712871000
+            //     },
+            //     {
+            //         buyTaskFlag: 0,
+            //         updateDate: 1503633292000,
+            //         buyNum: 758,
+            //         buyDesc: 'JMeter自动测试发布求购',
+            //         buyPicUrl: 'http://imgdev.tswq.wang/1111111',
+            //         userId: 53852,
+            //         version: 1,
+            //         platform: 1,
+            //         buyTaskCount: 0,
+            //         isStartUp: 1,
+            //         buyUnit: 400012,
+            //         buyShape: 200010,
+            //         buyStatus: 1,
+            //         buyType: 100010,
+            //         id: 3252,
+            //         createDate: 1503633292000
+            //     }
+            // ];
             var listStr = '';
             for (var i = 0; i < list.length; i++) {
                 var div = document.createElement('div');
@@ -147,45 +188,6 @@ import {
         myProductBuys(getCloseParamas, function (res) {
             console.log('我的求购列表-已关闭', res);
             var list = res.data.list;
-            // list = [
-            //     {
-            //         buyTaskFlag: 0,
-            //         updateDate: 1504322158000,
-            //         buyNum: 5682,
-            //         buyDesc: 'JMeter自动测试发布求购',
-            //         buyPicUrl: 'http://imgdev.tswq.wang/1111111',
-            //         userId: 53852,
-            //         version: 1,
-            //         platform: 1,
-            //         buyTaskCount: 0,
-            //         isStartUp: 1,
-            //         buyUnit: 400012,
-            //         buyShape: 200011,
-            //         buyStatus: 1,
-            //         buyType: 100010,
-            //         id: 3255,
-            //         viewCount: 3,
-            //         createDate: 1503712871000
-            //     },
-            //     {
-            //         buyTaskFlag: 0,
-            //         updateDate: 1503633292000,
-            //         buyNum: 758,
-            //         buyDesc: 'JMeter自动测试发布求购',
-            //         buyPicUrl: 'http://imgdev.tswq.wang/1111111',
-            //         userId: 53852,
-            //         version: 1,
-            //         platform: 1,
-            //         buyTaskCount: 0,
-            //         isStartUp: 1,
-            //         buyUnit: 400012,
-            //         buyShape: 200010,
-            //         buyStatus: 1,
-            //         buyType: 100010,
-            //         id: 3252,
-            //         createDate: 1503633292000
-            //     }
-            // ];
             var listStr = '';
             for (var i = 0; i < list.length; i++) {
                 var div = document.createElement('div');
@@ -288,23 +290,44 @@ import {
     }
     // 获取接单人列表
     function buyingList(that) {
-        var data = that.getAttribute('buying-id');
-        console.log('获取求购单接单人列表ID值', data);
+        var data = {
+            buyId: that.getAttribute('buying-id')
+        };
+        console.log('获取求购单接单人列表data', data);
         listBuyTaskUserByBuyId(data, function (res) {
-            console.log(res);
+            console.log('获取求购单接单人列表res:', res);
         });
     }
 
     // 删除求购
     function delBuying(that) {
-        var data = that.getAttribute('buying-id');
+        var data = {ids: Number(that.getAttribute('buying-id'))};
+        console.log(data);
         console.log('删除求购ID值', data);
-        // deleteProductBuy(data, function (res) {
-        //     console.log(res);
-        //     // if (res.code === 0) {
-        //     //     Toast.success(res.messge);
-        //     // }
-        // });
+        if (confirm('确认删除?')) {
+            deleteProductBuy(data, function (res) {
+                console.log(res);
+                if (res.code === 0) {
+                    Toast.success(res.messge);
+                    var removeEle = that.parentElement.parentElement;
+                    removeEle.parentElement.removeChild(removeEle);
+                    console.log(that.parentElement.parentElement);
+
+                } else {
+                    Toast.info(res.messge);
+                }
+            });
+        }
+    }
+    // 完成接单
+    function hasToken(id) {
+        var data = {
+            buyTaskId: '',/*接单id（可选），如果有人接单则必须带上	number*/
+            id: id/*求购单id	number*/
+        };
+        finishProductBuy(data, function (res) {
+            console.log(res);
+        });
     }
 })();
 
