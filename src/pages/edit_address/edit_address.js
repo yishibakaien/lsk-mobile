@@ -120,6 +120,8 @@ import {
                         localStorage.removeItem('editAddress');
                         Toast.success(res.message, 1000);
                         location.href = './address_manage.html?time=' + ((new Date()).getTime());
+                    } else {
+                        Toast.info(res.message);
                     }
                 });
             } else {
@@ -130,6 +132,8 @@ import {
                     if (res.code === 0) {
                         Toast.success(res.message, 1000);
                         location.href = './address_manage.html?time=' + ((new Date()).getTime());
+                    } else {
+                        Toast.info(res.message);
                     }
                 });
             }

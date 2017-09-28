@@ -44,6 +44,11 @@ import {
     var inputPic = c('#inputPic');
     var upload = c('#upload');
     var submit = c('#submit');
+    // 拨打电话
+    var tel = c('#tel');
+    tel.addEventListener('click', function() {
+        location.href = 'tel:' + '10086';
+    }, false);
     // 截图组件
     var cropperWrapper = c('#cropperWrapper');
     var image = c('#cropperImage');
@@ -123,7 +128,7 @@ import {
     }
 
     function isSingleImg() {
-        if (imgArr.length > 0) {
+        if (imgArr.length > 2) {
             // itemWrapper.style.textAlign = 'left';
             upload.style.display = 'none';
         } else {
@@ -171,7 +176,7 @@ import {
                         text: res.message,
                         duration: 2100,
                         complete: function() {
-                            location.href = './pattern_made.html?time=' + ((new Date()).getTime());
+                            location.href = './shouye.html?time=' + ((new Date()).getTime());
                         }
                     });
                 } else {

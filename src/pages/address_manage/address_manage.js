@@ -24,10 +24,13 @@ import {
     var addressWrapper = c('#addressWrapper');
     var addressId;
     var elNode;
+    var addressLength;
+
 
     listConsignee({}, function (res) {
         console.log('获取收货地址列表', res.data);
         var addressStr = '';
+        addressLength = res.data.length;
         for (var n = 0; n < res.data.length; n++) {
             var addTranData = formatAddress(res.data[n]);
             addressStr += `<div class="address" address=${res.data[n].address} city=${res.data[n].city} county=${res.data[n].county} address-id=${res.data[n].id} is-def=${res.data[n].isDef} name=${res.data[n].name} phone=${res.data[n].phone}  province=${res.data[n].province} postcode=${res.data[n].postcode}>
@@ -125,7 +128,11 @@ import {
     };
 
     newBuild.onclick = function () {
-        location.href = './edit_address.html?st=add';
+        if (addressLength > 7) {
+            Toast.info('收货地址数量不能超过8个', 2500);
+        } else {
+            location.href = './edit_address.html?st=add';
+        }
     };
     function formatAddress(data) {
         var addTranData = {};

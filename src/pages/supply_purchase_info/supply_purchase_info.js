@@ -47,7 +47,7 @@ import {
         text[0].link = './publish_supply.html';
     }
     headRight.innerHTML = text[0].text;
-    // headRight.setAttribute('href', text[0].link);
+    headRight.setAttribute('href', text[0].link);
     headRight.onclick = function () {
         if (isSettled) {
             location.href = this.getAttribute('href');

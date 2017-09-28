@@ -21,6 +21,10 @@ import {
 }  from 'api/user';
 
 (function () {
+
+    // window.onbeforeunload = function () {
+    //     return 'shifou';
+    // };
     // 遮罩层
     var mask = c('#mask');
     // 弹出层&表单操作部分
@@ -79,9 +83,9 @@ import {
         buyPicUrl: buyPicUrlData  || '',
         buyDesc: buyDescData || '',
         buyNum: buyNumData || 0,
-        buyShapes: buyShapesData || '200010',
-        buyType: buyTypeData || 100010,
-        buyUnit: buyUnitData || 400010,
+        buyShapes: buyShapesData || '',
+        buyType: buyTypeData || '',
+        buyUnit: buyUnitData || '',
         isStartUp: Number(isStartUpData || '1')
     };
     console.log('buyPicUrl', data.buyPicUrl);
@@ -93,9 +97,9 @@ import {
     console.log('isStartUp', data.isStartUp);
 
     // 初始化
-    initTag(typeBtns, data.buyType);
-    initTag(shapeBtns, data.buyShapes);
-    initTag(numBtns, data.buyUnit);
+    initTag(typeBtns, (data.buyType || 100010));
+    initTag(shapeBtns, (data.buyShapes || 200010));
+    initTag(numBtns, (data.buyUnit || 400010));
     numPopBtn.setAttribute('item-value', data.buyNum);
     isStartUpBtn[Number(!(Number(data.isStartUp)))].className = 'icon-gou active';
 
