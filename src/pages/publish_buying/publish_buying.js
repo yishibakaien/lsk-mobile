@@ -21,7 +21,6 @@ import {
 }  from 'api/user';
 
 (function () {
-
     // window.onbeforeunload = function () {
     //     return 'shifou';
     // };

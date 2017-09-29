@@ -11,7 +11,8 @@ import {
     c,
     formatProduceShape,
     getDateDiff,
-    formatUserName
+    formatUserName,
+    getQueryString
 } from 'utils/utils';
 
 import {
@@ -89,7 +90,7 @@ import {
                         <div>${formatUserName(list[i].userName)}</div>
                     </div>
                     <div class="product-info">
-                        <img src="${list[i].buyPicUrl}">
+                        <img src="${list[i].productPicUrl}">
                         <div class="text">
                             <div class="brief">${list[i].supplyDesc}</div>
                             <div class="type">${formatProduceShape(list[i].supplyType)}</div>
@@ -162,7 +163,8 @@ import {
 
     var contentSwiper = new Swiper('.swiper-container', {
         onSlideChangeEnd: swiperControl,
-        spaceBetween: 30
+        spaceBetween: 30,
+        initialSlide: ((getQueryString('swiperIndex')) ? (getQueryString('swiperIndex')) : 0)
     });
 
     (function slideControl() {

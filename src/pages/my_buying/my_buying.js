@@ -34,7 +34,7 @@ import {
     });
 
     var getGoingParamas = {
-        buyStatus: '',
+        buyStatus: 1,
         buyType: '',
         pageNo: 1,
         pageSize: 10

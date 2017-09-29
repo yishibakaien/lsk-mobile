@@ -134,7 +134,7 @@ import {
                 div.setAttribute('data-id', list[i].id);
                 div.className = 'info-wrapper';
                 listStr = `<div class="info">
-                    <img src="${list[i].defaultPicUrl}">
+                    <img src="${list[i].productPicUrl}">
                     <div class="text">
                         <div class="top ellipsis-two">${list[i].supplyDesc}</div>
                         <div class="middle ellipsis"><span class="firm-name">${list[i].companyName}</span></div>
