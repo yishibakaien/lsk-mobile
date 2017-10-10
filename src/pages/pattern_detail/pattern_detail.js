@@ -35,6 +35,14 @@ import {
 
 
 (function () {
+    // 返回上一页刷新页面
+    if (window.name != 'bencalie'){
+        location.reload();
+        window.name = 'bencalie';
+    } else {
+        window.name = '';
+    }
+
     var dataId = getQueryString('dataId');
     var companyId;
 // var companyId = getQueryString('companyId');
@@ -159,6 +167,7 @@ import {
         (data.isFavorite === 1) ? (collectStar.className = 'icon-star-small active') : ('icon-star-small');
         // collectWrapper.style.display = 'block';
         collectWrapper.style.display = (data.isShelve ? 'block' : 'none');
+        companyMessage.style.display = (data.isShelve ? 'flex' : 'none');
 
 
         // referPriceValueArr[2] = data.cutPrice;
@@ -397,6 +406,7 @@ import {
                 Toast.success(res.message, 1000);
                 if (res.message === '收藏成功') {
                     that.className = 'icon-star-small active';
+
                 } else {
                     that.className = 'icon-star-small';
                 }

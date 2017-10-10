@@ -35,6 +35,8 @@ export function render(list, parentNode, cb) {
         item.onclick = function() {
             var dataId = this.getAttribute('data-id');
             console.log(dataId);
+            // 10-10菜头添加
+            location.href = './pattern_detail.html?dataId=' + dataId;
         };
         parentNode.appendChild(item);
     }

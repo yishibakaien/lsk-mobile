@@ -22,7 +22,7 @@ import {
 (function () {
     console.log(location.href);
     var foot = c('#foot');
-    var downApp = c('#downApp');
+    // var downApp = c('#downApp');
     var goingWrapper = c('#goingWrapper');
     var completeWrapper = c('#completeWrapper');
     var closeWrapper = c('#closeWrapper');
@@ -159,6 +159,7 @@ import {
                     var id = this.getAttribute('data-id');
                     console.log(id);
                     Toast.info('请前往App查看', 1000);
+                    foot.style.display = 'block';
                 };
                 completeWrapper.insertBefore(div, document.querySelector('.complete-flag'));
 
@@ -209,6 +210,7 @@ import {
                     var id = this.getAttribute('data-id');
                     console.log(id);
                     Toast.info('前往App查看', 1000);
+                    foot.style.display = 'block';
                 };
                 closeWrapper.insertBefore(div, document.querySelector('.close-flag'));
 
@@ -252,6 +254,7 @@ import {
             swiperTag[i].className = swiperTag[i].className.replace('active', '');
         }
         swiperTag[swiper.activeIndex].className += ' active';
+        history.replaceState(null, null, '?swiperIndex=' + swiper.activeIndex);
     }
 
 

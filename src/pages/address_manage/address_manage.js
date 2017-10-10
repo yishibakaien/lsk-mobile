@@ -120,9 +120,11 @@ import {
         deleteConsignee({
             ids: [addressId]
         }, function (res) {
-            Toast.info(res.message, 1000);
             if (res.code === 0) {
+                Toast.success(res.message, 1000)
                 elNode.parentNode.removeChild(elNode);
+            } else {
+                Toast.info(res.message, 1000);
             }
         });
     };

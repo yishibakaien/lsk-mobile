@@ -24,6 +24,15 @@ import {
 
 
 (function() {
+    var bfscrolltop = document.body.scrollTop;
+    c('#pwdIpt').onfocus = function(){
+        interval = setInterval(function(){
+            document.body.scrollTop = document.body.scrollHeight;
+        },100)
+    }).blur(function(){
+        clearInterval(interval);
+        document.body.scrollTop = bfscrolltop;
+    });
     var telIpt = c('#telIpt');
     var pwdIpt = c('#pwdIpt');
     var next = c('#next'),

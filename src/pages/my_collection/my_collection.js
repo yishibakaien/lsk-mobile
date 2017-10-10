@@ -10,7 +10,8 @@ import {
     formatDate,
     formatUnit,
     getDateDiff,
-    formatMoney
+    formatMoney,
+    getQueryString
 } from 'utils/utils';
 
 import {
@@ -165,7 +166,8 @@ import {
 
     var contentSwiper = new Swiper ('.swiper-container', {
         onSlideChangeEnd: swiperControl,
-        spaceBetween: 30
+        spaceBetween: 30,
+        initialSlide: ((getQueryString('swiperIndex')) ? (getQueryString('swiperIndex')) : 0)
     });
 
     (function slideControl() {
@@ -184,6 +186,7 @@ import {
             swiperTag[i].className = swiperTag[i].className.replace('active', '');
         }
         swiperTag[swiper.activeIndex].className += ' active';
+        history.replaceState(null, null, '?swiperIndex=' + swiper.activeIndex);
     }
 })();
 

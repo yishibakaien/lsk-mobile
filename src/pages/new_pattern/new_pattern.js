@@ -108,7 +108,7 @@ getSettledLands({}, function(res) {
                 this.className = 'active selected';
             }
             console.log(recording);
-        }
+        };
     }
 
 }, function(res) {
@@ -126,8 +126,8 @@ for (var i = 0; i < patternBtns.length; i++) {
         }
         this.className = 'active selected';
         recording.pattern = this.index;
-    }
-};
+    };
+}
 
 // 筛选库存
 for (var i = 0; i < stockBtns.length; i++) {
@@ -138,7 +138,7 @@ for (var i = 0; i < stockBtns.length; i++) {
         }
         this.className = 'active selected';
         recording.stock = this.index;
-    }
+    };
 };
 
 reset.onclick = function () {
@@ -168,7 +168,7 @@ confir.onclick = function() {
     console.log('筛选的字段', searchParamas);
     Toast.loading('正在加载中');
     doSearch(true);
-}
+};
 
 function filterLayerToggle () {
     if (triangle.className === 'icon-xiasanjiao') {

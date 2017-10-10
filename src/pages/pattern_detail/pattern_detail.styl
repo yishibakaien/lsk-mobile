@@ -190,7 +190,7 @@
 .message {
     height: 72px;
     background-color: #fff;
-    display: flex;
+    display: none;
     position: relative;
     margin-top: 8px;
 }
@@ -432,12 +432,30 @@
     right: 0;
     bottom: 0;
     background-color: #fff;
-    padding: 0 15px;
     box-shadow: 0 0 1px #e9e9e9;
+}
+
+.color-card-main {
+    max-height: 320px;
+    overflow-y: scroll;
+    padding: 0 15px;
+}
+
+.color-card-main::-webkit-scrollbar {
+    width: 2px;
+}
+
+.color-card-main::-webkit-scrollbar-thumb {
+    color: #666;
+}
+
+.color-card-main::-webkit-scrollbar-track-piece {
+    background-color: transparent;
 }
 
 .color-card .card-title {
     height: 84px;
+    padding: 0 15px;
 }
 
 .color-card .card-title .avatar-wrapper {
