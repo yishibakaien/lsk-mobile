@@ -24,15 +24,8 @@ import {
 
 
 (function() {
-    var bfscrolltop = document.body.scrollTop;
-    c('#pwdIpt').onfocus = function(){
-        interval = setInterval(function(){
-            document.body.scrollTop = document.body.scrollHeight;
-        },100)
-    }).blur(function(){
-        clearInterval(interval);
-        document.body.scrollTop = bfscrolltop;
-    });
+
+    var intoView = c('.into-view-wrapper')[0];
     var telIpt = c('#telIpt');
     var pwdIpt = c('#pwdIpt');
     var next = c('#next'),
@@ -52,7 +45,14 @@ import {
             imgCodeIptTip: '请输入验证码',
             passwordText: '密码长度需大于等于6位',
         };
-
+    
+    window.onresize = function () {
+        if (intoView.style.bottom === '15px') {
+            intoView.style.bottom = 'initial';
+        } else {
+            intoView.style.bottom = '15px';
+        }
+    };
     telIpt.oninput = function() {
         userData.userMobile = this.value;
         checkAccountAndPwd();
