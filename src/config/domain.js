@@ -4,7 +4,8 @@ var env = process.env.NODE_ENV;
 
 var conf = (function(env) {
     var urls = {
-        dev: 'http://zsbgdev.ngrok.cc',
+        // dev: 'http://zsbgdev.ngrok.cc',
+        dev: 'http://zsbg1.free.ngrok.cc',
         prod: 'https://api.ts57.cn'
     };
     // 阿里云OSS配置
