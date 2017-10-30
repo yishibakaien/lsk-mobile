@@ -9,12 +9,12 @@ function testPwd(pwd) {
 }
 /**用户名 */
 function testName(name) {
-    return /^[\u4E00-\u9FA5]{2,20}$/.test(name);
+    return /^[\u4E00-\u9FA5a-zA-Z]{2,20}$/.test(name);
 }
 
 /**企业名字 */
 function testFirmName(str) {
-    return /.{3,}/.test(str || '');
+    return /.{2,}/.test(str || '');
 }
 /**主营业务**/
 function testFirmBusiness(str) {

@@ -45,7 +45,7 @@ import {
             imgCodeIptTip: '请输入验证码',
             passwordText: '密码长度需大于等于6位',
         };
-    
+
     window.onresize = function () {
         if (intoView.style.bottom === '15px') {
             intoView.style.bottom = 'initial';

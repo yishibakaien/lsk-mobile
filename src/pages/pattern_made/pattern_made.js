@@ -46,8 +46,25 @@ import {
     var submit = c('#submit');
     // 拨打电话
     var tel = c('#tel');
-    tel.addEventListener('click', function() {
-        location.href = 'tel:' + '10086';
+    var cancelDial = c('#cancelDial');
+    var confirmDial = c('#confirmDial');
+    var dialLayout = c('#dialLayout');
+    var mask = c('#mask');
+    tel.onclick = function () {
+        mask.style.display = 'block';
+        dialLayout.style.display = 'block';
+        document.body.className = 'modal-open';
+    };
+    cancelDial.onclick = closeMask;
+    mask.onclick = closeMask;
+
+    function closeMask() {
+        mask.style.display = 'none';
+        dialLayout.style.display = 'none';
+        document.body.className = '';
+    }
+    confirmDial.addEventListener('click', function() {
+        location.href = 'tel:' + '4008013357';
     }, false);
     // 截图组件
     var cropperWrapper = c('#cropperWrapper');

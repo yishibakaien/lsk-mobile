@@ -150,8 +150,8 @@ import {
 
                 // alert(_companyId);
                 if (data.indexName) {
-                    // location.href = './index.html?companyId=' + _companyId;
-                    location.href = 'http://' + data.indexName + '.lacewang.cn';
+                    location.href = 'https://www.ts57.cn/microWebsite/index.html?companyId=' + data.id;
+                    // location.href = 'http://' + data.indexName + '.lacewang.cn';
                 }
             };
         });
@@ -390,6 +390,7 @@ import {
                 if (!res.code) {
                     alert('采购登记成功！');
                     colorCardClose();
+                    location.reload();
                 }
             });
         }

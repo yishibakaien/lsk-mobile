@@ -13,7 +13,7 @@ PIC_SEARCH();
 import Toast from 'plugins/toast/Toast';
 
 import {
-    c,
+    c
     // getQueryString
 } from 'utils/utils';
 
@@ -34,20 +34,22 @@ import {getSettledLands} from 'api/search.js';
 // }  from 'api/user';
 
 
-var recording = {
-    pattern: '',
-    stock: '',
-    area: []
-};
+// var recording = {
+//     pattern: [],
+//     stock: '',
+//     area: []
+// };
 //    var isSelected = false;
-var newPattern = c('#newPattern');
+var newPatternBtn = c('#newPatternBtn');
+var filterLayerText = c('#filterLayerText');
+var newPatternText = c('#newPatternText');
 var reset = c('#reset');
 var confir = c('#confir');
 var triangle = c('#triangle');
 var filterLayerBtn = c('#filterLayerBtn');
 var filterLayer = c('#filterLayer');
 var filterAllItemsBtn = c('#filterLayer').getElementsByTagName('span');
-var mask = c('.mask')[0];
+var mask = c('#mask');
 var patternBtns = c('#pattern').getElementsByTagName('span');
 var stockBtns = c('#stock').getElementsByTagName('span');
 // var areaBtns = c('#area').getElementsByTagName('span');
@@ -62,13 +64,37 @@ var searchParamas = {
     settledLands: ''
 };
 doSearch();
-function doSearch(isFilter) {
+
+newPatternBtn.onclick = function () {
+    if (!newPatternText.classList.contains('active')) {
+        searchParamas = {
+            categorys: '',
+            dateSort: 2,
+            isStock: 1,
+            keywords: '',
+            pageNo: 1,
+            pageSize: 10,
+            settledLands: ''
+        };
+        console.log(searchParamas);
+        Toast.loading('正在加载中');
+        doSearch(false, true);
+    }
+};
+function doSearch(isFilter, isNewPattern) {
     textSearch(searchParamas, function(res) {
         console.log(res);
         Toast.hide();
         var list = res.data.list;
         if (isFilter) {
             document.querySelector('.new-pattern-list-wrapper').innerHTML = '';
+            filterLayerText.className = 'active';
+            newPatternText.className = '';
+        }
+        if (isNewPattern) {
+            document.querySelector('.new-pattern-list-wrapper').innerHTML = '';
+            filterLayerText.className = '';
+            newPatternText.className = 'active';
         }
         render(list, document.querySelector('.new-pattern-list-wrapper'), function() {
             console.log('渲染完毕');
@@ -103,11 +129,17 @@ getSettledLands({}, function(res) {
         areaBtns[i].onclick = function () {
             if (this.classList.contains('active')) {
                 this.className = '';
-                recording.area.push(this.index);
+                // for(var t = 0; t < recording.area.length; t++) {
+                //     if(recording.area[t] === this.index) {
+                //         recording.area.splice(t, 1);
+                //         break;
+                //     }
+                // }
             } else {
                 this.className = 'active selected';
+                // recording.area.push(this.index);
             }
-            console.log(recording);
+            // console.log(recording);
         };
     }
 
@@ -121,12 +153,27 @@ filterLayerBtn.onclick = filterLayerToggle;
 for (var i = 0; i < patternBtns.length; i++) {
     patternBtns[i].index = i;
     patternBtns[i].onclick = function () {
-        for (var n = 0; n < patternBtns.length; n++) {
-            patternBtns[n].className = '';
+        if (this.classList.contains('active')) {
+            this.className = '';
+            // for(var t = 0; t < recording.pattern.length; t++) {
+            //     if(recording.pattern[t] === this.index) {
+            //         recording.pattern.splice(t, 1);
+            //         break;
+            //     }
+            // }
+        } else {
+            this.className = 'active selected';
+            // recording.pattern.push(this.index);
         }
-        this.className = 'active selected';
-        recording.pattern = this.index;
+        // console.log(recording);
     };
+    // patternBtns[i].onclick = function () {
+    //     for (var n = 0; n < patternBtns.length; n++) {
+    //         patternBtns[n].className = '';
+    //     }
+    //     this.className = 'active selected';
+    //     recording.pattern = this.index;
+    // };
 }
 
 // 筛选库存
@@ -137,9 +184,10 @@ for (var i = 0; i < stockBtns.length; i++) {
             stockBtns[n].className = '';
         }
         this.className = 'active selected';
-        recording.stock = this.index;
+        // recording.stock = this.index;
+        // console.log(recording);
     };
-};
+}
 
 reset.onclick = function () {
     for (var i = 0; i < filterAllItemsBtn.length; i++) {
@@ -153,22 +201,27 @@ reset.onclick = function () {
 confir.onclick = function() {
     filterLayerToggle();
     var selectedItems = document.querySelectorAll('.selected');
-    console.log(selectedItems);
     var areaArr = [];
+    var categorysArr = [];
     Array.prototype.forEach.call(selectedItems, function(item) {
         var key = item.getAttribute('type');
         if (key === 'settledLands') {
             areaArr.push(item.getAttribute('data'));
+        } else if (key === 'categorys') {
+            categorysArr.push(item.getAttribute('data'));
         } else {
             searchParamas[key] = item.getAttribute('data');
         }
     });
     searchParamas['settledLands'] = areaArr.join(',');
+    searchParamas['categorys'] = categorysArr.join(',');
     searchParamas.pageNo = 1;
     console.log('筛选的字段', searchParamas);
     Toast.loading('正在加载中');
     doSearch(true);
 };
+
+mask.onclick = filterLayerToggle;
 
 function filterLayerToggle () {
     if (triangle.className === 'icon-xiasanjiao') {

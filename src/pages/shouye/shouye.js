@@ -1,6 +1,6 @@
 require('common/styles/index.styl');
 require('./shouye.styl');
-
+import wx from 'weixin-js-sdk';
 var Swiper = require('plugins/swiper/swiper-3.4.2.min.js');
 
 console.info('process.env.NODE_ENV', process.env.NODE_ENV);
@@ -26,6 +26,9 @@ TEXT_SEARCH();
 
 
 newSettled();
+document.getElementsByClassName('settled-info-wrapper')[0].onclick = function () {
+    location.href = './settled_merchant.html?swiperIndex=1';
+};
 // 最新驻商家(新闻轮播)
 function newSettled() {
     listLSKHomeUnSettledCompany({
@@ -156,32 +159,40 @@ function clothes() {
         console.log('首页版衣列表', res);
         var data = res.data;
         var str = '';
+        var imgArr = [];
         data.forEach(function(item) {
             // <div><img src="${item.clothesPic}"></div>
             // str += `<div class="swiper-slide" data-id="${item.id}">
             //      <div class="pattern" style="background-image:${formatBgPic(item.clothesPic, 200)}"></div>
             // </div>`;
-
+            imgArr.push(item.clothesPic);
             var div = document.createElement('div');
-            div.setAttribute('data-id', item.id);
             div.className = 'swiper-slide';
+            div.setAttribute('data-id', item.id);
+            div.setAttribute('data-pic-url', item.clothesPic);
             str = `<div class="pattern" style="background-image:${formatBgPic(item.clothesPic, 200)}"></div>`;
             div.innerHTML = str;
             div.onclick = function () {
                 var id = this.getAttribute('data-id');
                 console.log(id);
+                console.log(this.getAttribute('data-pic-url'));
+                wx.previewImage({
+                    current: this.getAttribute('data-pic-url'),
+                    urls: imgArr
+                });
                 // location.href = './pattern_detail.html?dataId=' + id;
-                location.href = './version_of_clothing.html';
+                // location.href = './version_of_clothing.html';
             };
             c('#clothes').appendChild(div);
         });
+        console.log('imgArr', imgArr);
         // c('#clothes').innerHTML = str;
         var versionSwiper = new Swiper('.version-items', {
             slidesPerView: 'auto',
             // slidesPerGroup: 3,
             // autoplay: 6000,
             freeMode: true,
-            loop: true,
+            // loop: true,
             autoplayDisableOnInteraction: false
         });
     }, function(res) {
@@ -213,7 +224,9 @@ function good() {
             div.onclick = function () {
                 var id = this.getAttribute('data-id');
                 console.log(id);
-                location.href = './settled_merchant.html';
+                location.href = 'https://www.ts57.cn/microWebsite/index.html?companyId=' + id;
+                // location.href = 'http://' + data.indexName + '.lacewang.cn';
+                // location.href = './settled_merchant.html';
             };
             slide.appendChild(div);
         });

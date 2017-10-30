@@ -57,7 +57,7 @@ input::-webkit-input-placeholder {
 }
 
 .down-app {
-    height: 50px;
+    //height: 50px;
     width: 100%;
     background-color: #fff;
     display: flex;
@@ -79,12 +79,22 @@ input::-webkit-input-placeholder {
     flex: 1;
     color: #333;
     font-size: 12px;
-    line-height: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 8px 0;
     overflow: hidden;
-    text-overflow: ellipsis;
+    //line-height: 50px;
+    //overflow: hidden;
+    //text-overflow: ellipsis;
+    //white-space: nowrap;
+}
+    
+.down-app .text div {
+    float: left;
     white-space: nowrap;
 }
-
+ 
 .down-app .down {
     flex: 0 0 auto;
     color: #fff;
@@ -256,7 +266,7 @@ input::-webkit-input-placeholder {
     padding-top 150%
     margin-top 8px
 .quality-merchants-wrapper {
-    margin-bottom: 50px;
+    margin-bottom: 125px;
 }
 
 .quality-merchants-wrapper .bottom {

@@ -3,7 +3,10 @@ require('./settled_merchant.styl');
 import {TEXT_SEARCH} from 'common/scripts/text_search.js';
 
 
-import {formatDate} from 'utils/utils';
+import {
+    formatDate,
+    getQueryString
+} from 'utils/utils';
 
 import {listUnSettledCompany, listSettledCompany} from 'api/settled_merchant';
 
@@ -17,7 +20,8 @@ var newSettled = document.getElementById('newSettled');
 var swiperTag = document.getElementsByClassName('swiper-tag')[0].getElementsByTagName('span');
 var contentSwiper = new Swiper ('.swiper-container', {
     onSlideChangeEnd: swiperControl,
-    spaceBetween: 30
+    spaceBetween: 30,
+    initialSlide: ((getQueryString('swiperIndex')) ? (getQueryString('swiperIndex')) : 0)
 });
 slideControl();
 
@@ -48,14 +52,16 @@ listSettledCompany(
         var data = res.data.list;
         var str = '';
         data.forEach(function(item) {
-            str += `<div data-id="${item.id}" index-name="${item.indexName}"><img src="${item.companyHeadIcon}"></div>`;
+            str += `<div data-id="${item.id}" index-name="${item.indexName}" data-id="${item.id}"><img src="${item.companyHeadIcon}"></div>`;
         });
         qualityMerchants.innerHTML = str;
         var companys = qualityMerchants.getElementsByTagName('div');
         Array.prototype.forEach.call(companys, function(item) {
             item.onclick = function() {
-                var indexName = this.getAttribute('index-name');
-                location.href = 'http://' + indexName + '.lacewang.com';
+                var id = this.getAttribute('data-id');
+                // var indexName = this.getAttribute('index-name');
+                // location.href = 'http://' + indexName + '.lacewang.com';
+                location.href = 'https://www.ts57.cn/microWebsite/index.html?companyId=' + id;
             };
         });
     },
@@ -88,8 +94,10 @@ listUnSettledCompany(
                 <div class="btn clearfix" data-id="${item.id}" index-name="${item.indexName}">进入官网</div>`;
             div.innerHTML = str;
             div.getElementsByClassName('btn')[0].onclick = function() {
-                location.href = 'http://' + this.getAttribute('index-name') + '.lacewang.com';
-            }
+                location.href = 'https://www.ts57.cn/microWebsite/index.html?companyId=' + this.getAttribute('data-id');
+                // location.href = 'http://' + data.indexName + '.lacewang.cn';
+                // location.href = 'http://' + this.getAttribute('index-name') + '.lacewang.com';
+            };
             newSettled.appendChild(div);
         });
     },
