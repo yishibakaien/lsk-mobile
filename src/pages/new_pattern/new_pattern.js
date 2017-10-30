@@ -52,6 +52,7 @@ var patternBtns = c('#pattern').getElementsByTagName('span');
 var stockBtns = c('#stock').getElementsByTagName('span');
 // var areaBtns = c('#area').getElementsByTagName('span');
 // 记录筛选条件、页数、滚动位置
+var isFirstRender = true;
 var storageRecording;
 var recording = {
     indexNum: [],
@@ -82,6 +83,9 @@ newPatternBtn.onclick = function () {
         };
         Toast.loading('正在加载中');
         doSearch(false, true);
+        sessionStorage.offsetTop = 0;
+        document.documentElement.scrollTop = sessionStorage.offsetTop;
+        document.body.scrollTop = sessionStorage.offsetTop;
     }
 };
 function doSearch(isFilter, isNewPattern) {
@@ -99,20 +103,20 @@ function doSearch(isFilter, isNewPattern) {
             filterLayerText.className = '';
             newPatternText.className = 'active';
             sessionStorage.removeItem('recording');
-            sessionStorage.removeItem('offsetTop');
-
         }
 
         render(list, document.querySelector('.new-pattern-list-wrapper'), function() {
             console.log('渲染完毕');
-            console.log('storageOffsetTop', sessionStorage.offsetTop);
-            document.documentElement.scrollTop = sessionStorage.offsetTop;
-            window.pageYOffset = sessionStorage.offsetTop;
-            document.body.scrollTop = sessionStorage.offsetTop;
             document.onscroll = function () {
-                sessionStorage.offsetTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+                sessionStorage.offsetTop = document.documentElement.scrollTop || document.body.scrollTop;
                 console.log(sessionStorage.offsetTop);
             };
+            console.log('storageOffsetTop', sessionStorage.offsetTop);
+            if (isFirstRender) {
+                isFirstRender = false;
+                document.documentElement.scrollTop = sessionStorage.offsetTop;
+                document.body.scrollTop = sessionStorage.offsetTop;
+            }
         });
 
         var hasMore = res.data.pageNO < res.data.totalPage;
@@ -247,7 +251,7 @@ for (var i = 0; i < stockBtns.length; i++) {
 confir.onclick = function() {
     filterLayerToggle();
     doFilter();
-    sessionStorage.removeItem('offsetTop');
+    sessionStorage.offsetTop = 0;
 };
 
 function doFilter() {
@@ -287,7 +291,6 @@ function filterLayerToggle () {
         mask.style.display = 'none';
         document.body.className = '';
         document.documentElement.scrollTop = sessionStorage.offsetTop;
-        window.pageYOffset = sessionStorage.offsetTop;
         document.body.scrollTop = sessionStorage.offsetTop;
     }
 }
