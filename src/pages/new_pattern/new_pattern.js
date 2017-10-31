@@ -82,10 +82,9 @@ newPatternBtn.onclick = function () {
             settledLands: ''
         };
         Toast.loading('正在加载中');
-        doSearch(false, true);
         sessionStorage.offsetTop = 0;
-        document.documentElement.scrollTop = sessionStorage.offsetTop;
-        document.body.scrollTop = sessionStorage.offsetTop;
+        setScrollTop();
+        doSearch(false, true);
     }
 };
 function doSearch(isFilter, isNewPattern) {
@@ -108,14 +107,21 @@ function doSearch(isFilter, isNewPattern) {
         render(list, document.querySelector('.new-pattern-list-wrapper'), function() {
             console.log('渲染完毕');
             document.onscroll = function () {
-                sessionStorage.offsetTop = document.documentElement.scrollTop || document.body.scrollTop;
-                console.log(sessionStorage.offsetTop);
+                if ((document.documentElement.scrollTop !== 0)) {
+                    sessionStorage.offsetTop = document.documentElement.scrollTop || document.body.scrollTop;
+                    console.log(document.documentElement.scrollTop);
+                }
+                // 微信内置浏览器貌似对document.documentElement.scrollTop 无效
+                if ((document.body.scrollTop !== 0)) {
+                    sessionStorage.offsetTop = document.documentElement.scrollTop || document.body.scrollTop;
+                    console.log(document.documentElement.scrollTop);
+                }
+
             };
             console.log('storageOffsetTop', sessionStorage.offsetTop);
             if (isFirstRender) {
                 isFirstRender = false;
-                document.documentElement.scrollTop = sessionStorage.offsetTop;
-                document.body.scrollTop = sessionStorage.offsetTop;
+                setScrollTop();
             }
         });
 
@@ -249,9 +255,9 @@ for (var i = 0; i < stockBtns.length; i++) {
 //        confir.onclick = filterLayerToggle;
 //    }
 confir.onclick = function() {
+    sessionStorage.offsetTop = 0;
     filterLayerToggle();
     doFilter();
-    sessionStorage.offsetTop = 0;
 };
 
 function doFilter() {
@@ -290,7 +296,11 @@ function filterLayerToggle () {
         filterLayer.style.display = 'none';
         mask.style.display = 'none';
         document.body.className = '';
-        document.documentElement.scrollTop = sessionStorage.offsetTop;
-        document.body.scrollTop = sessionStorage.offsetTop;
+        setScrollTop();
     }
+}
+
+function setScrollTop() {
+    document.documentElement.scrollTop = sessionStorage.offsetTop;
+    document.body.scrollTop = sessionStorage.offsetTop;
 }
