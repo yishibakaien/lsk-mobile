@@ -199,7 +199,7 @@ import {
         height.innerHTML = data.height;
 
         dress.addEventListener('click', function () {
-            location.href = 'https://www.ts57.cn/share/dress.html?companyId=' + data.companyId + '&url=' + data.defaultPicUrl;
+            location.href = 'https://www.ts57.cn/share/dress.html?companyId=' + data.companyId + '&url=' + data.defaultPicUrl + '&from=lace';
         }, false);
 
         // 正常价格(大货价格)

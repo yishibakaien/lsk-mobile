@@ -52,6 +52,8 @@ export function pullUpLoad(hasmore, ajaxFn, parentNode) {
         console.log('激发滚动位置判断');
         if (hasmore) {
             // console.log(parentNode.scrollTop )
+            console.log('parentNode.scrollTop:' + parentNode.scrollTop + 'parentNode.clientHeight:' + parentNode.clientHeight + 'parentNode.scrollHeight:' + parentNode.scrollHeight);
+            console.log('documentElement.scrollTop', document.documentElement.scrollTop);
             if (parentNode.scrollTop + parentNode.clientHeight + 20 > parentNode.scrollHeight) {
                 console.log('开始加载');
                 showLoadingTip();

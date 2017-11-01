@@ -25,7 +25,6 @@ import {
     console.log('userId', localStorage['userId']);
     console.log('isSettled', localStorage['isSettled']);
     var headRight = c('#headRight');
-    console.log(headRight);
     var supplyWrapper = c('#supplyWrapper');
     var buyingWrapper = c('#buyingWrapper');
     var swiperTag = c('.swiper-tag')[0].getElementsByTagName('span');
@@ -35,17 +34,17 @@ import {
     var isSettled = parseInt(localStorage.isSettled);
     var text = [
         {
-            text: '发布求购',
-            link: './publish_buying.html'
+            text: '发布供应',
+            link: '../publish_supply.html'
         },
         {
             text: '发布求购',
             link: './publish_buying.html'
         }
     ];
-    if (userType === '1') {
-        text[0].text = '发布供应';
-        text[0].link = './publish_supply.html';
+    if (userType === '3') {
+        text[0].text = '发布求购';
+        text[0].link = './publish_buying.html';
     }
     headRight.innerHTML = text[0].text;
     headRight.setAttribute('href', text[0].link);
@@ -152,7 +151,6 @@ import {
                 buyingWrapper.insertBefore(div, document.querySelector('.buying-flag'));
             }
             var hasMore = res.data.pageNO < res.data.totalPage;
-            console.log('hasMore值:', hasMore);
             if (hasMore) {
                 getBuyingParamas.pageNo++;
             }

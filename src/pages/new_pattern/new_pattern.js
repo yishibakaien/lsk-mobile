@@ -55,8 +55,7 @@ var stockBtns = c('#stock').getElementsByTagName('span');
 var isFirstRender = true;
 var storageRecording;
 var recording = {
-    indexNum: [],
-    pageNo: ''
+    indexNum: []
 };
 
 var searchParamas = {
@@ -71,25 +70,26 @@ var searchParamas = {
 // doSearch();
 
 newPatternBtn.onclick = function () {
-    if (!newPatternText.classList.contains('active')) {
-        searchParamas = {
-            categorys: '',
-            dateSort: 2,
-            isStock: 1,
-            keywords: '',
-            pageNo: 1,
-            pageSize: 10,
-            settledLands: ''
-        };
-        Toast.loading('正在加载中');
-        sessionStorage.offsetTop = 0;
-        setScrollTop();
-        doSearch(false, true);
-    }
+    // if (!newPatternText.classList.contains('active')) {
+    searchParamas = {
+        categorys: '',
+        dateSort: 2,
+        isStock: 1,
+        keywords: '',
+        pageNo: 1,
+        pageSize: 10,
+        settledLands: ''
+    };
+    Toast.loading('正在加载中');
+    sessionStorage.offsetTop = 0;
+    setScrollTop();
+    doSearch(false, true);
+    // }
 };
 function doSearch(isFilter, isNewPattern) {
+    sessionStorage.pageNo = searchParamas.pageNo;
     textSearch(searchParamas, function(res) {
-        console.log(res);
+        console.log('doSearch', res);
         Toast.hide();
         var list = res.data.list;
         if (isFilter) {
@@ -107,16 +107,8 @@ function doSearch(isFilter, isNewPattern) {
         render(list, document.querySelector('.new-pattern-list-wrapper'), function() {
             console.log('渲染完毕');
             document.onscroll = function () {
-                if ((document.documentElement.scrollTop !== 0)) {
-                    sessionStorage.offsetTop = document.documentElement.scrollTop || document.body.scrollTop;
-                    console.log(document.documentElement.scrollTop);
-                }
-                // 微信内置浏览器貌似对document.documentElement.scrollTop 无效
-                if ((document.body.scrollTop !== 0)) {
-                    sessionStorage.offsetTop = document.documentElement.scrollTop || document.body.scrollTop;
-                    console.log(document.documentElement.scrollTop);
-                }
-
+                sessionStorage.offsetTop = document.documentElement.scrollTop || document.body.scrollTop;
+                console.log('document.documentElement.scrollTop', document.documentElement.scrollTop);
             };
             console.log('storageOffsetTop', sessionStorage.offsetTop);
             if (isFirstRender) {
@@ -127,7 +119,6 @@ function doSearch(isFilter, isNewPattern) {
 
         var hasMore = res.data.pageNO < res.data.totalPage;
         if (hasMore) {
-            recording.pageNo = searchParamas.pageNo;
             searchParamas.pageNo++;
         }
         pullUpLoad(hasMore, doSearch);
@@ -150,12 +141,14 @@ getSettledLands({}, function(res) {
     var areaBtns = c('#area').getElementsByTagName('span');
     var filterAllItemsBtn = c('#filterLayer').getElementsByTagName('span');
 
-    // 地址列表渲染完判断是否有用户sessionrecording值
+    // 地址列表渲染完判断是否有用户sessionrecording值,之前操作的状态保留
+    if (sessionStorage['pageNo']) {
+        searchParamas.pageNo = Number(sessionStorage['pageNo']);
+    }
     if (sessionStorage['recording']) {
         storageRecording = JSON.parse(sessionStorage['recording']);
         if (storageRecording.indexNum.length) {
             console.log('storageRecording', storageRecording);
-            searchParamas.pageNo = storageRecording.pageNo;
             console.log('searchParamas', searchParamas);
             for (var t = 0; t < storageRecording.indexNum.length; t++) {
                 filterAllItemsBtn[storageRecording.indexNum[t]].className = 'active selected';
@@ -169,7 +162,7 @@ getSettledLands({}, function(res) {
         doSearch();
         // console.log(storageRecording);
     }
-
+    // 筛选按钮重置事件
     reset.onclick = function () {
         for (var i = 0; i < filterAllItemsBtn.length; i++) {
             filterAllItemsBtn[i].className = '';
@@ -192,7 +185,7 @@ getSettledLands({}, function(res) {
                 this.className = 'active selected';
                 recording.indexNum.push(this.index + 6);
             }
-            console.log('recording', recording);
+            // console.log('recording', recording);
         };
     }
 
@@ -233,6 +226,7 @@ for (var i = 0; i < patternBtns.length; i++) {
 for (var i = 0; i < stockBtns.length; i++) {
     stockBtns[i].index = i;
     stockBtns[i].onclick = function () {
+        console.log(recording);
         for (var n = 0; n < stockBtns.length; n++) {
             stockBtns[n].className = '';
             for(var t = 0; t < recording.indexNum.length; t++) {
@@ -246,7 +240,7 @@ for (var i = 0; i < stockBtns.length; i++) {
         }
         this.className = 'active selected';
         recording.indexNum.push(this.index + 4);
-        console.log('recording', recording);
+        // console.log('recording', recording);
     };
 }
 
