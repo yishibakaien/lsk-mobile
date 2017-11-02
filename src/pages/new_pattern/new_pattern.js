@@ -33,11 +33,7 @@ import {getSettledLands} from 'api/search.js';
 //
 // }  from 'api/user';
 
-// var recording = {
-//     pattern: [],
-//     stock: '',
-//     area: []
-// };
+
 //    var isSelected = false;
 var newPatternBtn = c('#newPatternBtn');
 var filterLayerText = c('#filterLayerText');
@@ -50,13 +46,7 @@ var filterLayer = c('#filterLayer');
 var mask = c('#mask');
 var patternBtns = c('#pattern').getElementsByTagName('span');
 var stockBtns = c('#stock').getElementsByTagName('span');
-// var areaBtns = c('#area').getElementsByTagName('span');
-// 记录筛选条件、页数、滚动位置
-var isFirstRender = true;
-var storageRecording;
-var recording = {
-    indexNum: []
-};
+var patternWrapper = c('.new-pattern-list-wrapper')[0];
 
 var searchParamas = {
     categorys: '',
@@ -67,10 +57,73 @@ var searchParamas = {
     pageSize: 10,
     settledLands: ''
 };
+// var areaBtns = c('#area').getElementsByTagName('span');
+
+// 返回上一页状态保留
+// 是否第一次render
+// var isFirstRender = true;
+// var storageRecordingIndex = 0;
+// 记录筛选项的index
+var recordingIndex = {
+    indexNum: []
+};
+// 记录ajax花型data
+var recordingPatternList = [];
+//滚动位置记录
+// sessionStorage.offsetTop
+// 加载页数记录
+// sessionStorage.pageNo
+// 总页数记录
+// sessionStorage.totalPage
+// 记录ajax花型data到sessionStorage
+// sessionStorage.recordingPatternList
+
+
+
 // doSearch();
+// 监听浏览器回退事件
+window.addEventListener('pageshow', function (event) {
+    if (event.persisted || window.performance && window.performance.navigation.type == 2) {
+        console.log(searchParamas);
+        if (sessionStorage.pageNO) {
+            searchParamas.pageNo = Number(sessionStorage.pageNO);
+        }
+        if (sessionStorage['recordingIndex']) {
+            if (JSON.parse(sessionStorage['recordingIndex']).indexNum.length) {
+                recordingIndex = JSON.parse(sessionStorage['recordingIndex']);
+                patternWrapper.innerHTML = '';
+                filterLayerText.className = 'active';
+                newPatternText.className = '';
+            }
+        } else {
+            patternWrapper.innerHTML = '';
+            filterLayerText.className = '';
+            newPatternText.className = 'active';
+        }
+
+        if (sessionStorage.recordingPatternList) {
+            for (let item of JSON.parse(sessionStorage['recordingPatternList'])) {
+                recordingPatternList.push(item);
+            }
+
+            render(recordingPatternList, document.querySelector('.new-pattern-list-wrapper'), function() {
+                console.log('渲染完毕');
+                scrollTopMethod();
+                setScrollTop();
+            });
+        }
+        var hasMore = Number(sessionStorage.pageNO) < Number(sessionStorage.totalPage);
+        if (hasMore) {
+            searchParamas.pageNo++;
+        }
+        pullUpLoad(hasMore, doSearch);
+    } else {
+        doSearch();
+    }
+}, false);
+
 
 newPatternBtn.onclick = function () {
-    // if (!newPatternText.classList.contains('active')) {
     searchParamas = {
         categorys: '',
         dateSort: 2,
@@ -80,41 +133,39 @@ newPatternBtn.onclick = function () {
         pageSize: 10,
         settledLands: ''
     };
+    recordingPatternList = [];
+    sessionStorage.removeItem('recordingIndex');
     Toast.loading('正在加载中');
     sessionStorage.offsetTop = 0;
     setScrollTop();
     doSearch(false, true);
-    // }
 };
 function doSearch(isFilter, isNewPattern) {
-    sessionStorage.pageNo = searchParamas.pageNo;
     textSearch(searchParamas, function(res) {
         console.log('doSearch', res);
+        sessionStorage.pageNO = res.data.pageNO;
+        sessionStorage.totalPage = res.data.totalPage;
         Toast.hide();
         var list = res.data.list;
+        for (let item of list) {
+            recordingPatternList.push(item);
+        }
+        console.log('recordingPatternList', recordingPatternList);
+        sessionStorage.recordingPatternList = JSON.stringify(recordingPatternList);
         if (isFilter) {
-            document.querySelector('.new-pattern-list-wrapper').innerHTML = '';
+            patternWrapper.innerHTML = '';
             filterLayerText.className = 'active';
             newPatternText.className = '';
         }
         if (isNewPattern) {
-            document.querySelector('.new-pattern-list-wrapper').innerHTML = '';
+            patternWrapper.innerHTML = '';
             filterLayerText.className = '';
             newPatternText.className = 'active';
-            sessionStorage.removeItem('recording');
         }
 
         render(list, document.querySelector('.new-pattern-list-wrapper'), function() {
             console.log('渲染完毕');
-            document.onscroll = function () {
-                sessionStorage.offsetTop = document.documentElement.scrollTop || document.body.scrollTop;
-                console.log('document.documentElement.scrollTop', document.documentElement.scrollTop);
-            };
-            console.log('storageOffsetTop', sessionStorage.offsetTop);
-            if (isFirstRender) {
-                isFirstRender = false;
-                setScrollTop();
-            }
+            scrollTopMethod();
         });
 
         var hasMore = res.data.pageNO < res.data.totalPage;
@@ -140,27 +191,12 @@ getSettledLands({}, function(res) {
     c('#areaBtns').innerHTML = str;
     var areaBtns = c('#area').getElementsByTagName('span');
     var filterAllItemsBtn = c('#filterLayer').getElementsByTagName('span');
-
-    // 地址列表渲染完判断是否有用户sessionrecording值,之前操作的状态保留
-    if (sessionStorage['pageNo']) {
-        searchParamas.pageNo = Number(sessionStorage['pageNo']);
-    }
-    if (sessionStorage['recording']) {
-        storageRecording = JSON.parse(sessionStorage['recording']);
-        if (storageRecording.indexNum.length) {
-            console.log('storageRecording', storageRecording);
-            console.log('searchParamas', searchParamas);
-            for (var t = 0; t < storageRecording.indexNum.length; t++) {
-                filterAllItemsBtn[storageRecording.indexNum[t]].className = 'active selected';
-            }
-            recording = storageRecording;
-            doFilter();
-        } else {
-            doSearch();
+    // recordingIndex如果存在写入之前用户操作记录
+    if (recordingIndex.indexNum.length) {
+        for (var t = 0; t < recordingIndex.indexNum.length; t++) {
+            filterAllItemsBtn[recordingIndex.indexNum[t]].className = 'active selected';
         }
-    } else {
-        doSearch();
-        // console.log(storageRecording);
+        doFilter();
     }
     // 筛选按钮重置事件
     reset.onclick = function () {
@@ -168,27 +204,24 @@ getSettledLands({}, function(res) {
             filterAllItemsBtn[i].className = '';
         }
     };
-
     // 筛选地区
     for (var i = 0; i < areaBtns.length; i++) {
         areaBtns[i].index = i;
         areaBtns[i].onclick = function () {
             if (this.classList.contains('active')) {
                 this.className = '';
-                for(var t = 0; t < recording.indexNum.length; t++) {
-                    if(recording.indexNum[t] === (this.index + 6)) {
-                        recording.indexNum.splice(t, 1);
+                for(var t = 0; t < recordingIndex.indexNum.length; t++) {
+                    if(recordingIndex.indexNum[t] === (this.index + 6)) {
+                        recordingIndex.indexNum.splice(t, 1);
                         break;
                     }
                 }
             } else {
                 this.className = 'active selected';
-                recording.indexNum.push(this.index + 6);
+                recordingIndex.indexNum.push(this.index + 6);
             }
-            // console.log('recording', recording);
         };
     }
-
 }, function(res) {
     console.error('获取入驻商家地址', res);
 });
@@ -201,24 +234,23 @@ for (var i = 0; i < patternBtns.length; i++) {
     patternBtns[i].onclick = function () {
         if (this.classList.contains('active')) {
             this.className = '';
-            for(var t = 0; t < recording.indexNum.length; t++) {
-                if(recording.indexNum[t] === this.index) {
-                    recording.indexNum.splice(t, 1);
+            for(var t = 0; t < recordingIndex.indexNum.length; t++) {
+                if(recordingIndex.indexNum[t] === this.index) {
+                    recordingIndex.indexNum.splice(t, 1);
                     break;
                 }
             }
         } else {
             this.className = 'active selected';
-            recording.indexNum.push(this.index);
+            recordingIndex.indexNum.push(this.index);
         }
-        // console.log(recording);
     };
     // patternBtns[i].onclick = function () {
     //     for (var n = 0; n < patternBtns.length; n++) {
     //         patternBtns[n].className = '';
     //     }
     //     this.className = 'active selected';
-    //     recording.pattern = this.index;
+    //     recordingIndex.pattern = this.index;
     // };
 }
 
@@ -226,34 +258,37 @@ for (var i = 0; i < patternBtns.length; i++) {
 for (var i = 0; i < stockBtns.length; i++) {
     stockBtns[i].index = i;
     stockBtns[i].onclick = function () {
-        console.log(recording);
+        console.log(recordingIndex);
         for (var n = 0; n < stockBtns.length; n++) {
             stockBtns[n].className = '';
-            for(var t = 0; t < recording.indexNum.length; t++) {
-                if (recording.indexNum[t] === 4) {
-                    recording.indexNum.splice(t, 1);
+            for(var t = 0; t < recordingIndex.indexNum.length; t++) {
+                if (recordingIndex.indexNum[t] === 4) {
+                    recordingIndex.indexNum.splice(t, 1);
                 }
-                if (recording.indexNum[t] === 5) {
-                    recording.indexNum.splice(t, 1);
+                if (recordingIndex.indexNum[t] === 5) {
+                    recordingIndex.indexNum.splice(t, 1);
                 }
             }
         }
         this.className = 'active selected';
-        recording.indexNum.push(this.index + 4);
-        // console.log('recording', recording);
+        recordingIndex.indexNum.push(this.index + 4);
     };
 }
 
-//
-//    if (isSelected === true) {
-//        confir.onclick = filterLayerToggle;
-//    }
 confir.onclick = function() {
     sessionStorage.offsetTop = 0;
+    searchParamas.pageNo = 1;
+    recordingPatternList = [];
+    setScrollTop();
     filterLayerToggle();
     doFilter();
+    sessionStorage['recordingIndex'] = JSON.stringify(recordingIndex);
+    Toast.loading('正在加载中');
+    doSearch(true);
 };
 
+mask.onclick = filterLayerToggle;
+// 拼合筛选字段
 function doFilter() {
     var selectedItems = document.querySelectorAll('.selected');
     var areaArr = [];
@@ -270,14 +305,8 @@ function doFilter() {
     });
     searchParamas['settledLands'] = areaArr.join(',');
     searchParamas['categorys'] = categorysArr.join(',');
-    searchParamas.pageNo = 1;
     console.log('筛选的字段', searchParamas);
-    Toast.loading('正在加载中');
-    doSearch(true);
-    sessionStorage['recording'] = JSON.stringify(recording);
 }
-
-mask.onclick = filterLayerToggle;
 
 function filterLayerToggle () {
     if (triangle.className === 'icon-xiasanjiao') {
@@ -292,6 +321,17 @@ function filterLayerToggle () {
         document.body.className = '';
         setScrollTop();
     }
+}
+function scrollTopMethod() {
+    document.onscroll = function () {
+        if (document.documentElement.scrollTop !== 0) {
+            sessionStorage.offsetTop = document.documentElement.scrollTop;
+        }
+        if (document.body.scrollTop !== 0) {
+            sessionStorage.offsetTop = document.body.scrollTop;
+        }
+        // console.log('sessionStorage.offsetTop', sessionStorage.offsetTop);
+    };
 }
 
 function setScrollTop() {

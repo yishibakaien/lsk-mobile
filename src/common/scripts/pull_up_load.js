@@ -52,8 +52,16 @@ export function pullUpLoad(hasmore, ajaxFn, parentNode) {
         console.log('激发滚动位置判断');
         if (hasmore) {
             // console.log(parentNode.scrollTop )
-            console.log('parentNode.scrollTop:' + parentNode.scrollTop + 'parentNode.clientHeight:' + parentNode.clientHeight + 'parentNode.scrollHeight:' + parentNode.scrollHeight);
-            console.log('documentElement.scrollTop', document.documentElement.scrollTop);
+            // parentNode = document.documentElement || document.body;
+            if (document.documentElement.scrollTop !== 0) {
+                parentNode = document.documentElement;
+            }
+
+            if (document.body.scrollTop !== 0) {
+                parentNode = document.body;
+            }
+
+            // console.log('parentNode.scrollTop:' + parentNode.scrollTop + 'parentNode.clientHeight:' + parentNode.clientHeight + 'parentNode.scrollHeight:' + parentNode.scrollHeight + 'documentElement.scrollTop' + document.documentElement.scrollTop);
             if (parentNode.scrollTop + parentNode.clientHeight + 20 > parentNode.scrollHeight) {
                 console.log('开始加载');
                 showLoadingTip();
