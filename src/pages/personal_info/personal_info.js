@@ -108,14 +108,13 @@ import {
         if (userData.userName === '') {
             Toast.hide();
             alert('姓名不能为空');
-
             return;
         }
         updateUser(userData, function(res) {
             console.log('修改用户数据res', res);
             if (res.code === 0) {
-                
                 Toast.success('修改信息成功');
+                location.href = './personal_center.html';
             } else {
                 Toast.hide();
                 alert(res.message);

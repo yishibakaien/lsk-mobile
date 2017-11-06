@@ -17,7 +17,7 @@
 <div class="head-wrapper">
     <div class="head">
         <div class="left">
-            <a class="icon-fanhui" href="#" onclick="javascript: history.go(-1);"></a>
+            <a class="icon-fanhui" href="#" onclick="javascript: history.go(-1);return false;"></a>
         </div>
         <div class="center">发布求购</div>
         <div class="right" id="publish">发布</div>
@@ -72,16 +72,16 @@
 
 
 <div class="mask" id="mask"></div>
-<div class="pop-up">
+<div class="pop-up-wrapper">
     <div class="top border-bottom">
         <span class="icon-close left pop-close"></span>
         <span class="center">求购类型</span>
-        <span class="right pop-confirm" id="typePopBtn" item-index="0">确定</span>
+        <span class="right pop-confirm" id="typePopBtn">确定</span>
     </div>
     <div class="bottom">
         <div class="btn">
             <div class="text">选择求购类型</div>
-            <div class="pop-type-items" id="typeItem">
+            <div class="pop-type-items" id="typeBtnWrapper">
                 <span item-id="100010">面料</span>
                 <span item-id="100011">大边</span>
                 <span item-id="100012">小边</span>
@@ -90,27 +90,27 @@
         </div>
     </div>
 </div>
-<div class="pop-up">
+<div class="pop-up-wrapper">
     <div class="top border-bottom">
         <span class="icon-close left pop-close"></span>
         <span class="center">求购形态</span>
-        <span class="right pop-confirm" id="shapePopBtn" item-index="1">确定</span>
+        <span class="right pop-confirm" id="shapePopBtn">确定</span>
     </div>
     <div class="bottom">
         <div class="btn">
             <div class="text">选择求购形态</div>
-            <div id="shapeItem">
+            <div id="shapeBtnWrapper">
                 <span item-id="200010">胚布</span>
                 <span item-id="200011">成品</span>
             </div>
         </div>
     </div>
 </div>
-<div class="pop-up">
+<div class="pop-up-wrapper">
     <div class="top border-bottom">
         <span class="icon-close left pop-close"></span>
         <span class="center">求购数量</span>
-        <span class="right pop-confirm" id="numPopBtn" item-index="2">确定</span>
+        <span class="right pop-confirm">确定</span>
     </div>
     <div class="bottom">
         <div class="num">
@@ -119,7 +119,7 @@
         </div>
         <div class="btn">
             <div class="text">选择单位</div>
-            <div id="numItem">
+            <div id="BtnWrapper">
                 <span item-id="400010">码</span>
                 <span item-id="400011">公斤</span>
                 <span item-id="400012">条</span>

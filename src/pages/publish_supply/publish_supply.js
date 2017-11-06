@@ -5,14 +5,14 @@ import Toast from 'plugins/toast/Toast';
 import {
     c,
     checkAndroid,
-    formatUnit,
-    formatSupplyType,
-    formatSupplyShape,
+    // formatUnit,
+    // formatSupplyType,
+    // formatProduceShape,
     // getQueryString
 } from 'utils/utils';
-import {
-    // testPurchaseNum
-} from 'utils/reg';
+// import {
+//     testPurchaseNum
+// } from 'utils/reg';
 
 import {aliupload} from 'plugins/ali_oss/aliupload';
 
@@ -21,24 +21,41 @@ import {
 }  from 'api/user';
 
 (function () {
-    // 弹出层通用
+    // 遮罩层
     var mask = c('#mask');
-    // 表单操作部分
-    var popShow = c('.pop-show');
-    var popUp = c('.pop-up');
+    // 弹出层&表单操作部分
+    var popShowBar = c('.pop-show-bar');
+    var popUpWrapper = c('.pop-up-wrapper');
     var popConfirm = c('.pop-confirm');
     var popClose = c('.pop-close');
-    var typeItem = c('#typeItem');
-    var shapeItem = c('#shapeItem');
-    var numItem = c('#numItem');
+    // 弹出层确定按钮
+    // var numPopConfirm = c('#numPopConfirm');
+    // tagwrapper
+    var typeBtnWrapper = c('#typeBtnWrapper');
+    var shapeBtnWrapper = c('#shapeBtnWrapper');
+    var numBtnWrapper = c('#BtnWrapper');
+    // 弹出层数字输入框
     var numIpt = c('#numIpt');
-    // 非弹出层各项
+    // 描述输入框
+    var descIpt = c('#descIpt');
+    // tags
+    var typeBtns = typeBtnWrapper.getElementsByTagName('span');
+    var shapeBtns = shapeBtnWrapper.getElementsByTagName('span');
+    var unitBtns = numBtnWrapper.getElementsByTagName('span');
+    // var isStartUpBtns = c('#select').getElementsByTagName('i');
+    // 非弹出层各项inner部分
     var supplyType = c('#supplyType');
     var supplyShape = c('#supplyShape');
     var supplyNum = c('#supplyNum');
-    // var isStartUpBtn = c('#select').getElementsByTagName('i');
-
-    var descIpt = c('#descIpt');
+    // getQueryString
+    // var supplyDescString = getQueryString('supplyDesc');
+    // var supplyPicUrlString = getQueryString('supplyPicUrl');
+    // var isStartUpString = getQueryString('isStartUp');
+    // var supplyShapesString = formatString(getQueryString('supplyShapes'));
+    // var supplyNumString = formatString(getQueryString('supplyNum'));
+    // var supplyTypeString = formatString(getQueryString('supplyType'));
+    // var supplyUnitString = formatString(getQueryString('supplyUnit'));
+    // var from = getQueryString('from');
 
     // 上传图片部分
     var imgArr = [];
@@ -47,22 +64,52 @@ import {
     var inputPic = c('#inputPic');
     var upload = c('#upload');
     var publish = c('#publish');
+
     // 截图组件
     var cropperWrapper = c('#cropperWrapper');
     var image = c('#cropperImage');
-    // 高版本 IOS 点击input[captrue=camera]会直接打开相机，但是这样会导致电脑上选择图片打开缓慢
-    if (checkAndroid()) {
-        inputPic.setAttribute('captrue', 'camera');
-    }
     var data = {
-        productPicUrl: '',
+        supplyPicUrl: '',
         supplyDesc: '',
-        supplyNum: 0,
+        supplyNum: '',
         supplyShapes: '',
         supplyType: '',
         supplyUnit: ''
     };
 
+    // if (from) {
+    //     // 初始化
+    //     initBtnTag(typeBtns, supplyTypeString);
+    //     initBtnTag(shapeBtns, supplyShapesString);
+    //     if (supplyNumString) {
+    //         initBtnTag(unitBtns, supplyUnitString);
+    //     }
+    //     isStartUpBtns[Number(!(Number(isStartUpString)))].className = 'icon-gou active selected';
+    //
+    //
+    //     supplyType.innerHTML = formatSupplyType(supplyTypeString);
+    //     supplyShape.innerHTML = formatProduceShape(supplyShapesString);
+    //     (supplyNumString && supplyUnitString) ? supplyNum.innerHTML = supplyNumString + formatUnit(supplyUnitString) : '';
+    //     descIpt.value = supplyDescString;
+    //     numIpt.value = supplyNumString;
+    //
+    //     function initBtnTag(elementBtns, str) {
+    //         var index = String(str)[5];
+    //         if (index) {
+    //             elementBtns[index].className = 'active selected';
+    //         }
+    //     }
+    //
+    //     if (supplyPicUrlString) {
+    //         imgArr.push(supplyPicUrlString);
+    //         // imgArr[0] = data.supplyPicUrl;
+    //         imgHandler(supplyPicUrlString);
+    //     }
+    // }
+    // 高版本 IOS 点击input[captrue=camera]会直接打开相机，但是这样会导致电脑上选择图片打开缓慢
+    if (checkAndroid()) {
+        inputPic.setAttribute('captrue', 'camera');
+    }
     upload.onclick = function () {
         // 点击调起相册 或 相机
         inputPic.click();
@@ -73,64 +120,18 @@ import {
         aliupload.call(this, 4, function(res) {
             console.log('图片上传返回值', res);
             Toast.hide();
-            var str = '';
-            var div = document.createElement('div');
-            div.className = 'item';
             imgArr.push(res[0]);
-            // data.productPicUrl = res[0];
-            console.log('imgArr值', imgArr);
-            str = `<img src="${res[0]}"><span class="icon-close pic-close"></span>`;
-            div.innerHTML = str;
-            uploadWrapper.insertBefore(div, upload);
-            isSingleImg();
-            imgView();
-            div.getElementsByClassName('pic-close')[0].onclick = function (e) {
-                e.cancelBubble = true;
-                e.stopPropagation();
-                this.parentElement.parentElement.removeChild(this.parentElement);
-                for(var i = 0; i < imgArr.length; i++) {
-                    if(imgArr[i] === this.previousElementSibling.getAttribute('src')) {
-                        imgArr.splice(i, 1);
-                        break;
-                    }
-                }
-                console.log('imgArr删除后剩余值', imgArr);
-                imgForm.reset();
-                isSingleImg();
-                imgView();
-            };
+            imgHandler(res[0]);
         }, function(res) {
             Toast.error('图片上传失败，请重试');
         });
     };
-
-    function imgView() {
-        var imgItem = document.querySelectorAll('.item');
-        Array.prototype.forEach.call(imgItem, function (item) {
-            item.onclick = function () {
-                wx.previewImage({
-                    current: this.getElementsByTagName('img')[0].getAttribute('src'),
-                    urls: imgArr
-                });
-            };
-        });
-    }
-
-    function isSingleImg() {
-        if (imgArr.length > 0) {
-            // uploadWrapper.style.textAlign = 'left';
-            upload.style.display = 'none';
-        } else {
-            // uploadWrapper.style.textAlign = 'center';
-            upload.style.display = 'block';
-        }
-    }
     // 表单部分
     // 右箭头部分
-    for (var i = 0; i < popShow.length; i++) {
-        popShow[i].index = i;
-        popShow[i].onclick = function () {
-            popUp[this.index].style.display = 'block';
+    for (var i = 0; i < popShowBar.length; i++) {
+        popShowBar[i].index = i;
+        popShowBar[i].onclick = function () {
+            popUpWrapper[this.index].style.display = 'block';
             mask.style.display = 'block';
         };
     }
@@ -138,76 +139,82 @@ import {
     for (var n = 0; n < popClose.length; n++) {
         popClose[n].index = n;
         popClose[n].onclick = function () {
-            popUp[this.index].style.display = 'none';
+            popUpWrapper[this.index].style.display = 'none';
             mask.style.display = 'none';
-        };
-    }
-    // 确定按钮
-    for (var k = 0; k < popConfirm.length; k++) {
-        popConfirm[k].index = k;
-        popConfirm[k].onclick = function () {
-            popUp[this.index].style.display = 'none';
-            mask.style.display = 'none';
-            if (this.getAttribute('item-index') === '0') {
-                data.supplyType = parseInt(this.getAttribute('item-id'));
-                supplyType.innerHTML = formatSupplyType(data.supplyType);
-            } else if (this.getAttribute('item-index') === '1') {
-                data.supplyShapes = this.getAttribute('item-id');
-                supplyShape.innerHTML = formatSupplyShape(data.supplyShapes);
-            } else if (this.getAttribute('item-index') === '2') {
-                data.supplyNum = (this.getAttribute('item-value') ? parseInt(this.getAttribute('item-value')) : 0);
-                data.supplyUnit = parseInt(this.getAttribute('item-id'));
-                console.log((data.supplyUnit && data.supplyNum));
-                supplyNum.innerHTML = (data.supplyNum && data.supplyUnit) ? data.supplyNum + formatUnit(data.supplyUnit) : '面议';
-
+            var btns = popUpWrapper[this.index].getElementsByClassName('btn')[0].getElementsByTagName('span');
+            for (var x = 0; x < btns.length; x++) {
+                if (btns[x].classList.contains('selected')) {
+                    btns[x].className = 'selected active';
+                } else {
+                    btns[x].className = '';
+                }
             }
         };
     }
-    // 求购类型
-    var typeBtns = typeItem.getElementsByTagName('span');
-    for (var j = 0; j < typeBtns.length; j++) {
-        typeBtns[j].onclick = function () {
-            activeClear(typeBtns);
-            this.className = 'active';
-            setTagDtToConfBtn(this);
+
+    // 弹出层确定按钮
+    for (var k = 0; k < popConfirm.length; k++) {
+        popConfirm[k].index = k;
+        popConfirm[k].onclick = function () {
+            popUpWrapper[this.index].style.display = 'none';
+            mask.style.display = 'none';
+            var btns = popUpWrapper[this.index].getElementsByClassName('btn')[0].getElementsByTagName('span');
+
+            if (numIpt.value) {
+                var _numIpt = numIpt.value;
+                for (var a = 0; a < unitBtns.length; a++) {
+                    if (unitBtns[a].classList.contains('active')){
+                        numIpt.value = _numIpt;
+                        break;
+                    } else {
+                        numIpt.value = '';
+                    }
+                }
+            }
+
+            for (var x = 0; x < btns.length; x++) {
+                if (btns[x].classList.contains('active')) {
+                    if (btns[x].getAttribute('item-id')[0] === '1') {
+                        btns[x].className = 'selected active';
+                        supplyType.innerHTML = btns[x].innerHTML;
+                    }
+                    if (btns[x].getAttribute('item-id')[0] === '2') {
+                        btns[x].className = 'selected active';
+                        supplyShape.innerHTML = btns[x].innerHTML;
+                    }
+                    if (btns[x].getAttribute('item-id')[0] === '4') {
+                        if (numIpt.value) {
+                            btns[x].className = 'selected active';
+                            supplyNum.innerHTML = numIpt.value + ' ' +  btns[x].innerHTML;
+                        } else {
+                            numIpt.value = '';
+                            for (var p = 0; p < btns.length; p++) {
+                                btns[p].className = '';
+                                supplyNum.innerHTML = '请选择数量';
+                            }
+                        }
+                    }
+                } else {
+                    btns[x].className = '';
+                }
+            }
         };
     }
-    // 求购形态
-    var shapeBtns = shapeItem.getElementsByTagName('span');
-    for (var t = 0; t < shapeBtns.length; t++) {
-        shapeBtns[t].onclick = function () {
-            activeClear(shapeBtns);
-            this.className = 'active';
-            setTagDtToConfBtn(this);
-        };
-    }
-    // 求购数量
-    var numBtns = numItem.getElementsByTagName('span');
-    numIpt.oninput = function () {
-        var setTagDtToConfBtn = this.parentElement.parentElement.parentElement.getElementsByClassName('pop-confirm')[0];
-        setTagDtToConfBtn.setAttribute('item-value', this.value);
-    };
-    for (var g = 0; g < numBtns.length; g++) {
-        numBtns[g].onclick = function () {
-            activeClear(numBtns);
-            this.className = 'active';
-            setTagDtToConfBtn(this);
-        };
-    }
+    // 供应类型
+    setTagBtnActive(typeBtns);
+    // 供应形态
+    setTagBtnActive(shapeBtns);
+    // 供应数量
+    setTagBtnActive(unitBtns);
     // 选择是否接受开机
-    // for (var m = 0; m < isStartUpBtn.length; m++) {
-    //     isStartUpBtn[m].onclick = function () {
-    //         for (var p = 0; p < isStartUpBtn.length; p++) {
-    //             isStartUpBtn[p].className = 'icon-gou';
+    // for (var m = 0; m < isStartUpBtns.length; m++) {
+    //     isStartUpBtns[m].onclick = function () {
+    //         for (var p = 0; p < isStartUpBtns.length; p++) {
+    //             isStartUpBtns[p].className = 'icon-gou';
     //         }
-    //         this.className = 'icon-gou active';
-    //         data.isStartUp = parseInt(this.getAttribute('star-up-st'));
+    //         this.className = 'icon-gou active selected';
     //     };
     // }
-    // 描述详细信息
-    descIpt.oninput = function () {
-        data.supplyDesc = this.value;
-    };
     // 发布按钮
     publish.onclick = function() {
         // for (var k = 0; k < 3; k++) {
@@ -216,8 +223,44 @@ import {
         // for (var i = 0; i < imgArr.length; i++) {
         //     data['refPic' + (i + 1)] = imgArr[i];
         // }
-        data.productPicUrl = (imgArr[0] ? imgArr[0] : '');
-        console.log('发布求购Data:', data);
+
+        data.supplyPicUrl = (imgArr[0] ? imgArr[0] : '');
+        data.supplyNum = Number(numIpt.value) ? Number(numIpt.value) : '';
+        data.supplyDesc = descIpt.value;
+        for (var g = 0; g < typeBtns.length; g++) {
+            if (typeBtns[g].classList.contains('selected')) {
+                data.supplyType = Number(typeBtns[g].getAttribute('item-id'));
+                break;
+            } else {
+                data.supplyType = '';
+            }
+        }
+        for (var p = 0; p < shapeBtns.length; p++) {
+            if (shapeBtns[p].classList.contains('selected')) {
+                data.supplyShapes = shapeBtns[p].getAttribute('item-id');
+                break;
+            } else {
+                data.supplyShapes = '';
+            }
+        }
+        for (var m = 0; m < unitBtns.length; m++) {
+            if (unitBtns[m].classList.contains('selected')) {
+                data.supplyUnit = Number(unitBtns[m].getAttribute('item-id'));
+                break;
+            } else  {
+                data.supplyUnit = '';
+            }
+        }
+        // for (var u = 0; u < isStartUpBtns.length; u++) {
+        //     if (isStartUpBtns[u].classList.contains('selected')) {
+        //         data.isStartUp = Number(isStartUpBtns[u].getAttribute('star-up-st'));
+        //         break;
+        //     } else {
+        //         data.isStartUp = '';
+        //     }
+        // }
+
+        console.log('发布供应Data:', data);
         if (check()) {
             releaseCompanySupply(data, function (res) {
                 console.log(res);
@@ -236,26 +279,74 @@ import {
         }
     };
 
-
-    function setTagDtToConfBtn(_this) {
-        var setTagDtToConfBtn = _this.parentElement.parentElement.parentElement.parentElement.getElementsByClassName('pop-confirm')[0];
-        setTagDtToConfBtn.setAttribute('item-id', _this.getAttribute('item-id'));
+    function imgHandler(url) {
+        var div = document.createElement('div');
+        div.className = 'item';
+        var str = '';
+        str = `<img src="${url}"><span class="icon-close pic-close"></span>`;
+        div.innerHTML = str;
+        uploadWrapper.insertBefore(div, upload);
+        isSingleImg();
+        imgView();
+        div.getElementsByClassName('pic-close')[0].addEventListener('click', function (e) {
+            e.cancelBubble = true;
+            e.stopPropagation();
+            this.parentElement.parentElement.removeChild(this.parentElement);
+            for(var i = 0; i < imgArr.length; i++) {
+                if(imgArr[i] === this.previousElementSibling.getAttribute('src')) {
+                    imgArr.splice(i, 1);
+                    break;
+                }
+            }
+            console.log('imgArr删除后剩余值', imgArr);
+            imgForm.reset();
+            isSingleImg();
+            imgView();
+        });
+    }
+    function isSingleImg() {
+        if (imgArr.length > 0) {
+            // uploadWrapper.style.textAlign = 'left';
+            upload.style.display = 'none';
+        } else {
+            // uploadWrapper.style.textAlign = 'center';
+            upload.style.display = 'block';
+        }
+    }
+    function imgView() {
+        var imgItem = document.querySelectorAll('.upload-image-wrapper')[0].querySelectorAll('item');
+        Array.prototype.forEach.call(imgItem, function (item) {
+            item.onclick = function () {
+                wx.previewImage({
+                    current: this.getElementsByTagName('img')[0].getAttribute('src'),
+                    urls: imgArr
+                });
+            };
+        });
+    }
+    function setTagBtnActive(eles) {
+        for (var j = 0; j < eles.length; j++) {
+            eles[j].onclick = function () {
+                for (var p = 0; p < eles.length; p++) {
+                    eles[p].className = eles[p].className.replace(' active', '');
+                }
+                this.className += ' active';
+            };
+        }
     }
     function check() {
-        if (data.productPicUrl === '') {
+        if (!data.supplyPicUrl) {
             Toast.info('请上传图片');
-        } else if (data.supplyType === '') {
-            Toast.info('请填写求购类型');
-        } else if (data.supplyShapes === '') {
-            Toast.info('请填写求购形态');
-        } else if (data.supplyDesc === '') {
-            Toast.info('请填写求购描述');
+        } else if (!data.supplyType) {
+            Toast.info('请填写供应类型');
+        } else if (!data.supplyShapes) {
+            Toast.info('请填写供应形态');
+        } else if (!data.supplyDesc) {
+            Toast.info('请填写供应描述');
         }
-        return ((data.productPicUrl !== '') && (data.supplyType !== '') && (data.supplyShapes !== '') && (data.supplyDesc !== ''));
+        return ((data.supplyPicUrl !== '') && (data.supplyType !== '') && (data.supplyShapes !== '') && (data.supplyDesc !== ''));
     }
-    function activeClear(eles) {
-        for (var p = 0; p < eles.length; p++) {
-            eles[p].className = '';
-        }
-    }
+    // function formatString(str) {
+    //     return (/^(1|2|3|4)[0]{3}[1](0|1|2|3)$/.test(str || '')) ? str : '';
+    // }
 })();

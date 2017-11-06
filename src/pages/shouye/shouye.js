@@ -159,13 +159,13 @@ function clothes() {
         console.log('首页版衣列表', res);
         var data = res.data;
         var str = '';
-        var imgArr = [];
+        // var imgArr = [];
         data.forEach(function(item) {
             // <div><img src="${item.clothesPic}"></div>
             // str += `<div class="swiper-slide" data-id="${item.id}">
             //      <div class="pattern" style="background-image:${formatBgPic(item.clothesPic, 200)}"></div>
             // </div>`;
-            imgArr.push(item.clothesPic);
+            // imgArr.push(item.clothesPic);
             var div = document.createElement('div');
             div.className = 'swiper-slide';
             div.setAttribute('data-id', item.id);
@@ -175,13 +175,13 @@ function clothes() {
             div.onclick = function () {
                 var id = this.getAttribute('data-id');
                 console.log(id);
-                console.log(this.getAttribute('data-pic-url'));
-                wx.previewImage({
-                    current: this.getAttribute('data-pic-url'),
-                    urls: imgArr
-                });
+                // console.log(this.getAttribute('data-pic-url'));
+                // wx.previewImage({
+                //     current: this.getAttribute('data-pic-url'),
+                //     urls: imgArr
+                // });
                 // location.href = './pattern_detail.html?dataId=' + id;
-                // location.href = './version_of_clothing.html';
+                location.href = './version_of_clothing.html';
             };
             c('#clothes').appendChild(div);
         });

@@ -17,7 +17,7 @@
 <div class="head-wrapper">
     <div class="head">
         <div class="left">
-            <a class="icon-fanhui" href="#" onclick="javascript: history.go(-1);"></a>
+            <a class="icon-fanhui" href="#" onclick="javascript: history.go(-1);return false;"></a>
         </div>
         <div class="center">发布供应</div>
         <div class="right" id="publish">发布</div>
@@ -28,58 +28,61 @@
         <img src="../../images/jiahua@2x.png">
     </div>
     <!--<div class="item">-->
-        <!--<img src="../../images/big_avatar.png">-->
-        <!--<span class="icon-close"></span>-->
+    <!--<img src="../../images/big_avatar.png">-->
+    <!--<span class="icon-close"></span>-->
     <!--</div>-->
     <!--<div class="item">-->
-        <!--<img src="../../images/big_avatar.png">-->
-        <!--<span class="icon-close"></span>-->
+    <!--<img src="../../images/big_avatar.png">-->
+    <!--<span class="icon-close"></span>-->
     <!--</div>-->
     <!--<div class="item">-->
-        <!--<img src="../../images/big_avatar.png">-->
-        <!--<span class="icon-close"></span>-->
+    <!--<img src="../../images/big_avatar.png">-->
+    <!--<span class="icon-close"></span>-->
     <!--</div>-->
     <!--<div class="item">-->
-        <!--<img src="../../images/big_avatar.png">-->
-        <!--<span class="icon-close"></span>-->
+    <!--<img src="../../images/big_avatar.png">-->
+    <!--<span class="icon-close"></span>-->
     <!--</div>-->
     <!--<div class="item">-->
-        <!--<img src="../../images/big_avatar.png">-->
-        <!--<span class="icon-close"></span>-->
+    <!--<img src="../../images/big_avatar.png">-->
+    <!--<span class="icon-close"></span>-->
     <!--</div>-->
 </div>
 <form id="imgForm">
     <input style="display: none" class="file-input" id="inputPic" type="file" accept="image/*" name="file">
 </form>
 <div class="publish-supply-info">
-    <div class="text border-bottom pop-show">
+    <div class="text border-bottom pop-show-bar">
         <span class="key">供应类型</span><span class="value"><span id="supplyType">请选择类型</span><i class="icon-xiayiye"></i></span>
         <!--<span class="icon-xiayiye"></span>-->
     </div>
-    <div class="text border-bottom pop-show">
+    <div class="text border-bottom pop-show-bar">
         <span class="key">供应形态</span><span class="value"><span id="supplyShape">请选择形态</span><i class="icon-xiayiye"></i></span>
         <!--<span class="icon-xiayiye"></span>-->
     </div>
-    <div class="text border-bottom pop-show">
+    <div class="text border-bottom pop-show-bar">
         <span class="key">供应数量(选填)</span><span class="value"><span id="supplyNum">请选择数量</span><i class="icon-xiayiye"></i></span>
         <!--<span class="icon-xiayiye"></span>-->
     </div>
+    <!--<div class="text select-btn border-bottom" id="select">-->
+        <!--<span class="key">接受开机</span><span class="select"><i class="icon-gou" star-up-st="1"></i>接受</span><span class="select"><i class="icon-gou" star-up-st="0"></i>不接受</span>-->
+    <!--</div>-->
     <textarea class="desc-ipt" id="descIpt" placeholder="请填写供应花型的详细信息，如花高、宽幅等"></textarea>
 </div>
 
 
 <div class="mask" id="mask"></div>
-<div class="pop-up">
+<div class="pop-up-wrapper">
     <div class="top border-bottom">
         <span class="icon-close left pop-close"></span>
         <span class="center">供应类型</span>
-        <span class="right pop-confirm" item-index="0" item-id="100010">确定</span>
+        <span class="right pop-confirm" id="typePopBtn">确定</span>
     </div>
     <div class="bottom">
         <div class="btn">
             <div class="text">选择供应类型</div>
-            <div class="pop-type-items" id="typeItem">
-                <span item-id="100010" class="active">面料</span>
+            <div class="pop-type-items" id="typeBtnWrapper">
+                <span item-id="100010">面料</span>
                 <span item-id="100011">大边</span>
                 <span item-id="100012">小边</span>
                 <span item-id="100013">睫毛</span>
@@ -87,17 +90,17 @@
         </div>
     </div>
 </div>
-<div class="pop-up">
+<div class="pop-up-wrapper">
     <div class="top border-bottom">
         <span class="icon-close left pop-close"></span>
         <span class="center">供应形态</span>
-        <span class="right pop-confirm" item-index="1" item-id="200010">确定</span>
+        <span class="right pop-confirm" id="shapePopBtn">确定</span>
     </div>
     <div class="bottom">
         <div class="btn">
             <div class="text">选择供应形态</div>
-            <div class="pop-type-items" id="shapeItem">
-                <span item-id="200010" class="active">胚布</span>
+            <div id="shapeBtnWrapper">
+                <span item-id="200010">胚布</span>
                 <span item-id="200011">成品</span>
                 <span item-id="200012">现货</span>
                 <span item-id="200013">做货</span>
@@ -105,11 +108,11 @@
         </div>
     </div>
 </div>
-<div class="pop-up">
+<div class="pop-up-wrapper">
     <div class="top border-bottom">
         <span class="icon-close left pop-close"></span>
         <span class="center">供应数量</span>
-        <span class="right pop-confirm" item-index="2" item-id="400010">确定</span>
+        <span class="right pop-confirm">确定</span>
     </div>
     <div class="bottom">
         <div class="num">
@@ -118,8 +121,8 @@
         </div>
         <div class="btn">
             <div class="text">选择单位</div>
-            <div id="numItem">
-                <span item-id="400010" class="active">码</span>
+            <div id="BtnWrapper">
+                <span item-id="400010">码</span>
                 <span item-id="400011">公斤</span>
                 <span item-id="400012">条</span>
             </div>
@@ -127,5 +130,4 @@
     </div>
 </div>
 </body>
-
 </html>

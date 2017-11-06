@@ -206,3 +206,10 @@ import {
         }
     };
 })();
+
+wx.setCloseWindowConfirmDialogInfo({
+    switch:	true,
+    title_cn: '你要关闭购物页面?',
+    ok_cn: '关闭',
+    cancel_cn: '再逛逛',
+});

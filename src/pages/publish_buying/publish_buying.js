@@ -10,9 +10,9 @@ import {
     formatProduceShape,
     getQueryString
 } from 'utils/utils';
-import {
-    // testPurchaseNum
-} from 'utils/reg';
+// import {
+//     testPurchaseNum
+// } from 'utils/reg';
 
 import {aliupload} from 'plugins/ali_oss/aliupload';
 
@@ -21,52 +21,42 @@ import {
 }  from 'api/user';
 
 (function () {
-    // window.onbeforeunload = function () {
-    //     return 'shifou';
-    // };
     // 遮罩层
     var mask = c('#mask');
     // 弹出层&表单操作部分
     var popShowBar = c('.pop-show-bar');
-    var popUp = c('.pop-up');
+    var popUpWrapper = c('.pop-up-wrapper');
     var popConfirm = c('.pop-confirm');
     var popClose = c('.pop-close');
     // 弹出层确定按钮
-    // var typePopBtn = c('#typePopBtn');
-    // var shapePopBtn = c('#shapePopBtn');
-    var numPopBtn = c('#numPopBtn');
+    // var numPopConfirm = c('#numPopConfirm');
     // tagwrapper
-    var typeItem = c('#typeItem');
-    var shapeItem = c('#shapeItem');
-    var numItem = c('#numItem');
+    var typeBtnWrapper = c('#typeBtnWrapper');
+    var shapeBtnWrapper = c('#shapeBtnWrapper');
+    var numBtnWrapper = c('#BtnWrapper');
     // 弹出层数字输入框
     var numIpt = c('#numIpt');
-    // tag
-    var typeBtns = typeItem.getElementsByTagName('span');
-    var shapeBtns = shapeItem.getElementsByTagName('span');
-    var numBtns = numItem.getElementsByTagName('span');
+    // 描述输入框
+    var descIpt = c('#descIpt');
+    // tags
+    var typeBtns = typeBtnWrapper.getElementsByTagName('span');
+    var shapeBtns = shapeBtnWrapper.getElementsByTagName('span');
+    var unitBtns = numBtnWrapper.getElementsByTagName('span');
+    var isStartUpBtns = c('#select').getElementsByTagName('i');
     // 非弹出层各项inner部分
     var buyType = c('#buyType');
     var buyShape = c('#buyShape');
     var buyNum = c('#buyNum');
-    var isStartUpBtn = c('#select').getElementsByTagName('i');
-    var descIpt = c('#descIpt');
     // getQueryString
-    var buyDescData = getQueryString('buyDesc');
-    var buyNumData = Number(formatString(getQueryString('buyNum')));
-    var buyPicUrlData = getQueryString('buyPicUrl');
-    var buyShapesData = formatString(getQueryString('buyShapes'));
-    var buyTypeData = Number(formatString(getQueryString('buyType')));
-    var buyUnitData = Number(formatString(getQueryString('buyUnit')));
-    var isStartUpData = getQueryString('isStartUp');
+    var buyDescString = getQueryString('buyDesc');
+    var buyPicUrlString = getQueryString('buyPicUrl');
+    var isStartUpString = getQueryString('isStartUp');
+    var buyShapesString = formatString(getQueryString('buyShapes'));
+    var buyNumString = formatString(getQueryString('buyNum'));
+    var buyTypeString = formatString(getQueryString('buyType'));
+    var buyUnitString = formatString(getQueryString('buyUnit'));
     var from = getQueryString('from');
-    console.log(buyDescData);
-    console.log(buyNumData);
-    console.log(buyPicUrlData);
-    console.log(buyShapesData);
-    console.log(buyTypeData);
-    console.log(buyUnitData);
-    console.log(isStartUpData);
+
     // 上传图片部分
     var imgArr = [];
     var uploadWrapper = c('#uploadWrapper');
@@ -79,46 +69,48 @@ import {
     var cropperWrapper = c('#cropperWrapper');
     var image = c('#cropperImage');
     var data = {
-        buyPicUrl: buyPicUrlData  || '',
-        buyDesc: buyDescData || '',
-        buyNum: buyNumData || 0,
-        buyShapes: buyShapesData || '',
-        buyType: buyTypeData || '',
-        buyUnit: buyUnitData || '',
-        isStartUp: Number(isStartUpData || '1')
+        buyPicUrl: '',
+        buyDesc: '',
+        buyNum: '',
+        buyShapes: '',
+        buyType: '',
+        buyUnit: '',
+        isStartUp: ''
     };
-    console.log('buyPicUrl', data.buyPicUrl);
-    console.log('buyDesc', data.buyDesc);
-    console.log('buyNum', data.buyNum);
-    console.log('buyShapes', data.buyShapes);
-    console.log('buyType', data.buyType);
-    console.log('buyUnit', data.buyUnit);
-    console.log('isStartUp', data.isStartUp);
-
-    // 初始化
-    initTag(typeBtns, (data.buyType || 100010));
-    initTag(shapeBtns, (data.buyShapes || 200010));
-    initTag(numBtns, (data.buyUnit || 400010));
-    numPopBtn.setAttribute('item-value', data.buyNum);
-    isStartUpBtn[Number(!(Number(data.isStartUp)))].className = 'icon-gou active';
 
     if (from) {
-        buyType.innerHTML = formatSupplyType(data.buyType);
-        buyShape.innerHTML = formatProduceShape(data.buyShapes);
-        buyNum.innerHTML = (parseInt(data.buyNum) && parseInt(data.buyUnit)) ? data.buyNum + formatUnit(data.buyUnit) : '面议';
-        descIpt.value = data.buyDesc;
-        numIpt.value = data.buyNum;
-        if (buyPicUrlData) {
-            imgArr.push(buyPicUrlData);
+        // 初始化
+        initBtnTag(typeBtns, buyTypeString);
+        initBtnTag(shapeBtns, buyShapesString);
+        if (buyNumString) {
+            initBtnTag(unitBtns, buyUnitString);
+        }
+        isStartUpBtns[Number(!(Number(isStartUpString)))].className = 'icon-gou active selected';
+
+
+        buyType.innerHTML = formatSupplyType(buyTypeString);
+        buyShape.innerHTML = formatProduceShape(buyShapesString);
+        (buyNumString && buyUnitString) ? buyNum.innerHTML = buyNumString + formatUnit(buyUnitString) : '';
+        descIpt.value = buyDescString;
+        numIpt.value = buyNumString;
+
+        function initBtnTag(elementBtns, str) {
+            var index = String(str)[5];
+            if (index) {
+                elementBtns[index].className = 'active selected';
+            }
+        }
+
+        if (buyPicUrlString) {
+            imgArr.push(buyPicUrlString);
             // imgArr[0] = data.buyPicUrl;
-            imgHandler(buyPicUrlData);
+            imgHandler(buyPicUrlString);
         }
     }
     // 高版本 IOS 点击input[captrue=camera]会直接打开相机，但是这样会导致电脑上选择图片打开缓慢
     if (checkAndroid()) {
         inputPic.setAttribute('captrue', 'camera');
     }
-
     upload.onclick = function () {
         // 点击调起相册 或 相机
         inputPic.click();
@@ -140,7 +132,7 @@ import {
     for (var i = 0; i < popShowBar.length; i++) {
         popShowBar[i].index = i;
         popShowBar[i].onclick = function () {
-            popUp[this.index].style.display = 'block';
+            popUpWrapper[this.index].style.display = 'block';
             mask.style.display = 'block';
         };
     }
@@ -148,8 +140,16 @@ import {
     for (var n = 0; n < popClose.length; n++) {
         popClose[n].index = n;
         popClose[n].onclick = function () {
-            popUp[this.index].style.display = 'none';
+            popUpWrapper[this.index].style.display = 'none';
             mask.style.display = 'none';
+            var btns = popUpWrapper[this.index].getElementsByClassName('btn')[0].getElementsByTagName('span');
+            for (var x = 0; x < btns.length; x++) {
+                if (btns[x].classList.contains('selected')) {
+                    btns[x].className = 'selected active';
+                } else {
+                    btns[x].className = '';
+                }
+            }
         };
     }
 
@@ -157,45 +157,65 @@ import {
     for (var k = 0; k < popConfirm.length; k++) {
         popConfirm[k].index = k;
         popConfirm[k].onclick = function () {
-            popUp[this.index].style.display = 'none';
+            popUpWrapper[this.index].style.display = 'none';
             mask.style.display = 'none';
-            if (this.getAttribute('item-index') === '0') {
-                data.buyType = parseInt(this.getAttribute('item-id'));
-                buyType.innerHTML = formatSupplyType(data.buyType);
-            } else if (this.getAttribute('item-index') === '1') {
-                data.buyShapes = this.getAttribute('item-id');
-                buyShape.innerHTML = formatProduceShape(data.buyShapes);
-            } else if (this.getAttribute('item-index') === '2') {
-                data.buyNum = (this.getAttribute('item-value') ? parseInt(this.getAttribute('item-value')) : 0);
-                data.buyUnit = parseInt(this.getAttribute('item-id'));
-                buyNum.innerHTML = (data.buyNum && data.buyUnit) ? data.buyNum + formatUnit(data.buyUnit) : '面议';
+            var btns = popUpWrapper[this.index].getElementsByClassName('btn')[0].getElementsByTagName('span');
+
+            if (numIpt.value) {
+                var _numIpt = numIpt.value;
+                for (var a = 0; a < unitBtns.length; a++) {
+                    if (unitBtns[a].classList.contains('active')){
+                        numIpt.value = _numIpt;
+                        break;
+                    } else {
+                        numIpt.value = '';
+                    }
+                }
+            }
+
+            for (var x = 0; x < btns.length; x++) {
+                if (btns[x].classList.contains('active')) {
+                    if (btns[x].getAttribute('item-id')[0] === '1') {
+                        btns[x].className = 'selected active';
+                        buyType.innerHTML = btns[x].innerHTML;
+                    }
+                    if (btns[x].getAttribute('item-id')[0] === '2') {
+                        btns[x].className = 'selected active';
+                        buyShape.innerHTML = btns[x].innerHTML;
+                    }
+                    if (btns[x].getAttribute('item-id')[0] === '4') {
+                        if (numIpt.value) {
+                            btns[x].className = 'selected active';
+                            buyNum.innerHTML = numIpt.value + ' ' +  btns[x].innerHTML;
+                        } else {
+                            numIpt.value = '';
+                            for (var p = 0; p < btns.length; p++) {
+                                btns[p].className = '';
+                                buyNum.innerHTML = '请选择数量';
+                            }
+                        }
+                    }
+                } else {
+                    btns[x].className = '';
+                }
             }
         };
     }
     // 求购类型
-    setTagBtnMethod(typeBtns);
+    setTagBtnActive(typeBtns);
     // 求购形态
-    setTagBtnMethod(shapeBtns);
+    setTagBtnActive(shapeBtns);
     // 求购数量
-    setTagBtnMethod(numBtns);
-    numIpt.oninput = function () {
-        var setTagDtToConfBtn = this.parentElement.parentElement.parentElement.getElementsByClassName('pop-confirm')[0];
-        setTagDtToConfBtn.setAttribute('item-value', this.value);
-    };
+    setTagBtnActive(unitBtns);
     // 选择是否接受开机
-    for (var m = 0; m < isStartUpBtn.length; m++) {
-        isStartUpBtn[m].onclick = function () {
-            for (var p = 0; p < isStartUpBtn.length; p++) {
-                isStartUpBtn[p].className = 'icon-gou';
+    for (var m = 0; m < isStartUpBtns.length; m++) {
+        isStartUpBtns[m].onclick = function () {
+            for (var p = 0; p < isStartUpBtns.length; p++) {
+                isStartUpBtns[p].className = 'icon-gou';
             }
-            this.className = 'icon-gou active';
-            data.isStartUp = parseInt(this.getAttribute('star-up-st'));
+            this.className = 'icon-gou active selected';
         };
     }
-    // 描述详细信息
-    descIpt.oninput = function () {
-        data.buyDesc = this.value;
-    };
     // 发布按钮
     publish.onclick = function() {
         // for (var k = 0; k < 3; k++) {
@@ -204,9 +224,47 @@ import {
         // for (var i = 0; i < imgArr.length; i++) {
         //     data['refPic' + (i + 1)] = imgArr[i];
         // }
+
         data.buyPicUrl = (imgArr[0] ? imgArr[0] : '');
-        // console.log(check());
+        data.buyNum = Number(numIpt.value) ? Number(numIpt.value) : '';
+        data.buyDesc = descIpt.value;
+        for (var g = 0; g < typeBtns.length; g++) {
+            if (typeBtns[g].classList.contains('selected')) {
+                data.buyType = Number(typeBtns[g].getAttribute('item-id'));
+                break;
+            } else {
+                data.buyType = '';
+            }
+        }
+        for (var p = 0; p < shapeBtns.length; p++) {
+            if (shapeBtns[p].classList.contains('selected')) {
+                data.buyShapes = shapeBtns[p].getAttribute('item-id');
+                break;
+            } else {
+                data.buyShapes = '';
+            }
+        }
+        for (var m = 0; m < unitBtns.length; m++) {
+            if (unitBtns[m].classList.contains('selected')) {
+                data.buyUnit = Number(unitBtns[m].getAttribute('item-id'));
+                break;
+            } else  {
+                data.buyUnit = '';
+            }
+        }
+        for (var u = 0; u < isStartUpBtns.length; u++) {
+            if (isStartUpBtns[u].classList.contains('selected')) {
+                data.isStartUp = Number(isStartUpBtns[u].getAttribute('star-up-st'));
+                break;
+            } else {
+                data.isStartUp = '';
+            }
+        }
+
+
+
         console.log('发布求购Data:', data);
+        console.log('check', check());
         if (check()) {
             releaseProductBuy(data, function (res) {
                 console.log(res);
@@ -225,18 +283,11 @@ import {
         }
     };
 
-    function initTag(btns, num) {
-        var index = String(num)[5];
-        var setTagDtToConfBtn = btns[index].parentElement.parentElement.parentElement.parentElement.getElementsByClassName('pop-confirm')[0];
-        console.log(setTagDtToConfBtn);
-        btns[index].className = 'active';
-        setTagDtToConfBtn.setAttribute('item-id', num);
-    }
     function imgHandler(url) {
         var div = document.createElement('div');
         div.className = 'item';
         var str = '';
-        str = `<img src="${url}"><span class="icon-close pic-close" id="ss"></span>`;
+        str = `<img src="${url}"><span class="icon-close pic-close"></span>`;
         div.innerHTML = str;
         uploadWrapper.insertBefore(div, upload);
         isSingleImg();
@@ -277,30 +328,29 @@ import {
             };
         });
     }
-    function setTagBtnMethod(eles) {
+    function setTagBtnActive(eles) {
         for (var j = 0; j < eles.length; j++) {
             eles[j].onclick = function () {
                 for (var p = 0; p < eles.length; p++) {
-                    eles[p].className = '';
+                    eles[p].className = eles[p].className.replace(' active', '');
                 }
-                this.className = 'active';
-                var setTagDtToConfBtn = this.parentElement.parentElement.parentElement.parentElement.getElementsByClassName('pop-confirm')[0];
-                console.log(this.getAttribute('item-id'));
-                setTagDtToConfBtn.setAttribute('item-id', this.getAttribute('item-id'));
+                this.className += ' active';
             };
         }
     }
     function check() {
         if (!data.buyPicUrl) {
             Toast.info('请上传图片');
-        } else if (data.buyType === '') {
+        } else if (!data.buyType) {
             Toast.info('请填写求购类型');
-        } else if (data.buyShapes === '') {
+        } else if (!data.buyShapes) {
             Toast.info('请填写求购形态');
-        } else if (data.buyDesc === '') {
+        } else if (!data.isStartUp) {
+            Toast.info('请勾选接受开机项');
+        } else if (!data.buyDesc) {
             Toast.info('请填写求购描述');
         }
-        return ((data.buyPicUrl !== '') && (data.buyType !== '') && (data.buyShapes !== '') && (data.buyDesc !== ''));
+        return ((data.buyPicUrl !== '') && (data.buyType !== '') && (data.buyShapes !== '') && (data.buyDesc !== '') && (data.isStartUp !== ''));
     }
     function formatString(str) {
         return (/^(1|2|3|4)[0]{3}[1](0|1|2|3)$/.test(str || '')) ? str : '';
