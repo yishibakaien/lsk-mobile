@@ -22,7 +22,9 @@ const API = {
             getResult: '/search/getResult'
         },
         text: {
-            searchLace: '/product/searchLace'
+            searchLace: '/product/searchLace',
+            // 文本搜花-公司搜索
+            searchCompany: '/company/search'
         },
         // 获取蕾丝控商家入驻地
         settledLand: {
@@ -66,4 +68,9 @@ export function getSettledLands(data, cb, err) {
 // =========
 export function searchLace(data, cb, err) {
     return _fetch(METHODS.post, data, API.search.text.searchLace, cb, err);
+}
+// 文本搜花-公司搜索
+// searchCompany: '/company/search'
+export function searchCompany(data, cb, err) {
+    return _fetch(METHODS.post, data, API.search.text.searchCompany, cb, err);
 }

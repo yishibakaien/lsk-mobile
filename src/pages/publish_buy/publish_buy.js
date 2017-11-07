@@ -1,5 +1,5 @@
 require('common/styles/index.styl');
-require('./publish_buying.styl');
+require('./publish_buy.styl');
 import wx from 'weixin-js-sdk';
 import Toast from 'plugins/toast/Toast';
 import {
@@ -273,7 +273,7 @@ import {
                         text: res.message,
                         duration: 1000,
                         complete: function() {
-                            location.href = './publish_buying_tip.html';
+                            location.href = './publish_buy_tip.html';
                         }
                     });
                 } else {

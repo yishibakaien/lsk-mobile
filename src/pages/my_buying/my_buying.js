@@ -77,7 +77,7 @@ import {
                 div.onclick = function () {
                     var id = this.getAttribute('data-id');
                     console.log(id);
-                    // location.href = './purchase_detail.html?dataId=' + id + '&from=' + location.href;
+                    // location.href = './buy_detail.html?dataId=' + id + '&from=' + location.href;
                     Toast.info('请前往App查看', 1000);
                     foot.style.display = 'block';
                 };
@@ -224,7 +224,7 @@ import {
     }
     // 重新发布
     function republishBuying(that) {
-        location.href = './publish_buying.html?buyDesc=' + that.getAttribute('buy-desc') + '&buyNum=' + that.getAttribute('buy-num') + '&buyPicUrl=' + that.getAttribute('buy-pic-url') + '&buyShapes=' + that.getAttribute('buy-shapes') + '&buyType=' + that.getAttribute('buy-type') + '&buyUnit=' + that.getAttribute('buy-unit') + '&isStartUp=' + that.getAttribute('is-start-up') + '&from=' + location.href;
+        location.href = './publish_buy.html?buyDesc=' + that.getAttribute('buy-desc') + '&buyNum=' + that.getAttribute('buy-num') + '&buyPicUrl=' + that.getAttribute('buy-pic-url') + '&buyShapes=' + that.getAttribute('buy-shapes') + '&buyType=' + that.getAttribute('buy-type') + '&buyUnit=' + that.getAttribute('buy-unit') + '&isStartUp=' + that.getAttribute('is-start-up') + '&from=' + location.href;
     }
 
     // 删除求购

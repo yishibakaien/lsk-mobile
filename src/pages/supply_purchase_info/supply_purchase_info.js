@@ -39,12 +39,12 @@ import {
         },
         {
             text: '发布求购',
-            link: './publish_buying.html'
+            link: './publish_buy.html'
         }
     ];
     if (userType === '3') {
         text[0].text = '发布求购';
-        text[0].link = './publish_buying.html';
+        text[0].link = './publish_buy.html';
     }
     headRight.innerHTML = text[0].text;
     headRight.setAttribute('href', text[0].link);
@@ -142,7 +142,7 @@ import {
                     console.log('data-id', id);
                     console.log('isSettled', isSettled);
                     if (isSettled) {
-                        location.href = './purchase_detail.html?dataId=' + id;
+                        location.href = './buy_detail.html?dataId=' + id;
                     } else {
                         blackTip('为了保密，求购详情仅对蕾丝控商家公开', 2500);
                     }

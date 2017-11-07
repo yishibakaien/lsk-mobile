@@ -1,15 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/pages/index/index.html" line="0" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="24c6ddca-1867-44f9-b024-8d9d232cfe06" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/shouye/shouye.styl" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/user.js" afterPath="$PROJECT_DIR$/src/api/user.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/search.js" afterPath="$PROJECT_DIR$/src/api/search.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/address_manage/address_manage.html" afterPath="$PROJECT_DIR$/src/pages/address_manage/address_manage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/index/index.styl" afterPath="$PROJECT_DIR$/src/pages/index/index.styl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/login/login.js" afterPath="$PROJECT_DIR$/src/pages/login/login.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/my_account/my_account.html" afterPath="$PROJECT_DIR$/src/pages/my_account/my_account.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/my_buying/my_buying.html" afterPath="$PROJECT_DIR$/src/pages/my_buying/my_buying.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/my_buying/my_buying.js" afterPath="$PROJECT_DIR$/src/pages/my_buying/my_buying.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/shouye/shouye.js" afterPath="$PROJECT_DIR$/src/pages/shouye/shouye.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/my_collection/my_collection.html" afterPath="$PROJECT_DIR$/src/pages/my_collection/my_collection.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/new_pattern/new_pattern.html" afterPath="$PROJECT_DIR$/src/pages/new_pattern/new_pattern.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/pattern_made/pattern_made.js" afterPath="$PROJECT_DIR$/src/pages/pattern_made/pattern_made.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/personal_center/personal_center.html" afterPath="$PROJECT_DIR$/src/pages/personal_center/personal_center.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/settled_merchant/settled_merchant.html" afterPath="$PROJECT_DIR$/src/pages/settled_merchant/settled_merchant.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/supply_purchase_info/supply_purchase_info.html" afterPath="$PROJECT_DIR$/src/pages/supply_purchase_info/supply_purchase_info.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/supply_purchase_info/supply_purchase_info.js" afterPath="$PROJECT_DIR$/src/pages/supply_purchase_info/supply_purchase_info.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/version_cloth_made/version_cloth_made.js" afterPath="$PROJECT_DIR$/src/pages/version_cloth_made/version_cloth_made.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/version_of_clothing/version_of_clothing.html" afterPath="$PROJECT_DIR$/src/pages/version_of_clothing/version_of_clothing.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/pages/publish_buying/publish_buying.html" afterPath="$PROJECT_DIR$/src/pages/publish_buy/publish_buy.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/pages/publish_buying/publish_buying.js" afterPath="$PROJECT_DIR$/src/pages/publish_buy/publish_buy.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/pages/publish_buying/publish_buying.styl" afterPath="$PROJECT_DIR$/src/pages/publish_buy/publish_buy.styl" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/pages/publish_buying_tip/publish_buying_tip.html" afterPath="$PROJECT_DIR$/src/pages/publish_buy_tip/publish_buy_tip.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/pages/publish_buying_tip/publish_buying_tip.js" afterPath="$PROJECT_DIR$/src/pages/publish_buy_tip/publish_buy_tip.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/pages/publish_buying_tip/publish_buying_tip.styl" afterPath="$PROJECT_DIR$/src/pages/publish_buy_tip/publish_buy_tip.styl" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/pages/purchase_detail/purchase_detail.html" afterPath="$PROJECT_DIR$/src/pages/buy_detail/buy_detail.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/pages/purchase_detail/purchase_detail.js" afterPath="$PROJECT_DIR$/src/pages/buy_detail/buy_detail.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/pages/purchase_detail/purchase_detail.styl" afterPath="$PROJECT_DIR$/src/pages/buy_detail/buy_detail.styl" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/pages/shouye/shouye.html" afterPath="$PROJECT_DIR$/src/pages/index/index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/pages/shouye/shouye.js" afterPath="$PROJECT_DIR$/src/pages/index/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,35 +44,117 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="my_buying.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/pages/my_buying/my_buying.js">
+      <file leaf-file-name="settled_merchant.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/settled_merchant/settled_merchant.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="258" column="32" lean-forward="true" selection-start-line="258" selection-start-column="32" selection-end-line="258" selection-end-column="32" />
+            <state relative-caret-position="-31">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <element signature="e#181#221#0" expanded="true" />
-                <marker date="1510022830443" expanded="true" signature="1868:2385" ph="..." />
-                <marker date="1510022830443" expanded="true" signature="1968:2358" ph="..." />
-                <marker date="1510022830443" expanded="false" signature="2139:2148" ph="..." />
-                <marker date="1510022830443" expanded="true" signature="3739:4172" ph="..." />
-                <marker date="1510022830443" expanded="true" signature="3831:4149" ph="..." />
-                <marker date="1510022830443" expanded="true" signature="4206:4628" ph="..." />
-                <marker date="1510022830443" expanded="true" signature="6568:6910" ph="..." />
-                <marker date="1510022830443" expanded="true" signature="6660:6887" ph="..." />
-                <marker date="1510022830443" expanded="true" signature="6944:7304" ph="..." />
+                <marker date="1509443397191" expanded="true" signature="2831:3232" ph="..." />
+                <marker date="1509443397191" expanded="true" signature="2926:3209" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pattern_detail.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/pattern_detail/pattern_detail.js">
+      <file leaf-file-name="supply_detail.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/supply_detail/supply_detail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="143" column="47" lean-forward="true" selection-start-line="142" selection-start-column="15" selection-end-line="143" selection-end-column="47" />
+            <state relative-caret-position="-31">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="supply_detail.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/supply_detail/supply_detail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="supply_purchase_info.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/supply_purchase_info/supply_purchase_info.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="20" column="52" lean-forward="false" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="supply_purchase_info.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/supply_purchase_info/supply_purchase_info.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-31">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <element signature="e#118#149#0" expanded="true" />
-                <marker date="1509429814409" expanded="true" signature="7040:7085" ph="..." />
+                <marker date="1510024471107" expanded="true" signature="2418:2576" ph="..." />
+                <marker date="1510024471107" expanded="true" signature="2623:3051" ph="..." />
+                <marker date="1510024471107" expanded="true" signature="2727:3024" ph="..." />
+                <marker date="1510024471107" expanded="true" signature="4186:4375" ph="..." />
+                <marker date="1510024471107" expanded="true" signature="4422:4834" ph="..." />
+                <marker date="1510024471107" expanded="true" signature="4522:4807" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="version_cloth_made.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/version_cloth_made/version_cloth_made.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-31">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="version_cloth_made.styl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/version_cloth_made/version_cloth_made.styl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="version_cloth_made.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/version_cloth_made/version_cloth_made.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="207" column="5" lean-forward="false" selection-start-line="207" selection-start-column="5" selection-end-line="207" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="version_of_clothing.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/version_of_clothing/version_of_clothing.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="387">
+              <caret line="18" column="48" lean-forward="false" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="version_of_clothing.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pages/version_of_clothing/version_of_clothing.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="211">
+              <caret line="21" column="39" lean-forward="false" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+              <folding>
+                <marker date="1505966314138" expanded="true" signature="1460:1555" ph="..." />
+                <marker date="1505966314138" expanded="true" signature="1591:2060" ph="..." />
+                <marker date="1505966314138" expanded="true" signature="1629:1808" ph="..." />
+                <marker date="1505966314138" expanded="true" signature="1849:1927" ph="..." />
+                <marker date="1505966314138" expanded="true" signature="1968:2037" ph="..." />
               </folding>
             </state>
           </provider>
@@ -61,9 +164,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pop-show</find>
-      <find>pop</find>
-      <find>pop-up</find>
       <find>isStartUpBtns</find>
       <find>isStartUp</find>
       <find>buying</find>
@@ -91,6 +191,9 @@
       <find>contactMerchant</find>
       <find>getCompanyMethod</find>
       <find>companyId</find>
+      <find>setCloseWindowConfirmDialogInfo</find>
+      <find>Toast</find>
+      <find>shouye</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -99,14 +202,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/pages/purchase_detail/purchase_detail.js" />
-        <option value="$PROJECT_DIR$/src/pages/purchase_detail/purchase_detail.html" />
-        <option value="$PROJECT_DIR$/src/pages/version_of_clothing/version_of_clothing.html" />
-        <option value="$PROJECT_DIR$/src/pages/my_collection/my_collection.html" />
-        <option value="$PROJECT_DIR$/src/pages/personal_center/personal_center.html" />
-        <option value="$PROJECT_DIR$/src/pages/address_manage/address_manage.js" />
-        <option value="$PROJECT_DIR$/src/pages/my_buying/my_buying.styl" />
-        <option value="$PROJECT_DIR$/src/pages/my_collection/my_collection.js" />
         <option value="$PROJECT_DIR$/src/pages/login/login.html" />
         <option value="$PROJECT_DIR$/src/pages/login/login.styl" />
         <option value="$PROJECT_DIR$/src/pages/login/login.js" />
@@ -120,7 +215,6 @@
         <option value="$PROJECT_DIR$/src/pages/pattern_made/pattern_made.html" />
         <option value="$PROJECT_DIR$/src/pages/pattern_made/pattern_made.js" />
         <option value="$PROJECT_DIR$/src/common/scripts/render_new_patterns_list.js" />
-        <option value="$PROJECT_DIR$/src/pages/address_manage/address_manage.html" />
         <option value="$PROJECT_DIR$/src/pages/pattern_made/pattern_made.styl" />
         <option value="$PROJECT_DIR$/src/pages/version_cloth_made/version_cloth_made.styl" />
         <option value="$PROJECT_DIR$/src/pages/pattern_detail/pattern_detail.js" />
@@ -128,13 +222,9 @@
         <option value="$PROJECT_DIR$/src/pages/settled_merchant/settled_merchant.styl" />
         <option value="$PROJECT_DIR$/src/pages/new_pattern/new_pattern.styl" />
         <option value="$PROJECT_DIR$/src/pages/settled_merchant/settled_merchant.js" />
-        <option value="$PROJECT_DIR$/src/pages/settled_merchant/settled_merchant.html" />
-        <option value="$PROJECT_DIR$/src/pages/new_pattern/new_pattern.html" />
         <option value="$PROJECT_DIR$/src/pages/supply_purchase_info/supply_purchase_info.js" />
-        <option value="$PROJECT_DIR$/src/pages/supply_purchase_info/supply_purchase_info.html" />
         <option value="$PROJECT_DIR$/src/common/scripts/pull_up_load.js" />
         <option value="$PROJECT_DIR$/src/pages/new_pattern/new_pattern.js" />
-        <option value="$PROJECT_DIR$/src/pages/version_cloth_made/version_cloth_made.js" />
         <option value="$PROJECT_DIR$/src/pages/pattern_detail/pattern_detail.html" />
         <option value="$PROJECT_DIR$/src/pages/version_cloth_made/version_cloth_made.html" />
         <option value="$PROJECT_DIR$/src/pages/supply_detail/supply_detail.html" />
@@ -150,6 +240,19 @@
         <option value="$PROJECT_DIR$/src/pages/shouye/shouye.js" />
         <option value="$PROJECT_DIR$/src/api/user.js" />
         <option value="$PROJECT_DIR$/src/pages/my_buying/my_buying.js" />
+        <option value="$PROJECT_DIR$/src/api/search.js" />
+        <option value="$PROJECT_DIR$/src/pages/buy_detail/purchase_detail.html" />
+        <option value="$PROJECT_DIR$/src/pages/refer/refer.js" />
+        <option value="$PROJECT_DIR$/src/pages/version_cloth_made/version_cloth_made.js" />
+        <option value="$PROJECT_DIR$/src/pages/address_manage/address_manage.html" />
+        <option value="$PROJECT_DIR$/src/pages/my_account/my_account.html" />
+        <option value="$PROJECT_DIR$/src/pages/my_buying/my_buying.html" />
+        <option value="$PROJECT_DIR$/src/pages/my_collection/my_collection.html" />
+        <option value="$PROJECT_DIR$/src/pages/new_pattern/new_pattern.html" />
+        <option value="$PROJECT_DIR$/src/pages/personal_center/personal_center.html" />
+        <option value="$PROJECT_DIR$/src/pages/settled_merchant/settled_merchant.html" />
+        <option value="$PROJECT_DIR$/src/pages/supply_purchase_info/supply_purchase_info.html" />
+        <option value="$PROJECT_DIR$/src/pages/version_of_clothing/version_of_clothing.html" />
       </list>
     </option>
   </component>
@@ -165,9 +268,9 @@
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="133" />
-    <option name="y" value="37" />
-    <option name="width" value="842" />
+    <option name="x" value="235" />
+    <option name="y" value="54" />
+    <option name="width" value="1112" />
     <option name="height" value="780" />
   </component>
   <component name="ProjectView">
@@ -185,7 +288,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -209,12 +311,195 @@
               <item name="lsk-mobile" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="buy_detail" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lsk-mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lsk-mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="change_phone" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lsk-mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lsk-mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="change_pwd" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lsk-mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lsk-mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="edit_address" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lsk-mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lsk-mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="index" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lsk-mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lsk-mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="login" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lsk-mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lsk-mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="my_account" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lsk-mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lsk-mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="my_buying" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lsk-mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lsk-mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="my_collection" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lsk-mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lsk-mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="new_pattern" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lsk-mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lsk-mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="pattern_detail" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lsk-mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lsk-mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="pattern_made" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lsk-mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lsk-mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="personal_center" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lsk-mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lsk-mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="personal_info" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lsk-mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lsk-mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="pic_search_result" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lsk-mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lsk-mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="publish_buy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lsk-mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lsk-mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="publish_buy_tip" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lsk-mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lsk-mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="publish_supply" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lsk-mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lsk-mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="publish_supply_tip" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lsk-mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lsk-mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="refer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lsk-mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lsk-mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="register" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lsk-mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lsk-mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="settled_merchant" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lsk-mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lsk-mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="supply_detail" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lsk-mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lsk-mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="supply_purchase_info" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lsk-mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lsk-mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="text_search_result" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lsk-mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lsk-mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="version_cloth_made" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lsk-mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lsk-mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="version_of_clothing" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -233,16 +518,16 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\lsk-mobile\src\pages\add_address" />
+      <recent name="D:\lsk-mobile\src\common\fonts" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\lsk-mobile\src\pages" />
       <recent name="D:\lsk-mobile\src\srcaa\images" />
       <recent name="D:\lsk-mobile\src\pages\shouye" />
       <recent name="D:\lsk-mobile\src\srcaa\font" />
       <recent name="D:\lsk-mobile\src\pages\personal_center" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\lsk-mobile\src\pages\add_address" />
-      <recent name="D:\lsk-mobile\src\common\fonts" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -324,24 +609,25 @@
       <workItem from="1509067008173" duration="120156000" />
       <workItem from="1509583763822" duration="12156000" />
       <workItem from="1509671519005" duration="10610000" />
-      <workItem from="1509928561317" duration="27774000" />
+      <workItem from="1509928561317" duration="29281000" />
+      <workItem from="1510024529439" duration="831000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="758347000" />
+    <option name="totallyTimeSpent" value="760685000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19866072" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27380952" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.3294893" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" x="11" y="264" width="1344" height="200" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32698414" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.8204283" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294893" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294893" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24779874" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294893" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -393,292 +679,319 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/common/styles/common.styl">
+    <entry file="file://$PROJECT_DIR$/src/pages/publish_buy_tip/publish_buy_tip.styl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="18" column="21" lean-forward="false" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/supply_purchase_info/supply_purchase_info.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/settled_merchant/settled_merchant.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="84" column="24" lean-forward="false" selection-start-line="84" selection-start-column="24" selection-end-line="84" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/settled_merchant/settled_merchant.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="78" column="19" lean-forward="true" selection-start-line="78" selection-start-column="19" selection-end-line="78" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/supply_purchase_info/supply_purchase_info.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="156" column="56" lean-forward="false" selection-start-line="156" selection-start-column="41" selection-end-line="156" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/common/scripts/render_new_patterns_list.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="28" lean-forward="true" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/common/scripts/text_search_core.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="17" column="5" lean-forward="true" selection-start-line="13" selection-start-column="4" selection-end-line="17" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/new_pattern/new_pattern.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="71" column="19" lean-forward="false" selection-start-line="71" selection-start-column="19" selection-end-line="71" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/version_cloth_made/version_cloth_made.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="208" column="0" lean-forward="true" selection-start-line="208" selection-start-column="0" selection-end-line="208" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/version_of_clothing/version_of_clothing.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="23" column="6" lean-forward="true" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/text_search_result/text_search_result.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-132">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/supply_purchase_info/supply_purchase_info.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-242">
-          <caret line="7" column="26" lean-forward="false" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/supply_detail/supply_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="18" column="93" lean-forward="false" selection-start-line="18" selection-start-column="93" selection-end-line="18" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/version_cloth_made/version_cloth_made.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="19" column="93" lean-forward="false" selection-start-line="19" selection-start-column="93" selection-end-line="19" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/settled_merchant/settled_merchant.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1078">
-          <caret line="59" column="78" lean-forward="true" selection-start-line="59" selection-start-column="78" selection-end-line="59" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/register/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/purchase_detail/purchase_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/publish_buying_tip/publish_buying_tip.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-264">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/pic_search_result/pic_search_result.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/personal_center/personal_center.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-66">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/pattern_made/pattern_made.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="601">
-          <caret line="40" column="23" lean-forward="false" selection-start-line="40" selection-start-column="23" selection-end-line="40" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/pattern_detail/pattern_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="16" column="10" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/new_pattern/new_pattern.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1320">
-          <caret line="70" column="12" lean-forward="false" selection-start-line="70" selection-start-column="12" selection-end-line="70" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/publish_supply_tip/publish_supply_tip.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/my_collection/my_collection.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-726">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/my_buying/my_buying.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-264">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/my_account/my_account.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-264">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/edit_address/edit_address.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-198">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="352">
+          <caret line="22" column="22" lean-forward="true" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/address_manage/address_manage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="286">
+          <caret line="21" column="27" lean-forward="true" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/add_address/add_address.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="25" column="9" lean-forward="false" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/address_manage/address_manage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="21" column="15" lean-forward="false" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
+          <folding>
+            <marker date="1507542851180" expanded="true" signature="1227:1871" ph="..." />
+            <marker date="1507542851180" expanded="true" signature="1273:1536" ph="..." />
+            <marker date="1507542851180" expanded="true" signature="1573:1860" ph="..." />
+            <marker date="1507542851180" expanded="true" signature="1738:1776" ph="..." />
+            <marker date="1507542851180" expanded="true" signature="1807:1845" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/add_address/add_address.html">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-66">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/buy_detail/buy_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/buy_detail/buy_detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="28" column="48" lean-forward="true" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/change_phone/change_phone.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/change_phone/change_phone.js">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/shouye/shouye.styl">
+    <entry file="file://$PROJECT_DIR$/src/pages/edit_address/edit_address.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="271" column="32" lean-forward="true" selection-start-line="271" selection-start-column="32" selection-end-line="271" selection-end-column="32" />
+        <state relative-caret-position="-31">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/shouye/shouye.html">
+    <entry file="file://$PROJECT_DIR$/src/pages/edit_address/edit_address.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-132">
-          <caret line="10" column="69" lean-forward="true" selection-start-line="10" selection-start-column="69" selection-end-line="10" selection-end-column="69" />
+        <state relative-caret-position="-31">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/login/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/login/login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
+        <state relative-caret-position="123">
           <caret line="7" column="8" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
           <folding>
-            <marker date="1507799448608" expanded="true" signature="4987:5009" ph="data:" />
+            <marker date="1510024754152" expanded="true" signature="4986:5008" ph="data:" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/my_account/my_account.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="27" column="6" lean-forward="true" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/my_account/my_account.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/my_buying/my_buying.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="26" column="59" lean-forward="false" selection-start-line="26" selection-start-column="59" selection-end-line="26" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/my_buying/my_buying.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="258" column="32" lean-forward="true" selection-start-line="258" selection-start-column="32" selection-end-line="258" selection-end-column="32" />
+          <folding>
+            <marker date="1510024471075" expanded="true" signature="1868:2385" ph="..." />
+            <marker date="1510024471075" expanded="true" signature="1968:2358" ph="..." />
+            <marker date="1510024471075" expanded="false" signature="2139:2148" ph="..." />
+            <marker date="1510024471075" expanded="true" signature="3734:4167" ph="..." />
+            <marker date="1510024471075" expanded="true" signature="3826:4144" ph="..." />
+            <marker date="1510024471075" expanded="true" signature="4201:4623" ph="..." />
+            <marker date="1510024471075" expanded="true" signature="6563:6905" ph="..." />
+            <marker date="1510024471075" expanded="true" signature="6655:6882" ph="..." />
+            <marker date="1510024471075" expanded="true" signature="6939:7299" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/my_collection/my_collection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1507616294801" expanded="true" signature="1572:2082" ph="..." />
+            <marker date="1507616294801" expanded="true" signature="1668:2000" ph="..." />
+            <marker date="1507616294801" expanded="true" signature="3155:3704" ph="..." />
+            <marker date="1507616294801" expanded="true" signature="3194:3622" ph="..." />
+            <marker date="1507616294801" expanded="false" signature="3408:3414" ph=" " />
+            <marker date="1507616294801" expanded="false" signature="3527:3533" ph=" " />
+            <marker date="1507616294801" expanded="false" signature="3581:3587" ph=" " />
+            <marker date="1507616294801" expanded="true" signature="5002:5514" ph="..." />
+            <marker date="1507616294801" expanded="true" signature="5098:5432" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/my_collection/my_collection.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="24" column="59" lean-forward="false" selection-start-line="24" selection-start-column="59" selection-end-line="24" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/new_pattern/new_pattern.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/new_pattern/new_pattern.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9">
+          <caret line="53" column="15" lean-forward="true" selection-start-line="53" selection-start-column="15" selection-end-line="53" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/pattern_detail/pattern_detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="342" column="16" lean-forward="false" selection-start-line="342" selection-start-column="13" selection-end-line="342" selection-end-column="16" />
+          <folding>
+            <marker date="1509429814409" expanded="true" signature="7040:7085" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/pattern_detail/pattern_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="16" column="10" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/pattern_made/pattern_made.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="40" column="23" lean-forward="false" selection-start-line="40" selection-start-column="23" selection-end-line="40" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/pattern_made/pattern_made.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/personal_center/personal_center.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="19" column="48" lean-forward="false" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/personal_center/personal_center.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="56" column="32" lean-forward="true" selection-start-line="56" selection-start-column="32" selection-end-line="56" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/personal_info/personal_info.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="8" column="26" lean-forward="false" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/personal_info/personal_info.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
-          <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="12" />
-          <folding>
-            <element signature="e#365#417#0" expanded="false" />
-          </folding>
+          <caret line="2" column="11" lean-forward="false" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/personal_info/personal_info.html">
+    <entry file="file://$PROJECT_DIR$/src/pages/pic_search_result/pic_search_result.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="26" lean-forward="true" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/pattern_made/pattern_made.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1467">
+        <state relative-caret-position="-31">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/common/scripts/utils.js">
+    <entry file="file://$PROJECT_DIR$/src/pages/pic_search_result/pic_search_result.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="110" column="26" lean-forward="true" selection-start-line="110" selection-start-column="26" selection-end-line="110" selection-end-column="26" />
+        <state relative-caret-position="-31">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/publish_buying/publish_buying.styl">
+    <entry file="file://$PROJECT_DIR$/src/pages/publish_buy/publish_buy.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="109" column="19" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
+        <state relative-caret-position="409">
+          <caret line="40" column="17" lean-forward="true" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/publish_supply/publish_supply.styl">
+    <entry file="file://$PROJECT_DIR$/src/pages/publish_buy/publish_buy.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="149" column="1" lean-forward="true" selection-start-line="149" selection-start-column="1" selection-end-line="149" selection-end-column="1" />
+        <state relative-caret-position="387">
+          <caret line="32" column="17" lean-forward="true" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/publish_buy_tip/publish_buy_tip.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/publish_buy_tip/publish_buy_tip.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="24" lean-forward="false" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/publish_supply/publish_supply.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
+        <state relative-caret-position="144">
           <caret line="114" column="39" lean-forward="false" selection-start-line="114" selection-start-column="39" selection-end-line="114" selection-end-column="39" />
           <folding />
         </state>
@@ -686,117 +999,136 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/publish_supply/publish_supply.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="31" column="24" lean-forward="false" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="24" />
-          <folding>
-            <element signature="e#71#102#0" expanded="true" />
-            <element signature="e#352#404#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/publish_buying/publish_buying.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="32" column="17" lean-forward="true" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
-          <folding>
-            <element signature="e#71#102#0" expanded="true" />
-            <element signature="e#340#392#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/publish_buying/publish_buying.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="40" column="17" lean-forward="true" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+        <state relative-caret-position="175">
+          <caret line="130" column="30" lean-forward="false" selection-start-line="130" selection-start-column="27" selection-end-line="130" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/common/scripts/pull_up_load.js">
+    <entry file="file://$PROJECT_DIR$/src/pages/publish_supply_tip/publish_supply_tip.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="63" column="252" lean-forward="true" selection-start-line="63" selection-start-column="11" selection-end-line="63" selection-end-column="252" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/personal_center/personal_center.js">
+    <entry file="file://$PROJECT_DIR$/src/pages/publish_supply_tip/publish_supply_tip.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="56" column="32" lean-forward="true" selection-start-line="56" selection-start-column="32" selection-end-line="56" selection-end-column="32" />
+        <state relative-caret-position="-31">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/publish_supply_tip/publish_supply_tip.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/settled_merchant/settled_merchant.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="20" column="48" lean-forward="false" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/settled_merchant/settled_merchant.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#73#113#0" expanded="false" />
+            <marker date="1509443397191" expanded="true" signature="2831:3232" ph="..." />
+            <marker date="1509443397191" expanded="true" signature="2926:3209" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/common/scripts/utils/uploadPictrue.js">
+    <entry file="file://$PROJECT_DIR$/src/pages/supply_detail/supply_detail.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="17" column="8" lean-forward="true" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+        <state relative-caret-position="-31">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/shouye/shouye.js">
+    <entry file="file://$PROJECT_DIR$/src/pages/supply_detail/supply_detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" column="24" lean-forward="true" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+        <state relative-caret-position="255">
+          <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/supply_purchase_info/supply_purchase_info.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="20" column="52" lean-forward="false" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/supply_purchase_info/supply_purchase_info.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1509952355932" expanded="true" signature="1052:1221" ph="..." />
-            <marker date="1509952355932" expanded="true" signature="2564:2581" ph="..." />
-            <marker date="1509952355932" expanded="true" signature="4131:4148" ph="..." />
-            <marker date="1509952355932" expanded="true" signature="5845:5862" ph="..." />
-            <marker date="1509952355932" expanded="true" signature="7697:7714" ph="..." />
-            <marker date="1509952355932" expanded="true" signature="7756:7783" ph="..." />
+            <marker date="1510024471107" expanded="true" signature="2418:2576" ph="..." />
+            <marker date="1510024471107" expanded="true" signature="2623:3051" ph="..." />
+            <marker date="1510024471107" expanded="true" signature="2727:3024" ph="..." />
+            <marker date="1510024471107" expanded="true" signature="4186:4375" ph="..." />
+            <marker date="1510024471107" expanded="true" signature="4422:4834" ph="..." />
+            <marker date="1510024471107" expanded="true" signature="4522:4807" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/new_pattern/new_pattern.js">
+    <entry file="file://$PROJECT_DIR$/src/pages/version_cloth_made/version_cloth_made.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5889">
-          <caret line="53" column="15" lean-forward="true" selection-start-line="53" selection-start-column="15" selection-end-line="53" selection-end-column="15" />
+        <state relative-caret-position="-31">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/user.js">
+    <entry file="file://$PROJECT_DIR$/src/pages/version_cloth_made/version_cloth_made.styl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="238" column="35" lean-forward="false" selection-start-line="238" selection-start-column="35" selection-end-line="238" selection-end-column="35" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/pattern_detail/pattern_detail.js">
+    <entry file="file://$PROJECT_DIR$/src/pages/version_cloth_made/version_cloth_made.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="143" column="47" lean-forward="true" selection-start-line="142" selection-start-column="15" selection-end-line="143" selection-end-column="47" />
-          <folding>
-            <element signature="e#118#149#0" expanded="true" />
-            <marker date="1509429814409" expanded="true" signature="7040:7085" ph="..." />
-          </folding>
+        <state relative-caret-position="425">
+          <caret line="207" column="5" lean-forward="false" selection-start-line="207" selection-start-column="5" selection-end-line="207" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/my_buying/my_buying.js">
+    <entry file="file://$PROJECT_DIR$/src/pages/version_of_clothing/version_of_clothing.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="258" column="32" lean-forward="true" selection-start-line="258" selection-start-column="32" selection-end-line="258" selection-end-column="32" />
+        <state relative-caret-position="387">
+          <caret line="18" column="48" lean-forward="false" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/version_of_clothing/version_of_clothing.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="21" column="39" lean-forward="false" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
           <folding>
-            <element signature="e#181#221#0" expanded="true" />
-            <marker date="1510022830443" expanded="true" signature="1868:2385" ph="..." />
-            <marker date="1510022830443" expanded="true" signature="1968:2358" ph="..." />
-            <marker date="1510022830443" expanded="false" signature="2139:2148" ph="..." />
-            <marker date="1510022830443" expanded="true" signature="3739:4172" ph="..." />
-            <marker date="1510022830443" expanded="true" signature="3831:4149" ph="..." />
-            <marker date="1510022830443" expanded="true" signature="4206:4628" ph="..." />
-            <marker date="1510022830443" expanded="true" signature="6568:6910" ph="..." />
-            <marker date="1510022830443" expanded="true" signature="6660:6887" ph="..." />
-            <marker date="1510022830443" expanded="true" signature="6944:7304" ph="..." />
+            <marker date="1505966314138" expanded="true" signature="1460:1555" ph="..." />
+            <marker date="1505966314138" expanded="true" signature="1591:2060" ph="..." />
+            <marker date="1505966314138" expanded="true" signature="1629:1808" ph="..." />
+            <marker date="1505966314138" expanded="true" signature="1849:1927" ph="..." />
+            <marker date="1505966314138" expanded="true" signature="1968:2037" ph="..." />
           </folding>
         </state>
       </provider>

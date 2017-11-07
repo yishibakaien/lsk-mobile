@@ -193,7 +193,7 @@ import {
                         text: res.message,
                         duration: 2100,
                         complete: function() {
-                            location.href = './shouye.html?time=' + ((new Date()).getTime());
+                            location.href = './index.html?time=' + ((new Date()).getTime());
                         }
                     });
                 } else {

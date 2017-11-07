@@ -1,0 +1,351 @@
+@import '../../common/styles/base/fn';
+
+.head {
+    display: flex;
+}
+
+.head .right {
+    width: 20px;
+    margin: 0 15px;
+    flex: 0 0 auto;
+    position: static;
+}
+
+.head .center {
+    flex: 1;
+    color: #fff;
+    height: 28px;
+    background-color: rgba(0, 0, 0, .1);
+    border-radius: 4px;
+    text-align: left;
+    margin: 8px 0 8px 15px;
+    display: flex;
+    position: static;
+    transform: translate(0%, 0%);
+}
+
+.head .center form {
+    display: inline-block;
+    margin-right: 5px;
+    flex: 1;
+    box-sizing: border-box;
+}
+
+.head .center div {
+    height: 28px;
+    width: 32px;
+    font-size: 20px;
+    line-height: 28px;
+    text-align: center;
+    flex: 0 0 auto;
+}
+
+.head .center input {
+    display: inline-block;
+    width: 100%;
+    color: #fff;
+    height: 28px;
+    line-height: 28px;
+    font-size: 12px;
+    background-color: transparent;
+    margin-right: 5px;
+    box-sizing: border-box;
+}
+
+input::-webkit-input-placeholder {
+    color: #fff;
+}
+
+.down-app {
+    //height: 50px;
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+}
+
+.down-app .logo {
+    flex: 0 0 auto;
+    height: 16px;
+    width: 80px;
+    margin: 17px 12px 17px 15px;
+}
+
+.down-app .logo img {
+    height: 100%;
+    width: 100%;
+}
+
+.down-app .text {
+    flex: 1;
+    color: #333;
+    font-size: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 8px 0;
+    overflow: hidden;
+    //line-height: 50px;
+    //overflow: hidden;
+    //text-overflow: ellipsis;
+    //white-space: nowrap;
+}
+    
+.down-app .text div {
+    float: left;
+    white-space: nowrap;
+}
+ 
+.down-app .down {
+    flex: 0 0 auto;
+    color: #fff;
+    height: 28px;
+    width: 70px;
+    background-color: #d40073;
+    border-radius: 4px;
+    line-height: 28px;
+    text-align: center;
+    margin: 11px 15px 11px 12px;
+}
+
+.btn-wrapper {
+    height: 113px;
+    background-color: #fff;
+    box-sizing: border-box;
+    padding: 20px 0;
+    display: flex;
+}
+
+.btn-wrapper .logo-wrapper {
+    flex: 0 0 auto;
+}
+
+.btn-wrapper .gap {
+    flex: 1;
+}
+
+.btn-wrapper .logo-wrapper .logo {
+    height: 50px;
+    width: 50px;
+}
+
+.btn-wrapper .text {
+    color: #999;
+    margin: 8px auto 0 auto;
+    text-align: center;
+}
+
+//按钮图标
+#supplyInfo {
+    background-image: url("../../images/gongqiuxinxi@2x.png");
+}
+
+#patternMade {
+    background-image: url("../../images/huaxingdingzhi@2x.png");
+}
+
+#modelDress {
+    background-image: url("../../images/3dshiyi@2x.png");
+}
+
+#clothMade {
+    background-image: url("../../images/banyidingzhi@2x.png");
+}
+
+.settled-info-wrapper {
+    height: 50px;
+    background-color: #fff;
+    box-sizing: border-box;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 10px 15px 10px 21px;
+    display: flex;
+    overflow: hidden;
+}
+
+.settled-info-wrapper .left {
+    height: 30px;
+    width: 30px;
+    flex: 0 0 auto;
+    margin-right: 12px;
+}
+
+.settled-info-wrapper .left .text {
+    width: 30px;
+    color: #ff8181;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.settled-info-wrapper .right {
+    flex: 1;
+}
+
+.settled-info-wrapper .right .swiper-slide {
+    line-height: 15px;
+    font-size: 10px;
+}
+
+.settled-info-wrapper .right .swiper-slide .firm-name {
+    color: #666;
+    float: left;
+}
+
+.settled-info-wrapper .right .swiper-slide .time {
+    color: #999;
+    float: right;
+}
+
+.new-arrival-wrapper .img-banner {
+    background-image: url("../../images/zuixinshangjia_xiaohaibao-copy@2x.jpg");
+}
+
+.new-arrival-wrapper .new-arrival-items {
+    border-left 8px solid #fff;
+    overflow: hidden;
+}
+
+.new-arrival-wrapper .new-arrival-items .swiper-slide
+    box-sizing border-box
+    padding-right 8px
+    .text
+        textOverflowHide()
+        height 24px
+        line-height 24px
+        text-align center
+        color $textColorNumber
+
+.new-arrival-wrapper .swiper-slide .pattern
+    centerPic()
+    position relative
+    background-color #f8f8f8
+    padding-top 100%
+    margin-top 8px
+
+.supply-buying-info-wrapper .supply-buying-info-items {
+    overflow: hidden;
+}
+.supply-buying-info-items .swiper-slide
+    box-sizing border-box
+    border-right 1px solid #e8e8e8
+    padding 8px 8px 0 8px
+    .text
+        textOverflowHide()
+        height 24px
+        line-height 24px
+        text-align center
+        color $textColorNumber
+        overflow hidden
+
+.supply-buying-info-items .swiper-slide .pattern
+    centerPic()
+    position relative
+    background-color #f8f8f8
+    padding-top 100%
+    // background-image url('http://image.tswq.wang/product/ios-6f44286d15244e3dbb3f85c75e61c397.jpg')
+
+
+.version-of-clothing-wrapper .img-banner {
+    background-image: url("../../images/banyuizhuanqu_xiaohaibao@2x.jpg");
+}
+
+.version-of-clothing-wrapper .version-items {
+    border-left 8px solid #fff;
+    padding-bottom: 8px;
+    overflow: hidden;
+}
+
+.version-items .swiper-slide
+    box-sizing border-box
+    padding-right 8px
+    width 30%
+
+.version-items .swiper-slide .pattern
+    centerPic()
+    position relative
+    background-color #f8f8f8
+    padding-top 150%
+    margin-top 8px
+.quality-merchants-wrapper {
+    margin-bottom: 60px;
+}
+
+.quality-merchants-wrapper .bottom {
+    overflow: hidden;
+    //width: 100%;
+}
+
+.quality-merchants-wrapper .bottom .item {
+    width: 33.33%;
+    padding-top: 17%;
+    background-color: #fff;
+    box-sizing: border-box;
+    //padding: 6px;
+    float: left;
+    font-size: 0;
+    centerPic()
+}
+
+//.quality-merchants-wrapper .bottom div img {
+//    width: 100%;
+//    display: block;
+//}
+
+.wrapper-common {
+    background-color: #fff;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.img-banner {
+    //height: 120px;
+    padding-top: 33%;
+    width: 100%;
+    background-size: cover;
+    centerPic()
+}
+
+.text-banner div {
+    width: 80px;
+    height: 44px;
+    line-height: 44px;
+    margin: 0 auto;
+}
+
+.text-banner div span {
+    color: #666;
+    font-size: 15px;
+}
+
+.text-banner div i {
+    color: #999;
+}
+
+//.left-swiper {
+//    text-align: center;
+//    padding-bottom: 8px;
+//    border-left: 8px solid #fff;
+//    overflow: hidden;
+//}
+//
+//.left-swiper .swiper-slide {
+//    font-size: 0;
+//    text-align: center;
+//    box-sizing: border-box;
+//    padding-right: 8px;
+//}
+//
+//.left-swiper .swiper-slide img {
+//    width: 100%;
+//    margin-top: 8px;
+//}
+//
+//.left-swiper .swiper-slide .text {
+//    color: #666;
+//    width: 90%;
+//    text-align: center;
+//    font-size: 12px;
+//    margin-top: 4px;
+//    white-space: nowrap;
+//    overflow: hidden;
+//    text-overflow: ellipsis;
+//}

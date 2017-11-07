@@ -1,5 +1,5 @@
 require('common/styles/index.styl');
-require('./purchase_detail.styl');
+require('./buy_detail.styl');
 
 import wx from 'weixin-js-sdk';
 import Toast from 'plugins/toast/Toast';
@@ -79,7 +79,7 @@ import {
                                     var url = getQueryString('from');
                                     location.replace(url);
                                 } else {
-                                    location.replace('./shouye.html');
+                                    location.replace('./index.html');
                                 }
                             }
                         });

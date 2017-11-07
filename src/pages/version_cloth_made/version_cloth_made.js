@@ -196,7 +196,7 @@ import {
                         text: res.message,
                         duration: 2100,
                         complete: function() {
-                            location.href = './shouye.html?time=' + ((new Date()).getTime());
+                            location.href = './index.html?time=' + ((new Date()).getTime());
                         }
                     });
                 } else {
@@ -206,10 +206,3 @@ import {
         }
     };
 })();
-
-wx.setCloseWindowConfirmDialogInfo({
-    switch:	true,
-    title_cn: '你要关闭购物页面?',
-    ok_cn: '关闭',
-    cancel_cn: '再逛逛',
-});

@@ -110,7 +110,7 @@ import {
 
                             location.replace(url);
                         } else {
-                            location.replace('./shouye.html');
+                            location.replace('./index.html');
                         }
                     }
                 });
