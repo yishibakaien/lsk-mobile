@@ -14,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "cbui-toast": "^1.0.0",
+    "fix-orientation": "^0.0.2",
     "swiper": "^3.4.2",
     "weixin-js-sdk": "^1.2.0"
   },

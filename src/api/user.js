@@ -19,7 +19,7 @@ const API = {
     },
     main: {
         // 获取求购单接单人列表
-        listBuyTaskUserByBuyId: '/buyTask/listBuyTaskUserByBuyId',
+        // listBuyTaskUserByBuyId: '/buyTask/listBuyTaskUserByBuyId',
         // 获取收藏供应列表
         listSupply: '/favorite/listSupply',
         // 获取厂家供应列表
@@ -55,7 +55,7 @@ const API = {
         // 关闭求购
         closeProductBuy: '/productBuy/closeProductBuy',
         // 完成接单
-        finishProductBuy: '/productBuy/finishProductBuy'
+        // finishProductBuy: '/productBuy/finishProductBuy'
     },
     detail: {
         // 获取花型详情
@@ -167,9 +167,9 @@ export function releaseProductBuy(data, cb, err) {
     return _fetch('POST', data, API.main.releaseProductBuy, cb, err);
 }
 // 获取求购单接单人列表
-export function listBuyTaskUserByBuyId(data, cb, err) {
-    return _fetch('GET', data, API.main.listBuyTaskUserByBuyId, cb, err);
-}
+// export function listBuyTaskUserByBuyId(data, cb, err) {
+//     return _fetch('GET', data, API.main.listBuyTaskUserByBuyId, cb, err);
+// }
 // 删除求购
 export function deleteProductBuy(data, cb, err) {
     return _fetch('POST', data, API.main.deleteProductBuy, cb, err);
@@ -236,6 +236,6 @@ export function closeProductBuy(data, cb, err) {
     return _fetch('POST', data, API.main.closeProductBuy, cb, err);
 }
 //完成接单
-export function finishProductBuy(data, cb, err) {
-    return _fetch('POST', data, API.main.finishProductBuy, cb, err);
-}
+// export function finishProductBuy(data, cb, err) {
+//     return _fetch('POST', data, API.main.finishProductBuy, cb, err);
+// }

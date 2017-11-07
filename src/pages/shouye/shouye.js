@@ -185,7 +185,7 @@ function clothes() {
             };
             c('#clothes').appendChild(div);
         });
-        console.log('imgArr', imgArr);
+        // console.log('imgArr', imgArr);
         // c('#clothes').innerHTML = str;
         var versionSwiper = new Swiper('.version-items', {
             slidesPerView: 'auto',

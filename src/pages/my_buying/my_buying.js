@@ -14,13 +14,13 @@ import {
 import {
     myProductBuys,
     deleteProductBuy,
-    releaseProductBuy,
-    listBuyTaskUserByBuyId,
-    finishProductBuy
+    getCompanyInfo
+    // listBuyTaskUserByBuyId
+    // releaseProductBuy,
+    // finishProductBuy
 } from 'api/user';
 
 (function () {
-    console.log(location.href);
     var foot = c('#foot');
     // var downApp = c('#downApp');
     var goingWrapper = c('#goingWrapper');
@@ -77,7 +77,6 @@ import {
                 div.onclick = function () {
                     var id = this.getAttribute('data-id');
                     console.log(id);
-                    hasToken(id);
                     // location.href = './purchase_detail.html?dataId=' + id + '&from=' + location.href;
                     Toast.info('请前往App查看', 1000);
                     foot.style.display = 'block';
@@ -99,48 +98,10 @@ import {
         myProductBuys(getCompleteParamas, function (res) {
             console.log('我的求购列表-已完成', res);
             var list = res.data.list;
-            // list = [
-            //     {
-            //         buyTaskFlag: 0,
-            //         updateDate: 1504322158000,
-            //         buyNum: 5682,
-            //         buyDesc: 'JMeter自动测试发布求购',
-            //         buyPicUrl: 'http://imgdev.tswq.wang/1111111',
-            //         userId: 53852,
-            //         version: 1,
-            //         platform: 1,
-            //         buyTaskCount: 0,
-            //         isStartUp: 1,
-            //         buyUnit: 400012,
-            //         buyShape: 200011,
-            //         buyStatus: 1,
-            //         buyType: 100010,
-            //         id: 3255,
-            //         viewCount: 3,
-            //         createDate: 1503712871000
-            //     },
-            //     {
-            //         buyTaskFlag: 0,
-            //         updateDate: 1503633292000,
-            //         buyNum: 758,
-            //         buyDesc: 'JMeter自动测试发布求购',
-            //         buyPicUrl: 'http://imgdev.tswq.wang/1111111',
-            //         userId: 53852,
-            //         version: 1,
-            //         platform: 1,
-            //         buyTaskCount: 0,
-            //         isStartUp: 1,
-            //         buyUnit: 400012,
-            //         buyShape: 200010,
-            //         buyStatus: 1,
-            //         buyType: 100010,
-            //         id: 3252,
-            //         createDate: 1503633292000
-            //     }
-            // ];
             var listStr = '';
             for (var i = 0; i < list.length; i++) {
                 var div = document.createElement('div');
+                var companyId = list[i].dealBuyTask ? list[i].dealBuyTask.companyId : '';
                 div.setAttribute('data-id', list[i].id);
                 div.className = 'info-wrapper';
                 listStr = `<div class="info border-bottom">
@@ -151,13 +112,13 @@ import {
                     </div>
                 </div>
                 <div class="btn">
-                    <span class="republish" buy-desc="${list[i].buyDesc}" buy-num="${list[i].buyNum}" buy-pic-url="${list[i].buyPicUrl}" buy-shapes="${list[i].buyShape}" buy-type="${list[i].buyType}" buy-unit="${list[i].buyUnit}" is-start-up="${list[i].isStartUp}">重新发布</span><span class="active contact-merchant" buying-id="${list[i].id}">联系商家</span>
+                    <span class="republish" buy-desc="${list[i].buyDesc}" buy-num="${list[i].buyNum}" buy-pic-url="${list[i].buyPicUrl}" buy-shapes="${list[i].buyShape}" buy-type="${list[i].buyType}" buy-unit="${list[i].buyUnit}" is-start-up="${list[i].isStartUp}">重新发布</span><span class="active contact-merchant" company-id="${list[i].dealBuyTask ? list[i].dealBuyTask.companyId : ''}">联系商家</span>
                 </div>`;
                 div.innerHTML = listStr;
 
                 div.onclick = function () {
-                    var id = this.getAttribute('data-id');
-                    console.log(id);
+                    // var id = this.getAttribute('company-id');
+                    // console.log(id);
                     Toast.info('请前往App查看', 1000);
                     foot.style.display = 'block';
                 };
@@ -165,15 +126,20 @@ import {
 
                 var republish = div.getElementsByClassName('republish')[0];
                 var contactMerchant = div.getElementsByClassName('contact-merchant')[0];
+                getPhoneNumMethod(companyId, contactMerchant);
                 republish.onclick = function (e) {
                     var that = this;
                     republishBuying(that);
                     e.stopPropagation();
                 };
                 contactMerchant.onclick = function (e) {
-                    var that = this;
                     e.stopPropagation();
-                    buyingList(that);
+                    var phone = this.getAttribute('phone');
+                    if (phone) {
+                        location.href = 'tel:' + this.getAttribute('phone');
+                    } else {
+                        Toast.info('您完成接单时未选择联系人');
+                    }
                 };
             }
             var hasMore = res.data.pageNO < res.data.totalPage;
@@ -256,50 +222,9 @@ import {
         swiperTag[swiper.activeIndex].className += ' active';
         history.replaceState(null, null, '?swiperIndex=' + swiper.activeIndex);
     }
-
-
-    // 重新发布
-    // function republishBuying(that) {
-    //     var data = {
-    //         buyDesc: that.getAttribute('buy-desc'),
-    //         buyNum: that.getAttribute('buy-num'),
-    //         buyPicUrl: that.getAttribute('buy-pic-url'),
-    //         buyShapes: that.getAttribute('buy-shapes'),
-    //         buyType: that.getAttribute('buy-type'),
-    //         buyUnit: that.getAttribute('buy-unit'),
-    //         isStartUp: that.getAttribute('is-start-up')
-    //     };
-    //     console.log('重新发布data:', data);
-    //     // 未测试
-    //     releaseProductBuy(data, function (res) {
-    //         console.log(res);
-    //         Toast.info(res.message, 1000);
-    //         if (res.code === 0) {
-    //             Toast.success({
-    //                 text: res.message,
-    //                 duration: 1000,
-    //                 complete: function() {
-    //                     var url = getQueryString('from');
-    //                     location.replace(url);
-    //                 }
-    //             });
-    //             location.href = './my_buying.html?time=' + ((new Date()).getTime());
-    //         }
-    //     });
-    // }
     // 重新发布
     function republishBuying(that) {
         location.href = './publish_buying.html?buyDesc=' + that.getAttribute('buy-desc') + '&buyNum=' + that.getAttribute('buy-num') + '&buyPicUrl=' + that.getAttribute('buy-pic-url') + '&buyShapes=' + that.getAttribute('buy-shapes') + '&buyType=' + that.getAttribute('buy-type') + '&buyUnit=' + that.getAttribute('buy-unit') + '&isStartUp=' + that.getAttribute('is-start-up') + '&from=' + location.href;
-    }
-    // 获取接单人列表
-    function buyingList(that) {
-        var data = {
-            buyId: that.getAttribute('buying-id')
-        };
-        console.log('获取求购单接单人列表data', data);
-        listBuyTaskUserByBuyId(data, function (res) {
-            console.log('获取求购单接单人列表res:', res);
-        });
     }
 
     // 删除求购
@@ -322,14 +247,28 @@ import {
             });
         }
     }
-    // 完成接单
-    function hasToken(id) {
-        var data = {
-            buyTaskId: '',/*接单id（可选），如果有人接单则必须带上	number*/
-            id: id/*求购单id	number*/
-        };
-        finishProductBuy(data, function (res) {
-            console.log(res);
-        });
+    // 获取电话
+    function getPhoneNumMethod(companyId, contactMerchant) {
+        if (companyId) {
+            getCompanyInfo({
+                companyId
+            }, function (res) {
+                console.log('获取详细工厂信息', res);
+                contactMerchant.setAttribute('phone', res.data.phone);
+                // that.setAttribute('phone', res.data.phone);
+                // var phone = that.getAttribute('phone');
+                // location.href = 'tel:' + phone;
+            });
+        }
     }
+    // 完成接单
+    // function hasToken(id) {
+    //     var data = {
+    //         buyTaskId: '',/*接单id（可选），如果有人接单则必须带上	number*/
+    //         id: id/*求购单id	number*/
+    //     };
+    //     finishProductBuy(data, function (res) {
+    //         console.log(res);
+    //     });
+    // }
 })();
