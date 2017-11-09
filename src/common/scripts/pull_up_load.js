@@ -61,6 +61,9 @@ export function pullUpLoad(hasmore, ajaxFn, parentNode) {
                 parentNode = document.body;
             }
 
+
+
+
             // console.log('parentNode.scrollTop:' + parentNode.scrollTop + 'parentNode.clientHeight:' + parentNode.clientHeight + 'parentNode.scrollHeight:' + parentNode.scrollHeight + 'documentElement.scrollTop' + document.documentElement.scrollTop);
             if (parentNode.scrollTop + parentNode.clientHeight + 20 > parentNode.scrollHeight) {
                 console.log('开始加载');
@@ -105,5 +108,5 @@ function debounce(fn, delay) {
         timer = setTimeout(function() {
             fn.apply(_this, args);
         }, delay);
-    }
+    };
 }

@@ -1,6 +1,6 @@
 require('common/styles/index.styl');
 require('./settled_merchant.styl');
-import {TEXT_SEARCH} from 'common/scripts/text_search.js';
+import {TEXT_SEARCH_COMPANY} from 'common/scripts/text_search.js';
 
 
 import {
@@ -10,7 +10,7 @@ import {
 
 import {listUnSettledCompany, listSettledCompany} from 'api/settled_merchant';
 
-TEXT_SEARCH();
+TEXT_SEARCH_COMPANY();
 
 var Swiper = require('plugins/swiper/swiper-3.4.2.min.js');
 
