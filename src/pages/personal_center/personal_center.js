@@ -55,7 +55,7 @@ import {
 getUserInfo({}, function(res) {
     console.log('获取用户信息', res);
     if (res.data.userHeadIcon) {
-        avatar.src = res.data.userHeadIcon;
+        avatar.src = res.data.userHeadIcon + '?x-oss-process=image/auto-orient,1';
     }
     username.innerHTML = res.data.userName;
     phone.innerHTML = formatPhone(res.data.userMobile);

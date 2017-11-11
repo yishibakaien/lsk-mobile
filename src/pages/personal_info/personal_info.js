@@ -77,7 +77,7 @@ import {
         aliupload.call(this, 1, function(res) {
             console.log('图片上传返回值', res);
             Toast.hide();
-            userData.userHeadIcon = rightSideAvatar.src = avatar.src = res[0];
+            userData.userHeadIcon = rightSideAvatar.src = avatar.src = res[0] + '?x-oss-process=image/auto-orient,1';
         }, function(res) {
             Toast.error('图片上传失败，请重试');
         });
@@ -87,8 +87,9 @@ import {
         var data = res.data;
         console.log(res);
         if (res.data && data.userHeadIcon) {
-            avatar.src = data.userHeadIcon;
-            rightSideAvatar.src = data.userHeadIcon;
+            console.log('hahaahahah');
+            avatar.src = data.userHeadIcon + '?x-oss-process=image/auto-orient,1';
+            rightSideAvatar.src = data.userHeadIcon + '?x-oss-process=image/auto-orient,1';
         }
         userData.userHeadIcon = data.userHeadIcon;
         userData.userName = userName.value = data.userName;
