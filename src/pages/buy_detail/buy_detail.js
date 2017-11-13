@@ -17,7 +17,7 @@ import {
 
 import {
     getProductBuy,
-    closeProductBuy
+    // closeProductBuy
     // getCompanySupplyInfo
 }  from 'api/user';
 
@@ -32,8 +32,8 @@ import {
     var buyingTime = c('#buyingTime');
     var buyTaskCount = c('#buyTaskCount');
     var buyingPeople = c('#buyingPeople');
-    var closeBuying = c('#closeBuying');
-    var btnWrapper = c('#btnWrapper');
+    // var closeBuying = c('#closeBuying');
+    // var btnWrapper = c('#btnWrapper');
     var foot = c('#foot');
 
     var closeBuyData = {
@@ -53,40 +53,40 @@ import {
         companyAvatar.src = res.data.userHeadIcon;
         buyTaskCount.innerHTML = (res.data.buyTaskCount > 0 ? '已有 ' + res.data.buyTaskCount + ' 人接单' : '暂时无人接单');
 
-        if (localStorage.userId && (parseInt(localStorage.userId) === res.data.userId)) {
-            btnWrapper.style.display = 'block';
-        } else {
-            foot.style.display = 'block';
-        }
+        // if (localStorage.userId && (parseInt(localStorage.userId) === res.data.userId)) {
+        //     btnWrapper.style.display = 'block';
+        // } else {
+        //     foot.style.display = 'block';
+        // }
 
         buyingDetailPic.onclick = function () {
             wx.previewImage({
                 urls: [ _picUrl]
             });
         };
-        closeBuying.onclick = function () {
-            console.log(closeBuyData);
-            var reconfirm = confirm('确认关闭？');
-            if (reconfirm) {
-                closeProductBuy(closeBuyData, function (res) {
-                    console.log('关闭求购', res);
-                    if (res.code === 0) {
-                        Toast.success({
-                            text: res.message,
-                            duration: 1000,
-                            complete: function() {
-                                if (getQueryString('from')) {
-                                    var url = getQueryString('from');
-                                    location.replace(url);
-                                } else {
-                                    location.replace('./index.html');
-                                }
-                            }
-                        });
-                    }
-                });
-            }
-        };
+        // closeBuying.onclick = function () {
+        //     console.log(closeBuyData);
+        //     var reconfirm = confirm('确认关闭？');
+        //     if (reconfirm) {
+        //         closeProductBuy(closeBuyData, function (res) {
+        //             console.log('关闭求购', res);
+        //             if (res.code === 0) {
+        //                 Toast.success({
+        //                     text: res.message,
+        //                     duration: 1000,
+        //                     complete: function() {
+        //                         if (getQueryString('from')) {
+        //                             var url = getQueryString('from');
+        //                             location.replace(url);
+        //                         } else {
+        //                             location.replace('./index.html');
+        //                         }
+        //                     }
+        //                 });
+        //             }
+        //         });
+        //     }
+        // };
 
     });
 })();

@@ -1,6 +1,7 @@
 'use strict';
 
 var env = process.env.NODE_ENV;
+// var env = 'prod';
 
 var conf = (function(env) {
     var urls = {

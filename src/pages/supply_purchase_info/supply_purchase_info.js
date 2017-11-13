@@ -183,6 +183,7 @@ import {
         swiperTag[swiper.activeIndex].className += ' active';
         headRight.innerHTML = text[swiper.activeIndex].text;
         headRight.setAttribute('href', text[swiper.activeIndex].link);
+        history.replaceState(null, null, '?swiperIndex=' + swiper.activeIndex);
     }
 })();
 
