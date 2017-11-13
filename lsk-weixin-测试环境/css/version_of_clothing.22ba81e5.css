@@ -1,0 +1,130 @@
+/*!
+ * created by cloud_cb linyunbin on 2017/11/13
+ * lsk-mobile v0.0.1
+ * Copyright  2017, cloud_cb linyunbin, ISC license
+ */
+.head .right {
+  width: 90px;
+}
+.version-of-clothing-tip {
+  color: #fff;
+  height: 36px;
+  width: 100%;
+  font-size: 12px;
+  background-color: rgba(212,0,115,0.5);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 15px;
+  position: fixed;
+  top: 44px;
+  z-index: 16;
+  overflow: hidden;
+  display: none;
+}
+.version-of-clothing-tip .left {
+  line-height: 36px;
+  display: inline-block;
+  float: left;
+}
+.version-of-clothing-tip .right {
+  display: inline-block;
+  float: right;
+}
+.version-of-clothing-tip .right .btn {
+  color: #d40073;
+  width: 70px;
+  line-height: 20px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 28px;
+  display: inline-block;
+  float: left;
+  margin: 8px 10px;
+}
+.version-of-clothing-tip .arrow {
+  font-size: 24px;
+  line-height: 36px;
+}
+.swiper-container {
+  position: fixed;
+  top: 44px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.swiper-container .swiper-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.swiper-slide {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+}
+.version-of-clothing {
+/*height: 224px;*/
+  background-color: #fff;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-bottom: 8px;
+  padding: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+.version-of-clothing .left {
+  font-size: 0;
+  margin-right: 10px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+.version-of-clothing .left img {
+  height: 205px;
+  width: 140px;
+}
+.version-of-clothing .right {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.version-of-clothing .right .top {
+  border-left: 2px solid #d40073;
+  padding-left: 6px;
+}
+.version-of-clothing .right .top .product-name {
+  color: #333;
+  padding-bottom: 4px;
+}
+.version-of-clothing .right .top .product-num {
+  color: #666;
+  font-size: 10px;
+}
+.version-of-clothing .right .middle {
+  width: 100%;
+  color: #666;
+  line-height: 20px;
+  height: 84px;
+  font-size: 12px;
+  margin: 8px 0 16px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+.version-of-clothing .right .bottom {
+  font-size: 0;
+  height: 68px;
+}
+.version-of-clothing .right .bottom img {
+  height: 65px;
+  width: 65px;
+}
+.version-of-clothing .right .bottom img:nth-child(1) {
+  border-right: 10px solid #fff;
+}

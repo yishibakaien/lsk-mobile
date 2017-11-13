@@ -1,0 +1,179 @@
+/*!
+ * created by cloud_cb linyunbin on 2017/11/13
+ * lsk-mobile v0.0.1
+ * Copyright  2017, cloud_cb linyunbin, ISC license
+ */
+.img-wrapper {
+  height: 120px;
+  width: 100%;
+  background-image: url(../images/banyidingzhi_xiaohaibao@2x.jpg);
+  background-position: 50%;
+  background-size: cover;
+  position: relative;
+}
+.img-wrapper .btn {
+  color: #d40073;
+  height: 20px;
+  width: 70px;
+  line-height: 20px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 55px;
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.ipt-wrapper {
+  background-color: #fff;
+  margin-top: 8px;
+/*padding: 0 16px;*/
+}
+.ipt-wrapper div {
+  line-height: 44px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 16px;
+}
+.ipt-wrapper div span {
+  width: 100px;
+  color: #666;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+.ipt-wrapper div input,
+.ipt-wrapper div textarea {
+  color: #333;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.ipt-wrapper div textarea {
+  height: 64px;
+  padding: 12px 0;
+}
+.upload-image-wrapper {
+  height: 158px;
+  width: 100%;
+  background-color: #fff;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-top: 8px;
+  padding: 0 16px;
+  position: relative;
+}
+.upload-image-wrapper .upload-image-tip {
+  height: 50px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+}
+.upload-image-tip .text {
+  color: #666;
+}
+.upload-image-tip .brackets-text {
+  color: #999;
+  font-size: 10px;
+  white-space: nowrap;
+  padding-left: 4px;
+  padding-top: 3px;
+}
+.item-wrapper {
+  font-size: 0;
+}
+.item-wrapper img {
+  height: 90px;
+  width: 90px;
+}
+.item-wrapper .item,
+.item-wrapper .upload {
+  position: relative;
+  margin-right: 9px;
+  float: left;
+}
+.upload-image-wrapper .item .icon-close {
+  color: #999;
+  font-size: 18px;
+  position: absolute;
+  top: -2px;
+  right: -2px;
+}
+.upload-image-wrapper :last-child {
+  margin-right: 0;
+}
+.upload-image-wrapper .call {
+  color: #fff;
+  height: 60px;
+  width: 60px;
+  font-size: 28px;
+  text-align: center;
+  background-color: #d40073;
+  border-radius: 50%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-top: 8px;
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+}
+.call .text {
+  font-size: 12px;
+  line-height: 18px;
+}
+.ipt-wrapper .desc-ipt {
+  width: 100%;
+  height: 79px;
+  padding: 12px 15px;
+}
+textarea {
+  border: none;
+  resize: none;
+  outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.dial-layout {
+  Width: 70%;
+  border-radius: 12px;
+  position: absolute;
+  background-color: #fff;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: none;
+  z-index: 180;
+}
+.dial-layout .tel-num {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 60px;
+  text-align: center;
+}
+.dial-layout .dial-handler {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #d40073;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 40px;
+}
+.dial-layout .dial-handler div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}

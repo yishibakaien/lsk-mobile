@@ -14,9 +14,9 @@ import {
 }  from 'api/user';
 
 (function () {
-    if (localStorage['editAddress']) {
-        localStorage.removeItem('editAddress');
-    }
+    // if (localStorage['editAddress']) {
+    //     localStorage.removeItem('editAddress');
+    // }
     var delConfirm = c('#delConfirm');
     var cancelConfirm = c('#cancelConfirm');
     var bottomSlide = c('#bottomSlide');
@@ -36,7 +36,7 @@ import {
             addressStr += `<div class="address" address=${res.data[n].address} city=${res.data[n].city} county=${res.data[n].county} address-id=${res.data[n].id} is-def=${res.data[n].isDef} name=${res.data[n].name} phone=${res.data[n].phone}  province=${res.data[n].province} postcode=${res.data[n].postcode}>
         <div class="user-info border-bottom">
             <div><span class="name">${res.data[n].name}</span><span class="phone">${res.data[n].phone}</span></div>
-            <div class="address-text">${addTranData.province}-${addTranData.city}-${addTranData.county}${res.data[n].address}</div>
+            <div class="address-text">${addTranData.province}-${addTranData.city}-${addTranData.county}-${res.data[n].address}</div>
         </div>
         <div class="address-handle">
             <div class="choose icon-gou ${res.data[n].isDef ? 'active' : ''}"></div>
@@ -100,9 +100,9 @@ import {
                     postCode: this.parentNode.parentNode.getAttribute('postCode'),
                     province: this.parentNode.parentNode.getAttribute('province')
                 };
-                localStorage.editAddress = JSON.stringify(editData);
-                console.log(localStorage.editAddress);
-                location.href = './edit_address.html?st=edit';
+                // localStorage.editAddress = JSON.stringify(editData);
+                // console.log(localStorage.editAddress);
+                location.href = './edit_address.html?province=' + editData.province + '&city=' + editData.city + '&county=' + editData.county + '&address=' + editData.address + '&id=' + editData.id + '&name=' + editData.name + '&is_def=' + editData.is_def  + '&phone=' + editData.phone + '&postCode=' + editData.postCode;
             };
         }
     }
@@ -121,7 +121,7 @@ import {
             ids: [addressId]
         }, function (res) {
             if (res.code === 0) {
-                Toast.success(res.message, 1000)
+                Toast.success(res.message, 1000);
                 elNode.parentNode.removeChild(elNode);
             } else {
                 Toast.info(res.message, 1000);
@@ -133,7 +133,7 @@ import {
         if (addressLength > 7) {
             Toast.info('收货地址数量不能超过8个', 2500);
         } else {
-            location.href = './edit_address.html?st=add';
+            location.href = './add_address.html?st=add';
         }
     };
     function formatAddress(data) {

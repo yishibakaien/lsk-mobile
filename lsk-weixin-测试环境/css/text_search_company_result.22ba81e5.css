@@ -1,0 +1,103 @@
+/*!
+ * created by cloud_cb linyunbin on 2017/11/13
+ * lsk-mobile v0.0.1
+ * Copyright  2017, cloud_cb linyunbin, ISC license
+ */
+body {
+  padding-top: 0 !important;
+}
+#text {
+  color: $themeColor;
+  display: inline-block;
+  margin-right: 4px;
+}
+.text {
+  padding: 14px;
+  font-size: 14px;
+  color: #999;
+}
+.noresult-tip {
+  display: none;
+  text-align: center;
+  padding: 14px;
+  font-size: 14px;
+  color: #999;
+}
+.new-settled-list-wrapper {
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 10px;
+/*background-color: #fff;*/
+}
+.new-settled-item {
+  width: 50%;
+  height: 112px;
+  background-color: #fff;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-right: 2px solid #f2f2f2;
+  border-bottom: 2px solid #f2f2f2;
+  padding: 6px;
+  float: left;
+  position: relative;
+  overflow: hidden;
+/*border-bottom: none;*/
+/*box-shadow: 0 0 0 2px #f7f7f7 inset;*/
+}
+.new-settled-item:nth-child(even) {
+  border-right: none;
+}
+.new-settled-item .new-settled-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.new-settled-item .new-settled-info img {
+  height: 52px;
+  width: 52px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+.new-settled-item .new-settled-info .new-settled-info-text {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding-left: 8px;
+  font-size: 14px;
+  overflow: hidden;
+}
+.new-settled-info .new-settled-info-text .firm-name {
+  color: #333;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 700;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.new-settled-info .new-settled-info-text .phone {
+  color: #666;
+  font-size: 12px;
+  line-height: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.new-settled-info .new-settled-info-text .time {
+  color: #666;
+  font-size: 10px;
+  line-height: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.new-settled-item .btn {
+  color: #d40073;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  border: 1px solid #d1d1d1;
+  position: absolute;
+  bottom: 12px;
+  left: 6px;
+  right: 6px;
+}

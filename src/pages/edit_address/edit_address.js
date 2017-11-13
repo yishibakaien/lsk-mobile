@@ -1,6 +1,6 @@
 require('common/styles/index.styl');
 require('./edit_address.styl');
-var city = require('plugins/picker/city.js');
+var cityDict = require('plugins/picker/city.js');
 var picker = require('plugins/picker/address_picker.js');
 
 
@@ -24,7 +24,6 @@ import {
 
 (function () {
     var save = c('#save');
-    var title = c('#title');
     var nameIpt = c('#nameIpt');
     var phoneIpt = c('#phoneIpt');
     var addressIpt = c('#addressIpt');
@@ -33,133 +32,101 @@ import {
     var phoneSt;
     var addressSt;
     var addressDtlSt;
-    var addressDtlArr;
-    var st = getQueryString('st');
+
     var data = {
-        address: '',
-        is_def: 0,
-        name: '',
-        phone: '',
-        province: '',
-        city: '',
-        county: '',
-        postCode: ''
+        address: getQueryString('address'),
+        city: getQueryString('city'),
+        county: getQueryString('county'),
+        id: getQueryString('id'),
+        is_def: getQueryString('is_def'),
+        province: getQueryString('province'),
+        postCode: getQueryString('postCode'),
+        phone: getQueryString('phone'),
+        name: getQueryString('name')
     };
+
+    var tranData = formatAddress(data);
+    nameIpt.value = data.name;
+    phoneIpt.value = data.phone;
+    selCity.value = tranData.province + '-' + tranData.city + '-' + tranData.county;
+    addressIpt.value = data.address;
+
     picker.on('picker.valuechange', function (selectedVal, selectedIndex) {
         console.log(selectedVal);
         console.log(selectedIndex);
         data.province = selectedVal[0];
         data.city = selectedVal[1];
         data.county = selectedVal[2];
-        console.log(data);
     });
 
-    if ((st === 'edit') && localStorage.editAddress) {
-        document.title = '收货地址管理';
-        title.innerHTML = '收货地址管理';
-        var editData = JSON.parse(localStorage.editAddress);
-        var addTranData = formatAddress(editData);
-        console.log(editData);
-        nameIpt.value = editData.name;
-        phoneIpt.value = editData.phone;
-        selCity.value = addTranData.province + '-' + addTranData.city + '-' + addTranData.county;
-        addressIpt.value = editData.address;
-    }
 
     save.onclick = function () {
-        if (testName(nameIpt.value)){
-            nameIpt.className = '';
-            nameSt = true;
-        } else {
-            nameIpt.value = '';
-            nameIpt.className = 'invalid';
-            nameSt = false;
-        }
-        if (testTel(phoneIpt.value)){
-            phoneIpt.className = '';
-            phoneSt = true;
-        } else {
-            phoneIpt.value = '';
-            phoneIpt.className = 'invalid';
-            phoneSt = false;
-        }
         if (testAddress(addressIpt.value)){
-            addressIpt.className = '';
             addressSt = true;
         } else {
             addressIpt.value = '';
-            addressIpt.className = 'invalid';
+            Toast.info('请输入详细地址');
             addressSt = false;
         }
         if (testAddress(selCity.value)){
-            selCity.className = '';
             addressDtlSt = true;
         } else {
             selCity.value = '';
-            selCity.className = 'invalid';
+            Toast.info('请选择地址区域');
             addressDtlSt = false;
         }
+        if (testTel(phoneIpt.value)){
+            phoneSt = true;
+        } else {
+            phoneIpt.value = '';
+            Toast.info('请输入联系电话');
+            phoneSt = false;
+        }
+        if (testName(nameIpt.value)){
+            nameSt = true;
+        } else {
+            nameIpt.value = '';
+            Toast.info('请输入姓名');
+            nameSt = false;
+        }
         if (nameSt && phoneSt && addressSt && addressDtlSt) {
-            // addressDtlArr = selCity.value.split('-');
             data.address = addressIpt.value;
-            data.is_def = 0;
             data.name = nameIpt.value;
             data.phone = phoneIpt.value;
-            // data.province = addressDtlArr[0];
-            // data.city = addressDtlArr[1];
-            // data.county = addressDtlArr[2];
-            data.postCode = '';
-            if ((st === 'edit') && localStorage.editAddress) {
-                data.id = editData.id;
-                data.is_def = editData.is_def;
-                console.log('最终数据', data);
-                // return;
-                editorConsignee(data, function (res) {
-                    console.log('地址编辑', res);
-                    if (res.code === 0) {
-                        localStorage.removeItem('editAddress');
-                        Toast.success(res.message, 1000);
-                        location.href = './address_manage.html?time=' + ((new Date()).getTime());
-                    } else {
-                        Toast.info(res.message);
-                    }
-                });
-            } else {
-                console.log('最终数据', data);
-                // return;
-                addConsignee(data, function (res) {
-                    console.log('新建收货地址', res);
-                    if (res.code === 0) {
-                        Toast.success(res.message, 1000);
-                        location.href = './address_manage.html?time=' + ((new Date()).getTime());
-                    } else {
-                        Toast.info(res.message);
-                    }
-                });
-            }
+            console.log('最终数据', data);
+
+            editorConsignee(data, function (res) {
+                console.log('地址编辑', res);
+                if (res.code === 0) {
+                    Toast.success(res.message, 1000);
+                    location.href = './address_manage.html?time=' + ((new Date()).getTime());
+                } else {
+                    Toast.info(res.message);
+                }
+            });
         }
     };
 
     function formatAddress(data) {
-        var addTranData = {};
-        for (var i = 0; i < city.length; i++) {
-            if (city[i].areaCode === data.province) {
-                console.log('省份', city[i]);
-                addTranData.province = city[i].areaName;
-                for (var k = 0; k < city[i].childAreas.length; k++) {
-                    if (city[i].childAreas[k].areaCode === data.city) {
-                        console.log('市', city[i].childAreas[k]);
-                        addTranData.city = city[i].childAreas[k].areaName;
-                        for (var g = 0; g < city[i].childAreas[k].childAreas.length;g++) {
-                            if (city[i].childAreas[k].childAreas[g].areaCode === data.county) {
-                                console.log('区县', city[i].childAreas[k].childAreas[g]);
-                                addTranData.county = city[i].childAreas[k].childAreas[g].areaName;
+        var tranData = {};
+        for (var i = 0; i < cityDict.length; i++) {
+            if (cityDict[i].areaCode === data.province) {
+                console.log('省份', cityDict[i]);
+                tranData.province = cityDict[i].areaName;
+                for (var k = 0; k < cityDict[i].childAreas.length; k++) {
+                    if (cityDict[i].childAreas[k].areaCode === data.city) {
+                        console.log('市', cityDict[i].childAreas[k]);
+                        tranData.city = cityDict[i].childAreas[k].areaName;
+                        for (var g = 0; g < cityDict[i].childAreas[k].childAreas.length;g++) {
+                            if (cityDict[i].childAreas[k].childAreas[g].areaCode === data.county) {
+                                console.log('区县', cityDict[i].childAreas[k].childAreas[g]);
+                                tranData.county = cityDict[i].childAreas[k].childAreas[g].areaName;
                             }
                         }
                     }
                 }
             }
         }
-        return addTranData;
+        return tranData;
     }
 })();

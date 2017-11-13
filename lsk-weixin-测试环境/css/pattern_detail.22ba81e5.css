@@ -1,0 +1,398 @@
+/*!
+ * created by cloud_cb linyunbin on 2017/11/13
+ * lsk-mobile v0.0.1
+ * Copyright  2017, cloud_cb linyunbin, ISC license
+ */
+#topSwiper .swiper-slide {
+  position: relative;
+  width: 100%;
+  padding-top: 70%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#topSwiper .number {
+  color: #fff;
+  width: 50px;
+  line-height: 20px;
+  text-align: center;
+  background-color: rgba(7,17,27,0.6);
+  border-radius: 10px;
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  z-index: 3;
+}
+.desc-wrapper {
+  padding: 0 15px 4px 15px;
+  background-color: #fff;
+  position: relative;
+}
+.desc-wrapper .left {
+  width: 100%;
+  overflow: hidden;
+}
+.desc-wrapper .left .item {
+  margin-top: 12px;
+}
+.desc-wrapper .left .item .name {
+  color: #999;
+}
+.desc-wrapper .left .item .value {
+  color: #d40073;
+}
+.desc-wrapper .left #productNo {
+  color: #333;
+  font-size: 15px;
+}
+.desc-wrapper .left .address-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.desc-wrapper .left .address-wrapper span {
+  display: block;
+}
+.desc-wrapper .left .address-wrapper .name {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+.desc-wrapper .left .address-wrapper #address {
+  color: #666;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  line-height: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.desc-wrapper .left .color-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.desc-wrapper .left .color-wrapper .name {
+  width: 59px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  margin-bottom: 8px;
+}
+.desc-wrapper .left .color-wrapper .value {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-size: 0;
+}
+.desc-wrapper .left .color-wrapper .value img {
+  margin: 0 8px 8px 0;
+  height: 50px;
+  width: 50px;
+  border: 1px solid transparent;
+}
+.desc-wrapper .left .color-wrapper .value img.active {
+  border-color: #d40073;
+}
+.desc-wrapper .right {
+  position: absolute;
+  right: 24px;
+  top: 12px;
+  text-align: left;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-left: 18px;
+  display: none;
+}
+.desc-wrapper .right .save .text {
+  color: #666;
+  font-size: 13px;
+  line-height: 28px;
+}
+.desc-wrapper .right .icon-star-small {
+  color: #ddd;
+  font-size: 22px;
+  position: relative;
+  top: 2px;
+}
+.desc-wrapper .right .icon-star-small.active {
+  color: #d40073;
+}
+.desc-wrapper .right .page-view span {
+  color: #999;
+  font-size: 12px;
+  line-height: 14px;
+}
+.message {
+  height: 72px;
+  background-color: #fff;
+  display: none;
+  position: relative;
+  margin-top: 8px;
+}
+.message .avatar-wrapper {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  margin: 12px 12px 12px 17px;
+}
+.message .avatar-wrapper .avatar {
+  height: 48px;
+  width: 48px;
+  border-radius: 5px;
+}
+.message .content-wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+.message .content-wrapper .content {
+  width: 95%;
+  overflow: hidden;
+}
+.message .content-wrapper .content .company-name {
+  display: block;
+  line-height: 72px;
+  width: 100%;
+  color: #333;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.message .content-wrapper .content .desc {
+  display: block;
+  color: #666;
+  height: 16px;
+  width: 100%;
+  line-height: 16px;
+  margin-top: 16px;
+  font-size: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.message .icon-xiayiye {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  color: #999;
+  line-height: 72px;
+  padding-right: 15px;
+}
+.patterns-params {
+  margin-top: 8px;
+  background-color: #fff;
+}
+.patterns-params .parameter {
+  height: 44px;
+  line-height: 44px;
+  font-size: 13px;
+}
+.patterns-params .parameter .name {
+  color: #999;
+  padding-left: 16px;
+}
+.patterns-params .parameter .value {
+  color: #666;
+  margin-left: 15px;
+}
+/*footer*/
+.footer {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  background: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  -webkit-box-shadow: 0 0 1px #e9e9e9;
+          box-shadow: 0 0 1px #e9e9e9;
+}
+.footer > div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.footer .dress .icon-shiyi,
+.footer .buy .icon-gouwuche {
+  color: #666;
+  font-size: 20px;
+  padding-top: 8px;
+}
+.footer .dress .text,
+.footer .buy .text {
+  font-size: 12px;
+  line-height: 18px;
+}
+.footer .call {
+  color: #fff;
+  background-color: #d40073;
+  line-height: 50px;
+}
+.footer .call .icon-dianhua {
+  font-size: 20px;
+}
+.footer .call .text {
+  font-size: 15px;
+}
+/* 查看图片详细 */
+.color-card {
+  display: none;
+  position: fixed;
+  z-index: 6000;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 1px #e9e9e9;
+          box-shadow: 0 0 1px #e9e9e9;
+}
+.color-card-main {
+  max-height: 320px;
+  overflow-y: scroll;
+  padding: 0 15px;
+}
+.color-card-main::-webkit-scrollbar {
+  width: 2px;
+}
+.color-card-main::-webkit-scrollbar-thumb {
+  color: #666;
+}
+.color-card-main::-webkit-scrollbar-track-piece {
+  background-color: transparent;
+}
+.color-card .card-title {
+  height: 84px;
+  padding: 0 15px;
+}
+.color-card .card-title .avatar-wrapper {
+  height: 84px;
+  width: 84px;
+  border: 3px solid #fff;
+  float: left;
+  margin-top: -20px;
+}
+.color-card .card-title .price-wrapper {
+  line-height: 84px;
+  float: left;
+  margin-left: 12px;
+}
+.color-card .card-title .price-wrapper .money {
+  color: #d40073;
+}
+.color-card .card-title .arrow {
+  float: right;
+}
+.color-card .card-title .arrow span {
+  display: inline-block;
+  font-size: 36px;
+  color: #909090;
+}
+.color-card .card-buy-type .name {
+  line-height: 48px;
+  display: inline-block;
+  margin-right: 16px;
+}
+.color-card .card-buy-type .value {
+  display: inline-block;
+  height: 22px;
+  width: 50px;
+  font-size: 12px;
+  text-align: center;
+  line-height: 23px;
+  border: 1px solid #999;
+  border-radius: 2px;
+  color: #666;
+  margin: 13px 0 13px 20px;
+}
+.color-card .card-buy-type .value.active {
+  background-color: #d40073;
+  color: #fff;
+  border-color: #d40073;
+}
+.color-card .card-pattern-color {
+  padding: 12px 0;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.color-card .card-pattern-color img {
+  width: 36px;
+  height: 36px;
+  margin: 14px 10px 0 0;
+  border: 2px solid transparent;
+}
+.color-card .card-pattern-color img.active {
+  border-color: #d40073;
+}
+.card-buy-num span,
+.card-user-name span,
+.card-phone span {
+  line-height: 45px;
+  display: inline-block;
+  width: 90px;
+}
+.card-buy-num input,
+.card-user-name input,
+.card-phone input {
+  outline: none;
+  -webkit-appearance: none;
+}
+.color-card .submit-tip .text {
+  font-size: 16px;
+  height: 36px;
+  line-height: 36px;
+  display: inline-block;
+}
+.card-footer {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 0 0 1px #e9e9e9;
+          box-shadow: 0 0 1px #e9e9e9;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.card-footer .cancel {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  color: #d40073;
+}
+.card-footer .confirm {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  color: #fff;
+  background-color: #d40073;
+}
+.foot-wrapper-sticky {
+  height: 50px;
+}
+input.invalid::-webkit-input-placeholder {
+  color: #f00;
+}
+body.modal-open {
+  position: fixed;
+  width: 100%;
+}

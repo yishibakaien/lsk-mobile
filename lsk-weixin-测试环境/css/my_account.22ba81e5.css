@@ -1,0 +1,45 @@
+/*!
+ * created by cloud_cb linyunbin on 2017/11/13
+ * lsk-mobile v0.0.1
+ * Copyright  2017, cloud_cb linyunbin, ISC license
+ */
+.user-info-wrapper {
+  background-color: #fff;
+  margin-top: 8px;
+  padding: 0 16px;
+}
+.user-info-wrapper > div {
+/*min-height: 44px;*/
+/*height: auto;*/
+  height: 44px;
+  overflow: hidden;
+  line-height: 44px;
+}
+.user-info-wrapper .key {
+  color: #333;
+  float: left;
+}
+.user-info-wrapper .value {
+  color: #999;
+  padding-right: 8px;
+  float: right;
+}
+.user-info-wrapper .arrow {
+  color: #d1d1d1;
+  float: right;
+  line-height: 44px;
+}
+.user-info-wrapper .personal-info {
+  height: 61px;
+  line-height: 61px;
+}
+.user-info-wrapper .personal-info .arrow {
+  line-height: 61px;
+}
+.user-info-wrapper .personal-info img {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  margin: 8px;
+  float: right;
+}

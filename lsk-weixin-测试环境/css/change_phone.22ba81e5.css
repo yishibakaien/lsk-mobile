@@ -1,0 +1,35 @@
+/*!
+ * created by cloud_cb linyunbin on 2017/11/13
+ * lsk-mobile v0.0.1
+ * Copyright  2017, cloud_cb linyunbin, ISC license
+ */
+.tip-wrapper {
+  padding: 26px 18px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.pwd-wrapper {
+  background-color: #fff;
+  padding: 0 16px;
+}
+.pwd-wrapper > div {
+  height: 58px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+input {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.btn {
+  color: #fff;
+  height: 32px;
+  width: 70px;
+  line-height: 32px;
+  text-align: center;
+  background-color: #d40073;
+  border-radius: 4px;
+  margin: 13px 0;
+}

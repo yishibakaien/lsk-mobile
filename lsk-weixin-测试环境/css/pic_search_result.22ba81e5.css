@@ -1,0 +1,127 @@
+/*!
+ * created by cloud_cb linyunbin on 2017/11/13
+ * lsk-mobile v0.0.1
+ * Copyright  2017, cloud_cb linyunbin, ISC license
+ */
+.setTopLine($c: #c7c7c7) {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1px solid $c;
+  color: $c;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+          transform: scaleY(0.5);
+}
+.setBottomLine($c: #c7c7c7) {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 1px;
+  border-bottom: 1px solid $c;
+  color: $c;
+  -webkit-transform-origin: 0 100%;
+          transform-origin: 0 100%;
+  -webkit-transform: scaleY(0.5);
+          transform: scaleY(0.5);
+}
+.setLeftLine($c: #c7c7c7) {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  bottom: 0;
+  border-left: 1px solid $c;
+  color: $c;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transform: scaleX(0.5);
+          transform: scaleX(0.5);
+}
+.setRightLine($c: #c7c7c7) {
+  content: " ";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1px;
+  bottom: 0;
+  border-right: 1px solid $c;
+  color: $c;
+  -webkit-transform-origin: 100% 0;
+          transform-origin: 100% 0;
+  -webkit-transform: scaleX(0.5);
+          transform: scaleX(0.5);
+}
+.ellipsis($w:auto) {
+  width: $w;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+.ellipsisLn($line) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+}
+.text_wrap() {
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.hyphens() {
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+      hyphens: auto;
+}
+body {
+  padding-top: 0 !important;
+}
+.text {
+  padding: 14px;
+  font-size: 14px;
+  color: #999;
+}
+.noresult-tip {
+  display: none;
+  text-align: center;
+  padding: 14px;
+  font-size: 14px;
+  color: #999;
+}
+.receive-id-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: #fff;
+  padding: 16px;
+}
+.receive-id-box .receive-id-box {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 80px;
+          flex: 0 0 80px;
+}
+.receive-id-box .receive-pic-message {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.receive-id-box .receive-pic-message p {
+  line-height: 20px;
+  font-size: 14px;
+  height: 20px;
+  margin-left: 16px;
+}
+.receive-id-box .receive-pic-message p.receive-tip {
+  height: 40px;
+  color: #999;
+}

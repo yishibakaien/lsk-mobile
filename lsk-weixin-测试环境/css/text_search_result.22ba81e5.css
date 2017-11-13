@@ -1,0 +1,165 @@
+/*!
+ * created by cloud_cb linyunbin on 2017/11/13
+ * lsk-mobile v0.0.1
+ * Copyright  2017, cloud_cb linyunbin, ISC license
+ */
+.setTopLine($c: #c7c7c7) {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1px solid $c;
+  color: $c;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+          transform: scaleY(0.5);
+}
+.setBottomLine($c: #c7c7c7) {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 1px;
+  border-bottom: 1px solid $c;
+  color: $c;
+  -webkit-transform-origin: 0 100%;
+          transform-origin: 0 100%;
+  -webkit-transform: scaleY(0.5);
+          transform: scaleY(0.5);
+}
+.setLeftLine($c: #c7c7c7) {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  bottom: 0;
+  border-left: 1px solid $c;
+  color: $c;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transform: scaleX(0.5);
+          transform: scaleX(0.5);
+}
+.setRightLine($c: #c7c7c7) {
+  content: " ";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1px;
+  bottom: 0;
+  border-right: 1px solid $c;
+  color: $c;
+  -webkit-transform-origin: 100% 0;
+          transform-origin: 100% 0;
+  -webkit-transform: scaleX(0.5);
+          transform: scaleX(0.5);
+}
+.ellipsis($w:auto) {
+  width: $w;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+.ellipsisLn($line) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+}
+.text_wrap() {
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.hyphens() {
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+      hyphens: auto;
+}
+body {
+  padding-top: 0 !important;
+}
+#text {
+  color: #d40073;
+  display: inline-block;
+  margin-right: 4px;
+}
+.text {
+  padding: 14px;
+  font-size: 14px;
+  color: #999;
+}
+.noresult-tip {
+  display: none;
+  text-align: center;
+  padding: 14px;
+  font-size: 14px;
+  color: #999;
+}
+.patterns-list-wrapper {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: #fff;
+  width: 100%;
+}
+.patterns-list-wrapper > div {
+  float: left;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 50%;
+  padding: 12px;
+}
+.patterns-list-wrapper > div:nth-of-type(odd) {
+  border-right: 1px solid rgba(7,17,27,0.1);
+  border-bottom: 1px solid rgba(7,17,27,0.1);
+}
+.patterns-list-wrapper > div:nth-of-type(even) {
+  border-bottom: 1px solid rgba(7,17,27,0.1);
+  border-right: 1px solid transparent;
+}
+.patterns-list-wrapper > div > div {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+  background-color: #efeff4;
+  padding-top: 90%;
+}
+.patterns-list-wrapper > div > div > div {
+  position: absolute;
+  font-size: 14px;
+  width: 100px;
+  text-align: center;
+  height: 22px;
+  line-height: 22px;
+  top: 10px;
+  right: -30px;
+  background: #ff7011;
+  color: #fff;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.patterns-list-wrapper > div p:nth-of-type(1) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 24px;
+  line-height: 24px;
+  font-size: 14px;
+  color: #333;
+}
+.patterns-list-wrapper > div p:nth-of-type(2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  color: #d40073;
+}

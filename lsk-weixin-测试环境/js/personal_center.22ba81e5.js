@@ -1,0 +1,6 @@
+/*!
+ * created by cloud_cb linyunbin on 2017/11/13
+ * lsk-mobile v0.0.1
+ * Copyright  2017, cloud_cb linyunbin, ISC license
+ */
+webpackJsonp([21],{42:function(n,o){},76:function(n,o,e){"use strict";var c=e(2),a=(function(n){n&&n.__esModule}(c),e(1));e(4);var t=e(3);e(0),e(42),function(){var n=((0,a.getQueryString)(),(0,a.c)("#avatar"),(0,a.c)("#username"),(0,a.c)("#phone"),(0,a.c)("#avatarArrow"),(0,a.c)("#going")),o=(0,a.c)("#complete"),e=(0,a.c)("#close"),c=(0,a.c)("#myCollect"),t=(0,a.c)("#manageAddress");n.onclick=function(){location.href="./my_buying.html?swiperIndex=0"},o.onclick=function(){location.href="./my_buying.html?swiperIndex=1"},e.onclick=function(){location.href="./my_buying.html?swiperIndex=2"},c.onclick=function(){location.href="./my_collection.html"},t.onclick=function(){location.href="./address_manage.html"}}(),(0,t.getUserInfo)({},function(n){console.log("获取用户信息",n),n.data.userHeadIcon&&(avatar.src=n.data.userHeadIcon+"?x-oss-process=image/auto-orient,1"),username.innerHTML=n.data.userName,phone.innerHTML=(0,a.formatPhone)(n.data.userMobile)},function(n){})}},[76]);

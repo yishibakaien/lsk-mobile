@@ -1,0 +1,173 @@
+/*!
+ * created by cloud_cb linyunbin on 2017/11/13
+ * lsk-mobile v0.0.1
+ * Copyright  2017, cloud_cb linyunbin, ISC license
+ */
+.swiper-tag {
+  width: 100%;
+  font-size: 16px;
+  line-height: 40px;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  top: 44px;
+  z-index: 160;
+}
+body {
+  padding-top: 84px !important;
+}
+.swiper-tag .text {
+  width: 60px;
+  text-align: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.swiper-tag .text span {
+  color: #999;
+  border-bottom: 2px solid transparent;
+  padding: 0 4px;
+  display: inline-block;
+}
+.swiper-tag .text span.active {
+  color: #d40073;
+  border-bottom-color: #d40073;
+}
+.swiper-container {
+  position: fixed;
+  top: 84px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.swiper-container .swiper-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.swiper-slide {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+}
+.info-wrapper {
+  font-size: 14px;
+  line-height: 16px;
+  background-color: #fff;
+  margin: 8px 0;
+}
+.info-wrapper .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.info-wrapper .info img {
+  width: 70px;
+  height: 70px;
+  margin: 12px 0 12px 15px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+.info-wrapper .info .text {
+  margin: 0 15px 0 8px;
+  overflow: hidden;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  position: relative;
+}
+.info .text .top {
+  color: #999;
+  position: absolute;
+  top: 15px;
+}
+.info .text .bottom {
+  color: #999;
+  width: 100%;
+  font-size: 12px;
+  position: absolute;
+  bottom: 12px;
+}
+.info .text .bottom .num {
+  color: #d40073;
+}
+.info .text .bottom .order-taking-num {
+  float: left;
+}
+.info .text .bottom .time {
+  float: right;
+  padding-right: 10px;
+}
+.info-wrapper .btn {
+  overflow: hidden;
+}
+.info-wrapper .btn span {
+  color: #999;
+  height: 26px;
+  width: 68px;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+  text-align: center;
+  line-height: 28px;
+  display: inline-block;
+  margin: 8px 15px 8px 0;
+  float: right;
+}
+.info-wrapper .btn span.active {
+  color: #d40073;
+  border-color: #d40073;
+}
+/*footApp下载部分*/
+.foot {
+  display: none;
+}
+.down-app {
+  height: 75px;
+  width: 100%;
+  background-color: rgba(109,109,109,0.8);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  z-index: 24;
+}
+.down-app .logo {
+  padding: 11px 10px 12px 12px;
+}
+.down-app .text {
+  color: #fff;
+  font-size: 12px;
+  line-height: 18px;
+  margin: 19px auto 20px auto;
+}
+.down-app .down {
+  color: #d40073;
+  height: 28px;
+  width: 68px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 28px;
+  text-align: center;
+  border: 1px solid #fff;
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 22px 12px 23px 0;
+  float: right;
+}
+.ellipsis-two {
+  width: 100%;
+  height: 32px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+/*font-size: 16px;*/
+/*position: absolute;*/
+/*top: 20px;*/

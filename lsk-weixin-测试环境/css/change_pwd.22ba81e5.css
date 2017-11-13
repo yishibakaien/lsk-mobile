@@ -1,0 +1,21 @@
+/*!
+ * created by cloud_cb linyunbin on 2017/11/13
+ * lsk-mobile v0.0.1
+ * Copyright  2017, cloud_cb linyunbin, ISC license
+ */
+.pwd-wrapper {
+  background-color: #fff;
+  margin: 10px 0;
+  padding: 0 16px;
+}
+.pwd-wrapper > div {
+  height: 58px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+input {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
