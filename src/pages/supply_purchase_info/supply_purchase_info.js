@@ -101,7 +101,15 @@ import {
                 div.onclick = function () {
                     var id = this.getAttribute('data-id');
                     console.log('data-id', id);
-                    blackTip('为了保密，供应详情仅对服装端用户公开', 2500);
+                    if (isSettled) {
+                        if (userType === '1') {
+                            blackTip('为了保密，供应详情仅对买家公开', 2500);
+                        } else {
+                            location.href = './supply_detail.html?dataId=' + id;
+                        }
+                    } else {
+                        blackTip('为了保密，求购详情仅对蕾丝控商家公开', 2500);
+                    }
                 };
                 supplyWrapper.insertBefore(div, document.querySelector('.supply-flag'));
             }
