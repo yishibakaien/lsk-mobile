@@ -1,6 +1,0 @@
-/*!
- * created by cloud_cb linyunbin on 2017/11/13
- * lsk-mobile v0.0.1
- * Copyright  2017, cloud_cb linyunbin, ISC license
- */
-webpackJsonp([12],{52:function(a,e){},86:function(a,e,p){"use strict";function t(a){return a&&a.__esModule?a:{default:a}}var u=p(5),n=t(u),r=p(2),c=(t(r),p(1)),l=p(3);p(0),p(52),function(){var a=(0,c.getQueryString)("dataId"),e=(0,c.c)("#companyAvatar"),p=(0,c.c)("#supplyDetailPic"),t=(0,c.c)("#supplyType"),u=(0,c.c)("#supplyNumber"),r=(0,c.c)("#supplyTime"),i=(0,c.c)("#supplyPeople");(0,l.getCompanySupply)({id:a},function(a){console.log("供应详情",a);var l=(0,c.formatPicUrl)(a.data.productPicUrl);p.style.backgroundImage="url("+l+")",t.innerHTML=(0,c.formatSupplyType)(a.data.supplyType)+"-"+(0,c.formatSupplyShape)(a.data.supplyShape),u.innerHTML=a.data.supplyNum?a.data.supplyNum+" "+(0,c.formatUnit)(a.data.supplyUnit):"面议",r.innerHTML=(0,c.getDateDiff)(a.data.createDate),i.innerHTML=a.data.userName,e.src=a.data.userHeadIcon,p.onclick=function(){n.default.previewImage({urls:[l]})}})}()}},[86]);

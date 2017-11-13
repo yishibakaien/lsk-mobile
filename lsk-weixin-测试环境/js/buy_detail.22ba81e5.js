@@ -1,6 +1,0 @@
-/*!
- * created by cloud_cb linyunbin on 2017/11/13
- * lsk-mobile v0.0.1
- * Copyright  2017, cloud_cb linyunbin, ISC license
- */
-webpackJsonp([29],{30:function(a,e){},64:function(a,e,t){"use strict";function u(a){return a&&a.__esModule?a:{default:a}}var n=t(5),o=u(n),r=t(2),c=(u(r),t(1)),i=t(3);t(0),t(30),function(){var a=(0,c.getQueryString)("dataId");console.log("dataId",a);var e=(0,c.c)("#companyAvatar"),t=(0,c.c)("#buyingDetailPic"),u=(0,c.c)("#buyingType"),n=(0,c.c)("#buyingNumber"),r=(0,c.c)("#buyingTime"),d=(0,c.c)("#buyTaskCount"),y=(0,c.c)("#buyingPeople"),l=((0,c.c)("#foot"),{buyCloseDesc:"",id:""});(0,i.getProductBuy)({id:a},function(a){console.log("求购详情",a),console.log("storage-userId",localStorage.userId),l.id=a.data.id;var i=(0,c.formatPicUrl)(a.data.buyPicUrl);t.style.backgroundImage="url("+i+")",u.innerHTML=(0,c.formatSupplyType)(a.data.buyType)+"-"+(0,c.formatProduceShape)(a.data.buyShape),n.innerHTML=a.data.buyNum?a.data.buyNum+" "+(0,c.formatUnit)(a.data.buyUnit):"面议",r.innerHTML=(0,c.getDateDiff)(a.data.createDate),y.innerHTML=a.data.userName,e.src=a.data.userHeadIcon,d.innerHTML=a.data.buyTaskCount>0?"已有 "+a.data.buyTaskCount+" 人接单":"暂时无人接单",t.onclick=function(){o.default.previewImage({urls:[i]})}})}()}},[64]);
