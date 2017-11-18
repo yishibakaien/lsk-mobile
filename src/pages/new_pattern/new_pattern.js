@@ -1,8 +1,8 @@
 require('common/styles/index.styl');
 require('./new_pattern.styl');
 
-import {textSearch} from 'common/scripts/text_search_core.js';
-import {render} from 'common/scripts/render_new_patterns_list.js';
+import {textSearchPattern} from 'common/scripts/text_search_core.js';
+import {patternRender} from 'common/scripts/render_new_patterns_list.js';
 import {pullUpLoad} from 'common/scripts/pull_up_load.js';
 
 
@@ -106,7 +106,7 @@ window.addEventListener('pageshow', function (event) {
                 recordingPatternList.push(item);
             }
 
-            render(recordingPatternList, document.querySelector('.new-pattern-list-wrapper'), function() {
+            patternRender(recordingPatternList, document.querySelector('.new-pattern-list-wrapper'), function() {
                 console.log('渲染完毕');
                 scrollTopMethod();
                 setScrollTop();
@@ -141,7 +141,7 @@ newPatternBtn.onclick = function () {
     doSearch(false, true);
 };
 function doSearch(isFilter, isNewPattern) {
-    textSearch(searchParamas, function(res) {
+    textSearchPattern(searchParamas, function(res) {
         console.log('doSearch', res);
         sessionStorage.pageNO = res.data.pageNO;
         sessionStorage.totalPage = res.data.totalPage;
@@ -163,7 +163,7 @@ function doSearch(isFilter, isNewPattern) {
             newPatternText.className = 'active';
         }
 
-        render(list, document.querySelector('.new-pattern-list-wrapper'), function() {
+        patternRender(list, document.querySelector('.new-pattern-list-wrapper'), function() {
             console.log('渲染完毕');
             scrollTopMethod();
         });

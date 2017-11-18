@@ -1,8 +1,8 @@
 import {searchLace} from 'api/search.js';
 import {searchCompany} from 'api/search.js';
 // 搜花
-export function textSearch(options, cb, err) {
-    console.log('文本搜索参数', options);
+export function textSearchPattern(options, cb, err) {
+    console.log('花型搜索文本搜索参数', options);
     var defaultOptions = {
         categorys: '',
         dateSort: 2,
@@ -23,7 +23,7 @@ export function textSearch(options, cb, err) {
     }
 
     var opt = defaultOptions;
-    console.log('最终参数', opt);
+    console.log('花型搜索最终参数', opt);
     searchLace(opt, function(res) {
         typeof cb === 'function' && cb(res);
     }, function(res) {
@@ -32,7 +32,7 @@ export function textSearch(options, cb, err) {
 }
 // 搜厂，滴调用原ts57搜厂接口
 export function textSearchCompany(options, cb, err) {
-    console.log('文本搜索参数', options);
+    console.log('厂家搜索文本搜索参数', options);
     var defaultOptions = {
         companyName: '',
         companyType: 1,
@@ -46,7 +46,7 @@ export function textSearchCompany(options, cb, err) {
     }
 
     var opt = defaultOptions;
-    console.log('最终参数', opt);
+    console.log('厂家搜索最终参数', opt);
     searchCompany(opt, function(res) {
         typeof cb === 'function' && cb(res);
     }, function(res) {

@@ -1,4 +1,4 @@
-// 花型搜索
+// 花型&厂家搜索
 export function TEXT_SEARCH() {
     var searchTextIpt = document.querySelector('#searchTextIpt');
     var form = document.querySelector('form');

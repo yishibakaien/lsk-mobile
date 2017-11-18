@@ -6,7 +6,7 @@ import {formatBgPic, formatMoney} from 'utils/utils';
  * @param  {[type]}   parentNode 花型列表需要插入的节点
  * @param  {Function} cb         渲染完毕后的回调函数
  */
-export function render(list, parentNode, cb) {
+export function renderFirm(list, parentNode, cb) {
     var List = [];
 
     // 按照 是否开通会员(isBest === 1) 进行排序
