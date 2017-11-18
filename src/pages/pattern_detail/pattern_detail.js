@@ -164,10 +164,16 @@ import {
         console.log('获取花型详情', res);
         var data = res.data;
         companyId = data.companyId;
-        (data.isFavorite === 1) ? (collectStar.className = 'icon-star-small active') : ('icon-star-small');
+        (data.isFavorite) ? (collectStar.className = 'icon-star-small active') : ('icon-star-small');
         // collectWrapper.style.display = 'block';
         collectWrapper.style.display = (data.isShelve ? 'block' : 'none');
         companyMessage.style.display = (data.isShelve ? 'flex' : 'none');
+
+        if (data.isFavorite) {
+            collectWrapper.style.display = 'block';
+            companyMessage.style.display = 'flex';
+        }
+
 
 
         // referPriceValueArr[2] = data.cutPrice;

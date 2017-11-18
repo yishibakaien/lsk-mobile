@@ -49,11 +49,12 @@ import {
     headRight.innerHTML = text[0].text;
     headRight.setAttribute('href', text[0].link);
     headRight.onclick = function () {
-        if (isSettled) {
-            location.href = this.getAttribute('href');
-        } else {
-            blackTip('该功能仅对蕾丝控商家公开', 2500);
-        }
+        location.href = this.getAttribute('href');
+        // if (isSettled) {
+        //     location.href = this.getAttribute('href');
+        // } else {
+        //     blackTip('该功能仅对蕾丝控商家公开', 2500);
+        // }
     };
 
 
@@ -83,6 +84,7 @@ import {
             for (var i = 0; i < list.length; i++) {
                 var div = document.createElement('div');
                 div.setAttribute('data-id', list[i].id);
+                div.setAttribute('user-id', list[i].userId);
                 div.className = 'item';
                 listStr = `<div class="avatar-wrapper border-bottom">
                         <img src="${list[i].userHeadIcon}">
@@ -100,15 +102,19 @@ import {
 
                 div.onclick = function () {
                     var id = this.getAttribute('data-id');
+                    var userId = this.getAttribute('user-id');
                     console.log('data-id', id);
-                    if (isSettled) {
-                        if (userType === '1') {
-                            blackTip('为了保密，供应详情仅对买家公开', 2500);
-                        } else {
+                    console.log('userId', userId);
+                    console.log('localStorage[\'userId\']', localStorage['userId']);
+                    console.log('userId === localStorage[\'userId\']',userId === localStorage['userId']);
+                    if (userType === '1') {
+                        if (userId === localStorage['userId']) {
                             location.href = './supply_detail.html?dataId=' + id;
+                        } else {
+                            blackTip('为了保密，供应详情仅对买家公开', 2500);
                         }
                     } else {
-                        blackTip('为了保密，求购详情仅对蕾丝控商家公开', 2500);
+                        location.href = './supply_detail.html?dataId=' + id;
                     }
                 };
                 supplyWrapper.insertBefore(div, document.querySelector('.supply-flag'));
@@ -130,6 +136,7 @@ import {
             for (var i = 0; i < list.length; i++) {
                 var div = document.createElement('div');
                 div.setAttribute('data-id', list[i].id);
+                div.setAttribute('user-id', list[i].userId);
                 div.className = 'item';
                 listStr = `<div class="avatar-wrapper border-bottom">
                         <img src="${list[i].userHeadIcon}">
@@ -147,14 +154,21 @@ import {
 
                 div.onclick = function () {
                     var id = this.getAttribute('data-id');
+                    var userId = this.getAttribute('user-id');
                     console.log('data-id', id);
                     console.log('isSettled', isSettled);
+                    console.log('userId', userId);
+                    console.log('localStorage[\'userId\']', localStorage['userId']);
+                    console.log('userId === localStorage[\'userId\']',userId === localStorage['userId']);
                     if (isSettled) {
                         location.href = './buy_detail.html?dataId=' + id;
                     } else {
-                        blackTip('为了保密，求购详情仅对蕾丝控商家公开', 2500);
+                        if (userId === localStorage['userId']) {
+                            location.href = './buy_detail.html?dataId=' + id;
+                        } else {
+                            blackTip('为了保密，求购详情仅对蕾丝控商家公开', 2500);
+                        }
                     }
-
                 };
                 buyingWrapper.insertBefore(div, document.querySelector('.buying-flag'));
             }

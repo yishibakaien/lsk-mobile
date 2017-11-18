@@ -17,6 +17,7 @@ import {
 
 import {
     getCompanySupply,
+    favoriteBus
     // getCompanyInfo
 }  from 'api/user';
 
@@ -29,6 +30,9 @@ import {
     var supplyNumber = c('#supplyNumber');
     var supplyTime = c('#supplyTime');
     var supplyPeople = c('#supplyPeople');
+    // 收藏星星
+    var collectStar = c('#collectStar');
+    var collectWrapper = c('#collectWrapper');
     getCompanySupply({id: dataId}, function (res) {
         console.log('供应详情', res);
         var _picUrl = formatPicUrl(res.data.productPicUrl);
@@ -38,10 +42,35 @@ import {
         supplyTime.innerHTML = getDateDiff(res.data.createDate);
         supplyPeople.innerHTML = res.data.userName;
         companyAvatar.src = res.data.userHeadIcon;
+        if (!(localStorage.userType === '1')) {
+            collectWrapper.style.display = 'block';
+        }
         supplyDetailPic.onclick = function () {
             wx.previewImage({
                 urls: [ _picUrl]
             });
         };
+        (res.data.isFavorite) ? (collectStar.className = 'icon-star-small active') : ('icon-star-small');
     });
+
+    collectStar.onclick = function () {
+        var that = this;
+        favoriteBus({
+            businessId: dataId,
+            businessType: 3
+        }, function (res) {
+            console.log('收藏或取消', res);
+            if (res.code === 0) {
+                Toast.success(res.message, 1000);
+                if (res.message === '收藏成功') {
+                    that.className = 'icon-star-small active';
+
+                } else {
+                    that.className = 'icon-star-small';
+                }
+            } else {
+                Toast.info(res.message, 1000);
+            }
+        });
+    };
 })();

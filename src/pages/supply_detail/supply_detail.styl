@@ -11,6 +11,7 @@
 .supply-info-wrapper {
     background-color: #fff;
     padding-top: 12px;
+    position: relative;
 }
 
 .supply-info-wrapper > div {
@@ -46,6 +47,42 @@
     background-color: #fff;
     display: flex;
 }
+ //收藏星星
+.supply-info-wrapper .right {
+    position: absolute;
+    right: 24px;
+    top: 0;
+    text-align: left;
+    box-sizing: border-box;
+    padding-left: 18px;
+    display: none;
+}
+
+.supply-info-wrapper .right .save .text {
+    color: #666;
+    font-size: 13px;
+    line-height: 28px;
+}
+
+.supply-info-wrapper .right .icon-star-small {
+    color: #ddd;
+//color: #d40073;
+    font-size: 22px;
+    position: relative;
+    top: 2px;
+}
+
+
+.supply-info-wrapper .right .icon-star-small.active {
+    color: #d40073;
+}
+
+//.supply-info-wrapper .right .page-view span {
+//    color: #999;
+//    font-size: 12px;
+//    line-height: 14px;
+//}
+
 
 .supply-username img {
     height: 36px;

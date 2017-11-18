@@ -19,15 +19,29 @@
             <a class="icon-fanhui" href="#" onclick="javascript: history.go(-1);return false;"></a>
         </div>
         <div class="center">供应详情</div>
-        <div class="right"><a href="./publish_buying.html">发布求购</a></div>
+        <div class="right"><a href="./publish_buy.html">发布求购</a></div>
     </div>
 </div>
 <div class="main-img" id="supplyDetailPic"></div>
 <div class="supply-info-wrapper">
     <div class="supply-text border-bottom">
-        <div><span class="key">供应类型:</span><span class="value" id="supplyType"><!--睫毛-成品--></span></div>
-        <div><span class="key">供应数量:</span><span class="value" id="supplyNumber"><!--面议--></span></div>
-        <div><span class="key">发布时间:</span><span class="value" id="supplyTime"><!--18小时前--></span></div>
+        <div class="left">
+            <div><span class="key">供应类型:</span><span class="value" id="supplyType"><!--睫毛-成品--></span></div>
+            <div><span class="key">供应数量:</span><span class="value" id="supplyNumber"><!--面议--></span></div>
+            <div><span class="key">发布时间:</span><span class="value" id="supplyTime"><!--18小时前--></span></div>
+        </div>
+        <div class="right" id="collectWrapper">
+            <div class="save">
+                <i class="icon-star-small" id="collectStar"></i>
+                <span class="text">收藏</span>
+            </div>
+            <!--<div class="page-view">-->
+                <!--<span class="view-num"  id="viewNum">-->
+                    <!--&lt;!&ndash;1688&ndash;&gt;-->
+                <!--</span>-->
+                <!--<span>次浏览</span>-->
+            <!--</div>-->
+        </div>
     </div>
     <div class="supply-username">
         <img id="companyAvatar" src="">

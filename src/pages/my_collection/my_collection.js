@@ -27,6 +27,7 @@ import {
     var patternWrapper = c('#patternWrapper');
     var firmWrapper = c('#firmWrapper');
     var supplyWrapper = c('#supplyWrapper');
+    var supplyWrapperTag = c('#supplyWrapperTag');
     // 获取收藏花型列表Data
     var patternListData = {
         category: -1,
@@ -160,9 +161,10 @@ import {
         });
     }
 
-
-
-
+    if (!(localStorage.userType === '1')) {
+        supplyWrapper.style.display = 'block';
+        supplyWrapperTag.style.display = 'block';
+    }
 
     var contentSwiper = new Swiper ('.swiper-container', {
         onSlideChangeEnd: swiperControl,
@@ -189,6 +191,3 @@ import {
         history.replaceState(null, null, '?swiperIndex=' + swiper.activeIndex);
     }
 })();
-
-
-

@@ -3,7 +3,7 @@ require('./index.styl');
 import wx from 'weixin-js-sdk';
 var Swiper = require('plugins/swiper/swiper-3.4.2.min.js');
 
-console.info('process.env.NODE_ENV', process.env.NODE_ENV);
+// console.info('process.env.NODE_ENV', process.env.NODE_ENV);
 
 import {
     listLSKHomeUnSettledCompany,

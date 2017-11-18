@@ -1,5 +1,5 @@
 require('common/styles/index.styl');
-require('./my_buying.styl');
+require('./my_buy.styl');
 require('plugins/swiper/swiper-3.4.2.min.js');
 var pullUpLoad = require('common/scripts/pull_up_load').pullUpLoad;
 import Toast from 'plugins/toast/Toast';
