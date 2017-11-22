@@ -1,181 +1,162 @@
-import Toast from '../../common/plugins/toast/Toast.js';
+require('common/styles/index.styl');
 require('./register.styl');
-import baseURL from '../../config/domain.js';
+
+// var aes = require('plugins/aes/mode-ecb');
+
+import Toast from 'plugins/toast/Toast';
 
 import {
-    c
+    c,
+    getQueryString
 } from 'utils/utils';
 
 import {
-    testTel,
     testPwd,
-    testImgCode,
+    testName,
+    testFirmName,
+    testFirmBusiness
+    // testVcode
+    // testTel,
+    // testImgCode,
 } from 'utils/reg';
 
-(function () {
-    var telIpt = c('#telIpt'),
-        VcodeIpt = c('#VcodeIpt'),
-        getVcodeBtn = c('#getVcodeBtn'),
-        usernameIpt = c('#usernameIpt'),
-        firmnameIpt =
-        next = document.getElementById('next'),
-        tip = document.getElementsByClassName('tip')[0],
-        // userType = getRequest().userType,
-        Xtoken,
-        tel,
-        code,
-        telFlag,
-        codeFlag,
-        timer,
-        getVcoding = false, // 正在获取验证码（正在倒计时）状态
-        seconds = 60,
+import {
+    reg
+    // getVerifyCode,
+    // checkPhone,
+    // getRegSMSCode,
+}  from 'api/user';
+
+
+(function() {
+    var usernameIpt = c('.username')[0],
+        firmnameIpt = c('.firmname')[0],
+        firmBusinessIpt = c('.firmbusiness')[0],
+        pwdIpt = c('.password')[0],
+        next = c('#next'),
+        data = {
+            userName: '',
+            companyName: '',
+            companyBusiness:'',
+            userMobile: getQueryString('userMobile'),
+            smsCode: getQueryString('smsCode'),
+            userPWD: '',
+            userType: getQueryString('userType')
+        },
         message = {
+            usernameText: '请输入正确的姓名',
+            firmnameText: '企业名称长度需大于等于2位',
+            firmBusinessText: '请输入正确的主营业务',
+            mobileText: '请输入正确电话号码',
+            smsCodeText: '请输入正确验证码',
+            passwordText: '密码长度需大于等于6位',
             testTel: '请输入正确的手机号码',
-            telRegistered: '手机号码已被注册',
-            getCodeText: '获取验证码',
-            countStr: ' 秒后可重新获取',
-            testVcode: '验证码格式不正确',
-            checkVcode: '验证码不正确，请重新输入',
             registered: '&times;号码已被注册',
             canRegister: '号码可用',
-            checkError: '验证手机号码失败，请检查您的网络'
+            checkError: '验证手机号码失败，请检查您的网络',
+            countStr: '重新获取 ',
+            getCodeText: '获取验证码'
         };
 
 
-    telIpt.oninput = function () {
-        tel = this.value;
-        if (testTel(tel) && !getVcoding) {
-            tip.style.display = 'inline-block';
-            Ajax({
-                methods: 'GET',
-                url: baseURL + '/front/user/checkPhone',
-                data: {
-                    mobile: tel
-                },
-                headers: {
-                    'x-version': '1.0',
-                    'x-client': '1'
-                },
-                success: function (res, status, xhr) {
-                    //var res = JSON.parse(res);
-                    console.log('res', res);
-                    console.log('status', status);
-                    console.log('xhr', xhr.getResponseHeader('x-token'));
-                    Xtoken = xhr.getResponseHeader('x-token');
-                    if (res.data === true) {
-                        tip.style.color = '#f53535';
-                        tip.innerHTML = message.registered;
-                    } else {
-                        tip.style.color = 'green';
-                        tip.innerHTML = message.canRegister;
-                        getVcodeBtn.removeAttribute('disabled');
-                    }
-                },
-                error: function (res) {
-                    console.error('error', res);
-                    blackTip(message.checkError);
+    usernameIpt.oninput = function() {
+        data.userName = this.value;
+        checkForm();
+    };
+
+    firmnameIpt.oninput = function() {
+        data.companyName = this.value;
+        checkForm();
+    };
+
+    firmBusinessIpt.oninput = function() {
+        data.companyBusiness = this.value;
+        checkForm();
+    };
+
+    pwdIpt.oninput = function() {
+        data.userPWD = this.value;
+        checkForm();
+    };
+
+    usernameIpt.onblur = function() {
+        if (!testName(data.userName)) {
+            Toast.info(message.usernameText);
+        }
+    };
+    firmnameIpt.onblur = function() {
+        if (!testFirmName(data.companyName)) {
+            Toast.info(message.firmnameText);
+        }
+    };
+    firmBusinessIpt.onblur = function() {
+        if (!testFirmBusiness(data.companyBusiness)) {
+            Toast.info(message.firmBusinessText);
+        }
+    };
+
+    pwdIpt.onblur = function() {
+        if (!testPwd(data.userPWD)) {
+            Toast.info(message.passwordText);
+        }
+    };
+
+    next.onclick = function() {
+        var _confirm = confirm('您的注册信息为：' + '\n' + '用户类型：' + (data.userType === 1 ? '贸易商' : '厂商')+ '\n' + '主营业务：' + data.companyBusiness + '\n' + '电话号码：' + data.userMobile + '\n' + '用户姓名：' + data.userName + '\n' + '企业名称：' + data.companyName + '\n' + '密码：' + data.userPWD.substr(0, 2) + ('*'._repeat(data.userPWD.length - 4)) + data.userPWD.substr(data.userPWD.length - 2, data.userPWD.length - 1)
+        );
+        if (_confirm) {
+            reg(data, function (res) {
+                console.log('注册返回值', res);
+                if (res.code === 0) {
+                    Toast.success({
+                        text: '登录成功',
+                        duration: 1000,
+                        complete: function() {
+                            location.href = '../login/login.html';
+                            // location.href = '../login/login.html?registed=1';
+                        }
+                    });
+                } else {
+                    Toast.info(res.message);
                 }
             });
-
-        } else {
-            getVcodeBtn.setAttribute('disabled', 'disabled');
         }
-        checkTelAndCode();
-    }
-    VcodeIpt.oninput = function () {
-        code = this.value;
-        checkTelAndCode();
-    }
+    };
 
-    telIpt.onblur = function () {
-        if (!testTel(this.value)) {
-            blackTip(message.testTel);
+    String.prototype._repeat = String.prototype._repeat || function(num) {
+        var str = '',
+            i;
+        if (typeof num !== 'number' || isNaN(num)) {
             return;
         }
-    }
-    getVcodeBtn.onclick = function () {
-        var _this = this;
-        if (!testTel(tel)) {
-            blackTip(message.testTel);
-            return;
+        for (i = 0; i < num; i++) {
+            str += this;
         }
-        this.setAttribute('disabled', 'disabled');
-        getVcoding = true;
+        return str;
+    };
 
-        var _data = JSON.stringify({mobile: tel.toString()});
-        Ajax({
-            method: 'POST',
-            url: baseURL + '/front/user/getRegSMSCode',
-            data: _data,
-            headers: {
-                'x-version': '1.0',
-                'x-client': '1',
-                'x-token': Xtoken
-            },
-            success: function (res) {
-
-                console.log('success', res);
-            },
-            error: function (res) {
-
-                console.log(res);
-            }
-        });
-
-        timer = setInterval(function () {
-            if (seconds > 1) {
-                seconds--;
-                _this.innerText = seconds + message.countStr;
-            } else {
-                clearInterval(timer);
-                _this.removeAttribute('disabled');
-                _this.innerText = message.getCodeText;
-                getVcoding = false;
-                seconds = 60;
-            }
-        }, 1000);
-    }
-
-    VcodeIpt.onblur = function () {
-        if (!testVcode(this.value)) {
-            blackTip(message.testVcode);
-        }
-    }
-
-    function checkTelAndCode() {
+    function checkForm() {
         if (_check()) {
             next.removeAttribute('disabled');
         } else {
             next.setAttribute('disabled', 'disabled');
         }
-
-        function _check() {
-            if (testTel(tel) && testVcode(code)) {
-                return true;
-            } else {
-                return false;
-            }
+    }
+    function _check() {
+        if (testName(data.userName) && testFirmName(data.companyName) && testPwd(data.userPWD) && testFirmBusiness(data.companyBusiness)) {
+            return true;
+        } else {
+            return false;
         }
     }
-
-    next.onclick = function () {
-
-        // 这里checkCode
-
-        if (true) {
-            location.href = '../register/register.html?userMobile=' + tel + '&userType=' + userType + '&smsCode=' + code;
-        }
-    }
-
-    //  回退，清空表单值
-
-    window.addEventListener('pageshow', function (event) {
-            if (event.persisted || window.performance &&
-                window.performance.navigation.type == 2) {
-                VcodeIpt.value = '';
-                telIpt.value = '';
-            }
-        },
-        false);
-
+    /*if (document.addEventListener) {
+        window.addEventListener('pageshow', function (event) {
+                if (event.persisted || window.performance &&
+                    window.performance.navigation.type == 2)
+                {
+                    location.reload();
+                }
+            },
+            false);
+    }*/
 })();

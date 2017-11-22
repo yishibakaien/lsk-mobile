@@ -15,7 +15,17 @@ const API = {
         getUserInfo: '/user/getUserInfo',
 
         // 更新用户信息
-        updateUser: '/user/updateUser'
+        updateUser: '/user/updateUser',
+        // 校验密码
+        checkPasswd: '/user/checkPasswd',
+        // 修改手机号码
+        changeMobile: '/user/changeMobile',
+        // 修改用户密码
+        restPasswd: '/user/restPasswd',
+        // 获取注册短信
+        getRegSMSCode: '/front/user/getRegSMSCode',
+        // 用户注册
+        reg: '/front/user/reg'
     },
     main: {
         // 获取求购单接单人列表
@@ -239,3 +249,24 @@ export function closeProductBuy(data, cb, err) {
 // export function finishProductBuy(data, cb, err) {
 //     return _fetch('POST', data, API.main.finishProductBuy, cb, err);
 // }
+
+// 校验密码
+export function checkPasswd(data, cb, err) {
+    return _fetch('POST', data, API.user.checkPasswd, cb, err);
+}
+// 修改手机号码
+export function changeMobile(data, cb, err) {
+    return _fetch('POST', data, API.user.changeMobile, cb, err);
+}
+// 修改用户密码
+export function restPasswd(data, cb, err) {
+    return _fetch('POST', data, API.user.restPasswd, cb, err);
+}
+// 获取注册短信
+export function getRegSMSCode(data, cb, err) {
+    return _fetch('POST', data, API.user.getRegSMSCode, cb, err);
+}
+// 用户注册
+export function reg(data, cb, err) {
+    return _fetch('POST', data, API.user.reg, cb, err);
+}
