@@ -87,7 +87,6 @@ import {
         var data = res.data;
         console.log(res);
         if (res.data && data.userHeadIcon) {
-            console.log('hahaahahah');
             avatar.src = data.userHeadIcon + '?x-oss-process=image/auto-orient,1';
             rightSideAvatar.src = data.userHeadIcon + '?x-oss-process=image/auto-orient,1';
         }

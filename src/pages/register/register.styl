@@ -1,85 +1,63 @@
-body {
-    padding: 0;
-    overflow: hidden;
-}
 
-.input-wrapper {
+.register .nav {
+    height: 50px;
+    line-height: 50px;
+    font-size: 14px;
+    text-align: center;
+}
+.register .nav .active {
+    color: #ff7011;
+}
+.register .input-wrapper {
     width: 100%;
-    margin-bottom: 8px;
-    background-color: #fff;
+    background: #fff;
 }
-
-.input-wrapper .list {
-    width: 100%;
-    height: 56px;
-    line-height: 56px;
-    box-sizing: border-box;
-    padding: 0 15px;
-    display: flex;
+.register .input-content{
+    margin-left: 16px
 }
-
-.input-wrapper .list input {
-    height: 56px;
-    width: 100%;
-    font-size: 12px;
-    color: #333;
+.register .input-wrapper .list {
+    height: 48px;
+    position: relative;
 }
-
-.input-wrapper .list .tip {
-    /*display: none;*/
-    flex: 0 0 auto;
-    height: 56px;
-    font-size: 12px;
+.register .input-wrapper .list input {
+    height: 32px;
+    line-height: 32px;
+    padding: 8px 0;
     display: block;
+    width: 90%;
+    font-size: 15px;
 }
 
-.input-wrapper .tip .text {
-    color: #999;
-    padding-left: 2px;
-}
-
-.getVcode .button {
-    color: #fff;
-    height: 30px;
-    width: 80px;
-    background-color: #d1d1d1;
-    border: none;
-    border-radius: 4px;
-    font-size: 12px;
-    line-height: 30px;
-    margin: 8px 0;
-}
-
-.getVcode .button.active {
-    background-color: #d40073;
-}
-
-.protocol {
-    margin: 4px 15px 0 15px;
-    text-align: left;
+/*电话号码校验提示*/
+.register .input-wrapper .list .tip {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 16px;
+    height: 48px;
+    line-height: 48px;
     font-size: 12px;
 }
-
-.protocol .key {
+/*电话号码提示文字*/
+.register .input-wrapper .tip .text {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 12px;
     color: #999;
 }
 
-.protocol .value {
-    color: #d40073;
+
+.register .getSMSCode .button {
+    font-size: 12px;
+    line-height: 14px;
+    padding: 8px 6px;
+}
+.register .getSMSCode{
+    position: absolute;
+    right: 16px;
+    top: 9px;
 }
 
 .button-wrapper {
-    padding: 40px 15px 0 15px;
-}
-
-.button-wrapper .button {
-    color: #fff;
-    height: 40px;
-    font-size: 16px;
-    background-color: #d40073;
-    text-align: center;
-    line-height: 40px;
-    border-radius: 4px;
-    width: 100%;
-    border: none;
+    padding: 50px 16px;
 }
