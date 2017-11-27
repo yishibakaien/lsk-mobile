@@ -34,13 +34,13 @@ import {
     var myCollect = c('#myCollect');
     var manageAddress = c('#manageAddress');
     going.onclick = function() {
-        location.href = './my_buying.html?swiperIndex=0';
+        location.href = './my_buy.html?swiperIndex=0';
     };
     complete.onclick = function() {
-        location.href = './my_buying.html?swiperIndex=1';
+        location.href = './my_buy.html?swiperIndex=1';
     };
     close.onclick = function() {
-        location.href = './my_buying.html?swiperIndex=2';
+        location.href = './my_buy.html?swiperIndex=2';
     };
 
     myCollect.onclick = function() {
@@ -49,7 +49,6 @@ import {
     manageAddress.onclick = function() {
         location.href = './address_manage.html';
     };
-
 })();
 
 getUserInfo({}, function(res) {

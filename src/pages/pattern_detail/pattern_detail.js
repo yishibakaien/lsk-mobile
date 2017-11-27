@@ -204,10 +204,6 @@ import {
         // 高
         height.innerHTML = data.height;
 
-        dress.addEventListener('click', function () {
-            location.href = 'https://www.ts57.cn/share/dress.html?companyId=' + data.companyId + '&url=' + data.defaultPicUrl + '&from=lace';
-        }, false);
-
         // 正常价格(大货价格)
         referPriceValueArr.push(formatMoney(data.price, data.priceUnit));
 
@@ -235,7 +231,9 @@ import {
             var picArr = [];
             var len = data.length;
             c('.total-number')[0].innerHTML = '/' + len;
-
+            // 设置默认试衣图片 @author lyb 2017-11-27 16:36:49
+            dress.setAttribute('pic-url', data[0].picUrl);
+            
             for (var i = 0; i < len; i++) {
                 swiperStr += '<div class="swiper-slide" style="background-image: url(' + data[i].picUrl + ')" url="' + data[i].picUrl + '"></div>';
                 imgStr += '<img src="' + data[i].picUrl + '">';
@@ -281,6 +279,8 @@ import {
                     this.className += ' active';
                     cardAvatar.setAttribute('src', data[this.index].picUrl);
                     swiper.slideTo(this.index);
+                    // 3d试衣记录色卡图片地址 @author lyb 2017-11-27 16:27:18
+                    dress.setAttribute('pic-url', data[this.index].picUrl);
                 };
             }
 
@@ -329,6 +329,12 @@ import {
                     referPriceValue.innerHTML = referPriceValueArr[this.index];
                 };
             }
+
+            dress.addEventListener('click', function () {
+                // location.href = 'https://www.ts57.cn/share/dress.html?companyId=' + data.companyId + '&url=' + data.defaultPicUrl + '&from=lace';
+                // @author lyb 2017-11-27 16:28:50
+                location.href = 'https://www.ts57.cn/share/dress.html?companyId=' + data.companyId + '&url=' + this.getAttribute('pic-url') + '&from=lace';
+            }, false);
         });
     }
 

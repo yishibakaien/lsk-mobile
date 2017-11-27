@@ -345,7 +345,7 @@ import {
             Toast.info('请填写求购类型');
         } else if (!data.buyShapes) {
             Toast.info('请填写求购形态');
-        } else if (!data.isStartUp) {
+        } else if (data.isStartUp === '') {
             Toast.info('请勾选接受开机项');
         } else if (!data.buyDesc) {
             Toast.info('请填写求购描述');

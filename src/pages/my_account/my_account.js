@@ -20,5 +20,8 @@ import {
             avatar.src = data.userHeadIcon + '?x-oss-process=image/auto-orient,1';
         }
         phoneNum.innerHTML = data.userMobile;
+        c('#changePhoneNum').onclick = function () {
+            location.href = './change_phone_check.html?tel=' + data.userMobile;
+        };
     });
 })();

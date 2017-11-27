@@ -2,7 +2,8 @@ require('common/styles/index.styl');
 require('./change_phone_check.styl');
 import Toast from 'plugins/toast/Toast';
 import {
-    c
+    c,
+    getQueryString
 } from 'utils/utils';
 
 import {
@@ -23,7 +24,7 @@ confirmBtn.onclick = function () {
         Toast.hide();
         console.log('校验密码返回值', res);
         if (res.data) {
-            location.href = './change_phone_submit.html';
+            location.href = './change_phone_submit.html?tel=' + getQueryString('tel');
         } else {
             Toast.info('密码错误');
         }

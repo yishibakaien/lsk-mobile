@@ -88,7 +88,8 @@ import {
                 div.className = 'item';
                 listStr = `<div class="avatar-wrapper border-bottom">
                         <img src="${list[i].userHeadIcon}">
-                        <div>${formatUserName(list[i].userName)}</div>
+                    
+                        <div>${isSettled ? list[i].userName : formatUserName(list[i].userName)}</div>
                     </div>
                     <div class="product-info">
                         <img src="${list[i].productPicUrl}">

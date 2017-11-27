@@ -140,7 +140,7 @@ import {
                     <div class="text">
                         <div class="top ellipsis-two">${list[i].supplyDesc}</div>
                         <div class="middle ellipsis"><span class="firm-name">${list[i].companyName}</span></div>
-                        <div class="bottom"><span class="time">${getDateDiff(res.data.createDate)}</span></div>
+                        <div class="bottom"><span class="time">${getDateDiff(list[i].createDate)}</span></div>
                     </div>
                     <div class="arrow icon-xiayiye"></div>
                 </div>`;

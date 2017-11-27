@@ -60,7 +60,13 @@ function pwdCheckMethod() {
         newPwdConfirm.value = '';
         return false;
     }
-    if (newPwd.value && newPwdConfirm.value && oringinPwd.value && newPwd.value === newPwdConfirm.value) {
+    if (newPwd.value === oringinPwd.value || newPwdConfirm.value === oringinPwd.value) {
+        Toast.info('新密码与原密码不能一致');
+        newPwd.value = '';
+        newPwdConfirm.value = '';
+        return false;
+    }
+    if (newPwd.value && newPwdConfirm.value && oringinPwd.value && newPwd.value === newPwdConfirm.value && !(newPwd.value === oringinPwd.value || newPwdConfirm.value === oringinPwd.value)) {
         return true;
     }
 }

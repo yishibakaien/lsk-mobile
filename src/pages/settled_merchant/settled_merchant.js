@@ -42,6 +42,7 @@ function swiperControl(swiper) {
         swiperTag[i].className = swiperTag[i].className.replace('active', '');
     }
     swiperTag[swiper.activeIndex].className += ' active';
+    history.replaceState(null, null, '?swiperIndex=' + swiper.activeIndex);
 }
 
 // 优质厂商列表
@@ -62,7 +63,8 @@ listSettledCompany(
                 var id = this.getAttribute('data-id');
                 // var indexName = this.getAttribute('index-name');
                 // location.href = 'http://' + indexName + '.lacewang.com';
-                location.href = 'https://www.ts57.cn/microWebsite/index.html?companyId=' + id;
+                // location.href = 'https://www.ts57.cn/microWebsite/index.html?companyId=' + id;
+                location.href = 'http://192.168.0.110:80?companyId=' + id + '&from=lsk&x-token=1f7ffd0e8e42457b80f98476c631aa80';
             };
         });
     },
@@ -96,7 +98,7 @@ listUnSettledCompany(
                 <div class="btn clearfix" data-id="${item.id}" index-name="${item.indexName}">进入官网</div>`;
             div.innerHTML = str;
             div.getElementsByClassName('btn')[0].onclick = function() {
-                location.href = 'https://www.ts57.cn/microWebsite/index.html?companyId=' + this.getAttribute('');
+                location.href = 'https://www.ts57.cn/microWebsite/index.html?companyId=' + this.getAttribute('data-id');
                 // location.href = 'http://' + data.indexName + '.lacewang.cn';
                 // location.href = 'http://' + this.getAttribute('index-name') + '.lacewang.com';
             };

@@ -1,6 +1,6 @@
 require('common/styles/index.styl');
 require('./pic_search_result.styl');
-
+import Toast from 'plugins/toast/Toast';
 import {c, getQueryString, formatMoney, formatPicUrl} from 'utils/utils';
 import {
     // 获取图片搜索结果

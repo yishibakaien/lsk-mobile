@@ -64,7 +64,7 @@ export function PIC_SEARCH() {
                 bindCropEvent();
             }, 500);
         });
-    }
+    };
     function bindCropEvent() {
         var btns = c('.btn-cell');
         console.log(btns, btns.length);
@@ -80,7 +80,7 @@ export function PIC_SEARCH() {
             alert('图片体积过大，您截取的图片大小需要再减少 ' + Math.floor(((base64.length / 10000000) - 1) * 100) + '% 左右');
             Toast.hide();
             return;
-        };
+        }
         cropperWrapper.style.display = 'none';
         cropper.destroy();
         Toast.loading('搜索' + formatSupplyType(category) + '中');

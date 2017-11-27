@@ -24,20 +24,37 @@
 </div>
 
 <div class="tip-wrapper">
-    <div class="tip">
+    <div class="head-tip">
         <span>更换号码后，下次登录使用新号码登录，当前手机号:</span>
-        <span id="phoneNum">18237112345</span>
+        <span id="phoneNum"></span>
     </div>
 </div>
-<div class="phone-wrapper border-bottom">
-    <div class="border-bottom">
-        <input id="phoneIpt" type="tel" placeholder="手机号" maxlength="11">
-    </div>
-</div>
-<div class="pwd-wrapper">
-    <div class="border-bottom">
-        <input id="codeIpt" type="text" placeholder="验证码">
-        <div class="btn" id="getCode">获取验证码</div>
+<!--<div class="phone-wrapper border-bottom">-->
+    <!--<div class="border-bottom">-->
+        <!--<input id="phoneIpt" type="tel" placeholder="手机号" maxlength="11">-->
+    <!--</div>-->
+<!--</div>-->
+<!--<div class="pwd-wrapper">-->
+    <!--<div class="border-bottom">-->
+        <!--<input id="codeIpt" type="text" placeholder="验证码">-->
+        <!--<div class="btn" id="getCode">获取验证码</div>-->
+    <!--</div>-->
+<!--</div>-->
+<div class="input-wrapper">
+    <div class="input-content">
+        <div class="item border-bottom">
+            <input class="tel" id="telIpt" type="tel" maxlength="11" autofocus="true" placeholder="请输入注册手机号码">
+            <span class="tip" id="tip">
+                <i class="loading"></i>
+                <span class="text">检验手机号码</span>
+            </span>
+        </div>
+        <div class="item">
+            <input class="code" id="codeIpt" type="tel" maxlength="4" placeholder="请输入短信验证码">
+            <div class="getVcode">
+                <button class="button button-pink" id="getVcodeBtn" disabled>获取验证码</button>
+            </div>
+        </div>
     </div>
 </div>
 

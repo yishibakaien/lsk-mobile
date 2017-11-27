@@ -106,7 +106,7 @@ window.addEventListener('pageshow', function (event) {
                 recordingPatternList.push(item);
             }
 
-            patternRender(recordingPatternList, document.querySelector('.new-pattern-list-wrapper'), function() {
+            patternRender(recordingPatternList, document.getElementById('newPatternWrapper'), function() {
                 console.log('渲染完毕');
                 scrollTopMethod();
                 setScrollTop();

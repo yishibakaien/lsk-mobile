@@ -23,9 +23,11 @@ const API = {
         // 修改用户密码
         restPasswd: '/user/restPasswd',
         // 获取注册短信
-        getRegSMSCode: '/front/user/getRegSMSCode',
+        // getRegSMSCode: '/front/user/getRegSMSCode',
         // 用户注册
-        reg: '/front/user/reg'
+        reg: '/front/user/reg',
+        // 获取修改手机短信
+        changeSMSCode: '/user/changeSMSCode'
     },
     main: {
         // 获取求购单接单人列表
@@ -263,10 +265,14 @@ export function restPasswd(data, cb, err) {
     return _fetch('POST', data, API.user.restPasswd, cb, err);
 }
 // 获取注册短信
-export function getRegSMSCode(data, cb, err) {
-    return _fetch('POST', data, API.user.getRegSMSCode, cb, err);
-}
+// export function getRegSMSCode(data, cb, err) {
+//     return _fetch('POST', data, API.user.getRegSMSCode, cb, err);
+// }
 // 用户注册
 export function reg(data, cb, err) {
     return _fetch('POST', data, API.user.reg, cb, err);
+}
+// 获取修改手机短信
+export function changeSMSCode(data, cb, err) {
+    return _fetch('POST', data, API.user.changeSMSCode, cb, err);
 }

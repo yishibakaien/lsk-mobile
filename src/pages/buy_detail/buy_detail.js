@@ -34,7 +34,7 @@ import {
     var buyingPeople = c('#buyingPeople');
     // var closeBuying = c('#closeBuying');
     // var btnWrapper = c('#btnWrapper');
-    var foot = c('#foot');
+    // var foot = c('#foot');
 
     var closeBuyData = {
         buyCloseDesc: '',

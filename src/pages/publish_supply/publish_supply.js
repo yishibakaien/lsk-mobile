@@ -49,7 +49,7 @@ import {
     var supplyNum = c('#supplyNum');
     // getQueryString
     // var supplyDescString = getQueryString('supplyDesc');
-    // var supplyPicUrlString = getQueryString('supplyPicUrl');
+    // var productPicUrlString = getQueryString('productPicUrl');
     // var isStartUpString = getQueryString('isStartUp');
     // var supplyShapesString = formatString(getQueryString('supplyShapes'));
     // var supplyNumString = formatString(getQueryString('supplyNum'));
@@ -69,7 +69,7 @@ import {
     var cropperWrapper = c('#cropperWrapper');
     var image = c('#cropperImage');
     var data = {
-        supplyPicUrl: '',
+        productPicUrl: '',
         supplyDesc: '',
         supplyNum: '',
         supplyShapes: '',
@@ -100,10 +100,10 @@ import {
     //         }
     //     }
     //
-    //     if (supplyPicUrlString) {
-    //         imgArr.push(supplyPicUrlString);
-    //         // imgArr[0] = data.supplyPicUrl;
-    //         imgHandler(supplyPicUrlString);
+    //     if (productPicUrlString) {
+    //         imgArr.push(productPicUrlString);
+    //         // imgArr[0] = data.productPicUrl;
+    //         imgHandler(productPicUrlString);
     //     }
     // }
     // 高版本 IOS 点击input[captrue=camera]会直接打开相机，但是这样会导致电脑上选择图片打开缓慢
@@ -224,7 +224,7 @@ import {
         //     data['refPic' + (i + 1)] = imgArr[i];
         // }
 
-        data.supplyPicUrl = (imgArr[0] ? imgArr[0] : '');
+        data.productPicUrl = (imgArr[0] ? imgArr[0] : '');
         data.supplyNum = Number(numIpt.value) ? Number(numIpt.value) : '';
         data.supplyDesc = descIpt.value;
         for (var g = 0; g < typeBtns.length; g++) {
@@ -335,7 +335,7 @@ import {
         }
     }
     function check() {
-        if (!data.supplyPicUrl) {
+        if (!data.productPicUrl) {
             Toast.info('请上传图片');
         } else if (!data.supplyType) {
             Toast.info('请填写供应类型');
@@ -344,7 +344,7 @@ import {
         } else if (!data.supplyDesc) {
             Toast.info('请填写供应描述');
         }
-        return ((data.supplyPicUrl !== '') && (data.supplyType !== '') && (data.supplyShapes !== '') && (data.supplyDesc !== ''));
+        return ((data.productPicUrl !== '') && (data.supplyType !== '') && (data.supplyShapes !== '') && (data.supplyDesc !== ''));
     }
     // function formatString(str) {
     //     return (/^(1|2|3|4)[0]{3}[1](0|1|2|3)$/.test(str || '')) ? str : '';
