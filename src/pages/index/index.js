@@ -16,7 +16,8 @@ import {
 import {
     c,
     formatDate,
-    formatBgPic
+    formatBgPic,
+    encrypto
 } from 'utils/utils';
 
 import {PIC_SEARCH} from '../../common/scripts/pic_search.js';
@@ -224,7 +225,9 @@ function good() {
             div.onclick = function () {
                 var id = this.getAttribute('data-id');
                 console.log(id);
-                location.href = 'https://www.ts57.cn/microWebsite/index.html?companyId=' + id;
+                location.href = './dist/index.html?companyId=' + id + '&from=lsk&x-token=' + encrypto(localStorage['x-token']);
+                // location.href = 'http://192.168.0.110:80?companyId=' + id + '&from=lsk&x-token=' + encrypto(localStorage['x-token']);
+                // location.href = 'https://www.ts57.cn/microWebsite/index.html?companyId=' + id;
                 // location.href = 'http://' + data.indexName + '.lacewang.cn';
                 // location.href = './settled_merchant.html';
             };

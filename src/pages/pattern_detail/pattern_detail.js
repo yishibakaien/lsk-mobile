@@ -30,6 +30,7 @@ import {
     // formatProduceShape,
     formatSupplyType,
     formatUnit,
+    encrypto
     // _formatPicUrl
 } from 'utils/utils';
 
@@ -150,7 +151,9 @@ import {
 
                 // alert(_companyId);
                 if (data.indexName) {
-                    location.href = 'https://www.ts57.cn/microWebsite/index.html?companyId=' + data.id;
+                    location.href = './dist/index.html?companyId=' + data.id + '&from=lsk&x-token=' + encrypto(localStorage['x-token']);
+                    // location.href = 'http://192.168.0.110:80?companyId=' + data.id + '&from=lsk&x-token=' + encrypto(localStorage['x-token']);
+                    // location.href = 'https://www.ts57.cn/microWebsite/index.html?companyId=' + data.id;
                     // location.href = 'http://' + data.indexName + '.lacewang.cn';
                 }
             };
@@ -333,7 +336,8 @@ import {
             dress.addEventListener('click', function () {
                 // location.href = 'https://www.ts57.cn/share/dress.html?companyId=' + data.companyId + '&url=' + data.defaultPicUrl + '&from=lace';
                 // @author lyb 2017-11-27 16:28:50
-                location.href = 'https://www.ts57.cn/share/dress.html?companyId=' + data.companyId + '&url=' + this.getAttribute('pic-url') + '&from=lace';
+                // location.href = 'https://www.ts57.cn/share/dress.html?companyId=' + data[0].companyId + '&url=' + this.getAttribute('pic-url') + '&time=' + new Date().getTime();
+                location.href = 'http://192.168.0.138/dist/dress.html?companyId=' + data[0].companyId + '&url=' + this.getAttribute('pic-url');
             }, false);
         });
     }
