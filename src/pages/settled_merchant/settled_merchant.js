@@ -6,7 +6,7 @@ import {TEXT_SEARCH_COMPANY} from 'common/scripts/text_search.js';
 import {
     formatDate,
     getQueryString,
-    encrypto
+    // encrypto
 } from 'utils/utils';
 
 import {listUnSettledCompany, listSettledCompany} from 'api/settled_merchant';
@@ -65,7 +65,8 @@ listSettledCompany(
                 // var indexName = this.getAttribute('index-name');
                 // location.href = 'http://' + indexName + '.lacewang.com';
                 // location.href = 'https://www.ts57.cn/microWebsite/index.html?companyId=' + id;
-                location.href = './dist/index.html?companyId=' + id + '&from=lsk&x-token=' + encrypto(localStorage['x-token']);
+                // location.href = './dist/index.html?companyId=' + id + '&from=lsk&x-token=' + encrypto(localStorage['x-token']);
+                location.href = './dist/index.html?companyId=' + id;
             };
         });
     },
@@ -99,7 +100,9 @@ listUnSettledCompany(
                 <div class="btn clearfix" data-id="${item.id}" index-name="${item.indexName}">进入官网</div>`;
             div.innerHTML = str;
             div.getElementsByClassName('btn')[0].onclick = function() {
-                location.href = './dist/index.html?companyId=' + this.getAttribute('data-id') + '&from=lsk&x-token=' + encrypto(localStorage['x-token']);
+                var id = this.getAttribute('data-id');
+                location.href = './dist/index.html?companyId=' + id;
+                // location.href = './dist/index.html?companyId=' + this.getAttribute('data-id') + '&from=lsk&x-token=' + encrypto(localStorage['x-token']);
                 // location.href = 'https://www.ts57.cn/microWebsite/index.html?companyId=' + this.getAttribute('data-id');
                 // location.href = 'http://' + data.indexName + '.lacewang.cn';
                 // location.href = 'http://' + this.getAttribute('index-name') + '.lacewang.com';

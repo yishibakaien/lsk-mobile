@@ -9,10 +9,11 @@ var pullUpLoad = require('common/scripts/pull_up_load').pullUpLoad;
 
 import {
     c,
-    formatProduceShape,
+    // formatProduceShape,
     getDateDiff,
     formatUserName,
-    getQueryString
+    getQueryString,
+    formatSupplyType
 } from 'utils/utils';
 
 import {
@@ -95,7 +96,7 @@ import {
                         <img src="${list[i].productPicUrl}">
                         <div class="text">
                             <div class="brief">${list[i].supplyDesc}</div>
-                            <div class="type">${formatProduceShape(list[i].supplyType)}</div>
+                            <div class="type">${formatSupplyType(list[i].supplyType)}</div>
                             <div class="time">${getDateDiff(new Date(list[i].createDate))}</div>
                         </div>
                     </div>`;

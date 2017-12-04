@@ -1,5 +1,7 @@
 require('common/styles/index.styl');
 require('./new_pattern.styl');
+// @author lyb 2017-12-01 16:59:47
+var vconsole = require('common/plugins/vconsole/vconsole.min.js');
 
 import {textSearchPattern} from 'common/scripts/text_search_core.js';
 import {patternRender} from 'common/scripts/render_new_patterns_list.js';
@@ -32,8 +34,8 @@ import {getSettledLands} from 'api/search.js';
 // import {
 //
 // }  from 'api/user';
-
-
+// @author lyb 2017-12-01 16:59:57
+var vConsole = new vconsole();
 //    var isSelected = false;
 var newPatternBtn = c('#newPatternBtn');
 var filterLayerText = c('#filterLayerText');
@@ -324,6 +326,7 @@ function filterLayerToggle () {
 }
 function scrollTopMethod() {
     document.onscroll = function () {
+        // 遮罩层出现,scrollTop置为0，防止0值写入sessionStorage
         if (document.documentElement.scrollTop !== 0) {
             sessionStorage.offsetTop = document.documentElement.scrollTop;
         }

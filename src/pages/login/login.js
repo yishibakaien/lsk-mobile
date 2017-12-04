@@ -107,7 +107,6 @@ import {
                     complete: function() {
                         if (getQueryString('from')) {
                             var url = getQueryString('from');
-
                             location.replace(url);
                         } else {
                             location.replace('./index.html');

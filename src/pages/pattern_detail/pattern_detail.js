@@ -151,7 +151,8 @@ import {
 
                 // alert(_companyId);
                 if (data.indexName) {
-                    location.href = './dist/index.html?companyId=' + data.id + '&from=lsk&x-token=' + encrypto(localStorage['x-token']);
+                    location.href = './dist/index.html?companyId=' + data.id;
+                    // location.href = './dist/index.html?companyId=' + data.id + '&from=lsk&x-token=' + encrypto(localStorage['x-token']);
                     // location.href = 'http://192.168.0.110:80?companyId=' + data.id + '&from=lsk&x-token=' + encrypto(localStorage['x-token']);
                     // location.href = 'https://www.ts57.cn/microWebsite/index.html?companyId=' + data.id;
                     // location.href = 'http://' + data.indexName + '.lacewang.cn';
