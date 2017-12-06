@@ -51,7 +51,7 @@ input::-webkit-input-placeholder {
 }
 
 body {
-    padding-top: 84px;
+    padding-top: 84px !important;
 }
 
 .swiper-tag .text {
@@ -73,11 +73,29 @@ body {
     border-bottom-color: #d40073;
 }
 
-.new-pattern-list-wrapper {
+.swiper-container {
+    position: fixed;
+    top: 84px;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-color: #fff;
     // margin-bottom: 48px;
     //padding-top: 44px;
-    overflow: hidden;
+    //overflow: hidden;
+}
+
+.swiper-container .swiper-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.swiper-slide {
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
 }
 
 .new-pattern-item {

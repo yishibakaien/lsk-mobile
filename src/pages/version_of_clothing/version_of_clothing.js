@@ -26,10 +26,46 @@ import {
     var picArr = [];
     var getClothParamas = {
         pageNo: 1,
-        pageSize: 10
+        pageSize: 5
     };
-    geCloth();
-    function geCloth() {
+
+
+    window.addEventListener('pageshow', function (event) {
+        if (event.persisted || window.performance && window.performance.navigation.type == 2) {
+            if (sessionStorage.pageNo) {
+                getClothParamas.pageNo = Number(sessionStorage.pageNo);
+            }
+            if (sessionStorage.recordingHtml) {
+                clothWrapper.innerHTML = sessionStorage.recordingHtml;
+                setScrollTop();
+                picArr = JSON.parse(sessionStorage.picArr);
+                Array.prototype.forEach.call(clothWrapper.getElementsByClassName('cloth-pic'), function(item) {
+                    item.addEventListener('click', function () {
+                        wx.previewImage({
+                            current: this.getAttribute('src'),
+                            urls: picArr
+                        });
+                    });
+                });
+
+                Array.prototype.forEach.call(clothWrapper.getElementsByClassName('product-pic'), function(item) {
+                    item.addEventListener('click', jump);
+                });
+                sessionStorage.removeItem('recordingHtml');
+                if (Number(sessionStorage.pageNo) < Number(sessionStorage.TotalNo)) {
+                    getClothParamas.pageNo++;
+                    pullUpLoad(true, getCloth, clothWrapper);
+                }
+            }
+        } else {
+            sessionStorage.clear();
+            sessionStorage.offsetTop = 0;
+            setScrollTop();
+            getCloth();
+        }
+    }, false);
+
+    function getCloth() {
         listClothes(getClothParamas, function (res) {
             console.log('获取版衣列表', res);
             var list = res.data.list;
@@ -41,6 +77,7 @@ import {
                 }
                 picArr.push(list[i].clothesPic);
                 var div = document.createElement('div');
+                div.className = 'item';
                 div.setAttribute('data-id', list[i].id);
                 div.className = 'version-of-clothing';
                 listStr = `<div  class="left">
@@ -69,6 +106,8 @@ import {
                         // e.cancelBubble = true;
                         // e.stopPropagation();
                         var productId = this.getAttribute('item-id');
+                        saveToStorage();
+
                         location.href = './pattern_detail.html?dataId=' + productId;
                     };
                 }
@@ -86,10 +125,12 @@ import {
             });
             var hasMore = res.data.pageNO < res.data.totalPage;
             console.log('hasMore值:', hasMore);
+            sessionStorage.TotalNo = res.data.totalPage;
+            sessionStorage.pageNo = res.data.pageNO;
             if (hasMore) {
                 getClothParamas.pageNo++;
             }
-            pullUpLoad(hasMore, geCloth, clothWrapper);
+            pullUpLoad(hasMore, getCloth, clothWrapper);
         });
     }
     if (localStorage['x-token']) {
@@ -105,4 +146,19 @@ import {
         }
     }
 
+    function saveToStorage() {
+        sessionStorage.offsetTop = clothWrapper.scrollTop;
+        sessionStorage.recordingHtml = clothWrapper.innerHTML;
+        sessionStorage.picArr = JSON.stringify(picArr);
+    }
+
+    function setScrollTop() {
+        clothWrapper.scrollTop = sessionStorage.offsetTop;
+    }
+
+    function jump() {
+        var productId = this.getAttribute('item-id');
+        saveToStorage();
+        location.href = './pattern_detail.html?dataId=' + productId;
+    }
 })();

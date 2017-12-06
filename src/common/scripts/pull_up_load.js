@@ -36,7 +36,6 @@ export function pullUpLoad(hasmore, ajaxFn, parentNode) {
     var noMore = loadingZone.getElementsByClassName('no-more')[0];
 
     loadingZone.style.display = 'block';
-
     if (hasmore) {
         showLoadMore();
     } else {
@@ -64,27 +63,27 @@ export function pullUpLoad(hasmore, ajaxFn, parentNode) {
             //
             // document.body.clientHeight||document.documentElement.clientHeight,
             // document.body.scrollTop||document.documentElement.scrollTop
-            console.log('');
-            console.log('');
-            console.log('');
-            console.log('');
-            console.log('');
-            console.log('');
-            console.log('parentNode.scrollTop:', parentNode.scrollTop);
-            console.log('parentNode.clientHeight:', parentNode.clientHeight);
-            console.log(parentNode.scrollTop + parentNode.clientHeight);
-            console.log('parentNode.scrollHeight:', parentNode.scrollHeight);
-            console.log('------------------------------------');
-            console.log('document.documentElement.scrollTop:', document.documentElement.scrollTop);
-            console.log('document.documentElement.clientHeight:', document.documentElement.clientHeight);
-            console.log(document.documentElement.scrollTop + document.documentElement.clientHeight);
-            console.log('document.documentElement.scrollHeight:', document.documentElement.scrollHeight);
-            console.log('------------------------------------');
-            console.log('document.body.scrollTop:', document.body.scrollTop);
-            console.log('document.body.clientHeight:', document.body.clientHeight);
-            console.log(document.body.scrollTop + document.body.clientHeight);
-            console.log('document.body.scrollHeight:', document.body.scrollHeight);
-            console.log('------------------------------------');
+            // console.log('');
+            // console.log('');
+            // console.log('');
+            // console.log('');
+            // console.log('');
+            // console.log('');
+            // console.log('parentNode.scrollTop:', parentNode.scrollTop);
+            // console.log('parentNode.clientHeight:', parentNode.clientHeight);
+            // console.log(parentNode.scrollTop + parentNode.clientHeight);
+            // console.log('parentNode.scrollHeight:', parentNode.scrollHeight);
+            // console.log('------------------------------------');
+            // console.log('document.documentElement.scrollTop:', document.documentElement.scrollTop);
+            // console.log('document.documentElement.clientHeight:', document.documentElement.clientHeight);
+            // console.log(document.documentElement.scrollTop + document.documentElement.clientHeight);
+            // console.log('document.documentElement.scrollHeight:', document.documentElement.scrollHeight);
+            // console.log('------------------------------------');
+            // console.log('document.body.scrollTop:', document.body.scrollTop);
+            // console.log('document.body.clientHeight:', document.body.clientHeight);
+            // console.log(document.body.scrollTop + document.body.clientHeight);
+            // console.log('document.body.scrollHeight:', document.body.scrollHeight);
+            // console.log('------------------------------------');
             if (parentNode.scrollTop + parentNode.clientHeight + 20 > parentNode.scrollHeight) {
                 console.log('开始加载');
                 showLoadingTip();

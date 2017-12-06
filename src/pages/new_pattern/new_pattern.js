@@ -1,7 +1,7 @@
 require('common/styles/index.styl');
 require('./new_pattern.styl');
 // @author lyb 2017-12-01 16:59:47
-var vconsole = require('common/plugins/vconsole/vconsole.min.js');
+// var vconsole = require('common/plugins/vconsole/vconsole.min.js');
 
 import {textSearchPattern} from 'common/scripts/text_search_core.js';
 import {patternRender} from 'common/scripts/render_new_patterns_list.js';
@@ -35,7 +35,7 @@ import {getSettledLands} from 'api/search.js';
 //
 // }  from 'api/user';
 // @author lyb 2017-12-01 16:59:57
-var vConsole = new vconsole();
+// var vConsole = new vconsole();
 //    var isSelected = false;
 var newPatternBtn = c('#newPatternBtn');
 var filterLayerText = c('#filterLayerText');
@@ -48,7 +48,7 @@ var filterLayer = c('#filterLayer');
 var mask = c('#mask');
 var patternBtns = c('#pattern').getElementsByTagName('span');
 var stockBtns = c('#stock').getElementsByTagName('span');
-var patternWrapper = c('.new-pattern-list-wrapper')[0];
+var patternWrapper = c('#patternWrapper');
 
 var searchParamas = {
     categorys: '',
@@ -69,16 +69,14 @@ var searchParamas = {
 var recordingIndex = {
     indexNum: []
 };
-// 记录ajax花型data
-var recordingPatternList = [];
+
 //滚动位置记录
 // sessionStorage.offsetTop
 // 加载页数记录
 // sessionStorage.pageNo
 // 总页数记录
 // sessionStorage.totalPage
-// 记录ajax花型data到sessionStorage
-// sessionStorage.recordingPatternList
+
 
 
 
@@ -87,39 +85,38 @@ var recordingPatternList = [];
 window.addEventListener('pageshow', function (event) {
     if (event.persisted || window.performance && window.performance.navigation.type == 2) {
         console.log(searchParamas);
-        if (sessionStorage.pageNO) {
-            searchParamas.pageNo = Number(sessionStorage.pageNO);
+        if (sessionStorage.pageNo) {
+            searchParamas.pageNo = Number(sessionStorage.pageNo);
         }
         if (sessionStorage['recordingIndex']) {
             if (JSON.parse(sessionStorage['recordingIndex']).indexNum.length) {
                 recordingIndex = JSON.parse(sessionStorage['recordingIndex']);
-                patternWrapper.innerHTML = '';
                 filterLayerText.className = 'active';
                 newPatternText.className = '';
             }
         } else {
-            patternWrapper.innerHTML = '';
             filterLayerText.className = '';
             newPatternText.className = 'active';
         }
 
-        if (sessionStorage.recordingPatternList) {
-            for (let item of JSON.parse(sessionStorage['recordingPatternList'])) {
-                recordingPatternList.push(item);
-            }
-
-            patternRender(recordingPatternList, document.getElementById('newPatternWrapper'), function() {
-                console.log('渲染完毕');
-                scrollTopMethod();
-                setScrollTop();
+        if (sessionStorage.recordingHtml) {
+            patternWrapper.innerHTML = sessionStorage.recordingHtml;
+            console.log('渲染完毕');
+            setScrollTop();
+            Array.prototype.forEach.call(patternWrapper.getElementsByClassName('new-pattern-item'), function(item) {
+                item.addEventListener('click', jump);
             });
+            sessionStorage.removeItem('recordingHtml');
         }
-        var hasMore = Number(sessionStorage.pageNO) < Number(sessionStorage.totalPage);
+        var hasMore = Number(sessionStorage.pageNo) < Number(sessionStorage.totalPage);
         if (hasMore) {
             searchParamas.pageNo++;
         }
-        pullUpLoad(hasMore, doSearch);
+        pullUpLoad(hasMore, doSearch, patternWrapper);
     } else {
+        sessionStorage.clear();
+        sessionStorage.offsetTop = 0;
+        setScrollTop();
         doSearch();
     }
 }, false);
@@ -135,7 +132,7 @@ newPatternBtn.onclick = function () {
         pageSize: 10,
         settledLands: ''
     };
-    recordingPatternList = [];
+    patternWrapper.innerHTML = '<div class="new-pattern-flag clearfix"></div>';
     sessionStorage.removeItem('recordingIndex');
     Toast.loading('正在加载中');
     sessionStorage.offsetTop = 0;
@@ -145,36 +142,30 @@ newPatternBtn.onclick = function () {
 function doSearch(isFilter, isNewPattern) {
     textSearchPattern(searchParamas, function(res) {
         console.log('doSearch', res);
-        sessionStorage.pageNO = res.data.pageNO;
+        sessionStorage.pageNo = res.data.pageNO;
         sessionStorage.totalPage = res.data.totalPage;
         Toast.hide();
         var list = res.data.list;
-        for (let item of list) {
-            recordingPatternList.push(item);
-        }
-        console.log('recordingPatternList', recordingPatternList);
-        sessionStorage.recordingPatternList = JSON.stringify(recordingPatternList);
         if (isFilter) {
-            patternWrapper.innerHTML = '';
+            patternWrapper.innerHTML = '<div class="new-pattern-flag clearfix"></div>';
             filterLayerText.className = 'active';
             newPatternText.className = '';
         }
         if (isNewPattern) {
-            patternWrapper.innerHTML = '';
+            patternWrapper.innerHTML = '<div class="new-pattern-flag clearfix"></div>';
             filterLayerText.className = '';
             newPatternText.className = 'active';
         }
 
-        patternRender(list, document.querySelector('.new-pattern-list-wrapper'), function() {
+        patternRender(list, patternWrapper, document.querySelector('.new-pattern-flag'), function() {
             console.log('渲染完毕');
-            scrollTopMethod();
         });
 
         var hasMore = res.data.pageNO < res.data.totalPage;
         if (hasMore) {
             searchParamas.pageNo++;
         }
-        pullUpLoad(hasMore, doSearch);
+        pullUpLoad(hasMore, doSearch, patternWrapper);
     }, function(res) {
         Toast.info('加载失败');
         pullUpLoad(false, doSearch);
@@ -278,10 +269,10 @@ for (var i = 0; i < stockBtns.length; i++) {
 }
 
 confir.onclick = function() {
+    patternWrapper.innerHTML = '<div class="new-pattern-flag clearfix"></div>';
     sessionStorage.offsetTop = 0;
-    searchParamas.pageNo = 1;
-    recordingPatternList = [];
     setScrollTop();
+    searchParamas.pageNo = 1;
     filterLayerToggle();
     doFilter();
     sessionStorage['recordingIndex'] = JSON.stringify(recordingIndex);
@@ -312,6 +303,7 @@ function doFilter() {
 
 function filterLayerToggle () {
     if (triangle.className === 'icon-xiasanjiao') {
+        getScrollTop();
         triangle.className = triangle.className.replace('icon-xiasanjiao', 'icon-shangsanjiao');
         filterLayer.style.display = 'block';
         mask.style.display = 'block';
@@ -324,20 +316,18 @@ function filterLayerToggle () {
         setScrollTop();
     }
 }
-function scrollTopMethod() {
-    document.onscroll = function () {
-        // 遮罩层出现,scrollTop置为0，防止0值写入sessionStorage
-        if (document.documentElement.scrollTop !== 0) {
-            sessionStorage.offsetTop = document.documentElement.scrollTop;
-        }
-        if (document.body.scrollTop !== 0) {
-            sessionStorage.offsetTop = document.body.scrollTop;
-        }
-        // console.log('sessionStorage.offsetTop', sessionStorage.offsetTop);
-    };
+
+function getScrollTop() {
+    sessionStorage.offsetTop = patternWrapper.scrollTop;
 }
 
 function setScrollTop() {
-    document.documentElement.scrollTop = sessionStorage.offsetTop;
-    document.body.scrollTop = sessionStorage.offsetTop;
+    patternWrapper.scrollTop = sessionStorage.offsetTop;
+}
+
+function jump() {
+    var dataId = this.getAttribute('data-id');
+    sessionStorage.recordingHtml = patternWrapper.innerHTML;
+    sessionStorage.offsetTop = patternWrapper.scrollTop;
+    location.href = './pattern_detail.html?dataId=' + dataId;
 }

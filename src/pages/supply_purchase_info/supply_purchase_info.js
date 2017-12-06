@@ -70,12 +70,50 @@ import {
         // isStartUp: '', pc端用
         buyShapes: '',
         pageNo: 1,
-        pageSize: 5
+        pageSize: 10
     };
 
 
-    getSupply();
-    getBuying();
+    window.addEventListener('pageshow', function (event) {
+        if (event.persisted || window.performance && window.performance.navigation.type == 2) {
+            if (getBuyingParamas.pageNo && getSupplyParamas.pageNo) {
+                getBuyingParamas.pageNo = Number(sessionStorage.buyingNo);
+                getSupplyParamas.pageNo = Number(sessionStorage.supplyNo);
+                // console.log('getSupplyParamas', getSupplyParamas);
+                // console.log('getBuyingParamas', getBuyingParamas);
+                // alert('击中');
+            }
+
+            if (sessionStorage.recordingBuyingHtml && sessionStorage.recordingSupplyHtml) {
+                buyingWrapper.innerHTML = sessionStorage.recordingBuyingHtml;
+                supplyWrapper.innerHTML = sessionStorage.recordingSupplyHtml;
+                setScrollTop();
+                initJump();
+                sessionStorage.removeItem('recordingBuyingHtml');
+                sessionStorage.removeItem('recordingSupplyHtml');
+            }
+            // var hasMore = Number(sessionStorage.pageNO) < Number(sessionStorage.totalPage);
+            // sessionStorage.buyingNo = res.data.pageNO;
+            // sessionStorage.buyingTotalNo = res.data.totalPage;
+            if (Number(sessionStorage.buyingNo) < Number(sessionStorage.buyingTotalNo)) {
+                getBuyingParamas.pageNo++;
+                pullUpLoad(true, getBuying, buyingWrapper);
+            }
+            if (Number(sessionStorage.supplyNo) < Number(sessionStorage.supplyTotalNo)) {
+                getSupplyParamas.pageNo++;
+                pullUpLoad(true, getSupply, supplyWrapper);
+            }
+        } else {
+            sessionStorage.clear();
+            sessionStorage.offsetTop = 0;
+            setScrollTop();
+            getSupply();
+            getBuying();
+        }
+    }, false);
+
+
+
     // 获取供应列表
     function getSupply() {
         listHomeCompanySupplys(getSupplyParamas, function (res) {
@@ -110,18 +148,23 @@ import {
                     console.log('localStorage[\'userId\']', localStorage['userId']);
                     console.log('userId === localStorage[\'userId\']',userId === localStorage['userId']);
                     if (userType === '1') {
+                        // 判断是否是自己发部的信息，自己发布的可以看
                         if (userId === localStorage['userId']) {
                             location.href = './supply_detail.html?dataId=' + id;
+                            saveToStorage();
                         } else {
                             blackTip('为了保密，供应详情仅对买家公开', 2500);
                         }
                     } else {
                         location.href = './supply_detail.html?dataId=' + id;
+                        saveToStorage();
                     }
                 };
                 supplyWrapper.insertBefore(div, document.querySelector('.supply-flag'));
             }
             var hasMore = res.data.pageNO < res.data.totalPage;
+            sessionStorage.supplyNo = res.data.pageNO;
+            sessionStorage.supplyTotalNo = res.data.totalPage;
             console.log('hasMore值:', hasMore);
             if (hasMore) {
                 getSupplyParamas.pageNo++;
@@ -164,9 +207,11 @@ import {
                     console.log('userId === localStorage[\'userId\']',userId === localStorage['userId']);
                     if (isSettled) {
                         location.href = './buy_detail.html?dataId=' + id;
+                        saveToStorage();
                     } else {
                         if (userId === localStorage['userId']) {
                             location.href = './buy_detail.html?dataId=' + id;
+                            saveToStorage();
                         } else {
                             blackTip('为了保密，求购详情仅对蕾丝控商家公开', 2500);
                         }
@@ -175,6 +220,8 @@ import {
                 buyingWrapper.insertBefore(div, document.querySelector('.buying-flag'));
             }
             var hasMore = res.data.pageNO < res.data.totalPage;
+            sessionStorage.buyingNo = res.data.pageNO;
+            sessionStorage.buyingTotalNo = res.data.totalPage;
             if (hasMore) {
                 getBuyingParamas.pageNo++;
             }
@@ -208,6 +255,55 @@ import {
         headRight.innerHTML = text[swiper.activeIndex].text;
         headRight.setAttribute('href', text[swiper.activeIndex].link);
         history.replaceState(null, null, '?swiperIndex=' + swiper.activeIndex);
+    }
+
+    function setScrollTop() {
+        buyingWrapper.scrollTop = sessionStorage.buyOffsetTop;
+        supplyWrapper.scrollTop = sessionStorage.supplyOffsetTop;
+    }
+
+    function initJump() {
+        Array.prototype.forEach.call(buyingWrapper.getElementsByClassName('item'), function(item) {
+            item.onclick = function () {
+                var id = this.getAttribute('data-id');
+                var userId = this.getAttribute('user-id');
+                if (isSettled) {
+                    location.href = './buy_detail.html?dataId=' + id;
+                    saveToStorage();
+                } else {
+                    if (userId === localStorage['userId']) {
+                        location.href = './buy_detail.html?dataId=' + id;
+                        saveToStorage();
+                    } else {
+                        blackTip('为了保密，求购详情仅对蕾丝控商家公开', 2500);
+                    }
+                }
+            };
+        });
+        Array.prototype.forEach.call(supplyWrapper.getElementsByClassName('item'), function(item) {
+            item.onclick = function () {
+                var id = this.getAttribute('data-id');
+                var userId = this.getAttribute('user-id');
+                if (userType === '1') {
+                    if (userId === localStorage['userId']) {
+                        location.href = './supply_detail.html?dataId=' + id;
+                        saveToStorage();
+                    } else {
+                        blackTip('为了保密，供应详情仅对买家公开', 2500);
+                    }
+                } else {
+                    location.href = './supply_detail.html?dataId=' + id;
+                    saveToStorage();
+                }
+            };
+        });
+    }
+
+    function saveToStorage() {
+        sessionStorage.recordingBuyingHtml = buyingWrapper.innerHTML;
+        sessionStorage.recordingSupplyHtml = supplyWrapper.innerHTML;
+        sessionStorage.supplyOffsetTop = supplyWrapper.scrollTop;
+        sessionStorage.buyOffsetTop = buyingWrapper.scrollTop;
     }
 })();
 

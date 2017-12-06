@@ -338,7 +338,7 @@ import {
                 // location.href = 'https://www.ts57.cn/share/dress.html?companyId=' + data.companyId + '&url=' + data.defaultPicUrl + '&from=lace';
                 // @author lyb 2017-11-27 16:28:50
                 // location.href = 'https://www.ts57.cn/share/dress.html?companyId=' + data[0].companyId + '&url=' + this.getAttribute('pic-url') + '&time=' + new Date().getTime();
-                location.href = 'http://192.168.0.138/dist/dress.html?companyId=' + data[0].companyId + '&url=' + this.getAttribute('pic-url');
+                location.href = './dist/dress.html?companyId=' + data[0].companyId + '&url=' + this.getAttribute('pic-url');
             }, false);
         });
     }

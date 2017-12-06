@@ -5,7 +5,7 @@ import {formatBgPic, formatMoney} from 'utils/utils';
  * @param  {[type]}   parentNode 花型列表需要插入的节点
  * @param  {Function} cb         渲染完毕后的回调函数
  */
-export function patternRender(list, parentNode, cb) {
+export function patternRender(list, parentNode, flag, cb) {
     var pattensList = [];
 
     // 按照 是否开通会员(isBest === 1) 进行排序
@@ -36,9 +36,12 @@ export function patternRender(list, parentNode, cb) {
             var dataId = this.getAttribute('data-id');
             console.log(dataId);
             // 10-10菜头添加
+            // 跳转前记录innerHTML值
+            sessionStorage.recordingHtml = parentNode.innerHTML;
+            sessionStorage.offsetTop = parentNode.scrollTop;
             location.href = './pattern_detail.html?dataId=' + dataId;
         };
-        parentNode.appendChild(item);
+        parentNode.insertBefore(item, flag);
     }
     typeof cb === 'function' && cb();
 }
