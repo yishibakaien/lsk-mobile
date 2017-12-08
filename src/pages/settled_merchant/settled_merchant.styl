@@ -76,9 +76,30 @@ body {
     border-bottom-color: #d40073;
 }
 
+//.swiper-container {
+//    min-height: 100%;
+//    height: auto;
+//}
+
+
 .swiper-container {
-    min-height: 100%;
-    height: auto;
+    position: fixed;
+    top: 84px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.swiper-container .swiper-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.swiper-slide {
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
 }
 
 .quality-merchants-list-wrapper {
@@ -86,7 +107,7 @@ body {
     overflow: hidden;
 }
 
-.quality-merchants-list-wrapper div {
+.quality-merchants-list-wrapper .good-firm-item {
     width: 50%;
     height: 120px;
     background-color: #fff;
@@ -95,13 +116,13 @@ body {
     float: left;
     position: relative;
 }
-.quality-merchants-list-wrapper div img {
+.quality-merchants-list-wrapper .good-firm-item img {
     display: inline-block;
     height: 100%;
     width: 100%;
 }
 
-.quality-merchants-list-wrapper div:after {
+.quality-merchants-list-wrapper .good-firm-item:after {
     content: '';
     position: absolute;
     top: 0;
@@ -118,11 +139,11 @@ body {
     transform-origin: left top;
 }
 
-.quality-merchants-list-wrapper div:nth-child(odd):after {
+.quality-merchants-list-wrapper .good-firm-item:nth-child(odd):after {
     border-left: 1px solid #e8e8e8;
 }
 
-.quality-merchants-list-wrapper div img {
+.quality-merchants-list-wrapper .good-firm-item img {
     width: 100%;
     display: block;
 }

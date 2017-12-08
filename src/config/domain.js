@@ -1,13 +1,15 @@
 'use strict';
 
 var env = process.env.NODE_ENV;
-// var env = 'prod';
+// var env = 'test';
 
 var conf = (function(env) {
     var urls = {
         // dev: 'http://zsbgdev.ngrok.cc',
         dev: 'http://zsbg1.free.ngrok.cc',
-        prod: 'https://api.ts57.cn'
+        prod: 'https://api.ts57.cn',
+        // 广州内网接口地址
+        test: 'http://192.168.8.212:9090'
     };
     // 阿里云OSS配置
     var region = {

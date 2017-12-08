@@ -13,7 +13,8 @@ import {
     getDateDiff,
     formatUserName,
     getQueryString,
-    formatSupplyType
+    // formatSupplyType
+    formatSupplyShape
 } from 'utils/utils';
 
 import {
@@ -134,7 +135,7 @@ import {
                         <img src="${list[i].productPicUrl}">
                         <div class="text">
                             <div class="brief">${list[i].supplyDesc}</div>
-                            <div class="type">${formatSupplyType(list[i].supplyType)}</div>
+                            <div class="type">${formatSupplyShape(list[i].supplyShape)}</div>
                             <div class="time">${getDateDiff(new Date(list[i].createDate))}</div>
                         </div>
                     </div>`;

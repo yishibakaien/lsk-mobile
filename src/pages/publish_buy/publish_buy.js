@@ -94,13 +94,6 @@ import {
         descIpt.value = buyDescString;
         numIpt.value = buyNumString;
 
-        function initBtnTag(elementBtns, str) {
-            var index = String(str)[5];
-            if (index) {
-                elementBtns[index].className = 'active selected';
-            }
-        }
-
         if (buyPicUrlString) {
             imgArr.push(buyPicUrlString);
             // imgArr[0] = data.buyPicUrl;
@@ -282,6 +275,13 @@ import {
             });
         }
     };
+
+    function initBtnTag(elementBtns, str) {
+        var index = String(str)[5];
+        if (index) {
+            elementBtns[index].className = 'active selected';
+        }
+    }
 
     function imgHandler(url) {
         var div = document.createElement('div');

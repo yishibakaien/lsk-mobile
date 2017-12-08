@@ -83,7 +83,7 @@ var recordingIndex = {
 // doSearch();
 // 监听浏览器回退事件
 window.addEventListener('pageshow', function (event) {
-    if (event.persisted || window.performance && window.performance.navigation.type == 2) {
+    if (event.persisted || window.performance && window.performance.navigation.type == 2 && sessionStorage.recordingHtml) {
         console.log(searchParamas);
         if (sessionStorage.pageNo) {
             searchParamas.pageNo = Number(sessionStorage.pageNo);
@@ -248,9 +248,9 @@ for (var i = 0; i < patternBtns.length; i++) {
 }
 
 // 筛选库存
-for (var i = 0; i < stockBtns.length; i++) {
-    stockBtns[i].index = i;
-    stockBtns[i].onclick = function () {
+for (var k = 0; k < stockBtns.length; k++) {
+    stockBtns[k].index = k;
+    stockBtns[k].onclick = function () {
         console.log(recordingIndex);
         for (var n = 0; n < stockBtns.length; n++) {
             stockBtns[n].className = '';

@@ -105,7 +105,7 @@ function patterns() {
     });
 }
 
-supplyAndBuy()
+supplyAndBuy();
 // 供求信息列表
 function supplyAndBuy() {
     getSupplyAndBuy({
