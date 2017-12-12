@@ -129,7 +129,7 @@ import {
                 listStr = `<div class="avatar-wrapper border-bottom">
                         <img src="${list[i].userHeadIcon}">
                     
-                        <div>${isSettled ? list[i].userName : formatUserName(list[i].userName)}</div>
+                        <div>${userType === '1' ? formatUserName(list[i].userName) : list[i].userName}</div>
                     </div>
                     <div class="product-info">
                         <img src="${list[i].productPicUrl}">

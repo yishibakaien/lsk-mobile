@@ -86,7 +86,7 @@ import {
                 <div class="right">
                     <div class="top">
                         <div class="product-name">${list[i].clothesName}</div>
-                        <div class="product-num">LSK-20706021/6013</div>
+                        <div class="product-num">${list[i].clothesNo}</div>
                     </div>
                     <div class="middle">
                         <div>${list[i].memo}</div>

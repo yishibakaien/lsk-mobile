@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
-
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const pkg = require('../package.json');
 const getEntries = require('./func.js').getEntries;
 
@@ -101,7 +101,11 @@ let config = {
             // 'process.env.NODE_ENV': JSON.stringify('prod') 
             // 为了便于调试，这里 npm run build 打包时，依然使用 dev 2017年9月22日15:17:28 cqw
             'process.env.NODE_ENV': JSON.stringify('dev')
-        })
+        }),
+        new CopyWebpackPlugin([
+            { from: './src/images', to: './images' }, // 拷贝图片
+            { from: './src/common/fonts', to: './fonts' } // 拷贝字体
+        ])
     ]
 };
 // 读取文件生成entry 和 html
