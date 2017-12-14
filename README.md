@@ -1,4 +1,4 @@
-# 蕾丝控项目
+﻿# 蕾丝控项目
 
 # 开发规范
 [Code Guide by @AlloyTeam 腾讯前端开发规范](http://alloyteam.github.io/CodeGuide/)
@@ -20,4 +20,7 @@ npm run dev
 # 打包项目
 npm run build
 
+
+打包完的dist目录中需要增加merchant-online-store-lsk-style项目打包后的dist内容
 ```
+
